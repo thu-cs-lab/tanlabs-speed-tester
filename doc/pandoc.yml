@@ -1,0 +1,18 @@
+from: markdown
+to: pdf
+verbosity: WARNING
+
+variables:
+  documentclass: ctexart
+  classoption:
+    - fontset=ubuntu
+  geometry:
+    - a4paper
+    - top=2.54cm
+    - bottom=2.54cm
+    - left=3.18cm
+    - right=3.18cm
+  indent: yes
+  numbersections: yes
+
+pdf-engine: xelatex
