@@ -3,20 +3,22 @@ var CanvasArt = {
         bx -= rx * .5;
         by -= ry * .5;
         ctx.strokeStyle = color;
-        ctx.fillStyle = color;
         ctx.lineWidth = 2;
         var r = rx / Math.sqrt(2);
-        ctx.beginPath();
-        ctx.arc(bx + .5 * rx, by + .5 * rx, r, 1.25 * Math.PI, 1.75 * Math.PI);
-        ctx.arc(bx + .5 * rx, by - .5 * rx, r, 0.25 * Math.PI, 0.75 * Math.PI);
-        ctx.fill();
-
         ctx.beginPath();
         ctx.moveTo(bx + rx, by);
         ctx.lineTo(bx + rx, by + .5 * rx);
         ctx.arc(bx + .5 * rx, by, r, 0.25 * Math.PI, 0.75 * Math.PI);
         ctx.lineTo(bx, by);
         ctx.stroke();
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(bx + .5 * rx, by + .5 * rx, r, 1.25 * Math.PI, 1.75 * Math.PI);
+        ctx.arc(bx + .5 * rx, by - .5 * rx, r, 0.25 * Math.PI, 0.75 * Math.PI);
+        ctx.fill();
     },
 
     drawArrow(ctx, x1, y1, x2, y2, sz) {
@@ -80,12 +82,8 @@ var CanvasArt = {
         var deltas = [[-1, 0], [0.2, -1], [1, 0], [-0.2, 1]];
 		var ctx = cvs.getContext('2d');
 
-        var sx = cx + rx * 1.2;
-        var sy = cy - ry * 1.2;
-        this.drawRouter(ctx, sx, sy, rx, ry, student_color);
-        ctx.font = '18px helvetica';
-        ctx.fillStyle = '#000000';
-        ctx.fillText('Student router', sx + rx * 0.7, sy - ry * 0.2);
+        var sx = cx;
+        var sy = cy - ry * 1.8;
         var judge_pos = [];
         for (var i = 0; i < 4; ++i) {
             var bx = cx + deltas[i][0] * dx;
@@ -123,5 +121,10 @@ var CanvasArt = {
                 judge_pos[t][1] + .3 * ry * deltas[t - 1][0],
                 data.cases[i].pass ? '' : 'Bronken!', rx * .3);
         }
+
+        this.drawRouter(ctx, sx, sy, rx, ry, student_color);
+        ctx.font = '18px helvetica';
+        ctx.fillStyle = '#000000';
+        ctx.fillText('Student router', sx + rx * 0.7, sy - ry * 0.2);
     }
 };
