@@ -6,15 +6,20 @@
 		<script src="/wheel/vue.global.prod.js"></script>
 		<script src="/wheel/Chart.bundle.min.js"></script>
 		<!--<script src="/wheel/vue-chartjs.min.js"></script>-->
+		<title>TAN labs speed tester</title>
 	</head>
 
-	<body>
-		<div class='container'>
-			<nav class="navbar navbar-expand navbar-dark" style='background-color: purple'>
-				<a class="navbar-brand">TAN Labs Speed Tester</a>
-			</nav>
+<body> 
+	<div style='padding: 0; margin: 0;' id='speedtesterapp'>
+		<header class="navbar navbar-expand navbar-dark" style='background-color: purple'>
+			<a class="navbar-brand" v-on:click='demoStep'>TAN Labs Speed Tester</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<span class='navbar-text'>{{ current_status }}</span>
+			</div>
+		</header>
 
-			<div class='row' id='speedtesterapp'>
+		<div class='container-fluid'>
+			<div class='row'>
 				<div v-if='show_ctrl' v-bind:class='{ "col-4": show_ctrl }' class='h-100' style='border-right: solid 1px'>
 					<div class='row' style='height: 32px'>
 						<div class='col-12'>
@@ -77,7 +82,7 @@
 					</form>
 				</div>
 
-				<div v-bind:class='{ "col-7": show_ctrl, "col-12": !show_ctrl }'>
+				<div v-bind:class='{ "col-8": show_ctrl, "col-12": !show_ctrl }'>
 					<div class='row' style='height: 32px'>
 						<div class='col-12'>
 							<div class='float-left'>
@@ -90,6 +95,7 @@
 			</div>
 		</div>
 
-			<script src='/scripts/demo.js'></script>
-	</body>
+		<script src='/scripts/demo.js'></script>
+	</div>
+</body>
 </html>
