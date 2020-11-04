@@ -1,0 +1,25 @@
+<html>
+<head>
+	<link href="/wheel/Chart.css" rel="stylesheet"></link>
+	<script src="/wheel/vue.global.prod.js"></script>
+	<script src="/wheel/Chart.bundle.min.js"></script>
+	<script src="/wheel/vue-chartjs.min.js"></script>
+</head>
+
+<body>
+	<div id='counter'>
+		Counter : {{ counter }}
+		<div>
+			<input v-model='message'/>
+		</div>
+		<div>
+			{{ message }}
+		</div>
+		<div>
+			<button v-on:click='update'>Update</button>
+		</div>
+	</div>
+
+
+	<script src='/scripts/counter.js'></script>
+</body>
