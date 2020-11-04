@@ -9,7 +9,8 @@ const DemoApp = {
 			conn_cases: [
 				[3, 4, 1, 2],
 				[2, 3, 4, 1],
-			]
+			],
+			logs: []
 		};
 	},
 	methods: {
@@ -30,7 +31,33 @@ const DemoApp = {
 			}
 		},
 		demoStep() {
-			this.current_status += 'Testing';
+			// this.current_status += 'Testing';
+		},
+
+		startAllTests() {
+			this.current_status = 'Testing rip 1';
+			this.report_title = 'Testing';
+
+			setTimeout(() => {
+				this.logs.push({
+					type: 'rip',
+					n_rip: 5,
+					passed: true,
+					latency: 103
+				});
+				this.current_status = 'Testing rip 2';
+			}, 100);
+
+			setTimeout(() => {
+				this.logs.push({
+					type: 'rip',
+					n_rip: 50,
+					passed: false,
+					error: 'ping test failed: cannot ping after 10 seconds'
+				});
+				this.current_status = 'Test done';
+				this.report_title = 'Final results';
+			}, 2000);
 		}
 	},
 	mounted() {
