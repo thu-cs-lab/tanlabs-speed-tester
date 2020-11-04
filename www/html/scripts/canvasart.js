@@ -16,24 +16,19 @@ var CanvasArt = {
         ctx.lineTo(bx + rx, by + .5 * rx);
         ctx.arc(bx + .5 * rx, by, r, 0.25 * Math.PI, 0.75 * Math.PI);
         ctx.lineTo(bx, by);
-        ctx.fill();
-
+        ctx.stroke();
     },
 
     drawArrow(ctx, x1, y1, x2, y2, sz) {
         with (Math) {
-            console.log('arrow size ' + sz);
-            console.log('from ' + x1 + ',' + y1 + ' to ' + x2 + ',' + y2);
             var dx = x2 - x1;
             var dy = y2 - y1;
             var len = sqrt(pow(dx, 2) + pow(dy, 2));
             var rat = sz / len;
             var sx = x1 * rat + x2 * (1. - rat);
             var sy = y1 * rat + y2 * (1. - rat);
-            console.log('sx, sy ' + sx + ',' + sy);
             dx *= rat;
             dy *= rat;
-            console.log('dx, dy ' + dx + ',' + dy);
         }
         ctx.beginPath();
         ctx.moveTo(x2, y2);
