@@ -33,10 +33,25 @@ const DemoApp = {
 		demoStep() {
 			// this.current_status += 'Testing';
 		},
+		drawTopo(i) {
+			var self = this;
+			setTimeout(() => {
+				var div = self.$refs['logs' + i];
+				if (!div) {
+					self.drawTopo(i);
+					return;
+				}
+				var ele = div.getElementsByTagName('canvas')[0];
+				CanvasArt.drawTopo(ele, this.logs[i]);
+			}, 100);
+			return 'Traffic topology of test ' + i;
+		},
 
 		startAllTests() {
 			this.current_status = 'Testing rip 1';
 			this.report_title = 'Testing';
+
+			const t0 = 100;
 
 			setTimeout(() => {
 				this.logs.push({
@@ -46,7 +61,7 @@ const DemoApp = {
 					latency: 103
 				});
 				this.current_status = 'Testing rip 2';
-			}, 100);
+			}, 1 * t0);
 
 			setTimeout(() => {
 				this.logs.push({
@@ -57,7 +72,35 @@ const DemoApp = {
 				});
 				this.current_status = 'Test done';
 				this.report_title = 'Final results';
-			}, 2000);
+			}, 2 * t0);
+
+			setTimeout(() => {
+				this.logs.push({
+					type: 'ip',
+					cases: [
+						{ from: 1, to: 3, pass: true },
+						{ from: 3, to: 1, pass: true },
+						{ from: 2, to: 4, pass: true },
+						{ from: 4, to: 2, pass: true }
+					]
+				});
+				this.current_status = 'Test done';
+				this.report_title = 'Final results';
+			}, 3 * t0);
+
+			setTimeout(() => {
+				this.logs.push({
+					type: 'ip',
+					cases: [
+						{ from: 1, to: 2, pass: true },
+						{ from: 2, to: 3, pass: false },
+						{ from: 3, to: 4, pass: true },
+						{ from: 4, to: 1, pass: false }
+					]
+				});
+				this.current_status = 'Test done';
+				this.report_title = 'Final results';
+			}, 4 * t0);
 		}
 	},
 	mounted() {
