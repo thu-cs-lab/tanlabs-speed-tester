@@ -122,7 +122,7 @@ var CanvasArt = {
                 judge_pos[f][1] - .3 * ry * deltas[f - 1][0],
                 judge_pos[t][0] + .3 * rx * deltas[t - 1][1],
                 judge_pos[t][1] + .3 * ry * deltas[t - 1][0],
-                data.cases[i].pass ? '' : 'Bronken!', rx * .3);
+                data.cases[i].pass ? '' : 'Broken!', rx * .3);
         }
 
         this.drawRouter(ctx, sx, sy, rx, ry, student_color);
