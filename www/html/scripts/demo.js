@@ -1,3 +1,5 @@
+const spin_lat = 33;
+
 const DemoApp = {
 	data() {
 		return { 
@@ -16,6 +18,10 @@ const DemoApp = {
 		};
 	},
 	methods: {
+		genuid() {
+			return String(Date.now()).substr(-6);
+		},
+
 		collapseCtrl() {
 			this.show_ctrl = false;
 		},
@@ -45,7 +51,7 @@ const DemoApp = {
 				}
 				var ele = div.getElementsByTagName('canvas')[0];
 				CanvasArt.drawTopo(ele, r);
-			}, 100);
+			}, spin_lat);
 			return 'Traffic topology of test ' + r.id;
 		},
 		drawCurve(r) {
@@ -58,8 +64,18 @@ const DemoApp = {
 				}
 				var ele = div.getElementsByTagName('canvas')[0];
 				CanvasArt.drawCurve(ele, r);
-			}, 100);
-			return 'Traffic topology of test ' + r.id;
+			}, spin_lat);
+			return 'Bandwidth of test ' + r.id;
+		},
+		updateCurve(r) {
+			r.chart.update();
+		},
+
+		genSummary() {
+			this.logs.unshift({
+				id: this.genuid(),
+				type: 'summary'
+			});
 		},
 
 		startAllTests() {
@@ -70,7 +86,7 @@ const DemoApp = {
 
 			setTimeout(() => {
 				this.logs.unshift({
-					id: Date.now(),
+					id: this.genuid(),
 					type: 'rip',
 					n_rip: 5,
 					passed: true,
@@ -81,7 +97,7 @@ const DemoApp = {
 
 			setTimeout(() => {
 				this.logs.unshift({
-					id: Date.now(),
+					id: this.genuid(),
 					type: 'rip',
 					n_rip: 50,
 					passed: false,
@@ -92,7 +108,7 @@ const DemoApp = {
 
 			setTimeout(() => {
 				this.logs.unshift({
-					id: Date.now(),
+					id: this.genuid(),
 					type: 'ip',
 					cases: [
 						{ from: 1, to: 3, pass: true },
@@ -106,7 +122,7 @@ const DemoApp = {
 
 			setTimeout(() => {
 				this.logs.unshift({
-					id: Date.now(),
+					id: this.genuid(),
 					type: 'ip',
 					cases: [
 						{ from: 1, to: 2, pass: true },
@@ -118,6 +134,35 @@ const DemoApp = {
 				this.current_status = 'Test done';
 				this.report_title = 'Final results';
 			}, 4 * t0);
+
+			setTimeout(() => {
+				var data = {
+					id: this.genuid(),
+					type: 'bw',
+					pkt_szs: [0, 1, 2, 4, 16, 64, 128, 512, 1500],
+					loss_rates: {
+						'5': [.8, .7, .6],
+						'50': [.9, .7, .6],
+					}
+				};
+				this.logs.unshift(data);
+				var self = this;
+				for (var i = 3; i < data.pkt_szs.length; ++i) {
+					setTimeout(((li) => {
+						return () => {
+							var newval = 1 / parseFloat(data.pkt_szs[li]);
+							data.loss_rates['5'].push(newval);
+							data.loss_rates['50'].push(newval * 1.1);
+							self.updateCurve(data);
+						};
+					})(i), i * .4 * t0);
+				}
+			}, 5 * t0);
+			setTimeout(() => {
+				this.genSummary();
+				this.current_status = 'Test done';
+				this.report_title = 'Final results';
+			}, 10 * t0);
 		}
 	},
 	mounted() {

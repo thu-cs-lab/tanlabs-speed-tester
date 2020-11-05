@@ -82,6 +82,9 @@ var CanvasArt = {
         var deltas = [[-1, 0], [0.2, -1], [1, 0], [-0.2, 1]];
 		var ctx = cvs.getContext('2d');
 
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, width, height);
+
         var sx = cx;
         var sy = cy - ry * 1.8;
         var judge_pos = [];
@@ -129,5 +132,43 @@ var CanvasArt = {
     },
 
     drawCurve(cvs, data) {
+        var ctx = cvs.getContext('2d');
+        var datasets = [];
+
+        data.datasets = {};
+
+        var colors = ['blue', 'red', 'green', 'orange', 'purple', 'cyan', 'skyblue', 'lightgreen'];
+
+        for (var i in data.loss_rates) {
+            data.datasets[i] = {
+                idx: datasets.length,
+                len: data.loss_rates[i].length
+            };
+            datasets.push({
+                label: 'N_RIP = ' + i,
+                data: data.loss_rates[i],
+                borderColor: colors.pop(),
+                fillColor: 'grey'
+            });
+        }
+        data.chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.pkt_szs,
+                datasets: datasets
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Packet size'
+                    }],
+                    yAxes: [{
+                        display: true,
+                        labelString: 'Loss rate'
+                    }]
+                }
+            }
+        });
     }
 };

@@ -20,3 +20,4 @@ downloadwheel https://cdn.bootcdn.net/ajax/libs/Chart.js/2.9.4/Chart.css
 
 # downloadwheel https://cdn.bootcdn.net/ajax/libs/vue-chartjs/3.5.1/vue-chartjs.min.js
 downloadwheel https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css
+downloadwheel https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css.map
