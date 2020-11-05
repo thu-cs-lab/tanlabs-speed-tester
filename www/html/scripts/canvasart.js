@@ -126,5 +126,8 @@ var CanvasArt = {
         ctx.font = '18px helvetica';
         ctx.fillStyle = '#000000';
         ctx.fillText('Student router', sx + rx * 0.7, sy - ry * 0.2);
+    },
+
+    drawCurve(cvs, data) {
     }
 };

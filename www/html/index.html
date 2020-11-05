@@ -111,7 +111,7 @@
 					</div>
 					<h2>{{report_title}}</h2>
 
-					<div class='row' v-for='(r, i) in logs' :ref="'logs' + i">
+					<div class='row' v-for='(r, i) in logs' :ref="'logs' + r.id">
 						<div class='col-12' v-if='r.type == "rip"'>
 							<h3>RIP test with {{r.n_rip}} records</h3>
 							<div class='alert' v-bind:class='{"alert-success": r.passed, "alert-danger": !r.passed}'>
@@ -123,10 +123,19 @@
 
 						<div class='col-12' v-if='r.type == "ip"'>
 							<h3>IP connectivity test</h3>
-							<canvas width='1024' height='768'>{{drawTopo(i)}}</canvas>
+							<canvas v-bind:width='pltwidth' v-bind:height='pltheight'>{{drawTopo(r)}}</canvas>
 						</div>
 
-						<br/><hr/>
+						<div class='col-12' v-if='r.type == "bw"'>
+							<canvas width='1024' height='768'>{{drawCurve(r)}}</canvas>
+						</div>
+
+						<div class='col-12' v-if='r.type == "summary"'>
+						</div>
+
+						<div class='col-12'>
+							<hr/>
+						</div>
 					</div>
 
 				</div>

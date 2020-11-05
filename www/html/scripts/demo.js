@@ -1,6 +1,8 @@
 const DemoApp = {
 	data() {
 		return { 
+			pltwidth: Math.ceil(window.innerWidth * 0.5),
+			pltheight: Math.ceil(window.innerWidth * 0.4),
 			show_ctrl: true,
 			report_title: 'Test pending, no result',
 			n_rip: '5, 50, 500, 5000, 50000',
@@ -33,28 +35,42 @@ const DemoApp = {
 		demoStep() {
 			// this.current_status += 'Testing';
 		},
-		drawTopo(i) {
+		drawTopo(r) {
 			var self = this;
 			setTimeout(() => {
-				var div = self.$refs['logs' + i];
+				var div = self.$refs['logs' + r.id];
 				if (!div) {
-					self.drawTopo(i);
+					self.drawTopo(r);
 					return;
 				}
 				var ele = div.getElementsByTagName('canvas')[0];
-				CanvasArt.drawTopo(ele, this.logs[i]);
+				CanvasArt.drawTopo(ele, r);
 			}, 100);
-			return 'Traffic topology of test ' + i;
+			return 'Traffic topology of test ' + r.id;
+		},
+		drawCurve(r) {
+			var self = this;
+			setTimeout(() => {
+				var div = self.$refs['logs' + r.id];
+				if (!div) {
+					self.drawCurve(r);
+					return;
+				}
+				var ele = div.getElementsByTagName('canvas')[0];
+				CanvasArt.drawCurve(ele, r);
+			}, 100);
+			return 'Traffic topology of test ' + r.id;
 		},
 
 		startAllTests() {
 			this.current_status = 'Testing rip 1';
 			this.report_title = 'Testing';
 
-			const t0 = 100;
+			const t0 = 1000;
 
 			setTimeout(() => {
-				this.logs.push({
+				this.logs.unshift({
+					id: Date.now(),
 					type: 'rip',
 					n_rip: 5,
 					passed: true,
@@ -64,18 +80,19 @@ const DemoApp = {
 			}, 1 * t0);
 
 			setTimeout(() => {
-				this.logs.push({
+				this.logs.unshift({
+					id: Date.now(),
 					type: 'rip',
 					n_rip: 50,
 					passed: false,
 					error: 'ping test failed: cannot ping after 10 seconds'
 				});
-				this.current_status = 'Test done';
-				this.report_title = 'Final results';
+				this.current_status = 'Testing connectivity 1';
 			}, 2 * t0);
 
 			setTimeout(() => {
-				this.logs.push({
+				this.logs.unshift({
+					id: Date.now(),
 					type: 'ip',
 					cases: [
 						{ from: 1, to: 3, pass: true },
@@ -84,12 +101,12 @@ const DemoApp = {
 						{ from: 4, to: 2, pass: true }
 					]
 				});
-				this.current_status = 'Test done';
-				this.report_title = 'Final results';
+				this.current_status= 'Testing connectivity 2';
 			}, 3 * t0);
 
 			setTimeout(() => {
-				this.logs.push({
+				this.logs.unshift({
+					id: Date.now(),
 					type: 'ip',
 					cases: [
 						{ from: 1, to: 2, pass: true },
