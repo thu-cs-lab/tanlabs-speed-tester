@@ -131,8 +131,7 @@ const DemoApp = {
 						{ from: 4, to: 1, pass: false }
 					]
 				});
-				this.current_status = 'Test done';
-				this.report_title = 'Final results';
+				this.current_status = 'Testing performance';
 			}, 4 * t0);
 
 			setTimeout(() => {

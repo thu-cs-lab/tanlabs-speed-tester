@@ -161,11 +161,17 @@ var CanvasArt = {
                 scales: {
                     xAxes: [{
                         display: true,
-                        labelString: 'Packet size'
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Packet size'
+                        }
                     }],
                     yAxes: [{
                         display: true,
-                        labelString: 'Loss rate'
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Loss rate'
+                        }
                     }]
                 }
             }
