@@ -1,0 +1,184 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a200tfbg676-2",
+      "name": "test_logic_single_port",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "sfp_ethernet": "",
+      "ponylink_to_zynq": ""
+    },
+    "interface_ports": {
+      "sfp": {
+        "mode": "Master",
+        "vlnv": "xilinx.com:interface:sfp_rtl:1.0"
+      }
+    },
+    "ports": {
+      "ponylink_data": {
+        "type": "data",
+        "direction": "IO"
+      }
+    },
+    "components": {
+      "sfp_ethernet": {
+        "vlnv": "xilinx.com:ip:axi_ethernet:7.1",
+        "xci_name": "test_logic_single_port_axi_ethernet_0_0",
+        "parameters": {
+          "PHY_TYPE": {
+            "value": "1000BaseX"
+          },
+          "SupportLevel": {
+            "value": "0"
+          },
+          "axiliteclkrate": {
+            "value": "200"
+          },
+          "processor_mode": {
+            "value": "false"
+          }
+        },
+        "interface_ports": {
+          "s_axi": {
+            "mode": "Slave",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "memory_map_ref": "s_axi",
+            "parameters": {
+              "ADDR_WIDTH": {
+                "value": "18"
+              },
+              "PROTOCOL": {
+                "value": "AXI4LITE"
+              }
+            }
+          },
+          "m_axis_rx": {
+            "mode": "Master",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000"
+              }
+            }
+          },
+          "s_axis_tx": {
+            "mode": "Slave",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000"
+              }
+            }
+          },
+          "s_axis_pause": {
+            "mode": "Slave",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "125000000"
+              }
+            }
+          },
+          "tx_statistics": {
+            "mode": "Master",
+            "vlnv": "xilinx.com:display_tri_mode_ethernet_mac:statistics_rtl:1.0"
+          },
+          "rx_statistics": {
+            "mode": "Master",
+            "vlnv": "xilinx.com:display_tri_mode_ethernet_mac:statistics_rtl:1.0"
+          },
+          "sfp": {
+            "mode": "Master",
+            "vlnv": "xilinx.com:interface:sfp_rtl:1.0"
+          }
+        },
+        "addressing": {
+          "memory_maps": {
+            "aximm_slave_decl": {
+              "address_blocks": {
+                "Reg": {
+                  "base_address": "0",
+                  "range": "256K",
+                  "width": "32",
+                  "usage": "register",
+                  "bank_blocks": {
+                    "Memory Map for aximm_slave_decl;;xilinx.com:boundary:passthru:1.0;;;;": {
+                      "base_address": "0",
+                      "range": "0",
+                      "width": "32",
+                      "usage": "register"
+                    }
+                  }
+                }
+              }
+            },
+            "s_axi": {
+              "address_blocks": {
+                "Reg0": {
+                  "base_address": "0",
+                  "range": "256K",
+                  "width": "32",
+                  "usage": "register",
+                  "bank_blocks": {
+                    "SEG_mac_Reg;/mac/s_axi/Reg;xilinx.com:ip:tri_mode_ethernet_mac:9.0;/mac;s_axi;NONE;NONE": {
+                      "base_address": "0",
+                      "range": "128K",
+                      "width": "32",
+                      "usage": "register"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ponylink_to_zynq": {
+        "vlnv": "clifford.at:cliffordwolf:ponylink_slave:1.0",
+        "xci_name": "test_logic_single_port_ponylink_slave_0_0",
+        "parameters": {
+          "MASTER_TIMINGS": {
+            "value": "0x07060402010907050301"
+          },
+          "SLAVE_TIMINGS": {
+            "value": "0x0f0c0905020b09060301"
+          },
+          "TDATA_WIDTH": {
+            "value": "8"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "axi_ethernet_0_sfp": {
+        "interface_ports": [
+          "sfp",
+          "sfp_ethernet/sfp"
+        ]
+      },
+      "sfp_ethernet_m_axis_rx": {
+        "interface_ports": [
+          "sfp_ethernet/m_axis_rx",
+          "ponylink_to_zynq/axis_in"
+        ]
+      },
+      "ponylink_to_zynq_axis_out": {
+        "interface_ports": [
+          "ponylink_to_zynq/axis_out",
+          "sfp_ethernet/s_axis_tx"
+        ]
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "ponylink_data",
+          "ponylink_to_zynq/data_pin"
+        ]
+      }
+    }
+  }
+}
