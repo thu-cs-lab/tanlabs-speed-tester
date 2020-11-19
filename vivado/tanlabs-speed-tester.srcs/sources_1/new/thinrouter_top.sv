@@ -86,5 +86,94 @@ module thinrouter_top(
     output wire video_de
 );
 
+    // AXI ethernet reset signals
+    wire mmcm_rst;
+    wire pma_reset;
+    wire mmcm_locked;
+    wire ref_clk;
+
+    // global clocks & resets
+    // TODO: replace with our MMCM
+    axi_ethernet_0_clocks_resets example_clocks_resets
+    (
+        .clk_in_p          (gtrefclk_p     ),
+        .clk_in_n          (gtrefclk_n     ),
+        // asynchronous control/resets
+        .sys_rst           (sys_rst        ),
+        .soft_rst          (1'b0           ),
+        .mmcm_locked_out   (mmcm_locked_out),
+
+        //reset outputs
+        .axi_lite_resetn   (axi_lite_resetn),
+        .axis_rstn         (axis_rstn      ),
+        .sys_out_rst       (sys_out_rst    ),
+
+        // clock outputs
+        .gtx_clk_bufg      (clkgen_gtx_clk ),
+        .ref_clk_bufg      (ref_clk        ),
+        .ref_clk_50_bufg   (ref_clk_50_bufg),
+        .axis_clk_bufg     (axis_clk       ),
+        .axi_lite_clk_bufg (axi_lite_clk   )
+    );
+
+
+    axi_ethernet_0_support_resets  axi_ethernet_support_resets
+    (
+        .mmcm_rst_out         (mmcm_rst         ),
+        .pma_reset            (pma_reset        ),
+        .locked               (mmcm_locked      ),
+        .ref_clk              (ref_clk          ),
+        .resetn               (s_axi_lite_resetn) 
+    );
+
+
+    // AXI ethernet clock signals
+    wire pma_reset            ;
+    wire userclk              ;
+    wire userclk2             ;
+    wire rxuserclk            ;
+    wire rxuserclk2           ;
+    wire gtref_clk            ;
+    wire txoutclk             ;
+    wire rxoutclk             ;
+    wire gt0_pll0outclk_in    ;
+    wire gt0_pll0outrefclk_in ;
+    wire gt0_pll1outclk_in    ;
+    wire gt0_pll1outrefclk_in ;
+    wire gt0_pll0lock_in      ;
+    wire gt0_pll0refclklost_in;
+    wire gt0_pll0reset_out    ;
+    wire gtref_clk_buf        ;
+
+    // Instantiate the sharable clocking logic
+    axi_ethernet_0_support_clocks axi_ethernet_support_clocking
+    (
+        .mgt_clk_p      (gtrefclk_p        ),
+        .mgt_clk_n      (gtrefclk_n        ),
+        .txoutclk       (txoutclk          ),
+        .rxoutclk       (rxoutclk          ),
+        .userclk        (userclk           ),
+        .userclk2       (userclk2          ),
+        .rxuserclk      (rxuserclk         ),
+        .rxuserclk2     (rxuserclk2        ),
+        .gtref_clk      (gtref_clk         ),
+        .gtref_clk_bufg (gtref_clk_bufg    ),
+        .locked         (mmcm_locked       ), 
+        .reset          (mmcm_rst          )
+    );
+
+    axi_ethernet_0_support_gt_common   gt_common_logic
+    (
+        .gt0_pll0outclk         (gt0_pll0outclk    ),
+        .gt0_pll0outrefclk      (gt0_pll0outrefclk ),
+        .gt0_pll1outclk         (gt0_pll1outclk    ),
+        .gt0_pll1outrefclk      (gt0_pll1outrefclk ),
+        .gt0_pll0lock_out       (gt0_pll0lock      ),
+        .gt0_pll0refclklost_out (gt0_pll0refclklost),
+        .gt0_pll0reset_in       (gt0_pll0reset     ),
+        .pma_reset_in           (pma_reset         ),
+        .gt0_lockdetclk_in      (ref_clk           ),
+        .gt0_gtrefclk0_in       (gtref_clk         ) 
+    );
 
 endmodule
