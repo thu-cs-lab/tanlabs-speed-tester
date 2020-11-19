@@ -15,9 +15,9 @@ create_clock -period 5.000 -name ref_clk -waveform {0.000 2.500} [get_nets ref_c
 create_clock -period 8.000 -name core_clk -waveform {0.000 4.000} [get_nets core_clk]
 
 # Reset Button (BTN6)
-set_property PACKAGE_PIN F22 [get_ports RST]
-set_property IOSTANDARD LVCMOS33 [get_ports RST]
-set_false_path -from [get_ports RST]
+set_property PACKAGE_PIN F22 [get_ports rst]
+set_property IOSTANDARD LVCMOS33 [get_ports rst]
+set_false_path -from [get_ports rst]
 
 # Clock Button (BTN5)
 set_property PACKAGE_PIN H19 [get_ports BTN]

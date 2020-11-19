@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3025307130C89F3C",
+      "boundary_crc": "0xC4A80400CA4B01F",
       "device": "xc7a200tfbg676-2",
       "name": "test_logic_single_port",
       "synth_flow_mode": "Hierarchical",
@@ -42,7 +42,7 @@
         "vlnv": "xilinx.com:interface:sfp_rtl:1.0"
       },
       "eth_clks": {
-        "mode": "Monitor",
+        "mode": "Slave",
         "vlnv": "harrychen.xyz:user:axi_ethernet_clocks_resets_rtl:1.0"
       }
     },
@@ -101,6 +101,64 @@
             "value_src": "default"
           }
         }
+      },
+      "rxoutclk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "bd_8f18_pcs_pma_0_rxoutclk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "62500000",
+            "value_src": "user_prop"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "txoutclk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "bd_8f18_pcs_pma_0_txoutclk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "62500000",
+            "value_src": "user_prop"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0",
+            "value_src": "const_prop"
+          }
+        }
+      },
+      "gt0_pll0reset_out": {
+        "type": "rst",
+        "direction": "O",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH",
+            "value_src": "user_prop"
+          }
+        }
       }
     },
     "components": {
@@ -155,6 +213,18 @@
             "direction": "O"
           },
           "rx_reset": {
+            "type": "rst",
+            "direction": "O"
+          },
+          "rxoutclk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "txoutclk": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "gt0_pll0reset_out": {
             "type": "rst",
             "direction": "O"
           }
@@ -459,6 +529,24 @@
               "sfp_ethernet/rx_reset",
               "rx_reset"
             ]
+          },
+          "sfp_ethernet_rxoutclk": {
+            "ports": [
+              "sfp_ethernet/rxoutclk",
+              "rxoutclk"
+            ]
+          },
+          "sfp_ethernet_txoutclk": {
+            "ports": [
+              "sfp_ethernet/txoutclk",
+              "txoutclk"
+            ]
+          },
+          "sfp_ethernet_gt0_pll0reset_out": {
+            "ports": [
+              "sfp_ethernet/gt0_pll0reset_out",
+              "gt0_pll0reset_out"
+            ]
           }
         }
       },
@@ -616,16 +704,16 @@
               }
             },
             "interface_nets": {
-              "auto_cc_to_auto_ss_slid": {
-                "interface_ports": [
-                  "auto_cc/M_AXIS",
-                  "auto_ss_slid/S_AXIS"
-                ]
-              },
               "auto_ss_slid_to_s00_couplers": {
                 "interface_ports": [
                   "M_AXIS",
                   "auto_ss_slid/M_AXIS"
+                ]
+              },
+              "auto_cc_to_auto_ss_slid": {
+                "interface_ports": [
+                  "auto_cc/M_AXIS",
+                  "auto_ss_slid/S_AXIS"
                 ]
               },
               "s00_couplers_to_auto_cc": {
@@ -881,16 +969,10 @@
               }
             },
             "interface_nets": {
-              "s00_couplers_to_auto_ss_si_r": {
+              "auto_ss_si_r_to_auto_cc": {
                 "interface_ports": [
-                  "S_AXIS",
-                  "auto_ss_si_r/S_AXIS"
-                ]
-              },
-              "auto_ss_slid_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXIS",
-                  "auto_ss_slid/M_AXIS"
+                  "auto_ss_si_r/M_AXIS",
+                  "auto_cc/S_AXIS"
                 ]
               },
               "auto_ss_k_to_auto_ss_slid": {
@@ -899,10 +981,16 @@
                   "auto_ss_slid/S_AXIS"
                 ]
               },
-              "auto_ss_si_r_to_auto_cc": {
+              "auto_ss_slid_to_s00_couplers": {
                 "interface_ports": [
-                  "auto_ss_si_r/M_AXIS",
-                  "auto_cc/S_AXIS"
+                  "M_AXIS",
+                  "auto_ss_slid/M_AXIS"
+                ]
+              },
+              "s00_couplers_to_auto_ss_si_r": {
+                "interface_ports": [
+                  "S_AXIS",
+                  "auto_ss_si_r/S_AXIS"
                 ]
               },
               "auto_cc_to_auto_ss_k": {
@@ -947,16 +1035,16 @@
           }
         },
         "interface_nets": {
-          "s00_couplers_to_axis_ix_to_ponylink": {
-            "interface_ports": [
-              "M00_AXIS",
-              "s00_couplers/M_AXIS"
-            ]
-          },
           "axis_ix_to_ponylink_to_s00_couplers": {
             "interface_ports": [
               "S00_AXIS",
               "s00_couplers/S_AXIS"
+            ]
+          },
+          "s00_couplers_to_axis_ix_to_ponylink": {
+            "interface_ports": [
+              "M00_AXIS",
+              "s00_couplers/M_AXIS"
             ]
           }
         },
@@ -1058,10 +1146,10 @@
           "fifo_to_ponylink/axis_in"
         ]
       },
-      "ethernet_clks_1": {
+      "eth_clks_1": {
         "interface_ports": [
-          "axi_ethernet_inner/ethernet_clks",
-          "eth_clks"
+          "eth_clks",
+          "axi_ethernet_inner/ethernet_clks"
         ]
       }
     },
@@ -1157,6 +1245,24 @@
         "ports": [
           "xlconstant_0/dout",
           "ponylink_to_zynq/gpio_i"
+        ]
+      },
+      "axi_ethernet_inner_rxoutclk": {
+        "ports": [
+          "axi_ethernet_inner/rxoutclk",
+          "rxoutclk"
+        ]
+      },
+      "axi_ethernet_inner_txoutclk": {
+        "ports": [
+          "axi_ethernet_inner/txoutclk",
+          "txoutclk"
+        ]
+      },
+      "axi_ethernet_inner_gt0_pll0reset_out": {
+        "ports": [
+          "axi_ethernet_inner/gt0_pll0reset_out",
+          "gt0_pll0reset_out"
         ]
       }
     }

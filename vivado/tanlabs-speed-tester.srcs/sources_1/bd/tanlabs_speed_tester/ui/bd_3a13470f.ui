@@ -1,0 +1,87 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"2.60045",
+   "Default View_TopLeft":"1086,-690",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port sfp_port_0 -pg 1 -lvl 7 -x 1820 -y -350 -defaultsOSRD
+preplace port sfp_port_1 -pg 1 -lvl 7 -x 1820 -y -310 -defaultsOSRD
+preplace port sfp_port_2 -pg 1 -lvl 7 -x 1820 -y -150 -defaultsOSRD
+preplace port sfp_port_3 -pg 1 -lvl 7 -x 1820 -y 10 -defaultsOSRD
+preplace port ponylink_port_0 -pg 1 -lvl 7 -x 1820 -y -330 -defaultsOSRD
+preplace port ponylink_port_1 -pg 1 -lvl 7 -x 1820 -y -290 -defaultsOSRD
+preplace port ponylink_port_2 -pg 1 -lvl 7 -x 1820 -y -130 -defaultsOSRD
+preplace port ponylink_port_3 -pg 1 -lvl 7 -x 1820 -y 30 -defaultsOSRD
+preplace port ponylink_ctrl -pg 1 -lvl 7 -x 1820 -y 130 -defaultsOSRD
+preplace port gtrefclk_p -pg 1 -lvl 0 -x -460 -y -410 -defaultsOSRD
+preplace port gtrefclk_n -pg 1 -lvl 0 -x -460 -y -390 -defaultsOSRD
+preplace port clk_50M -pg 1 -lvl 0 -x -460 -y -200 -defaultsOSRD
+preplace port rst -pg 1 -lvl 0 -x -460 -y -220 -defaultsOSRD
+preplace portBus sfp_rx_los -pg 1 -lvl 0 -x -460 -y 120 -defaultsOSRD
+preplace portBus sfp_led -pg 1 -lvl 7 -x 1820 -y -440 -defaultsOSRD
+preplace portBus leds -pg 1 -lvl 7 -x 1820 -y -600 -defaultsOSRD
+preplace inst axi_ethernet_clock_w_0 -pg 1 -lvl 3 -x 914 -y -250 -defaultsOSRD
+preplace inst spf_rx_los_splitter -pg 1 -lvl 3 -x 914 -y 120 -defaultsOSRD
+preplace inst sfp_led_concat -pg 1 -lvl 6 -x 1690 -y -440 -defaultsOSRD
+preplace inst axi_ethernet_support -pg 1 -lvl 2 -x 510 -y -220 -defaultsOSRD
+preplace inst mmcm_ponylink -pg 1 -lvl 1 -x 40 -y 40 -defaultsOSRD
+preplace inst test_logic_single_po_0 -pg 1 -lvl 4 -x 1260 -y -310 -defaultsOSRD
+preplace inst test_logic_single_po_1 -pg 1 -lvl 4 -x 1260 -y -130 -defaultsOSRD
+preplace inst test_logic_single_po_2 -pg 1 -lvl 4 -x 1260 -y 50 -defaultsOSRD
+preplace inst test_logic_single_po_3 -pg 1 -lvl 4 -x 1260 -y 230 -defaultsOSRD
+preplace inst axi_ethernet_clocking -pg 1 -lvl 1 -x 40 -y -170 -defaultsOSRD
+preplace inst axi_ethernet_clocking_rsn_n -pg 1 -lvl 1 -x 40 -y -370 -defaultsOSRD -orient R180 -resize 83 88
+preplace inst board_led_concat -pg 1 -lvl 6 -x 1690 -y -600 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -x 1500 -y -530 -defaultsOSRD
+preplace netloc Net 1 4 3 1410 -330 N -330 N
+preplace netloc sfp_rx_los_1 1 0 3 N 120 N 120 N
+preplace netloc four_way_splitter_0_dout_1 1 3 1 1070J -280n
+preplace netloc xlconcat_0_dout 1 6 1 N -440
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outclk 1 2 1 680 -230n
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outrefclk 1 2 1 690 -210n
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outclk 1 2 1 700 -190n
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outrefclk 1 2 1 710 -170n
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0lock_out 1 2 1 720 -150n
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0refclklost_out 1 2 1 730 -130n
+preplace netloc axi_ethernet_0_suppo_0_userclk 1 2 1 700 -310n
+preplace netloc axi_ethernet_0_suppo_0_userclk2 1 2 1 690 -290n
+preplace netloc axi_ethernet_0_suppo_0_rxuserclk 1 2 1 680 -330n
+preplace netloc axi_ethernet_0_suppo_0_rxuserclk2 1 2 1 710 -310n
+preplace netloc axi_ethernet_0_suppo_0_gtref_clk 1 2 1 670 -230n
+preplace netloc axi_ethernet_0_suppo_0_gtref_clk_bufg 1 2 1 660 -210n
+preplace netloc axi_ethernet_0_suppo_0_locked 1 2 1 670 -350n
+preplace netloc axi_ethernet_0_suppo_0_pma_reset 1 2 1 660 -350n
+preplace netloc Net4 1 1 2 210 -410 660
+preplace netloc gtrefclk_p_1 1 0 2 -440 -450 230
+preplace netloc gtrefclk_n_1 1 0 2 -420 -440 220
+preplace netloc Net5 1 1 2 240 -40 690
+preplace netloc Net1 1 4 3 1410 -160 1590 -290 NJ
+preplace netloc Net2 1 4 3 NJ 50 1590 0 1790
+preplace netloc Net3 1 4 3 NJ 230 N 230 1790
+preplace netloc spf_rx_los_splitter_dout_2 1 3 1 1080 -100n
+preplace netloc spf_rx_los_splitter_dout_3 1 3 1 1120 80n
+preplace netloc spf_rx_los_splitter_dout_4 1 3 1 1070 150n
+preplace netloc test_logic_single_po_0_gt0_pll0reset_out 1 1 4 260 -490 N -490 N -490 1390
+preplace netloc test_logic_single_po_0_rxoutclk 1 1 4 270 330 N 330 N 330 1400
+preplace netloc test_logic_single_po_0_txoutclk 1 1 4 250 340 N 340 N 340 1390
+preplace netloc clk_ponylink_clk_40M 1 1 3 200 20 NJ 20 1090J
+preplace netloc clk_ponylink_clk_160M 1 1 3 230 30 NJ 30 1110
+preplace netloc clk_50M_1 1 0 1 -440 -200n
+preplace netloc axi_ethernet_0_clock_0_sys_out_rst 1 1 2 190 -420 670J
+preplace netloc axi_ethernet_0_clock_0_axi_lite_clk_bufg 1 1 2 200 -430 680J
+preplace netloc rst_1 1 0 1 -430 -220n
+preplace netloc clk_ponylink_locked 1 1 1 180 -370n
+preplace netloc util_vector_logic_0_Res 1 0 1 -420 -370n
+preplace netloc board_led_concat_dout 1 6 1 N -600
+preplace netloc xlconstant_0_dout 1 5 1 1580 -630n
+preplace netloc axi_ethernet_clock_w_0_clocks_out 1 3 1 1100 -340n
+preplace netloc test_logic_single_po_0_sfp 1 4 3 N -350 N -350 N
+preplace netloc test_logic_single_po_1_sfp 1 4 3 NJ -170 1580 -300 1780
+preplace netloc test_logic_single_po_2_sfp 1 4 3 NJ 10 1580 -10 1780
+preplace netloc test_logic_single_po_3_sfp 1 4 3 1410 60 1600 10 NJ
+levelinfo -pg 1 -460 40 510 914 1260 1500 1690 1820
+pagesize -pg 1 -db -bbox -sgen -610 -1090 1980 460
+"
+}
+

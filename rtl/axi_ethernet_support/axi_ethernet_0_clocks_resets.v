@@ -40,9 +40,8 @@
 
 module axi_ethernet_0_clocks_resets
 (
-// System clock input
-    input  clk_in_p ,
-    input  clk_in_n ,
+// System clock input (50M)
+    input  clk_in,
 
 // asynchronous control/resets
     input sys_rst   ,
@@ -84,16 +83,16 @@ BUFG axis_clk_int_inst      (.I(clk_100), .O(axis_clk_int     ));
 BUFG axi_lite_clk_int_inst  (.I(clk_100), .O(axi_lite_clk_int ));
 
 // Input differential clock buffering
-IBUFDS clkin1_buf (.I(clk_in_p), .IB(clk_in_n), .O(clk_in1)); 
+IBUF   clkin1_buf (.I(clk_in), .O(clk_in1));
 BUFG   clkf_buf   (.I(mmcm_clkfbout), .O(mmcm_clkfbout_buf));
 
   MMCME2_ADV 
 #(
     .BANDWIDTH             ("OPTIMIZED"),
-    .CLKFBOUT_MULT_F       (5.000),
+    .CLKFBOUT_MULT_F       (20.000),
     .CLKFBOUT_PHASE        (0.000000),
     .CLKFBOUT_USE_FINE_PS  ("FALSE"),
-    .CLKIN1_PERIOD         (5.000),
+    .CLKIN1_PERIOD         (20.000),
     .CLKIN2_PERIOD         (0.000000),
     .CLKOUT0_DIVIDE_F      (10.00),
     .CLKOUT0_DUTY_CYCLE    (0.500000),

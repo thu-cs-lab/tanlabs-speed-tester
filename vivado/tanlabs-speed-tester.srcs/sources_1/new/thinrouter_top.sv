@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module thinrouter_top(
-    input wire RST,
+    input wire rst,
 
     input wire gtrefclk_p,
     input wire gtrefclk_n,
@@ -82,97 +82,40 @@ module thinrouter_top(
     output wire video_de
 );
 
-    // AXI ethernet reset signals
-    wire mmcm_rst;
-    wire pma_reset;
-    wire mmcm_locked;
-    wire ref_clk;
-
     // higher bits of led are used by ZynQ
-    assign led[15:8] = {8{1'bZ}};
+    wire [7:0] available_leds;
+    assign led = {{8{1'bZ}}, available_leds};
+    assign sfp_tx_disable = '0;
 
-    // global clocks & resets
-    // TODO: replace with our MMCM
-    axi_ethernet_0_clocks_resets example_clocks_resets
-    (
-        .clk_in_p          (gtrefclk_p     ),
-        .clk_in_n          (gtrefclk_n     ),
-        // asynchronous control/resets
-        .sys_rst           (sys_rst        ),
-        .soft_rst          (1'b0           ),
-        .mmcm_locked_out   (mmcm_locked_out),
-
-        //reset outputs
-        .axi_lite_resetn   (axi_lite_resetn),
-        .axis_rstn         (axis_rstn      ),
-        .sys_out_rst       (sys_out_rst    ),
-
-        // clock outputs
-        .gtx_clk_bufg      (clkgen_gtx_clk ),
-        .ref_clk_bufg      (ref_clk        ),
-        .ref_clk_50_bufg   (ref_clk_50_bufg),
-        .axis_clk_bufg     (axis_clk       ),
-        .axi_lite_clk_bufg (axi_lite_clk   )
-    );
-
-
-    axi_ethernet_0_support_resets  axi_ethernet_support_resets
-    (
-        .mmcm_rst_out         (mmcm_rst         ),
-        .pma_reset            (pma_reset        ),
-        .locked               (mmcm_locked      ),
-        .ref_clk              (ref_clk          ),
-        .resetn               (s_axi_lite_resetn) 
-    );
-
-
-    // AXI ethernet clock signals
-    wire pma_reset            ;
-    wire userclk              ;
-    wire userclk2             ;
-    wire rxuserclk            ;
-    wire rxuserclk2           ;
-    wire gtref_clk            ;
-    wire txoutclk             ;
-    wire rxoutclk             ;
-    wire gt0_pll0outclk_in    ;
-    wire gt0_pll0outrefclk_in ;
-    wire gt0_pll1outclk_in    ;
-    wire gt0_pll1outrefclk_in ;
-    wire gt0_pll0lock_in      ;
-    wire gt0_pll0refclklost_in;
-    wire gt0_pll0reset_out    ;
-    wire gtref_clk_buf        ;
-
-    // Instantiate the sharable clocking logic
-    axi_ethernet_0_support_clocks axi_ethernet_support_clocking
-    (
-        .mgt_clk_p      (gtrefclk_p        ),
-        .mgt_clk_n      (gtrefclk_n        ),
-        .txoutclk       (txoutclk          ),
-        .rxoutclk       (rxoutclk          ),
-        .userclk        (userclk           ),
-        .userclk2       (userclk2          ),
-        .rxuserclk      (rxuserclk         ),
-        .rxuserclk2     (rxuserclk2        ),
-        .gtref_clk      (gtref_clk         ),
-        .gtref_clk_bufg (gtref_clk_bufg    ),
-        .locked         (mmcm_locked       ), 
-        .reset          (mmcm_rst          )
-    );
-
-    axi_ethernet_0_support_gt_common   gt_common_logic
-    (
-        .gt0_pll0outclk         (gt0_pll0outclk    ),
-        .gt0_pll0outrefclk      (gt0_pll0outrefclk ),
-        .gt0_pll1outclk         (gt0_pll1outclk    ),
-        .gt0_pll1outrefclk      (gt0_pll1outrefclk ),
-        .gt0_pll0lock_out       (gt0_pll0lock      ),
-        .gt0_pll0refclklost_out (gt0_pll0refclklost),
-        .gt0_pll0reset_in       (gt0_pll0reset     ),
-        .pma_reset_in           (pma_reset         ),
-        .gt0_lockdetclk_in      (ref_clk           ),
-        .gt0_gtrefclk0_in       (gtref_clk         ) 
-    );
+    tanlabs_speed_tester speed_tester_inst(
+        .clk_50M,
+        .rst,
+        .gtrefclk_n,
+        .gtrefclk_p,
+        .ponylink_port_0(ponylink_data[0]),
+        .ponylink_port_1(ponylink_data[1]),
+        .ponylink_port_2(ponylink_data[2]),
+        .ponylink_port_3(ponylink_data[3]),
+        .ponylink_ctrl(ponylink_data[4]),
+        .sfp_led,
+        .leds(available_leds),
+        .sfp_port_0_rxn(sfp_rx_n[0]),
+        .sfp_port_0_rxp(sfp_rx_p[0]),
+        .sfp_port_0_txn(sfp_tx_n[0]),
+        .sfp_port_0_txp(sfp_tx_p[0]),
+        .sfp_port_1_rxn(sfp_rx_n[1]),
+        .sfp_port_1_rxp(sfp_rx_p[1]),
+        .sfp_port_1_txn(sfp_tx_n[1]),
+        .sfp_port_1_txp(sfp_tx_p[1]),
+        .sfp_port_2_rxn(sfp_rx_n[2]),
+        .sfp_port_2_rxp(sfp_rx_p[2]),
+        .sfp_port_2_txn(sfp_tx_n[2]),
+        .sfp_port_2_txp(sfp_tx_p[2]),
+        .sfp_port_3_rxn(sfp_rx_n[3]),
+        .sfp_port_3_rxp(sfp_rx_p[3]),
+        .sfp_port_3_txn(sfp_tx_n[3]),
+        .sfp_port_3_txp(sfp_tx_p[3]),
+        .sfp_rx_los
+     );
 
 endmodule
