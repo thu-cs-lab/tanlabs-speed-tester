@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"2.60045",
-   "Default View_TopLeft":"1086,-690",
+   "Default View_ScaleFactor":"1.09169",
+   "Default View_TopLeft":"-602,-736",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
@@ -22,18 +22,18 @@ preplace portBus sfp_rx_los -pg 1 -lvl 0 -x -460 -y 120 -defaultsOSRD
 preplace portBus sfp_led -pg 1 -lvl 7 -x 1820 -y -440 -defaultsOSRD
 preplace portBus leds -pg 1 -lvl 7 -x 1820 -y -600 -defaultsOSRD
 preplace inst axi_ethernet_clock_w_0 -pg 1 -lvl 3 -x 914 -y -250 -defaultsOSRD
-preplace inst spf_rx_los_splitter -pg 1 -lvl 3 -x 914 -y 120 -defaultsOSRD
 preplace inst sfp_led_concat -pg 1 -lvl 6 -x 1690 -y -440 -defaultsOSRD
 preplace inst axi_ethernet_support -pg 1 -lvl 2 -x 510 -y -220 -defaultsOSRD
 preplace inst mmcm_ponylink -pg 1 -lvl 1 -x 40 -y 40 -defaultsOSRD
+preplace inst axi_ethernet_clocking_rsn_n -pg 1 -lvl 1 -x 40 -y -370 -defaultsOSRD -orient R180 -resize 83 88
+preplace inst board_led_concat -pg 1 -lvl 6 -x 1690 -y -600 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -x 1500 -y -530 -defaultsOSRD
+preplace inst axi_ethernet_clocking -pg 1 -lvl 1 -x 40 -y -170 -defaultsOSRD
+preplace inst spf_rx_los_splitter -pg 1 -lvl 3 -x 914 -y 120 -defaultsOSRD
 preplace inst test_logic_single_po_0 -pg 1 -lvl 4 -x 1260 -y -310 -defaultsOSRD
 preplace inst test_logic_single_po_1 -pg 1 -lvl 4 -x 1260 -y -130 -defaultsOSRD
 preplace inst test_logic_single_po_2 -pg 1 -lvl 4 -x 1260 -y 50 -defaultsOSRD
 preplace inst test_logic_single_po_3 -pg 1 -lvl 4 -x 1260 -y 230 -defaultsOSRD
-preplace inst axi_ethernet_clocking -pg 1 -lvl 1 -x 40 -y -170 -defaultsOSRD
-preplace inst axi_ethernet_clocking_rsn_n -pg 1 -lvl 1 -x 40 -y -370 -defaultsOSRD -orient R180 -resize 83 88
-preplace inst board_led_concat -pg 1 -lvl 6 -x 1690 -y -600 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 5 -x 1500 -y -530 -defaultsOSRD
 preplace netloc Net 1 4 3 1410 -330 N -330 N
 preplace netloc sfp_rx_los_1 1 0 3 N 120 N 120 N
 preplace netloc four_way_splitter_0_dout_1 1 3 1 1070J -280n
