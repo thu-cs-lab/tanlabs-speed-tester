@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0xE481DFD179C463D6",
       "design_src": "SBD",
       "device": "xc7a200tfbg676-2",
       "name": "bd_8f18",

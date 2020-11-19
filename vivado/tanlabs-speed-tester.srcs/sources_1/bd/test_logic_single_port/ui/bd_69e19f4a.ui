@@ -1,67 +1,82 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.26179",
-   "Default View_TopLeft":"-139,-363",
+   "Default View_ScaleFactor":"1.01531",
+   "Default View_TopLeft":"-805,-771",
    "ExpandedHierarchyInLayout":"/axi_ethernet_inner",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port sfp -pg 1 -lvl 4 -x 2020 -y 20 -defaultsOSRD
-preplace port eth_clks -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace port ponylink_data -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD -left
-preplace port sfp_rx_los -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
-preplace port clk_160M -pg 1 -lvl 0 -x 0 -y -80 -defaultsOSRD
-preplace port clk_40M -pg 1 -lvl 0 -x 0 -y -100 -defaultsOSRD
-preplace inst ponylink_to_zynq -pg 1 -lvl 1 -x 380 -y -90 -defaultsOSRD
-preplace inst axi_ethernet_inner -pg 1 -lvl 3 -x 1070 -y -40 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 2 -x 700 -y 420 -defaultsOSRD
-preplace inst axis_interconnect_0 -pg 1 -lvl 2 -x 700 -y -100 -defaultsOSRD
-preplace inst util_vector_logic_1 -pg 1 -lvl 3 -x 1070 -y -200 -defaultsOSRD -orient R180
-preplace inst axi_ethernet_inner|sfp_ethernet -pg 1 -lvl 2 -x 1500 -y 240 -defaultsOSRD
-preplace inst axi_ethernet_inner|xlconstant_0 -pg 1 -lvl 1 -x 1150 -y 0 -defaultsOSRD
-preplace inst axi_ethernet_inner|axi_ethernet_clock_w_0 -pg 1 -lvl 1 -x 1150 -y 280 -defaultsOSRD
-preplace netloc Net 1 0 2 N 90 500
-preplace netloc sfp_rx_los_1 1 0 2 NJ 140 510
-preplace netloc util_vector_logic_0_Res 1 2 1 850 300n
-preplace netloc clk_160M_1 1 0 1 N -80
-preplace netloc clk_40M_1 1 0 2 20 -220 500
-preplace netloc ponylink_to_zynq_resetn_out 1 1 1 490 -140n
-preplace netloc M00_AXIS_ACLK_1 1 1 3 510 -230 860J -140 1780
-preplace netloc axi_ethernet_inner_tx_reset 1 3 1 1790 -200n
-preplace netloc util_vector_logic_1_Res 1 1 2 520 -220 850
-preplace netloc axi_ethernet_0_sfp 1 3 1 1800 20n
-preplace netloc ethernet_clks_1 1 0 3 NJ 120 N 120 860
-preplace netloc ponylink_to_zynq_axis_out 1 1 1 N -160
-preplace netloc axis_interconnect_0_M00_AXIS 1 2 1 850 -100n
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_s_axi_lite_clk 1 1 1 1310 100n
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_s_axi_lite_resetn 1 1 1 1300 80n
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_ref_clk 1 1 1 1310 140n
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_glbl_rst 1 1 1 1320 120n
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_mmcm_locked 1 1 1 N 180
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_userclk 1 1 1 N 240
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_userclk2 1 1 1 N 260
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_rxuserclk 1 1 1 N 200
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_rxuserclk2 1 1 1 N 220
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_pma_reset 1 1 1 N 280
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gtref_clk 1 1 1 N 420
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gtref_clk_buf 1 1 1 N 440
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0outclk_in 1 1 1 N 300
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0outrefclk_in 1 1 1 N 320
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll1outclk_in 1 1 1 N 340
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll1outrefclk_in 1 1 1 N 360
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0lock_in 1 1 1 N 380
-preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0refclklost_in 1 1 1 N 400
-preplace netloc axi_ethernet_inner|signal_detect_1 1 0 2 1000J -60 1340
-preplace netloc axi_ethernet_inner|xlconstant_0_dout 1 1 1 1330J 0n
-preplace netloc axi_ethernet_inner|sfp_ethernet_tx_mac_aclk 1 2 1 N 210
-preplace netloc axi_ethernet_inner|sfp_ethernet_tx_reset 1 2 1 N 250
-preplace netloc axi_ethernet_inner|sfp_ethernet_m_axis_rx 1 2 1 N 110
-preplace netloc axi_ethernet_inner|ponylink_to_zynq_axis_out 1 0 2 NJ -70 1350
-preplace netloc axi_ethernet_inner|axi_ethernet_0_sfp 1 2 1 N 170
-preplace netloc axi_ethernet_inner|Conn1 1 0 1 N 280
-levelinfo -pg 1 0 380 700 1070 2020
-levelinfo -hier axi_ethernet_inner * 1150 1500 *
-pagesize -pg 1 -db -bbox -sgen -140 -420 2090 880
-pagesize -hier axi_ethernet_inner -db -bbox -sgen 970 -100 1680 520
+preplace port sfp -pg 1 -lvl 6 -x 1940 -y 10 -defaultsOSRD
+preplace port eth_clks -pg 1 -lvl 0 -x -310 -y -130 -defaultsOSRD
+preplace port ponylink_data -pg 1 -lvl 0 -x -310 -y -540 -defaultsOSRD -left
+preplace port sfp_rx_los -pg 1 -lvl 0 -x -310 -y 50 -defaultsOSRD
+preplace port clk_160M -pg 1 -lvl 0 -x -310 -y -330 -defaultsOSRD
+preplace port clk_40M -pg 1 -lvl 0 -x -310 -y -310 -defaultsOSRD
+preplace inst ponylink_to_zynq -pg 1 -lvl 3 -x 530 -y -470 -defaultsOSRD -orient R180
+preplace inst axi_ethernet_inner -pg 1 -lvl 4 -x 950 -y -460 -defaultsOSRD
+preplace inst sfp_rx_los_n -pg 1 -lvl 1 -x -190 -y 50 -defaultsOSRD -resize 83 88
+preplace inst axis_ix_to_eth -pg 1 -lvl 3 -x 530 -y -130 -defaultsOSRD
+preplace inst eth_tx_rst_n -pg 1 -lvl 5 -x 1820 -y -220 -defaultsOSRD -resize 83 88
+preplace inst ponylink_rst_n -pg 1 -lvl 2 -x 140 -y -380 -defaultsOSRD -resize 83 88
+preplace inst axis_ix_to_ponylink -pg 1 -lvl 2 -x 140 -y 90 -defaultsOSRD
+preplace inst eth_rx_rst_n -pg 1 -lvl 5 -x 1820 -y -100 -defaultsOSRD -resize 83 88
+preplace inst fifo_to_ponylink -pg 1 -lvl 3 -x 530 -y 100 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 530 -y -290 -defaultsOSRD
+preplace inst axi_ethernet_inner|sfp_ethernet -pg 1 -lvl 2 -x 1390 -y -210 -defaultsOSRD
+preplace inst axi_ethernet_inner|xlconstant_0 -pg 1 -lvl 1 -x 1030 -y -450 -defaultsOSRD
+preplace inst axi_ethernet_inner|axi_ethernet_clock_w_0 -pg 1 -lvl 1 -x 1030 -y -170 -defaultsOSRD
+preplace netloc Net 1 0 3 NJ -540 NJ -540 NJ
+preplace netloc sfp_rx_los_1 1 0 1 NJ 50
+preplace netloc util_vector_logic_0_Res 1 1 3 -90J -30 290J 10 740
+preplace netloc clk_160M_1 1 0 4 NJ -330 -90J -310 320 0 700
+preplace netloc clk_40M_1 1 0 4 NJ -310 -100 -40 330 20 690
+preplace netloc ponylink_to_zynq_resetn_out 1 1 2 -70 -450 340
+preplace netloc M00_AXIS_ACLK_1 1 2 3 350 -620 NJ -620 1690
+preplace netloc util_vector_logic_1_Res 1 2 4 360 -600 NJ -600 NJ -600 1910
+preplace netloc util_vector_logic_2_Res 1 2 1 300 -380n
+preplace netloc ACLK_1 1 1 4 -80 -630 NJ -630 NJ -630 1700
+preplace netloc util_vector_logic_3_Res 1 1 5 -60 210 NJ 210 NJ 210 NJ 210 1910
+preplace netloc axi_ethernet_inner_rx_reset 1 4 1 1690 -180n
+preplace netloc axi_ethernet_inner_tx_reset 1 4 1 N -220
+preplace netloc xlconstant_0_dout 1 3 1 710 -500n
+preplace netloc axi_ethernet_0_sfp 1 4 2 1710J -290 1920
+preplace netloc ethernet_clks_1 1 0 4 NJ -130 NJ -130 310J -10 730
+preplace netloc ponylink_to_zynq_axis_out 1 2 1 370 -400n
+preplace netloc axis_interconnect_0_M00_AXIS 1 3 1 720 -520n
+preplace netloc eth_frame_fifo_0_axis_out 1 3 1 680 -440n
+preplace netloc axis_interconnect_1_M00_AXIS 1 2 1 310 80n
+preplace netloc S00_AXIS_1 1 1 4 -60 -610 NJ -610 NJ -610 1680
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_s_axi_lite_clk 1 1 1 1190 -350n
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_s_axi_lite_resetn 1 1 1 1180 -370n
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_ref_clk 1 1 1 1190 -310n
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_glbl_rst 1 1 1 1200 -330n
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_mmcm_locked 1 1 1 N -270
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_userclk 1 1 1 N -210
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_userclk2 1 1 1 N -190
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_rxuserclk 1 1 1 N -250
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_rxuserclk2 1 1 1 N -230
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_pma_reset 1 1 1 N -170
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gtref_clk 1 1 1 N -30
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gtref_clk_buf 1 1 1 N -10
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0outclk_in 1 1 1 N -150
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0outrefclk_in 1 1 1 N -130
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll1outclk_in 1 1 1 N -110
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll1outrefclk_in 1 1 1 N -90
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0lock_in 1 1 1 N -70
+preplace netloc axi_ethernet_inner|axi_ethernet_clock_w_0_gt0_pll0refclklost_in 1 1 1 N -50
+preplace netloc axi_ethernet_inner|signal_detect_1 1 0 2 880J -510 1220
+preplace netloc axi_ethernet_inner|xlconstant_0_dout 1 1 1 1210J -450n
+preplace netloc axi_ethernet_inner|sfp_ethernet_tx_mac_aclk 1 2 1 N -240
+preplace netloc axi_ethernet_inner|sfp_ethernet_tx_reset 1 2 1 1550 -220n
+preplace netloc axi_ethernet_inner|sfp_ethernet_rx_mac_aclk 1 2 1 1540 -220n
+preplace netloc axi_ethernet_inner|sfp_ethernet_rx_reset 1 2 1 N -180
+preplace netloc axi_ethernet_inner|sfp_ethernet_m_axis_rx 1 2 1 N -340
+preplace netloc axi_ethernet_inner|ponylink_to_zynq_axis_out 1 0 2 NJ -520 1230
+preplace netloc axi_ethernet_inner|axi_ethernet_0_sfp 1 2 1 N -280
+preplace netloc axi_ethernet_inner|Conn1 1 0 1 N -170
+levelinfo -pg 1 -310 -190 140 530 950 1820 1940
+levelinfo -hier axi_ethernet_inner * 1030 1390 *
+pagesize -pg 1 -db -bbox -sgen -450 -740 2010 880
+pagesize -hier axi_ethernet_inner -db -bbox -sgen 850 -540 1580 70
 "
 }
 0
