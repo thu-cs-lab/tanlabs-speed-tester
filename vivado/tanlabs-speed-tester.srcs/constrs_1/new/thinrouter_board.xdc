@@ -30,12 +30,12 @@ set_property -dict {PACKAGE_PIN E25 IOSTANDARD LVCMOS33} [get_ports touch_btn[1]
 set_property -dict {PACKAGE_PIN F23 IOSTANDARD LVCMOS33} [get_ports touch_btn[2]] ;#BTN3
 set_property -dict {PACKAGE_PIN E23 IOSTANDARD LVCMOS33} [get_ports touch_btn[3]] ;#BTN4
 
-# CPLD
-set_property -dict {PACKAGE_PIN L8 IOSTANDARD LVCMOS33} [get_ports {uart_wrn}]
-set_property -dict {PACKAGE_PIN M6 IOSTANDARD LVCMOS33} [get_ports {uart_rdn}]
-set_property -dict {PACKAGE_PIN L5 IOSTANDARD LVCMOS33} [get_ports {uart_tbre}]
-set_property -dict {PACKAGE_PIN L7 IOSTANDARD LVCMOS33} [get_ports {uart_tsre}]
-set_property -dict {PACKAGE_PIN L4 IOSTANDARD LVCMOS33} [get_ports {uart_dataready}]
+# PonyLink data pins
+set_property -dict {PACKAGE_PIN L8 IOSTANDARD LVCMOS33} [get_ports {ponylink_data[0]}]
+set_property -dict {PACKAGE_PIN M6 IOSTANDARD LVCMOS33} [get_ports {ponylink_data[1]}]
+set_property -dict {PACKAGE_PIN L5 IOSTANDARD LVCMOS33} [get_ports {ponylink_data[2]}]
+set_property -dict {PACKAGE_PIN L7 IOSTANDARD LVCMOS33} [get_ports {ponylink_data[3]}]
+set_property -dict {PACKAGE_PIN L4 IOSTANDARD LVCMOS33} [get_ports {ponylink_data[4]}]
 
 # Ext serial
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN L19} [get_ports txd] ;#GPIO5

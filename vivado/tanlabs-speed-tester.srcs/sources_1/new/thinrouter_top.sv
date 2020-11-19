@@ -6,7 +6,7 @@ module thinrouter_top(
     input wire gtrefclk_p,
     input wire gtrefclk_n,
 
-    output wire [15:0] led,
+    inout wire [15:0] led,
 
     // SFP:
     // +-+-+
@@ -39,12 +39,8 @@ module thinrouter_top(
     output wire[7:0]  dpy0,
     output wire[7:0]  dpy1,
 
-    // CPLD serial (unused)
-    output wire uart_rdn,
-    output wire uart_wrn,
-    input wire uart_dataready,
-    input wire uart_tbre,
-    input wire uart_tsre,
+    // PonyLink data pins
+    inout wire[4:0] ponylink_data,
 
     // BaseRAM
     inout wire[31:0] base_ram_data,
@@ -91,6 +87,9 @@ module thinrouter_top(
     wire pma_reset;
     wire mmcm_locked;
     wire ref_clk;
+
+    // higher bits of led are used by ZynQ
+    assign led[15:8] = {8{1'bZ}};
 
     // global clocks & resets
     // TODO: replace with our MMCM
