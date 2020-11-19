@@ -1,0 +1,17 @@
+ThinpadNG_Zynq7.tmp/
+ip_upgrade.log
+ipshared/
+.Xil/
+*_netlist.*
+*_stub.*
+*.dcp
+*.veo
+*.vho
+*.hwh
+*.hdf
+ThinpadNG_Zynq7.cache/
+ThinpadNG_Zynq7.hw/
+ThinpadNG_Zynq7.ip_user_files/
+ThinpadNG_Zynq7.runs/
+ThinpadNG_Zynq7.sim/*/behav/xsim/
+*.xsa
