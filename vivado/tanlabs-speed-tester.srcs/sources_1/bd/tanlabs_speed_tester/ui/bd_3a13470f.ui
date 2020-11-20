@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.692577",
-   "Default View_TopLeft":"-614,-466",
+   "Default View_TopLeft":"-615,-466",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -29,11 +29,11 @@ preplace inst board_led_concat -pg 1 -lvl 7 -x 1710 -y -600 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 6 -x 1510 -y -530 -defaultsOSRD
 preplace inst axi_ethernet_clocking -pg 1 -lvl 2 -x 60 -y -170 -defaultsOSRD
 preplace inst spf_rx_los_splitter -pg 1 -lvl 4 -x 914 -y 120 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 1 -x -350 -y -330 -defaultsOSRD -resize 83 88
 preplace inst test_logic_single_po_0 -pg 1 -lvl 5 -x 1270 -y -310 -defaultsOSRD
 preplace inst test_logic_single_po_1 -pg 1 -lvl 5 -x 1270 -y -130 -defaultsOSRD
 preplace inst test_logic_single_po_2 -pg 1 -lvl 5 -x 1270 -y 50 -defaultsOSRD
 preplace inst test_logic_single_po_3 -pg 1 -lvl 5 -x 1270 -y 230 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 1 -x -350 -y -330 -defaultsOSRD -resize 83 88
 preplace netloc Net 1 5 3 1430 -330 N -330 N
 preplace netloc sfp_rx_los_1 1 0 4 N 120 N 120 N 120 N
 preplace netloc four_way_splitter_0_dout_1 1 4 1 1080J -280n
@@ -75,11 +75,11 @@ preplace netloc board_led_concat_dout 1 7 1 N -600
 preplace netloc xlconstant_0_dout 1 6 1 1590 -630n
 preplace netloc axi_ethernet_clocking_ref_clk_50_bufg 1 1 2 -240 -310 210
 preplace netloc xlconstant_1_dout 1 1 1 -250 -330n
-preplace netloc test_logic_single_po_0_sfp 1 5 3 N -350 N -350 N
-preplace netloc test_logic_single_po_2_sfp 1 5 3 NJ 10 1590 -10 1810
 preplace netloc test_logic_single_po_1_sfp 1 5 3 NJ -170 1590 -300 1810
 preplace netloc test_logic_single_po_3_sfp 1 5 3 1430 60 1610 10 NJ
+preplace netloc test_logic_single_po_0_sfp 1 5 3 N -350 N -350 N
 preplace netloc axi_ethernet_clock_w_0_clocks_out 1 4 1 1110 -340n
+preplace netloc test_logic_single_po_2_sfp 1 5 3 NJ 10 1590 -10 1810
 levelinfo -pg 1 -460 -350 60 510 914 1270 1510 1710 1840
 pagesize -pg 1 -db -bbox -sgen -620 -1090 2010 460
 "

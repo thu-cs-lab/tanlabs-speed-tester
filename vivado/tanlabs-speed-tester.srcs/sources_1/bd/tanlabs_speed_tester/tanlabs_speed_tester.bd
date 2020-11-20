@@ -21,11 +21,11 @@
       "xlconstant_0": "",
       "axi_ethernet_clocking": "",
       "spf_rx_los_splitter": "",
+      "xlconstant_1": "",
       "test_logic_single_po_0": "",
       "test_logic_single_po_1": "",
       "test_logic_single_po_2": "",
-      "test_logic_single_po_3": "",
-      "xlconstant_1": ""
+      "test_logic_single_po_3": ""
     },
     "interface_ports": {
       "sfp_port_0": {
@@ -898,6 +898,15 @@
           }
         }
       },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "tanlabs_speed_tester_xlconstant_1_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
       "test_logic_single_po_0": {
         "vlnv": "harrychen.xyz:user:test_logic_single_port:1.0",
         "xci_name": "tanlabs_speed_tester_test_logic_single_po_0_0"
@@ -913,28 +922,25 @@
       "test_logic_single_po_3": {
         "vlnv": "harrychen.xyz:user:test_logic_single_port:1.0",
         "xci_name": "tanlabs_speed_tester_test_logic_single_po_3_0"
-      },
-      "xlconstant_1": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "tanlabs_speed_tester_xlconstant_1_0",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "0"
-          }
-        }
       }
     },
     "interface_nets": {
-      "test_logic_single_po_1_sfp": {
-        "interface_ports": [
-          "sfp_port_1",
-          "test_logic_single_po_1/sfp"
-        ]
-      },
       "test_logic_single_po_3_sfp": {
         "interface_ports": [
           "sfp_port_3",
           "test_logic_single_po_3/sfp"
+        ]
+      },
+      "test_logic_single_po_2_sfp": {
+        "interface_ports": [
+          "sfp_port_2",
+          "test_logic_single_po_2/sfp"
+        ]
+      },
+      "test_logic_single_po_1_sfp": {
+        "interface_ports": [
+          "sfp_port_1",
+          "test_logic_single_po_1/sfp"
         ]
       },
       "test_logic_single_po_0_sfp": {
@@ -950,12 +956,6 @@
           "test_logic_single_po_1/eth_clks",
           "test_logic_single_po_2/eth_clks",
           "test_logic_single_po_3/eth_clks"
-        ]
-      },
-      "test_logic_single_po_2_sfp": {
-        "interface_ports": [
-          "sfp_port_2",
-          "test_logic_single_po_2/sfp"
         ]
       }
     },
