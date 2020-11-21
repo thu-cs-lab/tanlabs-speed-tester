@@ -25,7 +25,12 @@
       "test_logic_single_po_0": "",
       "test_logic_single_po_1": "",
       "test_logic_single_po_2": "",
-      "test_logic_single_po_3": ""
+      "test_logic_single_po_3": "",
+      "ponylink_ctrl": "",
+      "control_signal_mapper": "",
+      "xlconstant_2": "",
+      "control_mem": "",
+      "control_mem_ctrl": ""
     },
     "interface_ports": {
       "sfp_port_0": {
@@ -922,9 +927,127 @@
       "test_logic_single_po_3": {
         "vlnv": "harrychen.xyz:user:test_logic_single_port:1.0",
         "xci_name": "tanlabs_speed_tester_test_logic_single_po_3_0"
+      },
+      "ponylink_ctrl": {
+        "vlnv": "clifford.at:cliffordwolf:ponylink_slave:1.0",
+        "xci_name": "tanlabs_speed_tester_ponylink_to_zynq_0",
+        "parameters": {
+          "MASTER_TIMINGS": {
+            "value": "0x07060402010907050301"
+          },
+          "SLAVE_TIMINGS": {
+            "value": "0x0f0c0905020b09060301"
+          },
+          "TDATA_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "control_signal_mapper": {
+        "vlnv": "xilinx.com:ip:axi_mm2s_mapper:1.1",
+        "xci_name": "tanlabs_speed_tester_axi_mm2s_mapper_0_0",
+        "parameters": {
+          "INTERFACES": {
+            "value": "M_AXI"
+          }
+        }
+      },
+      "xlconstant_2": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "tanlabs_speed_tester_xlconstant_2_0"
+      },
+      "control_mem": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "tanlabs_speed_tester_blk_mem_gen_0_0",
+        "parameters": {
+          "EN_SAFETY_CKT": {
+            "value": "true"
+          },
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Enable_B": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Memory_Type": {
+            "value": "True_Dual_Port_RAM"
+          },
+          "Port_B_Clock": {
+            "value": "100"
+          },
+          "Port_B_Enable_Rate": {
+            "value": "100"
+          },
+          "Port_B_Write_Rate": {
+            "value": "50"
+          },
+          "Read_Width_A": {
+            "value": "32"
+          },
+          "Read_Width_B": {
+            "value": "32"
+          },
+          "Register_PortA_Output_of_Memory_Core": {
+            "value": "false"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Register_PortB_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "true"
+          },
+          "Use_RSTB_Pin": {
+            "value": "true"
+          },
+          "Write_Depth_A": {
+            "value": "1024"
+          },
+          "Write_Width_A": {
+            "value": "32"
+          },
+          "Write_Width_B": {
+            "value": "32"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "control_mem_ctrl": {
+        "vlnv": "xilinx.com:ip:axi_bram_ctrl:4.1",
+        "xci_name": "tanlabs_speed_tester_axi_bram_ctrl_0_0",
+        "parameters": {
+          "RD_CMD_OPTIMIZATION": {
+            "value": "1"
+          },
+          "SINGLE_PORT_BRAM": {
+            "value": "1"
+          }
+        }
       }
     },
     "interface_nets": {
+      "axi_ethernet_clock_w_0_clocks_out": {
+        "interface_ports": [
+          "axi_ethernet_clock_w_0/clocks_out",
+          "test_logic_single_po_0/eth_clks",
+          "test_logic_single_po_1/eth_clks",
+          "test_logic_single_po_2/eth_clks",
+          "test_logic_single_po_3/eth_clks"
+        ]
+      },
       "test_logic_single_po_3_sfp": {
         "interface_ports": [
           "sfp_port_3",
@@ -949,13 +1072,28 @@
           "test_logic_single_po_0/sfp"
         ]
       },
-      "axi_ethernet_clock_w_0_clocks_out": {
+      "ponylink_to_zynq_axis_out": {
         "interface_ports": [
-          "axi_ethernet_clock_w_0/clocks_out",
-          "test_logic_single_po_0/eth_clks",
-          "test_logic_single_po_1/eth_clks",
-          "test_logic_single_po_2/eth_clks",
-          "test_logic_single_po_3/eth_clks"
+          "ponylink_ctrl/axis_out",
+          "control_signal_mapper/S_AXIS"
+        ]
+      },
+      "axi_bram_ctrl_0_BRAM_PORTA": {
+        "interface_ports": [
+          "control_mem_ctrl/BRAM_PORTA",
+          "control_mem/BRAM_PORTA"
+        ]
+      },
+      "control_signal_mapper_M_AXI": {
+        "interface_ports": [
+          "control_signal_mapper/M_AXI",
+          "control_mem_ctrl/S_AXI"
+        ]
+      },
+      "axi_mm2s_mapper_0_M_AXIS": {
+        "interface_ports": [
+          "control_signal_mapper/M_AXIS",
+          "ponylink_ctrl/axis_in"
         ]
       }
     },
@@ -1154,7 +1292,10 @@
           "test_logic_single_po_0/clk_40M",
           "test_logic_single_po_1/clk_40M",
           "test_logic_single_po_2/clk_40M",
-          "test_logic_single_po_3/clk_40M"
+          "test_logic_single_po_3/clk_40M",
+          "ponylink_ctrl/clk",
+          "control_signal_mapper/aclk",
+          "control_mem_ctrl/s_axi_aclk"
         ]
       },
       "clk_ponylink_clk_160M": {
@@ -1163,7 +1304,8 @@
           "test_logic_single_po_0/clk_160M",
           "test_logic_single_po_1/clk_160M",
           "test_logic_single_po_2/clk_160M",
-          "test_logic_single_po_3/clk_160M"
+          "test_logic_single_po_3/clk_160M",
+          "ponylink_ctrl/clk4"
         ]
       },
       "clk_50M_1": {
@@ -1221,6 +1363,42 @@
           "xlconstant_1/dout",
           "axi_ethernet_clocking/soft_rst"
         ]
+      },
+      "Net6": {
+        "ports": [
+          "ponylink_ctrl",
+          "ponylink_ctrl/data_pin"
+        ]
+      },
+      "ponylink_to_zynq_resetn_out": {
+        "ports": [
+          "ponylink_ctrl/resetn_out",
+          "control_signal_mapper/aresetn",
+          "control_mem_ctrl/s_axi_aresetn"
+        ]
+      },
+      "xlconstant_2_dout": {
+        "ports": [
+          "xlconstant_2/dout",
+          "ponylink_ctrl/gpio_i"
+        ]
+      }
+    },
+    "addressing": {
+      "/control_signal_mapper": {
+        "address_spaces": {
+          "Bridge": {
+            "range": "4G",
+            "width": "32",
+            "segments": {
+              "SEG_control_mem_ctrl_Mem0": {
+                "address_block": "/control_mem_ctrl/S_AXI/Mem0",
+                "offset": "0x00000000",
+                "range": "8K"
+              }
+            }
+          }
+        }
       }
     }
   }
