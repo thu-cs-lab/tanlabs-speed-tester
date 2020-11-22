@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module frame_checker #(
-    parameter DATA_WIDTH = 64,
+    parameter DATA_WIDTH = 64 * 8,
     parameter ID_WIDTH = 3
 ) (
     input wire clk,

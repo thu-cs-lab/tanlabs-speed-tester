@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 
+// Verilog wrapper of frame_generator_impl
 module frame_generator #(
-    parameter DATA_WIDTH = 64,
+    parameter DATA_WIDTH = 64 * 8,
     parameter ID_WIDTH = 3
 ) (
     input wire clk,
@@ -20,5 +21,24 @@ module frame_generator #(
     output wire axis_m_valid,
     input  wire axis_m_ready
 );
+
+    frame_generator_impl #(
+        .DATA_WIDTH(DATA_WIDTH),
+        .ID_WIDTH(ID_WIDTH)
+    ) frame_generator_inst (
+        .clk(clk),
+        .rst(rst),
+        .ready(ready),
+        .start(start),
+        .stop(stop),
+        .port_config(port_config),
+        .axis_m_data(axis_m_data),
+        .axis_m_keep(axis_m_keep),
+        .axis_m_last(axis_m_last),
+        .axis_m_user(axis_m_user),
+        .axis_m_id(axis_m_id),
+        .axis_m_valid(axis_m_valid),
+        .axis_m_ready(axis_m_read)
+    );
 
 endmodule
