@@ -165,13 +165,16 @@ module frame_generator_impl #(
     wire need_stop;
     assign need_stop = stop || prev_stop;
 
+    logic need_start;
+    assign need_start = start && port_config.enable;
+
 
     // state transition
     always_comb begin
         next_state = state;
         case (state)
             STATE_IDLE: begin
-                if (start) begin
+                if (need_start) begin
                     next_state = STATE_SENDING;
                 end
             end
@@ -196,7 +199,7 @@ module frame_generator_impl #(
             if (stop) prev_stop <= stop;
             case (state)
                 STATE_IDLE: begin
-                    if (start) begin
+                    if (need_start) begin
                         // initialize generator
                         current_config <= port_config;
                         remain_size <= port_config.frame_size;
