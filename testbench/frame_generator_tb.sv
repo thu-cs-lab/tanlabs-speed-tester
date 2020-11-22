@@ -11,6 +11,8 @@ module frame_generator_tb(
     logic start, stop;
     port_config_t port_config;
 
+    always #8 clk = ~clk;
+
     initial begin
         port_config.enable = 1'b1;
         port_config.frame_size = 60;
@@ -27,14 +29,20 @@ module frame_generator_tb(
         end
     end
 
-    always #8 clk = ~clk;
+    logic axis_ready;
+    initial begin
+        axis_ready = 1'b0;
+    end
+
+    always #16 axis_ready = ~axis_ready;
 
     frame_generator_impl frame_generator_dut(
         .clk,
         .rst,
         .start,
         .stop,
-        .port_config
+        .port_config,
+        .axis_m_ready(axis_ready)
     );
 
 endmodule
