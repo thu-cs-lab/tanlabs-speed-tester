@@ -1,3 +1,5 @@
 *.log
 *.veo
 *.vho
+tanlabs_test_logic_single_port/src/
+*/xgui/
