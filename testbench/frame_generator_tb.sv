@@ -14,19 +14,25 @@ module frame_generator_tb(
     always #8 clk = ~clk;
 
     initial begin
+        port_config = '0;
         port_config.enable = 1'b1;
-        port_config.frame_size = 60;
+        port_config.frame_size = 100;
         port_config.src_ip = ~32'h12345678;
         port_config.dst_ip = ~32'h87654321;
         port_config.src_mac = ~48'haabbccddeeff;
         port_config.dst_mac = ~48'h112233445566;
         clk = 1'b0;
         rst = 1'b1;
+        stop = 1'b0;
         @(posedge clk)
         @(negedge clk) begin 
             rst = 1'b0;
             start = 1'b1;
         end
+        @(negedge clk) start = 1'b0;
+        @(negedge frame_generator_dut.axis_m_last)
+        @(negedge clk) stop = 1'b1;
+        @(negedge clk) stop = 1'b0;
     end
 
     logic axis_ready;

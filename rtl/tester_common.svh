@@ -74,7 +74,7 @@ typedef struct packed {
 
 typedef struct packed {
     ip_header_t ip_header;
-    eth_hedaer_t eth_header;
+    eth_header_t eth_header;
 } frame_header_t;
 
 `define TEST_FRAME_TOS 8'hDE

@@ -89,7 +89,7 @@ module frame_generator_impl #(
     logic [23:0] checksum_imm[checksum_num:0];
     generate
         assign checksum_imm[0] = '0;
-        for (genvar i = 0; i < checksum_num; i += 16) begin
+        for (genvar i = 0; i < checksum_num; i += 1) begin
             if (i != 5)
                 assign checksum_imm[i + 1] = checksum_imm[i] + first_beat_header.ip_header[16 * i +: 16];
             else // skip checksum field
@@ -98,8 +98,8 @@ module frame_generator_impl #(
     endgenerate
     logic [23:0] checksum_wrap;
     // wrap around twice for possible overflow
-    assign checksum_wrap = checksum_imm[checksum_num][15:0] + checksum_imm[checksum_num][24:16];
-    assign checksum = ~(checksum_wrap[15:0] + checksum_wrap[24:16]);
+    assign checksum_wrap = checksum_imm[checksum_num][15:0] + checksum_imm[checksum_num][23:16];
+    assign checksum = ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
     
 
     // fill in other infomation
@@ -110,7 +110,7 @@ module frame_generator_impl #(
             first_beat_header.ip_header.version = 4'd4;
             first_beat_header.ip_header.ihl = 4'd5;
             first_beat_header.ip_header.tos = `TEST_FRAME_TOS;
-            first_beat_header.ip_header.length = {<<8{ip_length}};
+            first_beat_header.ip_header.len = {<<8{ip_length}};
             first_beat_header.ip_header.id = random_seed; // random_id from last cycle
             first_beat_header.ip_header.ttl = 8'd64;
             first_beat_header.ip_header.proto = `TEST_FRAME_PROTO;
