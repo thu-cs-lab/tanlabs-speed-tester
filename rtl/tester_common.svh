@@ -77,7 +77,7 @@ typedef struct packed {
     eth_hedaer_t eth_header;
 } frame_header_t;
 
-`define TEST_FRAME_TOS 8'hDE_AD_BE_EF
+`define TEST_FRAME_TOS 8'hDE
 // default proto: test purpose
 `define TEST_FRAME_PROTO 8'hFD
 

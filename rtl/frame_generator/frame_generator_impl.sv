@@ -18,12 +18,12 @@ module frame_generator_impl #(
     input  wire stop,
     input  wire port_config_t port_config,
     // AXIS output
-    output wire [DATA_WIDTH - 1:0] axis_m_data,
-    output wire [DATA_WIDTH / 8 - 1:0] axis_m_keep,
-    output wire axis_m_last,
-    output wire [DATA_WIDTH / 8 - 1:0] axis_m_user,
-    output wire [ID_WIDTH - 1:0] axis_m_id,
-    output wire axis_m_valid,
+    output logic [DATA_WIDTH - 1:0] axis_m_data,
+    output logic [DATA_WIDTH / 8 - 1:0] axis_m_keep,
+    output logic axis_m_last,
+    output logic [DATA_WIDTH / 8 - 1:0] axis_m_user,
+    output logic [ID_WIDTH - 1:0] axis_m_id,
+    output logic axis_m_valid,
     input  wire axis_m_ready
 );
 
@@ -47,13 +47,13 @@ module frame_generator_impl #(
 
     
     // generate random ID in IP header
-    wire [15:0] ramdon_id;
+    wire [15:0] random_id;
     lfsr16 lfsr_id_inst(
         .clk,
         .rst,
         .cen(1'b1),
         .wen(1'b0),
-        .dout(ramdon_id)
+        .dout(random_id)
     );
 
 
@@ -70,7 +70,7 @@ module frame_generator_impl #(
         .rst,
         .cen(next_random),
         .wen(set_seed),
-        .din(ramdon_id),
+        .din(random_id),
         .dout(random_content_part)
     );
 
@@ -89,7 +89,7 @@ module frame_generator_impl #(
     logic [23:0] checksum_imm[checksum_num:0];
     generate
         assign checksum_imm[0] = '0;
-        for (int i = 0; i < checksum_num; i += 16) begin
+        for (genvar i = 0; i < checksum_num; i += 16) begin
             if (i != 5)
                 assign checksum_imm[i + 1] = checksum_imm[i] + first_beat_header.ip_header[16 * i +: 16];
             else // skip checksum field
