@@ -217,7 +217,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1980b645</spirit:value>
+            <spirit:value>3d2f5667</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -236,7 +236,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1980b645</spirit:value>
+            <spirit:value>3d2f5667</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -612,7 +612,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>Ethernet Frame FIFO</spirit:description>
+  <spirit:description>Ethernet Frame FIFO (depth = 1024)</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -643,9 +643,9 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>Ethernet Frame FIFO (depth = 1024)</xilinx:displayName>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-11-19T13:58:06Z</xilinx:coreCreationDateTime>
+      <xilinx:displayName>Ethernet Frame FIFO</xilinx:displayName>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-11-22T09:22:42Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5178aca4_ARCHIVE_LOCATION">/home/gyc/workspace/tan/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@521cf87_ARCHIVE_LOCATION">/home/gyc/workspace/tan/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
@@ -748,12 +748,39 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3e9224cb_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@567c5eb_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7abcc77e_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bd2ab6d_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b6f3c0b_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1602d92e_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21e3b086_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a2ca1cb_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5be1a9dd_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ec33650_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@796a2556_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c8691c4_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63d23771_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@502404a9_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25a5458e_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6524162c_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5edfd916_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c753d33_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fcbf811_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31d931a0_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@584c939_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12c0f4cd_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a6b1f77_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56ca80dd_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6abb8a19_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bb3ac0f_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f6a8066_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ed6a37f_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bdc7db7_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c0573fd_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/eth_frame_fifo_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2eed58e1"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c211c386"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6bf21413"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="81163b8c"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="18fbe860"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="1bbe5e64"/>
