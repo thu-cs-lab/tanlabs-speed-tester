@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.44728",
-   "Default View_TopLeft":"-181,-11",
+   "Default View_TopLeft":"-181,-206",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -31,12 +31,12 @@ preplace inst axis_ix_to_ponylink -pg 1 -lvl 8 -x 2140 -y 360 -defaultsOSRD
 preplace inst eth_rx_rst_n -pg 1 -lvl 4 -x 1070 -y 810 -defaultsOSRD -orient R180 -resize 83 88
 preplace inst xlconstant_0 -pg 1 -lvl 6 -x 1630 -y 340 -defaultsOSRD -orient R180
 preplace inst rx_width_upsizer -pg 1 -lvl 4 -x 1070 -y 660 -defaultsOSRD
-preplace inst frame_checker -pg 1 -lvl 5 -x 1350 -y 700 -defaultsOSRD
-preplace inst frame_generator -pg 1 -lvl 5 -x 1350 -y 1210 -defaultsOSRD
 preplace inst fifo_to_ponylink -pg 1 -lvl 7 -x 1860 -y 620 -defaultsOSRD
 preplace inst sfp_led_concat -pg 1 -lvl 8 -x 2140 -y 70 -defaultsOSRD
 preplace inst board_led_concat -pg 1 -lvl 8 -x 2140 -y 190 -defaultsOSRD
 preplace inst rx_width_downsizer -pg 1 -lvl 6 -x 1630 -y 600 -defaultsOSRD
+preplace inst frame_checker -pg 1 -lvl 5 -x 1350 -y 700 -defaultsOSRD
+preplace inst frame_generator -pg 1 -lvl 5 -x 1350 -y 1210 -defaultsOSRD
 preplace netloc Net 1 0 2 NJ 380 NJ
 preplace netloc sfp_rx_los_1 1 0 2 NJ 1030 NJ
 preplace netloc util_vector_logic_0_Res 1 2 1 610J 980n
