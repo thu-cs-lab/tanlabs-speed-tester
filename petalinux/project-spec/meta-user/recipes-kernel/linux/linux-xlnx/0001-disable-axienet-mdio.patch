@@ -1,0 +1,145 @@
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_dma.c b/drivers/net/ethernet/xilinx/xilinx_axienet_dma.c
+index c3b7330af..748f46cbe 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_dma.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_dma.c
+@@ -382,26 +382,26 @@ void __maybe_unused axienet_dma_err_handler(unsigned long data)
+ 	lp->axienet_config->setoptions(ndev, lp->options &
+ 				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
+ 
+-	if (lp->axienet_config->mactype != XAXIENET_10G_25G) {
+-		mdio_mcreg = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
+-		axienet_mdio_wait_until_ready(lp);
+-		/* Disable the MDIO interface till Axi Ethernet Reset is
+-		 * Completed. When we do an Axi Ethernet reset, it resets the
+-		 * Complete core including the MDIO. So if MDIO is not disabled
+-		 * When the reset process is started,
+-		 * MDIO will be broken afterwards.
+-		 */
+-		axienet_iow(lp, XAE_MDIO_MC_OFFSET, (mdio_mcreg &
+-			    ~XAE_MDIO_MC_MDIOEN_MASK));
+-	}
++	// if (lp->axienet_config->mactype != XAXIENET_10G_25G) {
++	// 	mdio_mcreg = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
++	// 	axienet_mdio_wait_until_ready(lp);
++	// 	/* Disable the MDIO interface till Axi Ethernet Reset is
++	// 	 * Completed. When we do an Axi Ethernet reset, it resets the
++	// 	 * Complete core including the MDIO. So if MDIO is not disabled
++	// 	 * When the reset process is started,
++	// 	 * MDIO will be broken afterwards.
++	// 	 */
++	// 	axienet_iow(lp, XAE_MDIO_MC_OFFSET, (mdio_mcreg &
++	// 		    ~XAE_MDIO_MC_MDIOEN_MASK));
++	// }
+ 
+ 	__axienet_device_reset(q, XAXIDMA_TX_CR_OFFSET);
+ 	__axienet_device_reset(q, XAXIDMA_RX_CR_OFFSET);
+ 
+-	if (lp->axienet_config->mactype != XAXIENET_10G_25G) {
+-		axienet_iow(lp, XAE_MDIO_MC_OFFSET, mdio_mcreg);
+-		axienet_mdio_wait_until_ready(lp);
+-	}
++	// if (lp->axienet_config->mactype != XAXIENET_10G_25G) {
++	// 	axienet_iow(lp, XAE_MDIO_MC_OFFSET, mdio_mcreg);
++	// 	axienet_mdio_wait_until_ready(lp);
++	// }
+ 
+ 	for (i = 0; i < TX_BD_NUM; i++) {
+ 		cur_p = &q->tx_bd_v[i];
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 6f67779b4..325a2e489 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1479,27 +1479,27 @@ static irqreturn_t axienet_err_irq(int irq, void *_ndev)
+ 
+ static int axienet_mii_init(struct net_device *ndev)
+ {
+-	struct axienet_local *lp = netdev_priv(ndev);
+-	int ret, mdio_mcreg;
++	// struct axienet_local *lp = netdev_priv(ndev);
++	// int ret, mdio_mcreg;
+ 
+-	mdio_mcreg = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
+-	ret = axienet_mdio_wait_until_ready(lp);
+-	if (ret < 0)
+-		return ret;
++	// mdio_mcreg = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
++	// ret = axienet_mdio_wait_until_ready(lp);
++	// if (ret < 0)
++	// 	return ret;
+ 
+ 	/* Disable the MDIO interface till Axi Ethernet Reset is completed.
+ 	 * When we do an Axi Ethernet reset, it resets the complete core
+ 	 * Including the MDIO. If MDIO is not disabled when the reset process is
+ 	 * Started, MDIO will be broken afterwards.
+ 	 */
+-	axienet_iow(lp, XAE_MDIO_MC_OFFSET,
+-		    (mdio_mcreg & (~XAE_MDIO_MC_MDIOEN_MASK)));
++	// axienet_iow(lp, XAE_MDIO_MC_OFFSET,
++	//	    (mdio_mcreg & (~XAE_MDIO_MC_MDIOEN_MASK)));
+ 	axienet_device_reset(ndev);
+ 	/* Enable the MDIO */
+-	axienet_iow(lp, XAE_MDIO_MC_OFFSET, mdio_mcreg);
+-	ret = axienet_mdio_wait_until_ready(lp);
+-	if (ret < 0)
+-		return ret;
++	// axienet_iow(lp, XAE_MDIO_MC_OFFSET, mdio_mcreg);
++	// ret = axienet_mdio_wait_until_ready(lp);
++	// if (ret < 0)
++	//	return ret;
+ 
+ 	return 0;
+ }
+@@ -2127,10 +2127,10 @@ static void axienet_ethtools_get_regs(struct net_device *ndev,
+ 	data[16] = axienet_ior(lp, XAE_FCC_OFFSET);
+ 	data[17] = axienet_ior(lp, XAE_EMMC_OFFSET);
+ 	data[18] = axienet_ior(lp, XAE_RMFC_OFFSET);
+-	data[19] = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
+-	data[20] = axienet_ior(lp, XAE_MDIO_MCR_OFFSET);
+-	data[21] = axienet_ior(lp, XAE_MDIO_MWD_OFFSET);
+-	data[22] = axienet_ior(lp, XAE_MDIO_MRD_OFFSET);
++	data[19] = 0xDEADBEEF; // axienet_ior(lp, XAE_MDIO_MC_OFFSET);
++	data[20] = 0xDEADBEEF; // axienet_ior(lp, XAE_MDIO_MCR_OFFSET);
++	data[21] = 0xDEADBEEF; // axienet_ior(lp, XAE_MDIO_MWD_OFFSET);
++	data[22] = 0xDEADBEEF; // axienet_ior(lp, XAE_MDIO_MRD_OFFSET);
+ 	data[23] = axienet_ior(lp, XAE_TEMAC_IS_OFFSET);
+ 	data[24] = axienet_ior(lp, XAE_TEMAC_IP_OFFSET);
+ 	data[25] = axienet_ior(lp, XAE_TEMAC_IE_OFFSET);
+@@ -3086,12 +3086,12 @@ static int axienet_probe(struct platform_device *pdev)
+ 	if (lp->phy_mode == XAE_PHY_TYPE_1000BASE_X)
+ 		lp->phy_flags = XAE_PHY_TYPE_1000BASE_X;
+ 
+-	lp->phy_node = of_parse_phandle(pdev->dev.of_node, "phy-handle", 0);
+-	if (lp->phy_node) {
+-		ret = axienet_mdio_setup(lp, pdev->dev.of_node);
+-		if (ret)
+-			dev_warn(&pdev->dev, "error registering MDIO bus\n");
+-	}
++	// lp->phy_node = of_parse_phandle(pdev->dev.of_node, "phy-handle", 0);
++	// if (lp->phy_node) {
++	// 	ret = axienet_mdio_setup(lp, pdev->dev.of_node);
++	// 	if (ret)
++	// 		dev_warn(&pdev->dev, "error registering MDIO bus\n");
++	// }
+ 
+ #ifdef CONFIG_AXIENET_HAS_MCDMA
+ 	/* Create sysfs file entries for the device */
+@@ -3105,7 +3105,7 @@ static int axienet_probe(struct platform_device *pdev)
+ 	ret = register_netdev(lp->ndev);
+ 	if (ret) {
+ 		dev_err(lp->dev, "register_netdev() error (%i)\n", ret);
+-		axienet_mdio_teardown(lp);
++		// axienet_mdio_teardown(lp);
+ 		goto err_disable_clk;
+ 	}
+ 
+@@ -3151,8 +3151,8 @@ static int axienet_remove(struct platform_device *pdev)
+ 	struct axienet_local *lp = netdev_priv(ndev);
+ 	int i;
+ 
+-	if (lp->mii_bus)
+-		axienet_mdio_teardown(lp);
++	// if (lp->mii_bus)
++	// 	axienet_mdio_teardown(lp);
+ 
+ #ifdef CONFIG_XILINX_TSN_PTP
+ 	axienet_ptp_timer_remove(lp->timer_priv);
