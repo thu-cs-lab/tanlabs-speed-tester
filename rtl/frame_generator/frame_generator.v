@@ -38,7 +38,7 @@ module frame_generator #(
         .axis_m_user(axis_m_user),
         .axis_m_id(axis_m_id),
         .axis_m_valid(axis_m_valid),
-        .axis_m_ready(axis_m_read)
+        .axis_m_ready(axis_m_ready)
     );
 
 endmodule

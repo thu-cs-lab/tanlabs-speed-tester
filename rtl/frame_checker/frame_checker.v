@@ -29,4 +29,30 @@ module frame_checker #(
     output wire axis_s_ready
 );
 
+    frame_checker_impl #(
+        .DATA_WIDTH(DATA_WIDTH),
+        .ID_WIDTH(ID_WIDTH)
+    ) frame_checker_inst (
+        .clk(clk),
+        .rst(rst),
+        .ready(ready),
+        .start(start),
+        .stop(stop),
+        .result(result),
+        .axis_m_data(axis_m_data),
+        .axis_m_keep(axis_m_keep),
+        .axis_m_last(axis_m_last),
+        .axis_m_user(axis_m_user),
+        .axis_m_id(axis_m_id),
+        .axis_m_valid(axis_m_valid),
+        .axis_m_ready(axis_m_ready),
+        .axis_s_data(axis_s_data),
+        .axis_s_keep(axis_s_keep),
+        .axis_s_last(axis_s_last),
+        .axis_s_user(axis_s_user),
+        .axis_s_id(axis_s_id),
+        .axis_s_valid(axis_s_valid),
+        .axis_s_ready(axis_s_ready)
+    );
+
 endmodule

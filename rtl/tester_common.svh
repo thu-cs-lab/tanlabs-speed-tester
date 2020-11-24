@@ -93,7 +93,7 @@ endfunction
 
 module ip_header_checksum(
     input ip_header_t ip_header,
-    output wire u16_t checksum;
+    output u16_t checksum
 );
     localparam checksum_num = $bits(ip_header_t) / 16;
     logic [23:0] checksum_imm[checksum_num:0];
