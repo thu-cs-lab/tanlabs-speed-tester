@@ -86,7 +86,10 @@ module frame_generator_impl #(
 
     // calculate checksum
     u16_t checksum;
-    assign checksum = ip_header_checksum(first_beat_header.ip_header);
+    ip_header_checksum checksum_inst(
+        .ip_header(first_beat_header.ip_header),
+        .checksum
+    );
     
 
     // fill in other infomation

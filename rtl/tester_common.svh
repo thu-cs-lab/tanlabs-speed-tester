@@ -91,8 +91,10 @@ function logic [6:0] clz64(input logic [63:0] x);
 	return 7'd64;
 endfunction
 
-
-function u16_t ip_header_checksum(input ip_header_t ip_header);
+module ip_header_checksum(
+    input ip_header_t ip_header,
+    output wire u16_t checksum;
+);
     localparam checksum_num = $bits(ip_header_t) / 16;
     logic [23:0] checksum_imm[checksum_num:0];
     generate
@@ -107,7 +109,7 @@ function u16_t ip_header_checksum(input ip_header_t ip_header);
     logic [23:0] checksum_wrap;
     // wrap around twice for possible overflow
     assign checksum_wrap = checksum_imm[checksum_num][15:0] + checksum_imm[checksum_num][23:16];
-    return ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
-endfunction
+    assign checksum = ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
+endmodule
 
 `endif
