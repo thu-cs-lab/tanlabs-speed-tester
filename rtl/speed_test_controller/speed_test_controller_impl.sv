@@ -24,7 +24,10 @@ module speed_test_controller_impl #(
     output wire port_config_t [TEST_PORT-1:0] port_config
 );
 
-
+    assign start = '0;
+    assign stop = '0;
+    assign port_config = '0;
+    assign mem_we = 1'b0;
     // STATE_IDLE
     // STATE_TESTING
     // STATE_FINISHED

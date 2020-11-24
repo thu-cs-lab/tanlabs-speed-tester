@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-//Date        : Sun Nov 22 18:02:25 2020
+//Date        : Tue Nov 24 23:34:30 2020
 //Host        : vision2 running 64-bit Arch Linux
 //Command     : generate_target test_logic_single_port.bd
 //Design      : test_logic_single_port
@@ -279,6 +279,142 @@ module axi_ethernet_inner_imp_10ZZ3JK
        (.dout(xlconstant_0_dout));
 endmodule
 
+module m00_couplers_imp_1S0P32
+   (M_AXIS_ACLK,
+    M_AXIS_ARESETN,
+    M_AXIS_tdata,
+    M_AXIS_tlast,
+    M_AXIS_tready,
+    M_AXIS_tuser,
+    M_AXIS_tvalid,
+    S_AXIS_ACLK,
+    S_AXIS_ARESETN,
+    S_AXIS_tdata,
+    S_AXIS_tid,
+    S_AXIS_tkeep,
+    S_AXIS_tlast,
+    S_AXIS_tready,
+    S_AXIS_tstrb,
+    S_AXIS_tuser,
+    S_AXIS_tvalid);
+  input M_AXIS_ACLK;
+  input M_AXIS_ARESETN;
+  output [7:0]M_AXIS_tdata;
+  output M_AXIS_tlast;
+  input M_AXIS_tready;
+  output [0:0]M_AXIS_tuser;
+  output M_AXIS_tvalid;
+  input S_AXIS_ACLK;
+  input S_AXIS_ARESETN;
+  input [511:0]S_AXIS_tdata;
+  input [2:0]S_AXIS_tid;
+  input [63:0]S_AXIS_tkeep;
+  input S_AXIS_tlast;
+  output S_AXIS_tready;
+  input [63:0]S_AXIS_tstrb;
+  input [63:0]S_AXIS_tuser;
+  input S_AXIS_tvalid;
+
+  wire S_AXIS_ACLK_1;
+  wire S_AXIS_ARESETN_1;
+  wire [7:0]auto_ds_to_auto_ss_k_TDATA;
+  wire [2:0]auto_ds_to_auto_ss_k_TID;
+  wire [0:0]auto_ds_to_auto_ss_k_TKEEP;
+  wire auto_ds_to_auto_ss_k_TLAST;
+  wire auto_ds_to_auto_ss_k_TREADY;
+  wire [0:0]auto_ds_to_auto_ss_k_TSTRB;
+  wire [0:0]auto_ds_to_auto_ss_k_TUSER;
+  wire auto_ds_to_auto_ss_k_TVALID;
+  wire [7:0]auto_ss_k_to_auto_ss_slidr_TDATA;
+  wire [2:0]auto_ss_k_to_auto_ss_slidr_TID;
+  wire auto_ss_k_to_auto_ss_slidr_TLAST;
+  wire auto_ss_k_to_auto_ss_slidr_TREADY;
+  wire [0:0]auto_ss_k_to_auto_ss_slidr_TSTRB;
+  wire [0:0]auto_ss_k_to_auto_ss_slidr_TUSER;
+  wire auto_ss_k_to_auto_ss_slidr_TVALID;
+  wire [7:0]auto_ss_slidr_to_m00_couplers_TDATA;
+  wire auto_ss_slidr_to_m00_couplers_TLAST;
+  wire auto_ss_slidr_to_m00_couplers_TREADY;
+  wire [0:0]auto_ss_slidr_to_m00_couplers_TUSER;
+  wire auto_ss_slidr_to_m00_couplers_TVALID;
+  wire [511:0]m00_couplers_to_auto_ds_TDATA;
+  wire [2:0]m00_couplers_to_auto_ds_TID;
+  wire [63:0]m00_couplers_to_auto_ds_TKEEP;
+  wire m00_couplers_to_auto_ds_TLAST;
+  wire m00_couplers_to_auto_ds_TREADY;
+  wire [63:0]m00_couplers_to_auto_ds_TSTRB;
+  wire [63:0]m00_couplers_to_auto_ds_TUSER;
+  wire m00_couplers_to_auto_ds_TVALID;
+
+  assign M_AXIS_tdata[7:0] = auto_ss_slidr_to_m00_couplers_TDATA;
+  assign M_AXIS_tlast = auto_ss_slidr_to_m00_couplers_TLAST;
+  assign M_AXIS_tuser[0] = auto_ss_slidr_to_m00_couplers_TUSER;
+  assign M_AXIS_tvalid = auto_ss_slidr_to_m00_couplers_TVALID;
+  assign S_AXIS_ACLK_1 = S_AXIS_ACLK;
+  assign S_AXIS_ARESETN_1 = S_AXIS_ARESETN;
+  assign S_AXIS_tready = m00_couplers_to_auto_ds_TREADY;
+  assign auto_ss_slidr_to_m00_couplers_TREADY = M_AXIS_tready;
+  assign m00_couplers_to_auto_ds_TDATA = S_AXIS_tdata[511:0];
+  assign m00_couplers_to_auto_ds_TID = S_AXIS_tid[2:0];
+  assign m00_couplers_to_auto_ds_TKEEP = S_AXIS_tkeep[63:0];
+  assign m00_couplers_to_auto_ds_TLAST = S_AXIS_tlast;
+  assign m00_couplers_to_auto_ds_TSTRB = S_AXIS_tstrb[63:0];
+  assign m00_couplers_to_auto_ds_TUSER = S_AXIS_tuser[63:0];
+  assign m00_couplers_to_auto_ds_TVALID = S_AXIS_tvalid;
+  test_logic_single_port_auto_ds_0 auto_ds
+       (.aclk(S_AXIS_ACLK_1),
+        .aresetn(S_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_ds_to_auto_ss_k_TDATA),
+        .m_axis_tid(auto_ds_to_auto_ss_k_TID),
+        .m_axis_tkeep(auto_ds_to_auto_ss_k_TKEEP),
+        .m_axis_tlast(auto_ds_to_auto_ss_k_TLAST),
+        .m_axis_tready(auto_ds_to_auto_ss_k_TREADY),
+        .m_axis_tstrb(auto_ds_to_auto_ss_k_TSTRB),
+        .m_axis_tuser(auto_ds_to_auto_ss_k_TUSER),
+        .m_axis_tvalid(auto_ds_to_auto_ss_k_TVALID),
+        .s_axis_tdata(m00_couplers_to_auto_ds_TDATA),
+        .s_axis_tid(m00_couplers_to_auto_ds_TID),
+        .s_axis_tkeep(m00_couplers_to_auto_ds_TKEEP),
+        .s_axis_tlast(m00_couplers_to_auto_ds_TLAST),
+        .s_axis_tready(m00_couplers_to_auto_ds_TREADY),
+        .s_axis_tstrb(m00_couplers_to_auto_ds_TSTRB),
+        .s_axis_tuser(m00_couplers_to_auto_ds_TUSER),
+        .s_axis_tvalid(m00_couplers_to_auto_ds_TVALID));
+  test_logic_single_port_auto_ss_k_0 auto_ss_k
+       (.aclk(S_AXIS_ACLK_1),
+        .aresetn(S_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_ss_k_to_auto_ss_slidr_TDATA),
+        .m_axis_tid(auto_ss_k_to_auto_ss_slidr_TID),
+        .m_axis_tlast(auto_ss_k_to_auto_ss_slidr_TLAST),
+        .m_axis_tready(auto_ss_k_to_auto_ss_slidr_TREADY),
+        .m_axis_tstrb(auto_ss_k_to_auto_ss_slidr_TSTRB),
+        .m_axis_tuser(auto_ss_k_to_auto_ss_slidr_TUSER),
+        .m_axis_tvalid(auto_ss_k_to_auto_ss_slidr_TVALID),
+        .s_axis_tdata(auto_ds_to_auto_ss_k_TDATA),
+        .s_axis_tid(auto_ds_to_auto_ss_k_TID),
+        .s_axis_tkeep(auto_ds_to_auto_ss_k_TKEEP),
+        .s_axis_tlast(auto_ds_to_auto_ss_k_TLAST),
+        .s_axis_tready(auto_ds_to_auto_ss_k_TREADY),
+        .s_axis_tstrb(auto_ds_to_auto_ss_k_TSTRB),
+        .s_axis_tuser(auto_ds_to_auto_ss_k_TUSER),
+        .s_axis_tvalid(auto_ds_to_auto_ss_k_TVALID));
+  test_logic_single_port_auto_ss_slidr_0 auto_ss_slidr
+       (.aclk(S_AXIS_ACLK_1),
+        .aresetn(S_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_ss_slidr_to_m00_couplers_TDATA),
+        .m_axis_tlast(auto_ss_slidr_to_m00_couplers_TLAST),
+        .m_axis_tready(auto_ss_slidr_to_m00_couplers_TREADY),
+        .m_axis_tuser(auto_ss_slidr_to_m00_couplers_TUSER),
+        .m_axis_tvalid(auto_ss_slidr_to_m00_couplers_TVALID),
+        .s_axis_tdata(auto_ss_k_to_auto_ss_slidr_TDATA),
+        .s_axis_tid(auto_ss_k_to_auto_ss_slidr_TID),
+        .s_axis_tlast(auto_ss_k_to_auto_ss_slidr_TLAST),
+        .s_axis_tready(auto_ss_k_to_auto_ss_slidr_TREADY),
+        .s_axis_tstrb(auto_ss_k_to_auto_ss_slidr_TSTRB),
+        .s_axis_tuser(auto_ss_k_to_auto_ss_slidr_TUSER),
+        .s_axis_tvalid(auto_ss_k_to_auto_ss_slidr_TVALID));
+endmodule
+
 module s00_couplers_imp_1WD6HZJ
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
@@ -366,7 +502,7 @@ module s00_couplers_imp_1WD6HZJ
   assign s00_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
   assign s00_couplers_to_auto_cc_TUSER = S_AXIS_tuser[7:0];
   assign s00_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_cc_1 auto_cc
+  test_logic_single_port_auto_cc_2 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ds_TDATA),
@@ -385,7 +521,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(s00_couplers_to_auto_cc_TREADY),
         .s_axis_tuser(s00_couplers_to_auto_cc_TUSER),
         .s_axis_tvalid(s00_couplers_to_auto_cc_TVALID));
-  test_logic_single_port_auto_ds_0 auto_ds
+  test_logic_single_port_auto_ds_1 auto_ds
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ds_to_auto_ss_k_TDATA),
@@ -402,7 +538,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(auto_cc_to_auto_ds_TREADY),
         .s_axis_tuser(auto_cc_to_auto_ds_TUSER),
         .s_axis_tvalid(auto_cc_to_auto_ds_TVALID));
-  test_logic_single_port_auto_ss_k_0 auto_ss_k
+  test_logic_single_port_auto_ss_k_1 auto_ss_k
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_k_to_auto_ss_slid_TDATA),
@@ -418,7 +554,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(auto_ds_to_auto_ss_k_TREADY),
         .s_axis_tuser(auto_ds_to_auto_ss_k_TUSER),
         .s_axis_tvalid(auto_ds_to_auto_ss_k_TVALID));
-  test_logic_single_port_auto_ss_slid_1 auto_ss_slid
+  test_logic_single_port_auto_ss_slid_2 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s00_couplers_TDATA),
@@ -438,8 +574,11 @@ module s00_couplers_imp_24TIC8
    (M_AXIS_ACLK,
     M_AXIS_ARESETN,
     M_AXIS_tdata,
+    M_AXIS_tid,
+    M_AXIS_tkeep,
     M_AXIS_tlast,
     M_AXIS_tready,
+    M_AXIS_tstrb,
     M_AXIS_tuser,
     M_AXIS_tvalid,
     S_AXIS_ACLK,
@@ -452,10 +591,13 @@ module s00_couplers_imp_24TIC8
     S_AXIS_tvalid);
   input M_AXIS_ACLK;
   input M_AXIS_ARESETN;
-  output [7:0]M_AXIS_tdata;
+  output [511:0]M_AXIS_tdata;
+  output [2:0]M_AXIS_tid;
+  output [63:0]M_AXIS_tkeep;
   output M_AXIS_tlast;
   input M_AXIS_tready;
-  output [0:0]M_AXIS_tuser;
+  output [63:0]M_AXIS_tstrb;
+  output [63:0]M_AXIS_tuser;
   output M_AXIS_tvalid;
   input S_AXIS_ACLK;
   input S_AXIS_ARESETN;
@@ -470,43 +612,58 @@ module s00_couplers_imp_24TIC8
   wire M_AXIS_ARESETN_1;
   wire S_AXIS_ACLK_1;
   wire S_AXIS_ARESETN_1;
-  wire [7:0]auto_cc_to_auto_ss_slid_TDATA;
+  wire [511:0]auto_cc_to_auto_ss_slid_TDATA;
+  wire [63:0]auto_cc_to_auto_ss_slid_TKEEP;
   wire auto_cc_to_auto_ss_slid_TLAST;
   wire auto_cc_to_auto_ss_slid_TREADY;
-  wire [0:0]auto_cc_to_auto_ss_slid_TSTRB;
-  wire [0:0]auto_cc_to_auto_ss_slid_TUSER;
+  wire [63:0]auto_cc_to_auto_ss_slid_TSTRB;
+  wire [63:0]auto_cc_to_auto_ss_slid_TUSER;
   wire auto_cc_to_auto_ss_slid_TVALID;
-  wire [7:0]auto_ss_slid_to_s00_couplers_TDATA;
+  wire [511:0]auto_ss_slid_to_s00_couplers_TDATA;
+  wire [2:0]auto_ss_slid_to_s00_couplers_TID;
+  wire [63:0]auto_ss_slid_to_s00_couplers_TKEEP;
   wire auto_ss_slid_to_s00_couplers_TLAST;
   wire auto_ss_slid_to_s00_couplers_TREADY;
-  wire [0:0]auto_ss_slid_to_s00_couplers_TUSER;
+  wire [63:0]auto_ss_slid_to_s00_couplers_TSTRB;
+  wire [63:0]auto_ss_slid_to_s00_couplers_TUSER;
   wire auto_ss_slid_to_s00_couplers_TVALID;
-  wire [7:0]s00_couplers_to_auto_cc_TDATA;
-  wire s00_couplers_to_auto_cc_TLAST;
-  wire s00_couplers_to_auto_cc_TREADY;
-  wire [0:0]s00_couplers_to_auto_cc_TSTRB;
-  wire [0:0]s00_couplers_to_auto_cc_TUSER;
-  wire s00_couplers_to_auto_cc_TVALID;
+  wire [511:0]auto_us_to_auto_cc_TDATA;
+  wire [63:0]auto_us_to_auto_cc_TKEEP;
+  wire auto_us_to_auto_cc_TLAST;
+  wire auto_us_to_auto_cc_TREADY;
+  wire [63:0]auto_us_to_auto_cc_TSTRB;
+  wire [63:0]auto_us_to_auto_cc_TUSER;
+  wire auto_us_to_auto_cc_TVALID;
+  wire [7:0]s00_couplers_to_auto_us_TDATA;
+  wire s00_couplers_to_auto_us_TLAST;
+  wire s00_couplers_to_auto_us_TREADY;
+  wire [0:0]s00_couplers_to_auto_us_TSTRB;
+  wire [0:0]s00_couplers_to_auto_us_TUSER;
+  wire s00_couplers_to_auto_us_TVALID;
 
   assign M_AXIS_ACLK_1 = M_AXIS_ACLK;
   assign M_AXIS_ARESETN_1 = M_AXIS_ARESETN;
-  assign M_AXIS_tdata[7:0] = auto_ss_slid_to_s00_couplers_TDATA;
+  assign M_AXIS_tdata[511:0] = auto_ss_slid_to_s00_couplers_TDATA;
+  assign M_AXIS_tid[2:0] = auto_ss_slid_to_s00_couplers_TID;
+  assign M_AXIS_tkeep[63:0] = auto_ss_slid_to_s00_couplers_TKEEP;
   assign M_AXIS_tlast = auto_ss_slid_to_s00_couplers_TLAST;
-  assign M_AXIS_tuser[0] = auto_ss_slid_to_s00_couplers_TUSER;
+  assign M_AXIS_tstrb[63:0] = auto_ss_slid_to_s00_couplers_TSTRB;
+  assign M_AXIS_tuser[63:0] = auto_ss_slid_to_s00_couplers_TUSER;
   assign M_AXIS_tvalid = auto_ss_slid_to_s00_couplers_TVALID;
   assign S_AXIS_ACLK_1 = S_AXIS_ACLK;
   assign S_AXIS_ARESETN_1 = S_AXIS_ARESETN;
-  assign S_AXIS_tready = s00_couplers_to_auto_cc_TREADY;
+  assign S_AXIS_tready = s00_couplers_to_auto_us_TREADY;
   assign auto_ss_slid_to_s00_couplers_TREADY = M_AXIS_tready;
-  assign s00_couplers_to_auto_cc_TDATA = S_AXIS_tdata[7:0];
-  assign s00_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
-  assign s00_couplers_to_auto_cc_TSTRB = S_AXIS_tstrb[0];
-  assign s00_couplers_to_auto_cc_TUSER = S_AXIS_tuser[0];
-  assign s00_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
+  assign s00_couplers_to_auto_us_TDATA = S_AXIS_tdata[7:0];
+  assign s00_couplers_to_auto_us_TLAST = S_AXIS_tlast;
+  assign s00_couplers_to_auto_us_TSTRB = S_AXIS_tstrb[0];
+  assign s00_couplers_to_auto_us_TUSER = S_AXIS_tuser[0];
+  assign s00_couplers_to_auto_us_TVALID = S_AXIS_tvalid;
   test_logic_single_port_auto_cc_0 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
+        .m_axis_tkeep(auto_cc_to_auto_ss_slid_TKEEP),
         .m_axis_tlast(auto_cc_to_auto_ss_slid_TLAST),
         .m_axis_tready(auto_cc_to_auto_ss_slid_TREADY),
         .m_axis_tstrb(auto_cc_to_auto_ss_slid_TSTRB),
@@ -514,29 +671,175 @@ module s00_couplers_imp_24TIC8
         .m_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID),
         .s_axis_aclk(S_AXIS_ACLK_1),
         .s_axis_aresetn(S_AXIS_ARESETN_1),
-        .s_axis_tdata(s00_couplers_to_auto_cc_TDATA),
-        .s_axis_tlast(s00_couplers_to_auto_cc_TLAST),
-        .s_axis_tready(s00_couplers_to_auto_cc_TREADY),
-        .s_axis_tstrb(s00_couplers_to_auto_cc_TSTRB),
-        .s_axis_tuser(s00_couplers_to_auto_cc_TUSER),
-        .s_axis_tvalid(s00_couplers_to_auto_cc_TVALID));
+        .s_axis_tdata(auto_us_to_auto_cc_TDATA),
+        .s_axis_tkeep(auto_us_to_auto_cc_TKEEP),
+        .s_axis_tlast(auto_us_to_auto_cc_TLAST),
+        .s_axis_tready(auto_us_to_auto_cc_TREADY),
+        .s_axis_tstrb(auto_us_to_auto_cc_TSTRB),
+        .s_axis_tuser(auto_us_to_auto_cc_TUSER),
+        .s_axis_tvalid(auto_us_to_auto_cc_TVALID));
   test_logic_single_port_auto_ss_slid_0 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s00_couplers_TDATA),
+        .m_axis_tid(auto_ss_slid_to_s00_couplers_TID),
+        .m_axis_tkeep(auto_ss_slid_to_s00_couplers_TKEEP),
         .m_axis_tlast(auto_ss_slid_to_s00_couplers_TLAST),
         .m_axis_tready(auto_ss_slid_to_s00_couplers_TREADY),
+        .m_axis_tstrb(auto_ss_slid_to_s00_couplers_TSTRB),
         .m_axis_tuser(auto_ss_slid_to_s00_couplers_TUSER),
         .m_axis_tvalid(auto_ss_slid_to_s00_couplers_TVALID),
         .s_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
+        .s_axis_tkeep(auto_cc_to_auto_ss_slid_TKEEP),
         .s_axis_tlast(auto_cc_to_auto_ss_slid_TLAST),
         .s_axis_tready(auto_cc_to_auto_ss_slid_TREADY),
         .s_axis_tstrb(auto_cc_to_auto_ss_slid_TSTRB),
         .s_axis_tuser(auto_cc_to_auto_ss_slid_TUSER),
         .s_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID));
+  test_logic_single_port_auto_us_0 auto_us
+       (.aclk(S_AXIS_ACLK_1),
+        .aresetn(S_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_us_to_auto_cc_TDATA),
+        .m_axis_tkeep(auto_us_to_auto_cc_TKEEP),
+        .m_axis_tlast(auto_us_to_auto_cc_TLAST),
+        .m_axis_tready(auto_us_to_auto_cc_TREADY),
+        .m_axis_tstrb(auto_us_to_auto_cc_TSTRB),
+        .m_axis_tuser(auto_us_to_auto_cc_TUSER),
+        .m_axis_tvalid(auto_us_to_auto_cc_TVALID),
+        .s_axis_tdata(s00_couplers_to_auto_us_TDATA),
+        .s_axis_tlast(s00_couplers_to_auto_us_TLAST),
+        .s_axis_tready(s00_couplers_to_auto_us_TREADY),
+        .s_axis_tstrb(s00_couplers_to_auto_us_TSTRB),
+        .s_axis_tuser(s00_couplers_to_auto_us_TUSER),
+        .s_axis_tvalid(s00_couplers_to_auto_us_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "test_logic_single_port,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=test_logic_single_port,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=25,numReposBlks=20,numNonXlnxBlks=5,numHierBlks=5,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "test_logic_single_port.hwdef" *) 
+module s01_couplers_imp_1WDE4KY
+   (M_AXIS_ACLK,
+    M_AXIS_ARESETN,
+    M_AXIS_tdata,
+    M_AXIS_tid,
+    M_AXIS_tkeep,
+    M_AXIS_tlast,
+    M_AXIS_tready,
+    M_AXIS_tstrb,
+    M_AXIS_tuser,
+    M_AXIS_tvalid,
+    S_AXIS_ACLK,
+    S_AXIS_ARESETN,
+    S_AXIS_tdata,
+    S_AXIS_tid,
+    S_AXIS_tkeep,
+    S_AXIS_tlast,
+    S_AXIS_tready,
+    S_AXIS_tuser,
+    S_AXIS_tvalid);
+  input M_AXIS_ACLK;
+  input M_AXIS_ARESETN;
+  output [511:0]M_AXIS_tdata;
+  output [2:0]M_AXIS_tid;
+  output [63:0]M_AXIS_tkeep;
+  output M_AXIS_tlast;
+  input M_AXIS_tready;
+  output [63:0]M_AXIS_tstrb;
+  output [63:0]M_AXIS_tuser;
+  output M_AXIS_tvalid;
+  input S_AXIS_ACLK;
+  input S_AXIS_ARESETN;
+  input [511:0]S_AXIS_tdata;
+  input [2:0]S_AXIS_tid;
+  input [63:0]S_AXIS_tkeep;
+  input S_AXIS_tlast;
+  output S_AXIS_tready;
+  input [63:0]S_AXIS_tuser;
+  input S_AXIS_tvalid;
+
+  wire M_AXIS_ACLK_1;
+  wire M_AXIS_ARESETN_1;
+  wire S_AXIS_ACLK_1;
+  wire S_AXIS_ARESETN_1;
+  wire [511:0]auto_cc_to_auto_ss_slid_TDATA;
+  wire [2:0]auto_cc_to_auto_ss_slid_TID;
+  wire [63:0]auto_cc_to_auto_ss_slid_TKEEP;
+  wire auto_cc_to_auto_ss_slid_TLAST;
+  wire auto_cc_to_auto_ss_slid_TREADY;
+  wire [63:0]auto_cc_to_auto_ss_slid_TUSER;
+  wire auto_cc_to_auto_ss_slid_TVALID;
+  wire [511:0]auto_ss_slid_to_s01_couplers_TDATA;
+  wire [2:0]auto_ss_slid_to_s01_couplers_TID;
+  wire [63:0]auto_ss_slid_to_s01_couplers_TKEEP;
+  wire auto_ss_slid_to_s01_couplers_TLAST;
+  wire auto_ss_slid_to_s01_couplers_TREADY;
+  wire [63:0]auto_ss_slid_to_s01_couplers_TSTRB;
+  wire [63:0]auto_ss_slid_to_s01_couplers_TUSER;
+  wire auto_ss_slid_to_s01_couplers_TVALID;
+  wire [511:0]s01_couplers_to_auto_cc_TDATA;
+  wire [2:0]s01_couplers_to_auto_cc_TID;
+  wire [63:0]s01_couplers_to_auto_cc_TKEEP;
+  wire s01_couplers_to_auto_cc_TLAST;
+  wire s01_couplers_to_auto_cc_TREADY;
+  wire [63:0]s01_couplers_to_auto_cc_TUSER;
+  wire s01_couplers_to_auto_cc_TVALID;
+
+  assign M_AXIS_ACLK_1 = M_AXIS_ACLK;
+  assign M_AXIS_ARESETN_1 = M_AXIS_ARESETN;
+  assign M_AXIS_tdata[511:0] = auto_ss_slid_to_s01_couplers_TDATA;
+  assign M_AXIS_tid[2:0] = auto_ss_slid_to_s01_couplers_TID;
+  assign M_AXIS_tkeep[63:0] = auto_ss_slid_to_s01_couplers_TKEEP;
+  assign M_AXIS_tlast = auto_ss_slid_to_s01_couplers_TLAST;
+  assign M_AXIS_tstrb[63:0] = auto_ss_slid_to_s01_couplers_TSTRB;
+  assign M_AXIS_tuser[63:0] = auto_ss_slid_to_s01_couplers_TUSER;
+  assign M_AXIS_tvalid = auto_ss_slid_to_s01_couplers_TVALID;
+  assign S_AXIS_ACLK_1 = S_AXIS_ACLK;
+  assign S_AXIS_ARESETN_1 = S_AXIS_ARESETN;
+  assign S_AXIS_tready = s01_couplers_to_auto_cc_TREADY;
+  assign auto_ss_slid_to_s01_couplers_TREADY = M_AXIS_tready;
+  assign s01_couplers_to_auto_cc_TDATA = S_AXIS_tdata[511:0];
+  assign s01_couplers_to_auto_cc_TID = S_AXIS_tid[2:0];
+  assign s01_couplers_to_auto_cc_TKEEP = S_AXIS_tkeep[63:0];
+  assign s01_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
+  assign s01_couplers_to_auto_cc_TUSER = S_AXIS_tuser[63:0];
+  assign s01_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
+  test_logic_single_port_auto_cc_1 auto_cc
+       (.m_axis_aclk(M_AXIS_ACLK_1),
+        .m_axis_aresetn(M_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
+        .m_axis_tid(auto_cc_to_auto_ss_slid_TID),
+        .m_axis_tkeep(auto_cc_to_auto_ss_slid_TKEEP),
+        .m_axis_tlast(auto_cc_to_auto_ss_slid_TLAST),
+        .m_axis_tready(auto_cc_to_auto_ss_slid_TREADY),
+        .m_axis_tuser(auto_cc_to_auto_ss_slid_TUSER),
+        .m_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID),
+        .s_axis_aclk(S_AXIS_ACLK_1),
+        .s_axis_aresetn(S_AXIS_ARESETN_1),
+        .s_axis_tdata(s01_couplers_to_auto_cc_TDATA),
+        .s_axis_tid(s01_couplers_to_auto_cc_TID),
+        .s_axis_tkeep(s01_couplers_to_auto_cc_TKEEP),
+        .s_axis_tlast(s01_couplers_to_auto_cc_TLAST),
+        .s_axis_tready(s01_couplers_to_auto_cc_TREADY),
+        .s_axis_tuser(s01_couplers_to_auto_cc_TUSER),
+        .s_axis_tvalid(s01_couplers_to_auto_cc_TVALID));
+  test_logic_single_port_auto_ss_slid_1 auto_ss_slid
+       (.aclk(M_AXIS_ACLK_1),
+        .aresetn(M_AXIS_ARESETN_1),
+        .m_axis_tdata(auto_ss_slid_to_s01_couplers_TDATA),
+        .m_axis_tid(auto_ss_slid_to_s01_couplers_TID),
+        .m_axis_tkeep(auto_ss_slid_to_s01_couplers_TKEEP),
+        .m_axis_tlast(auto_ss_slid_to_s01_couplers_TLAST),
+        .m_axis_tready(auto_ss_slid_to_s01_couplers_TREADY),
+        .m_axis_tstrb(auto_ss_slid_to_s01_couplers_TSTRB),
+        .m_axis_tuser(auto_ss_slid_to_s01_couplers_TUSER),
+        .m_axis_tvalid(auto_ss_slid_to_s01_couplers_TVALID),
+        .s_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
+        .s_axis_tid(auto_cc_to_auto_ss_slid_TID),
+        .s_axis_tkeep(auto_cc_to_auto_ss_slid_TKEEP),
+        .s_axis_tlast(auto_cc_to_auto_ss_slid_TLAST),
+        .s_axis_tready(auto_cc_to_auto_ss_slid_TREADY),
+        .s_axis_tuser(auto_cc_to_auto_ss_slid_TUSER),
+        .s_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID));
+endmodule
+
+(* CORE_GENERATION_INFO = "test_logic_single_port,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=test_logic_single_port,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=36,numReposBlks=29,numNonXlnxBlks=5,numHierBlks=7,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "test_logic_single_port.hwdef" *) 
 module test_logic_single_port
    (board_led,
     check_ready,
@@ -667,6 +970,20 @@ module test_logic_single_port
   wire fifo_to_ponylink_axis_out_TREADY;
   wire [7:0]fifo_to_ponylink_axis_out_TUSER;
   wire fifo_to_ponylink_axis_out_TVALID;
+  wire [511:0]frame_checker_axis_out_TDATA;
+  wire [2:0]frame_checker_axis_out_TID;
+  wire [63:0]frame_checker_axis_out_TKEEP;
+  wire frame_checker_axis_out_TLAST;
+  wire frame_checker_axis_out_TREADY;
+  wire [63:0]frame_checker_axis_out_TUSER;
+  wire frame_checker_axis_out_TVALID;
+  wire [511:0]frame_generator_m_axis_TDATA;
+  wire [2:0]frame_generator_m_axis_TID;
+  wire [63:0]frame_generator_m_axis_TKEEP;
+  wire frame_generator_m_axis_TLAST;
+  wire frame_generator_m_axis_TREADY;
+  wire [63:0]frame_generator_m_axis_TUSER;
+  wire frame_generator_m_axis_TVALID;
   wire [7:0]ponylink_to_zynq_axis_out_TDATA;
   wire ponylink_to_zynq_axis_out_TLAST;
   wire ponylink_to_zynq_axis_out_TREADY;
@@ -679,23 +996,23 @@ module test_logic_single_port
   wire ponylink_to_zynq_mode_send;
   wire ponylink_to_zynq_resetn_out;
   wire [191:0]port_config_1;
-  wire [63:0]rx_width_converter_M_AXIS_TDATA;
-  wire [7:0]rx_width_converter_M_AXIS_TKEEP;
+  wire [511:0]rx_width_converter_M_AXIS_TDATA;
+  wire [63:0]rx_width_converter_M_AXIS_TKEEP;
   wire rx_width_converter_M_AXIS_TLAST;
   wire rx_width_converter_M_AXIS_TREADY;
-  wire [7:0]rx_width_converter_M_AXIS_TUSER;
+  wire [63:0]rx_width_converter_M_AXIS_TUSER;
   wire rx_width_converter_M_AXIS_TVALID;
+  wire [63:0]rx_width_upsizer1_M_AXIS_TDATA;
+  wire [2:0]rx_width_upsizer1_M_AXIS_TID;
+  wire [7:0]rx_width_upsizer1_M_AXIS_TKEEP;
+  wire rx_width_upsizer1_M_AXIS_TLAST;
+  wire rx_width_upsizer1_M_AXIS_TREADY;
+  wire [7:0]rx_width_upsizer1_M_AXIS_TUSER;
+  wire rx_width_upsizer1_M_AXIS_TVALID;
   wire [1:0]sfp_led_concat_dout;
   wire sfp_rx_los_1;
   wire start_1;
   wire stop_1;
-  wire [63:0]tanlabs_frame_checker_0_axis_out_TDATA;
-  wire [2:0]tanlabs_frame_checker_0_axis_out_TID;
-  wire [7:0]tanlabs_frame_checker_0_axis_out_TKEEP;
-  wire tanlabs_frame_checker_0_axis_out_TLAST;
-  wire tanlabs_frame_checker_0_axis_out_TREADY;
-  wire [7:0]tanlabs_frame_checker_0_axis_out_TUSER;
-  wire tanlabs_frame_checker_0_axis_out_TVALID;
   wire tanlabs_frame_checker_0_ready;
   wire [127:0]tanlabs_frame_checker_0_result;
   wire tanlabs_frame_genera_0_ready;
@@ -790,7 +1107,7 @@ module test_logic_single_port
         .M00_AXIS_tready(axis_interconnect_0_M00_AXIS_TREADY),
         .M00_AXIS_tuser(axis_interconnect_0_M00_AXIS_TUSER),
         .M00_AXIS_tvalid(axis_interconnect_0_M00_AXIS_TVALID),
-        .S00_ARB_REQ_SUPPRESS(xlconstant_0_dout),
+        .S00_ARB_REQ_SUPPRESS(1'b0),
         .S00_AXIS_ACLK(clk_40M_1),
         .S00_AXIS_ARESETN(ponylink_to_zynq_resetn_out),
         .S00_AXIS_tdata(ponylink_to_zynq_axis_out_TDATA),
@@ -799,9 +1116,16 @@ module test_logic_single_port
         .S00_AXIS_tstrb(ponylink_to_zynq_axis_out_TSTRB),
         .S00_AXIS_tuser(ponylink_to_zynq_axis_out_TUSER),
         .S00_AXIS_tvalid(ponylink_to_zynq_axis_out_TVALID),
-        .S01_ARB_REQ_SUPPRESS(xlconstant_0_dout),
+        .S01_ARB_REQ_SUPPRESS(1'b0),
         .S01_AXIS_ACLK(ACLK_1),
-        .S01_AXIS_ARESETN(util_vector_logic_3_Res));
+        .S01_AXIS_ARESETN(util_vector_logic_3_Res),
+        .S01_AXIS_tdata(frame_generator_m_axis_TDATA),
+        .S01_AXIS_tid(frame_generator_m_axis_TID),
+        .S01_AXIS_tkeep(frame_generator_m_axis_TKEEP),
+        .S01_AXIS_tlast(frame_generator_m_axis_TLAST),
+        .S01_AXIS_tready(frame_generator_m_axis_TREADY),
+        .S01_AXIS_tuser(frame_generator_m_axis_TUSER),
+        .S01_AXIS_tvalid(frame_generator_m_axis_TVALID));
   test_logic_single_port_axis_ix_to_ponylink_0 axis_ix_to_ponylink
        (.ACLK(ACLK_1),
         .ARESETN(util_vector_logic_3_Res),
@@ -841,21 +1165,21 @@ module test_logic_single_port
         .m_user(fifo_to_ponylink_axis_out_TUSER),
         .m_valid(fifo_to_ponylink_axis_out_TVALID),
         .reset(axi_ethernet_inner_rx_reset),
-        .s_data(tanlabs_frame_checker_0_axis_out_TDATA),
-        .s_id(tanlabs_frame_checker_0_axis_out_TID),
-        .s_keep(tanlabs_frame_checker_0_axis_out_TKEEP),
-        .s_last(tanlabs_frame_checker_0_axis_out_TLAST),
-        .s_ready(tanlabs_frame_checker_0_axis_out_TREADY),
-        .s_user(tanlabs_frame_checker_0_axis_out_TUSER),
-        .s_valid(tanlabs_frame_checker_0_axis_out_TVALID));
+        .s_data(rx_width_upsizer1_M_AXIS_TDATA),
+        .s_id(rx_width_upsizer1_M_AXIS_TID),
+        .s_keep(rx_width_upsizer1_M_AXIS_TKEEP),
+        .s_last(rx_width_upsizer1_M_AXIS_TLAST),
+        .s_ready(rx_width_upsizer1_M_AXIS_TREADY),
+        .s_user(rx_width_upsizer1_M_AXIS_TUSER),
+        .s_valid(rx_width_upsizer1_M_AXIS_TVALID));
   test_logic_single_port_frame_checker_0 frame_checker
-       (.axis_m_data(tanlabs_frame_checker_0_axis_out_TDATA),
-        .axis_m_id(tanlabs_frame_checker_0_axis_out_TID),
-        .axis_m_keep(tanlabs_frame_checker_0_axis_out_TKEEP),
-        .axis_m_last(tanlabs_frame_checker_0_axis_out_TLAST),
-        .axis_m_ready(tanlabs_frame_checker_0_axis_out_TREADY),
-        .axis_m_user(tanlabs_frame_checker_0_axis_out_TUSER),
-        .axis_m_valid(tanlabs_frame_checker_0_axis_out_TVALID),
+       (.axis_m_data(frame_checker_axis_out_TDATA),
+        .axis_m_id(frame_checker_axis_out_TID),
+        .axis_m_keep(frame_checker_axis_out_TKEEP),
+        .axis_m_last(frame_checker_axis_out_TLAST),
+        .axis_m_ready(frame_checker_axis_out_TREADY),
+        .axis_m_user(frame_checker_axis_out_TUSER),
+        .axis_m_valid(frame_checker_axis_out_TVALID),
         .axis_s_data(rx_width_converter_M_AXIS_TDATA),
         .axis_s_id({1'b0,1'b0,1'b0}),
         .axis_s_keep(rx_width_converter_M_AXIS_TKEEP),
@@ -870,7 +1194,13 @@ module test_logic_single_port
         .start(start_1),
         .stop(stop_1));
   test_logic_single_port_frame_generator_0 frame_generator
-       (.axis_m_ready(1'b1),
+       (.axis_m_data(frame_generator_m_axis_TDATA),
+        .axis_m_id(frame_generator_m_axis_TID),
+        .axis_m_keep(frame_generator_m_axis_TKEEP),
+        .axis_m_last(frame_generator_m_axis_TLAST),
+        .axis_m_ready(frame_generator_m_axis_TREADY),
+        .axis_m_user(frame_generator_m_axis_TUSER),
+        .axis_m_valid(frame_generator_m_axis_TVALID),
         .clk(ACLK_1),
         .port_config(port_config_1),
         .ready(tanlabs_frame_genera_0_ready),
@@ -898,7 +1228,24 @@ module test_logic_single_port
         .mode_recv(ponylink_to_zynq_mode_recv),
         .mode_send(ponylink_to_zynq_mode_send),
         .resetn_out(ponylink_to_zynq_resetn_out));
-  test_logic_single_port_rx_width_converter_0 rx_width_converter
+  test_logic_single_port_rx_width_upsizer_0 rx_width_downsizer
+       (.aclk(ACLK_1),
+        .aresetn(util_vector_logic_3_Res),
+        .m_axis_tdata(rx_width_upsizer1_M_AXIS_TDATA),
+        .m_axis_tid(rx_width_upsizer1_M_AXIS_TID),
+        .m_axis_tkeep(rx_width_upsizer1_M_AXIS_TKEEP),
+        .m_axis_tlast(rx_width_upsizer1_M_AXIS_TLAST),
+        .m_axis_tready(rx_width_upsizer1_M_AXIS_TREADY),
+        .m_axis_tuser(rx_width_upsizer1_M_AXIS_TUSER),
+        .m_axis_tvalid(rx_width_upsizer1_M_AXIS_TVALID),
+        .s_axis_tdata(frame_checker_axis_out_TDATA),
+        .s_axis_tid(frame_checker_axis_out_TID),
+        .s_axis_tkeep(frame_checker_axis_out_TKEEP),
+        .s_axis_tlast(frame_checker_axis_out_TLAST),
+        .s_axis_tready(frame_checker_axis_out_TREADY),
+        .s_axis_tuser(frame_checker_axis_out_TUSER),
+        .s_axis_tvalid(frame_checker_axis_out_TVALID));
+  test_logic_single_port_rx_width_converter_0 rx_width_upsizer
        (.aclk(ACLK_1),
         .aresetn(util_vector_logic_3_Res),
         .m_axis_tdata(rx_width_converter_M_AXIS_TDATA),
@@ -908,6 +1255,7 @@ module test_logic_single_port
         .m_axis_tuser(rx_width_converter_M_AXIS_TUSER),
         .m_axis_tvalid(rx_width_converter_M_AXIS_TVALID),
         .s_axis_tdata(axi_ethernet_inner_m_axis_rx_TDATA),
+        .s_axis_tkeep(1'b1),
         .s_axis_tlast(axi_ethernet_inner_m_axis_rx_TLAST),
         .s_axis_tuser(axi_ethernet_inner_m_axis_rx_TUSER),
         .s_axis_tvalid(axi_ethernet_inner_m_axis_rx_TVALID));
@@ -943,7 +1291,14 @@ module test_logic_single_port_axis_ix_to_eth_0
     S00_AXIS_tvalid,
     S01_ARB_REQ_SUPPRESS,
     S01_AXIS_ACLK,
-    S01_AXIS_ARESETN);
+    S01_AXIS_ARESETN,
+    S01_AXIS_tdata,
+    S01_AXIS_tid,
+    S01_AXIS_tkeep,
+    S01_AXIS_tlast,
+    S01_AXIS_tready,
+    S01_AXIS_tuser,
+    S01_AXIS_tvalid);
   input ACLK;
   input ARESETN;
   input M00_AXIS_ACLK;
@@ -953,7 +1308,7 @@ module test_logic_single_port_axis_ix_to_eth_0
   input M00_AXIS_tready;
   output [0:0]M00_AXIS_tuser;
   output M00_AXIS_tvalid;
-  input [7:0]S00_ARB_REQ_SUPPRESS;
+  input S00_ARB_REQ_SUPPRESS;
   input S00_AXIS_ACLK;
   input S00_AXIS_ARESETN;
   input [7:0]S00_AXIS_tdata;
@@ -962,49 +1317,128 @@ module test_logic_single_port_axis_ix_to_eth_0
   input [0:0]S00_AXIS_tstrb;
   input [0:0]S00_AXIS_tuser;
   input S00_AXIS_tvalid;
-  input [7:0]S01_ARB_REQ_SUPPRESS;
+  input S01_ARB_REQ_SUPPRESS;
   input S01_AXIS_ACLK;
   input S01_AXIS_ARESETN;
+  input [511:0]S01_AXIS_tdata;
+  input [2:0]S01_AXIS_tid;
+  input [63:0]S01_AXIS_tkeep;
+  input S01_AXIS_tlast;
+  output S01_AXIS_tready;
+  input [63:0]S01_AXIS_tuser;
+  input S01_AXIS_tvalid;
 
   wire M00_AXIS_ACLK_1;
   wire M00_AXIS_ARESETN_1;
   wire S00_AXIS_ACLK_1;
   wire S00_AXIS_ARESETN_1;
+  wire S01_AXIS_ACLK_1;
+  wire S01_AXIS_ARESETN_1;
+  wire axis_ix_to_eth_ACLK_net;
+  wire axis_ix_to_eth_ARESETN_net;
   wire [7:0]axis_ix_to_eth_to_s00_couplers_TDATA;
   wire axis_ix_to_eth_to_s00_couplers_TLAST;
   wire axis_ix_to_eth_to_s00_couplers_TREADY;
   wire [0:0]axis_ix_to_eth_to_s00_couplers_TSTRB;
   wire [0:0]axis_ix_to_eth_to_s00_couplers_TUSER;
   wire axis_ix_to_eth_to_s00_couplers_TVALID;
-  wire [7:0]s00_couplers_to_axis_ix_to_eth_TDATA;
-  wire s00_couplers_to_axis_ix_to_eth_TLAST;
-  wire s00_couplers_to_axis_ix_to_eth_TREADY;
-  wire [0:0]s00_couplers_to_axis_ix_to_eth_TUSER;
-  wire s00_couplers_to_axis_ix_to_eth_TVALID;
+  wire [511:0]axis_ix_to_eth_to_s01_couplers_TDATA;
+  wire [2:0]axis_ix_to_eth_to_s01_couplers_TID;
+  wire [63:0]axis_ix_to_eth_to_s01_couplers_TKEEP;
+  wire axis_ix_to_eth_to_s01_couplers_TLAST;
+  wire axis_ix_to_eth_to_s01_couplers_TREADY;
+  wire [63:0]axis_ix_to_eth_to_s01_couplers_TUSER;
+  wire axis_ix_to_eth_to_s01_couplers_TVALID;
+  wire [7:0]m00_couplers_to_axis_ix_to_eth_TDATA;
+  wire m00_couplers_to_axis_ix_to_eth_TLAST;
+  wire m00_couplers_to_axis_ix_to_eth_TREADY;
+  wire [0:0]m00_couplers_to_axis_ix_to_eth_TUSER;
+  wire m00_couplers_to_axis_ix_to_eth_TVALID;
+  wire s00_arb_req_suppress_to_s_arb_req_suppress_concat;
+  wire [511:0]s00_couplers_to_xbar_TDATA;
+  wire [2:0]s00_couplers_to_xbar_TID;
+  wire [63:0]s00_couplers_to_xbar_TKEEP;
+  wire s00_couplers_to_xbar_TLAST;
+  wire [0:0]s00_couplers_to_xbar_TREADY;
+  wire [63:0]s00_couplers_to_xbar_TSTRB;
+  wire [63:0]s00_couplers_to_xbar_TUSER;
+  wire s00_couplers_to_xbar_TVALID;
+  wire s01_arb_req_suppress_to_s_arb_req_suppress_concat;
+  wire [511:0]s01_couplers_to_xbar_TDATA;
+  wire [2:0]s01_couplers_to_xbar_TID;
+  wire [63:0]s01_couplers_to_xbar_TKEEP;
+  wire s01_couplers_to_xbar_TLAST;
+  wire [1:1]s01_couplers_to_xbar_TREADY;
+  wire [63:0]s01_couplers_to_xbar_TSTRB;
+  wire [63:0]s01_couplers_to_xbar_TUSER;
+  wire s01_couplers_to_xbar_TVALID;
+  wire [1:0]s_arb_req_suppress_concat_dout;
+  wire [511:0]xbar_to_m00_couplers_TDATA;
+  wire [2:0]xbar_to_m00_couplers_TID;
+  wire [63:0]xbar_to_m00_couplers_TKEEP;
+  wire [0:0]xbar_to_m00_couplers_TLAST;
+  wire xbar_to_m00_couplers_TREADY;
+  wire [63:0]xbar_to_m00_couplers_TSTRB;
+  wire [63:0]xbar_to_m00_couplers_TUSER;
+  wire [0:0]xbar_to_m00_couplers_TVALID;
 
   assign M00_AXIS_ACLK_1 = M00_AXIS_ACLK;
   assign M00_AXIS_ARESETN_1 = M00_AXIS_ARESETN;
-  assign M00_AXIS_tdata[7:0] = s00_couplers_to_axis_ix_to_eth_TDATA;
-  assign M00_AXIS_tlast = s00_couplers_to_axis_ix_to_eth_TLAST;
-  assign M00_AXIS_tuser[0] = s00_couplers_to_axis_ix_to_eth_TUSER;
-  assign M00_AXIS_tvalid = s00_couplers_to_axis_ix_to_eth_TVALID;
+  assign M00_AXIS_tdata[7:0] = m00_couplers_to_axis_ix_to_eth_TDATA;
+  assign M00_AXIS_tlast = m00_couplers_to_axis_ix_to_eth_TLAST;
+  assign M00_AXIS_tuser[0] = m00_couplers_to_axis_ix_to_eth_TUSER;
+  assign M00_AXIS_tvalid = m00_couplers_to_axis_ix_to_eth_TVALID;
   assign S00_AXIS_ACLK_1 = S00_AXIS_ACLK;
   assign S00_AXIS_ARESETN_1 = S00_AXIS_ARESETN;
   assign S00_AXIS_tready = axis_ix_to_eth_to_s00_couplers_TREADY;
+  assign S01_AXIS_ACLK_1 = S01_AXIS_ACLK;
+  assign S01_AXIS_ARESETN_1 = S01_AXIS_ARESETN;
+  assign S01_AXIS_tready = axis_ix_to_eth_to_s01_couplers_TREADY;
+  assign axis_ix_to_eth_ACLK_net = ACLK;
+  assign axis_ix_to_eth_ARESETN_net = ARESETN;
   assign axis_ix_to_eth_to_s00_couplers_TDATA = S00_AXIS_tdata[7:0];
   assign axis_ix_to_eth_to_s00_couplers_TLAST = S00_AXIS_tlast;
   assign axis_ix_to_eth_to_s00_couplers_TSTRB = S00_AXIS_tstrb[0];
   assign axis_ix_to_eth_to_s00_couplers_TUSER = S00_AXIS_tuser[0];
   assign axis_ix_to_eth_to_s00_couplers_TVALID = S00_AXIS_tvalid;
-  assign s00_couplers_to_axis_ix_to_eth_TREADY = M00_AXIS_tready;
-  s00_couplers_imp_24TIC8 s00_couplers
+  assign axis_ix_to_eth_to_s01_couplers_TDATA = S01_AXIS_tdata[511:0];
+  assign axis_ix_to_eth_to_s01_couplers_TID = S01_AXIS_tid[2:0];
+  assign axis_ix_to_eth_to_s01_couplers_TKEEP = S01_AXIS_tkeep[63:0];
+  assign axis_ix_to_eth_to_s01_couplers_TLAST = S01_AXIS_tlast;
+  assign axis_ix_to_eth_to_s01_couplers_TUSER = S01_AXIS_tuser[63:0];
+  assign axis_ix_to_eth_to_s01_couplers_TVALID = S01_AXIS_tvalid;
+  assign m00_couplers_to_axis_ix_to_eth_TREADY = M00_AXIS_tready;
+  assign s00_arb_req_suppress_to_s_arb_req_suppress_concat = S00_ARB_REQ_SUPPRESS;
+  assign s01_arb_req_suppress_to_s_arb_req_suppress_concat = S01_ARB_REQ_SUPPRESS;
+  m00_couplers_imp_1S0P32 m00_couplers
        (.M_AXIS_ACLK(M00_AXIS_ACLK_1),
         .M_AXIS_ARESETN(M00_AXIS_ARESETN_1),
-        .M_AXIS_tdata(s00_couplers_to_axis_ix_to_eth_TDATA),
-        .M_AXIS_tlast(s00_couplers_to_axis_ix_to_eth_TLAST),
-        .M_AXIS_tready(s00_couplers_to_axis_ix_to_eth_TREADY),
-        .M_AXIS_tuser(s00_couplers_to_axis_ix_to_eth_TUSER),
-        .M_AXIS_tvalid(s00_couplers_to_axis_ix_to_eth_TVALID),
+        .M_AXIS_tdata(m00_couplers_to_axis_ix_to_eth_TDATA),
+        .M_AXIS_tlast(m00_couplers_to_axis_ix_to_eth_TLAST),
+        .M_AXIS_tready(m00_couplers_to_axis_ix_to_eth_TREADY),
+        .M_AXIS_tuser(m00_couplers_to_axis_ix_to_eth_TUSER),
+        .M_AXIS_tvalid(m00_couplers_to_axis_ix_to_eth_TVALID),
+        .S_AXIS_ACLK(axis_ix_to_eth_ACLK_net),
+        .S_AXIS_ARESETN(axis_ix_to_eth_ARESETN_net),
+        .S_AXIS_tdata(xbar_to_m00_couplers_TDATA),
+        .S_AXIS_tid(xbar_to_m00_couplers_TID),
+        .S_AXIS_tkeep(xbar_to_m00_couplers_TKEEP),
+        .S_AXIS_tlast(xbar_to_m00_couplers_TLAST),
+        .S_AXIS_tready(xbar_to_m00_couplers_TREADY),
+        .S_AXIS_tstrb(xbar_to_m00_couplers_TSTRB),
+        .S_AXIS_tuser(xbar_to_m00_couplers_TUSER),
+        .S_AXIS_tvalid(xbar_to_m00_couplers_TVALID));
+  s00_couplers_imp_24TIC8 s00_couplers
+       (.M_AXIS_ACLK(axis_ix_to_eth_ACLK_net),
+        .M_AXIS_ARESETN(axis_ix_to_eth_ARESETN_net),
+        .M_AXIS_tdata(s00_couplers_to_xbar_TDATA),
+        .M_AXIS_tid(s00_couplers_to_xbar_TID),
+        .M_AXIS_tkeep(s00_couplers_to_xbar_TKEEP),
+        .M_AXIS_tlast(s00_couplers_to_xbar_TLAST),
+        .M_AXIS_tready(s00_couplers_to_xbar_TREADY),
+        .M_AXIS_tstrb(s00_couplers_to_xbar_TSTRB),
+        .M_AXIS_tuser(s00_couplers_to_xbar_TUSER),
+        .M_AXIS_tvalid(s00_couplers_to_xbar_TVALID),
         .S_AXIS_ACLK(S00_AXIS_ACLK_1),
         .S_AXIS_ARESETN(S00_AXIS_ARESETN_1),
         .S_AXIS_tdata(axis_ix_to_eth_to_s00_couplers_TDATA),
@@ -1013,6 +1447,50 @@ module test_logic_single_port_axis_ix_to_eth_0
         .S_AXIS_tstrb(axis_ix_to_eth_to_s00_couplers_TSTRB),
         .S_AXIS_tuser(axis_ix_to_eth_to_s00_couplers_TUSER),
         .S_AXIS_tvalid(axis_ix_to_eth_to_s00_couplers_TVALID));
+  s01_couplers_imp_1WDE4KY s01_couplers
+       (.M_AXIS_ACLK(axis_ix_to_eth_ACLK_net),
+        .M_AXIS_ARESETN(axis_ix_to_eth_ARESETN_net),
+        .M_AXIS_tdata(s01_couplers_to_xbar_TDATA),
+        .M_AXIS_tid(s01_couplers_to_xbar_TID),
+        .M_AXIS_tkeep(s01_couplers_to_xbar_TKEEP),
+        .M_AXIS_tlast(s01_couplers_to_xbar_TLAST),
+        .M_AXIS_tready(s01_couplers_to_xbar_TREADY),
+        .M_AXIS_tstrb(s01_couplers_to_xbar_TSTRB),
+        .M_AXIS_tuser(s01_couplers_to_xbar_TUSER),
+        .M_AXIS_tvalid(s01_couplers_to_xbar_TVALID),
+        .S_AXIS_ACLK(S01_AXIS_ACLK_1),
+        .S_AXIS_ARESETN(S01_AXIS_ARESETN_1),
+        .S_AXIS_tdata(axis_ix_to_eth_to_s01_couplers_TDATA),
+        .S_AXIS_tid(axis_ix_to_eth_to_s01_couplers_TID),
+        .S_AXIS_tkeep(axis_ix_to_eth_to_s01_couplers_TKEEP),
+        .S_AXIS_tlast(axis_ix_to_eth_to_s01_couplers_TLAST),
+        .S_AXIS_tready(axis_ix_to_eth_to_s01_couplers_TREADY),
+        .S_AXIS_tuser(axis_ix_to_eth_to_s01_couplers_TUSER),
+        .S_AXIS_tvalid(axis_ix_to_eth_to_s01_couplers_TVALID));
+  test_logic_single_port_s_arb_req_suppress_concat_0 s_arb_req_suppress_concat
+       (.In0(s00_arb_req_suppress_to_s_arb_req_suppress_concat),
+        .In1(s01_arb_req_suppress_to_s_arb_req_suppress_concat),
+        .dout(s_arb_req_suppress_concat_dout));
+  test_logic_single_port_xbar_0 xbar
+       (.aclk(axis_ix_to_eth_ACLK_net),
+        .aresetn(axis_ix_to_eth_ARESETN_net),
+        .m_axis_tdata(xbar_to_m00_couplers_TDATA),
+        .m_axis_tid(xbar_to_m00_couplers_TID),
+        .m_axis_tkeep(xbar_to_m00_couplers_TKEEP),
+        .m_axis_tlast(xbar_to_m00_couplers_TLAST),
+        .m_axis_tready(xbar_to_m00_couplers_TREADY),
+        .m_axis_tstrb(xbar_to_m00_couplers_TSTRB),
+        .m_axis_tuser(xbar_to_m00_couplers_TUSER),
+        .m_axis_tvalid(xbar_to_m00_couplers_TVALID),
+        .s_axis_tdata({s01_couplers_to_xbar_TDATA,s00_couplers_to_xbar_TDATA}),
+        .s_axis_tid({s01_couplers_to_xbar_TID,s00_couplers_to_xbar_TID}),
+        .s_axis_tkeep({s01_couplers_to_xbar_TKEEP,s00_couplers_to_xbar_TKEEP}),
+        .s_axis_tlast({s01_couplers_to_xbar_TLAST,s00_couplers_to_xbar_TLAST}),
+        .s_axis_tready({s01_couplers_to_xbar_TREADY,s00_couplers_to_xbar_TREADY}),
+        .s_axis_tstrb({s01_couplers_to_xbar_TSTRB,s00_couplers_to_xbar_TSTRB}),
+        .s_axis_tuser({s01_couplers_to_xbar_TUSER,s00_couplers_to_xbar_TUSER}),
+        .s_axis_tvalid({s01_couplers_to_xbar_TVALID,s00_couplers_to_xbar_TVALID}),
+        .s_req_suppress(s_arb_req_suppress_concat_dout));
 endmodule
 
 module test_logic_single_port_axis_ix_to_ponylink_0
