@@ -82,9 +82,9 @@ module thinrouter_top(
     output wire video_de
 );
 
-    // higher bits of led are used by ZynQ
+    // lower bits of led are used by Zynq
     wire [7:0] available_leds;
-    assign led = {{8{1'bZ}}, available_leds};
+    assign led = {available_leds, {8{1'bZ}}};
     assign sfp_tx_disable = '0;
 
     tanlabs_speed_tester speed_tester_inst(
