@@ -63,14 +63,14 @@ module frame_checker_impl #(
     assign first_beat_header = axis_s_data;
 
     // check testing flags
-    wire is_first_test_beat, prev_test_beat, is_test_frame;
+    logic is_first_test_beat, prev_test_beat, is_test_frame;
     assign is_test_frame = (!rst) && (is_first_test_beat || prev_test_beat);
     assign is_first_test_beat = (!rst) && axis_s_valid
-        && (first_beat_header.eth_header.ether_type = {<<8{16'h0800}})
-        && (first_beat_header.ip_header.proto = `TEST_FRAME_PROTO)
-        && (first_beat_header.ip_header.tos = `TEST_FRAME_TOS)
-        && (first_beat_header.ip_header.version = 4'd4)
-        && (first_beat_header.ip_header.ihl = 4'd5);
+        && (first_beat_header.eth_header.ether_type == u16_t'({<<8{16'h0800}}))
+        && (first_beat_header.ip_header.proto == `TEST_FRAME_PROTO)
+        && (first_beat_header.ip_header.tos == `TEST_FRAME_TOS)
+        && (first_beat_header.ip_header.version == 4'd4)
+        && (first_beat_header.ip_header.ihl == 4'd5);
 
     // dummy handshake to drop test frames
     wire axis_recv_ready;
@@ -126,7 +126,7 @@ module frame_checker_impl #(
     wire [DATA_WIDTH / 8 - 1:0] full_match;
     generate
         for (genvar i = 0; i < DATA_WIDTH / 8; ++i) begin
-            assign full_match[i] = (!rst) && s_axis_data[8*i +: 8] == random_content[8*i +: 8];
+            assign full_match[i] = (!rst) && axis_s_data[8*i +: 8] == random_content[8*i +: 8];
         end
     endgenerate
 
@@ -153,7 +153,7 @@ module frame_checker_impl #(
     always_ff @(posedge clk) begin
         if (rst) begin
             prev_beats_correct <= 1'b0;
-            prev_beat_size <= '0;
+            prev_beat_size_sum <= '0;
         end else begin
             if (beat_sent) begin
                 prev_beats_correct <= beats_correct;

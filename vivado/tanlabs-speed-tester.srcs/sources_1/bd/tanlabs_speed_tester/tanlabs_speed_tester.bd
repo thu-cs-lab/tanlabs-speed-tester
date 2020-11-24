@@ -1060,6 +1060,30 @@
       }
     },
     "interface_nets": {
+      "test_logic_port_2_sfp": {
+        "interface_ports": [
+          "sfp_port_2",
+          "test_logic_port_2/sfp"
+        ]
+      },
+      "axi_mm2s_mapper_0_M_AXIS": {
+        "interface_ports": [
+          "control_signal_mapper/M_AXIS",
+          "ponylink_ctrl/axis_in"
+        ]
+      },
+      "test_logic_port_1_sfp": {
+        "interface_ports": [
+          "sfp_port_1",
+          "test_logic_port_1/sfp"
+        ]
+      },
+      "test_logic_single_po_0_sfp": {
+        "interface_ports": [
+          "sfp_port_0",
+          "test_logic_port_0/sfp"
+        ]
+      },
       "axi_bram_ctrl_0_BRAM_PORTA": {
         "interface_ports": [
           "control_mem_ctrl/BRAM_PORTA",
@@ -1075,22 +1099,10 @@
           "test_logic_port_0/eth_clks"
         ]
       },
-      "test_logic_port_2_sfp": {
-        "interface_ports": [
-          "sfp_port_2",
-          "test_logic_port_2/sfp"
-        ]
-      },
       "control_signal_mapper_M_AXI": {
         "interface_ports": [
           "control_signal_mapper/M_AXI",
           "control_mem_ctrl/S_AXI"
-        ]
-      },
-      "test_logic_port_1_sfp": {
-        "interface_ports": [
-          "sfp_port_1",
-          "test_logic_port_1/sfp"
         ]
       },
       "ponylink_to_zynq_axis_out": {
@@ -1103,18 +1115,6 @@
         "interface_ports": [
           "sfp_port_3",
           "test_logic_port_3/sfp"
-        ]
-      },
-      "test_logic_single_po_0_sfp": {
-        "interface_ports": [
-          "sfp_port_0",
-          "test_logic_port_0/sfp"
-        ]
-      },
-      "axi_mm2s_mapper_0_M_AXIS": {
-        "interface_ports": [
-          "control_signal_mapper/M_AXIS",
-          "ponylink_ctrl/axis_in"
         ]
       }
     },

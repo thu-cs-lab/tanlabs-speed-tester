@@ -132,15 +132,15 @@ preplace netloc test_logic_port_3_sfp_led 1 7 2 2760 1970 3140
 preplace netloc test_logic_port_2_sfp_led 1 7 2 2760 1200 3150
 preplace netloc test_logic_port_1_sfp_led 1 7 2 2750 1170 3130
 preplace netloc test_logic_port_0_sfp_led 1 7 2 2730 1990 3090
-preplace netloc test_logic_port_3_sfp 1 8 1 NJ 910
-preplace netloc test_logic_port_2_sfp 1 8 1 NJ 260
-preplace netloc test_logic_port_1_sfp 1 8 1 NJ 560
-preplace netloc control_signal_mapper_M_AXI 1 6 1 2120 1380n
-preplace netloc axi_ethernet_clock_w_0_clocks_out 1 7 1 2680 290n
-preplace netloc ponylink_to_zynq_axis_out 1 5 1 1780 1370n
-preplace netloc axi_mm2s_mapper_0_M_AXIS 1 4 3 1360 890 NJ 890 2100
-preplace netloc test_logic_single_po_0_sfp 1 8 1 NJ 1530
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 7 1 2730 1260n
+preplace netloc axi_ethernet_clock_w_0_clocks_out 1 7 1 2680 290n
+preplace netloc test_logic_port_2_sfp 1 8 1 NJ 260
+preplace netloc control_signal_mapper_M_AXI 1 6 1 2120 1380n
+preplace netloc test_logic_port_1_sfp 1 8 1 NJ 560
+preplace netloc ponylink_to_zynq_axis_out 1 5 1 1780 1370n
+preplace netloc test_logic_port_3_sfp 1 8 1 NJ 910
+preplace netloc test_logic_single_po_0_sfp 1 8 1 NJ 1530
+preplace netloc axi_mm2s_mapper_0_M_AXIS 1 4 3 1360 890 NJ 890 2100
 levelinfo -pg 1 0 100 340 720 1190 1560 1950 2360 2920 3170
 pagesize -pg 1 -db -bbox -sgen -160 0 3340 2000
 "
