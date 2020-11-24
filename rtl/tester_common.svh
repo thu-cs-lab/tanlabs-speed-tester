@@ -81,4 +81,33 @@ typedef struct packed {
 // default proto: test purpose
 `define TEST_FRAME_PROTO 8'hFD
 
+
+function logic [6:0] clz64(input logic [63:0] x);
+	for (int i = 0; i < 64; i++) begin
+		if (x[63 - i] == 1) begin
+			return i;
+		end
+	end
+	return 7'd64;
+endfunction
+
+
+function u16_t ip_header_checksum(input ip_header_t ip_header);
+    localparam checksum_num = $bits(ip_header_t) / 16;
+    logic [23:0] checksum_imm[checksum_num:0];
+    generate
+        assign checksum_imm[0] = '0;
+        for (genvar i = 0; i < checksum_num; i += 1) begin
+            if (i != 5)
+                assign checksum_imm[i + 1] = checksum_imm[i] + ip_header[16 * i +: 16];
+            else // skip checksum field
+                assign checksum_imm[i + 1] = checksum_imm[i];
+        end
+    endgenerate
+    logic [23:0] checksum_wrap;
+    // wrap around twice for possible overflow
+    assign checksum_wrap = checksum_imm[checksum_num][15:0] + checksum_imm[checksum_num][23:16];
+    return ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
+endfunction
+
 `endif
