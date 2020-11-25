@@ -40,8 +40,8 @@ module speed_test_controller #(
 );
 
     speed_test_controller_impl #(
-        .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-        .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
+        .C_S_AXI_DATA_WIDTH(C_S_AXI_DATA_WIDTH),
+        .C_S_AXI_ADDR_WIDTH(C_S_AXI_ADDR_WIDTH),
         .TEST_PORT_NUM(TEST_PORT_NUM),
         .CLOCK_FREQ(CLOCK_FREQ)
     ) speed_test_controller_inst (

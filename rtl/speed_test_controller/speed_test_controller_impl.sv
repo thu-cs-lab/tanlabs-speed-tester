@@ -48,7 +48,7 @@ module speed_test_controller_impl #(
     // AXI clocks
     wire  S_AXI_ACLK, S_AXI_ARESETN;
     assign A_AXI_ACLK = clk;
-    always A_AXI_ARESETN = ~rst;
+    assign A_AXI_ARESETN = ~rst;
 
     // AXI4LITE signals
     localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
@@ -175,7 +175,7 @@ module speed_test_controller_impl #(
             axi_start = 1'b0; 
         end else begin
             // start signals (reduce or lowest 8 bits)
-            axi_start = slv_reg_wern && axi_awaddr[8:0] == 9'd4 && !busy && S_AXI_WSTRB[0] && (&S_AXI_WDATA[0 +: 8]);
+            axi_start = slv_reg_wren && axi_awaddr[8:0] == 9'd4 && !busy && S_AXI_WSTRB[0] && (&S_AXI_WDATA[0 +: 8]);
         end
     end
 
@@ -190,8 +190,8 @@ module speed_test_controller_impl #(
           begin
             if (axi_awaddr[8:0] == 9'd8) begin
                 // test duration (only lowest 13 bits)
-                if (S_AXI_WSTRB[0]) duration[0 +: 8] <= S_AXI_DATA[0 +: 8];
-                if (S_AXI_WSTRB[1]) duration[8 +: 5] <= S_AXI_DATA[8 +: 5];
+                if (S_AXI_WSTRB[0]) duration[0 +: 8] <= S_AXI_WDATA[0 +: 8];
+                if (S_AXI_WSTRB[1]) duration[8 +: 5] <= S_AXI_WDATA[8 +: 5];
             end else if (axi_awaddr[8] == 1'b1 && axi_awaddr[7:ADDR_LSB] <= (8'h80 >> ADDR_LSB)) begin
                 // port configs range
                 for (int byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 ) begin
@@ -303,6 +303,9 @@ module speed_test_controller_impl #(
 	// Slave register read enable is asserted when valid address is available
 	// and the slave is ready to accept the read address.
 	assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+	logic [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
+	u16_t test_ms; // elapsed test time
+	
 	always_comb
     begin
         unique if (axi_araddr[8:0] == 9'd0) begin
@@ -352,7 +355,7 @@ module speed_test_controller_impl #(
     assign stop = {TEST_PORT_NUM{test_stop}};
 
     localparam CYCLE_PER_MS = CLOCK_FREQ / 1000;
-    u16_t test_ms, wait_ms;
+    u16_t wait_ms;
     u32_t cycle_counter;
 
     always_ff @(posedge clk) begin
