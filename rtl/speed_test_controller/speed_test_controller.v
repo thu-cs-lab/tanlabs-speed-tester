@@ -36,7 +36,7 @@ module speed_test_controller #(
     // frame checker & generator
     output wire [TEST_PORT_NUM-1:0] start,
     output wire [TEST_PORT_NUM-1:0] stop,
-    output wire [TEST_PORT_NUM-1:0][191:0] port_config
+    output wire [TEST_PORT_NUM-1:0][255:0] port_config
 );
 
     speed_test_controller_impl #(

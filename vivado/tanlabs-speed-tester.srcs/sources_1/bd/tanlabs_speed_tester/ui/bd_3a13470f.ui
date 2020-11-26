@@ -1,145 +1,145 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.292805",
-   "Default View_TopLeft":"-792,-379",
+   "Default View_ScaleFactor":"0.632203",
+   "Default View_TopLeft":"2300,796",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port sfp_port_0 -pg 1 -lvl 11 -x 4030 -y 1100 -defaultsOSRD
-preplace port sfp_port_1 -pg 1 -lvl 11 -x 4030 -y 710 -defaultsOSRD
-preplace port sfp_port_2 -pg 1 -lvl 11 -x 4030 -y 60 -defaultsOSRD
-preplace port sfp_port_3 -pg 1 -lvl 11 -x 4030 -y 1450 -defaultsOSRD
-preplace port ponylink_port_0 -pg 1 -lvl 11 -x 4030 -y 1200 -defaultsOSRD
-preplace port ponylink_port_1 -pg 1 -lvl 11 -x 4030 -y 810 -defaultsOSRD
-preplace port ponylink_port_2 -pg 1 -lvl 11 -x 4030 -y 160 -defaultsOSRD
-preplace port ponylink_port_3 -pg 1 -lvl 11 -x 4030 -y 1550 -defaultsOSRD
-preplace port ponylink_ctrl -pg 1 -lvl 11 -x 4030 -y 1690 -defaultsOSRD
+preplace port sfp_port_0 -pg 1 -lvl 11 -x 4050 -y 1100 -defaultsOSRD
+preplace port sfp_port_1 -pg 1 -lvl 11 -x 4050 -y 710 -defaultsOSRD
+preplace port sfp_port_2 -pg 1 -lvl 11 -x 4050 -y 60 -defaultsOSRD
+preplace port sfp_port_3 -pg 1 -lvl 11 -x 4050 -y 1450 -defaultsOSRD
+preplace port ponylink_port_0 -pg 1 -lvl 11 -x 4050 -y 1200 -defaultsOSRD
+preplace port ponylink_port_1 -pg 1 -lvl 11 -x 4050 -y 810 -defaultsOSRD
+preplace port ponylink_port_2 -pg 1 -lvl 11 -x 4050 -y 160 -defaultsOSRD
+preplace port ponylink_port_3 -pg 1 -lvl 11 -x 4050 -y 1550 -defaultsOSRD
+preplace port ponylink_ctrl -pg 1 -lvl 11 -x 4050 -y 1690 -defaultsOSRD
 preplace port gtrefclk_p -pg 1 -lvl 0 -x -50 -y 710 -defaultsOSRD
 preplace port gtrefclk_n -pg 1 -lvl 0 -x -50 -y 730 -defaultsOSRD
 preplace port clk_50M -pg 1 -lvl 0 -x -50 -y 540 -defaultsOSRD
 preplace port rst -pg 1 -lvl 0 -x -50 -y 560 -defaultsOSRD
 preplace portBus sfp_rx_los -pg 1 -lvl 0 -x -50 -y 1630 -defaultsOSRD
-preplace portBus sfp_led -pg 1 -lvl 11 -x 4030 -y 400 -defaultsOSRD
-preplace portBus leds -pg 1 -lvl 11 -x 4030 -y 560 -defaultsOSRD
-preplace inst axi_ethernet_clock_w_0 -pg 1 -lvl 9 -x 3200 -y 600 -defaultsOSRD
-preplace inst sfp_led_concat -pg 1 -lvl 10 -x 3700 -y 400 -defaultsOSRD
-preplace inst axi_ethernet_support -pg 1 -lvl 3 -x 650 -y 730 -defaultsOSRD
-preplace inst mmcm_ponylink -pg 1 -lvl 3 -x 650 -y 1150 -defaultsOSRD
-preplace inst board_led_concat -pg 1 -lvl 10 -x 3700 -y 560 -defaultsOSRD
+preplace portBus sfp_led -pg 1 -lvl 11 -x 4050 -y 400 -defaultsOSRD
+preplace portBus leds -pg 1 -lvl 11 -x 4050 -y 560 -defaultsOSRD
+preplace inst axi_ethernet_clock_w_0 -pg 1 -lvl 9 -x 3280 -y 600 -defaultsOSRD
+preplace inst sfp_led_concat -pg 1 -lvl 10 -x 3810 -y 400 -defaultsOSRD
+preplace inst axi_ethernet_support -pg 1 -lvl 3 -x 670 -y 730 -defaultsOSRD
+preplace inst mmcm_ponylink -pg 1 -lvl 3 -x 670 -y 1150 -defaultsOSRD
+preplace inst board_led_concat -pg 1 -lvl 10 -x 3810 -y 560 -defaultsOSRD
 preplace inst axi_ethernet_clocking -pg 1 -lvl 2 -x 290 -y 560 -defaultsOSRD
 preplace inst spf_rx_los_splitter -pg 1 -lvl 8 -x 2780 -y 1650 -defaultsOSRD
 preplace inst xlconstant_1 -pg 1 -lvl 1 -x 50 -y 630 -defaultsOSRD -resize 83 88
-preplace inst ponylink_ctrl -pg 1 -lvl 4 -x 1050 -y 1490 -defaultsOSRD
-preplace inst control_signal_mapper -pg 1 -lvl 5 -x 1300 -y 1280 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 3 -x 650 -y 1520 -defaultsOSRD
-preplace inst reset_sync_eth -pg 1 -lvl 4 -x 1050 -y 830 -defaultsOSRD
+preplace inst ponylink_ctrl -pg 1 -lvl 4 -x 1070 -y 1490 -defaultsOSRD
+preplace inst control_signal_mapper -pg 1 -lvl 5 -x 1340 -y 1280 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 3 -x 670 -y 1520 -defaultsOSRD
+preplace inst reset_sync_eth -pg 1 -lvl 4 -x 1070 -y 830 -defaultsOSRD
 preplace inst control_start_splitter -pg 1 -lvl 8 -x 2780 -y 930 -defaultsOSRD
 preplace inst control_stop_splitter -pg 1 -lvl 8 -x 2780 -y 1410 -defaultsOSRD
 preplace inst port_config_splitter -pg 1 -lvl 8 -x 2780 -y 1250 -defaultsOSRD
-preplace inst gen_ready_concat -pg 1 -lvl 6 -x 1725 -y 1090 -defaultsOSRD
-preplace inst check_ready_concat -pg 1 -lvl 6 -x 1725 -y 910 -defaultsOSRD
-preplace inst result_concat -pg 1 -lvl 6 -x 1725 -y 1720 -defaultsOSRD
-preplace inst test_logic_port_1 -pg 1 -lvl 10 -x 3700 -y 800 -defaultsOSRD
-preplace inst test_logic_port_2 -pg 1 -lvl 10 -x 3700 -y 150 -defaultsOSRD
-preplace inst test_logic_port_3 -pg 1 -lvl 10 -x 3700 -y 1540 -defaultsOSRD
-preplace inst test_logic_port_0 -pg 1 -lvl 10 -x 3700 -y 1190 -defaultsOSRD
+preplace inst gen_ready_concat -pg 1 -lvl 6 -x 1730 -y 1090 -defaultsOSRD
+preplace inst check_ready_concat -pg 1 -lvl 6 -x 1730 -y 910 -defaultsOSRD
+preplace inst result_concat -pg 1 -lvl 6 -x 1730 -y 1720 -defaultsOSRD
+preplace inst test_logic_port_1 -pg 1 -lvl 10 -x 3810 -y 800 -defaultsOSRD
+preplace inst test_logic_port_2 -pg 1 -lvl 10 -x 3810 -y 150 -defaultsOSRD
+preplace inst test_logic_port_3 -pg 1 -lvl 10 -x 3810 -y 1540 -defaultsOSRD
+preplace inst test_logic_port_0 -pg 1 -lvl 10 -x 3810 -y 1190 -defaultsOSRD
+preplace inst control_signal_ix -pg 1 -lvl 6 -x 1730 -y 1330 -defaultsOSRD
+preplace inst eth_reset_n -pg 1 -lvl 5 -x 1340 -y 1150 -defaultsOSRD -resize 83 88
 preplace inst test_controller -pg 1 -lvl 7 -x 2265 -y 1380 -defaultsOSRD
-preplace inst control_signal_ix -pg 1 -lvl 6 -x 1725 -y 1330 -defaultsOSRD
-preplace inst eth_reset_n -pg 1 -lvl 5 -x 1300 -y 1150 -defaultsOSRD -resize 83 88
 preplace netloc Net 1 10 1 NJ 1200
-preplace netloc sfp_rx_los_1 1 0 8 NJ 1630 NJ 1630 NJ 1630 NJ 1630 NJ 1630 1420J 1620 1910J 1650 NJ
-preplace netloc four_way_splitter_0_dout_1 1 8 2 3030J 1370 3470
+preplace netloc sfp_rx_los_1 1 0 8 NJ 1630 NJ 1630 NJ 1630 NJ 1630 NJ 1630 NJ 1630 NJ 1630 2460J
+preplace netloc four_way_splitter_0_dout_1 1 8 2 3110J 1370 3540
 preplace netloc xlconcat_0_dout 1 10 1 NJ 400
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outclk 1 3 6 850 620 NJ 620 NJ 620 NJ 620 NJ 620 NJ
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outrefclk 1 3 6 860 640 NJ 640 NJ 640 NJ 640 NJ 640 NJ
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outclk 1 3 6 890 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outrefclk 1 3 6 840J 690 NJ 690 NJ 690 NJ 690 NJ 690 2950
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll0lock_out 1 3 6 910 700 NJ 700 NJ 700 NJ 700 NJ 700 NJ
-preplace netloc axi_ethernet_0_suppo_0_gt0_pll0refclklost_out 1 3 6 930 720 NJ 720 NJ 720 NJ 720 NJ 720 NJ
-preplace netloc axi_ethernet_0_suppo_0_userclk 1 3 6 840 560 NJ 560 NJ 560 NJ 560 NJ 560 NJ
-preplace netloc axi_ethernet_0_suppo_0_userclk2 1 3 6 880 900 NJ 900 1460 820 1940 580 NJ 580 NJ
-preplace netloc axi_ethernet_0_suppo_0_rxuserclk 1 3 6 830 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ
-preplace netloc axi_ethernet_0_suppo_0_rxuserclk2 1 3 6 900 710 NJ 710 NJ 710 NJ 710 NJ 710 2940J
-preplace netloc axi_ethernet_0_suppo_0_gtref_clk 1 3 6 870 740 NJ 740 NJ 740 NJ 740 NJ 740 NJ
-preplace netloc axi_ethernet_0_suppo_0_gtref_clk_bufg 1 3 6 820 730 NJ 730 NJ 730 NJ 730 NJ 730 3020J
-preplace netloc axi_ethernet_0_suppo_0_locked 1 3 6 820 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ
-preplace netloc axi_ethernet_0_suppo_0_pma_reset 1 3 6 N 600 NJ 600 NJ 600 NJ 600 NJ 600 NJ
-preplace netloc Net4 1 2 7 480 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outclk 1 3 6 880 750 NJ 750 NJ 750 NJ 750 NJ 750 2990J
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0outrefclk 1 3 6 890 670 NJ 670 NJ 670 NJ 670 NJ 670 2930J
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outclk 1 3 6 910 680 NJ 680 NJ 680 NJ 680 NJ 680 2980J
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll1outrefclk 1 3 6 870J 690 NJ 690 NJ 690 NJ 690 NJ 690 3000
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0lock_out 1 3 6 920 700 NJ 700 NJ 700 NJ 700 NJ 700 NJ
+preplace netloc axi_ethernet_0_suppo_0_gt0_pll0refclklost_out 1 3 6 940 730 NJ 730 NJ 730 NJ 730 NJ 730 3000J
+preplace netloc axi_ethernet_0_suppo_0_userclk 1 3 6 870 560 NJ 560 NJ 560 NJ 560 NJ 560 NJ
+preplace netloc axi_ethernet_0_suppo_0_userclk2 1 3 6 900 760 NJ 760 1490 760 1940 760 NJ 760 2960J
+preplace netloc axi_ethernet_0_suppo_0_rxuserclk 1 3 6 850 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ
+preplace netloc axi_ethernet_0_suppo_0_rxuserclk2 1 3 6 880 540 NJ 540 NJ 540 NJ 540 NJ 540 NJ
+preplace netloc axi_ethernet_0_suppo_0_gtref_clk 1 3 6 N 720 NJ 720 NJ 720 NJ 720 NJ 720 2980J
+preplace netloc axi_ethernet_0_suppo_0_gtref_clk_bufg 1 3 6 N 740 NJ 740 NJ 740 NJ 740 NJ 740 2970J
+preplace netloc axi_ethernet_0_suppo_0_locked 1 3 6 840 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ
+preplace netloc axi_ethernet_0_suppo_0_pma_reset 1 3 6 910 660 NJ 660 NJ 660 NJ 660 NJ 660 2920J
+preplace netloc Net4 1 2 7 500 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ
 preplace netloc gtrefclk_p_1 1 0 3 NJ 710 NJ 710 NJ
 preplace netloc gtrefclk_n_1 1 0 3 NJ 730 NJ 730 NJ
-preplace netloc Net5 1 2 7 470 530 NJ 530 NJ 530 NJ 530 NJ 530 NJ 530 3030J
-preplace netloc test_logic_single_po_0_gt0_pll0reset_out 1 2 9 470 1840 NJ 1840 NJ 1840 NJ 1840 NJ 1840 NJ 1840 NJ 1840 NJ 1840 3950
-preplace netloc test_logic_single_po_0_txoutclk 1 2 9 460 1360 NJ 1360 NJ 1360 1420J 1200 1900J 1180 2490J 1160 NJ 1160 3420J 1340 3860
-preplace netloc clk_ponylink_clk_40M 1 3 7 870 1280 1180 1370 1450 1530 NJ 1530 NJ 1530 NJ 1530 3410
-preplace netloc clk_ponylink_clk_160M 1 3 7 830 1620 1180J 1540 NJ 1540 NJ 1540 NJ 1540 NJ 1540 3400
+preplace netloc Net5 1 2 7 460 910 930J 710 NJ 710 NJ 710 NJ 710 NJ 710 3090J
+preplace netloc test_logic_single_po_0_gt0_pll0reset_out 1 2 9 500 920 NJ 920 NJ 920 1460J 820 1930J 1040 NJ 1040 NJ 1040 NJ 1040 3970
+preplace netloc test_logic_single_po_0_txoutclk 1 2 9 480 1360 NJ 1360 1200J 1380 1500J 1200 1930J 1160 NJ 1160 NJ 1160 3520J 1350 3970
+preplace netloc clk_ponylink_clk_40M 1 3 7 930 1280 1230 1370 1470 1190 1910J 1140 NJ 1140 NJ 1140 3580
+preplace netloc clk_ponylink_clk_160M 1 3 7 870 1620 1200J 1510 NJ 1510 NJ 1510 NJ 1510 NJ 1510 3490
 preplace netloc clk_50M_1 1 0 2 NJ 540 NJ
-preplace netloc axi_ethernet_0_clock_0_sys_out_rst 1 2 7 NJ 540 920 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ
-preplace netloc axi_ethernet_0_clock_0_axi_lite_clk_bufg 1 2 7 460 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ
-preplace netloc rst_1 1 0 3 NJ 560 130 700 440J
+preplace netloc axi_ethernet_0_clock_0_sys_out_rst 1 2 7 NJ 540 860 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ
+preplace netloc axi_ethernet_0_clock_0_axi_lite_clk_bufg 1 2 7 450 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ
+preplace netloc rst_1 1 0 3 NJ 560 130 420 470J
 preplace netloc board_led_concat_dout 1 10 1 NJ 560
-preplace netloc axi_ethernet_clocking_ref_clk_50_bufg 1 2 1 450 600n
-preplace netloc xlconstant_1_dout 1 1 1 140J 580n
-preplace netloc Net6 1 4 7 NJ 1560 1420J 1590 1900J 1770 NJ 1770 2980J 1720 NJ 1720 4010J
-preplace netloc ponylink_to_zynq_resetn_out 1 4 2 1190 1380 1440J
+preplace netloc axi_ethernet_clocking_ref_clk_50_bufg 1 2 1 440 600n
+preplace netloc xlconstant_1_dout 1 1 1 130J 580n
+preplace netloc Net6 1 4 7 NJ 1560 NJ 1560 NJ 1560 NJ 1560 NJ 1560 3450J 1690 NJ
+preplace netloc ponylink_to_zynq_resetn_out 1 4 2 1210 1390 1450J
 preplace netloc xlconstant_2_dout 1 3 1 NJ 1520
-preplace netloc axi_ethernet_0_reset_0_reset_out 1 4 3 1170 1070 1440J 1210 1880J
-preplace netloc test_controller_start 1 7 1 2470 930n
-preplace netloc test_controller_stop 1 7 1 2470 1380n
-preplace netloc gen_ready_concat_dout 1 6 1 1910 1090n
-preplace netloc check_ready_concat_dout 1 6 1 1920 910n
-preplace netloc result_concat_dout 1 6 1 1930 1430n
-preplace netloc test_controller_port_config 1 7 1 2490 1250n
+preplace netloc axi_ethernet_0_reset_0_reset_out 1 4 3 1220 1360 1480J 1210 1880J
+preplace netloc test_controller_start 1 7 1 2460 930n
+preplace netloc test_controller_stop 1 7 1 2460 1380n
+preplace netloc gen_ready_concat_dout 1 6 1 1890 1090n
+preplace netloc check_ready_concat_dout 1 6 1 1900 910n
+preplace netloc result_concat_dout 1 6 1 1910 1430n
+preplace netloc test_controller_port_config 1 7 1 2470 1250n
 preplace netloc Net1 1 10 1 NJ 1550
 preplace netloc Net2 1 10 1 NJ 160
 preplace netloc Net3 1 10 1 NJ 810
-preplace netloc control_start_splitter_dout_4 1 8 2 3000 1020 3380J
-preplace netloc control_start_splitter_dout_3 1 8 2 2930J 350 3380
-preplace netloc control_start_splitter_dout_2 1 8 2 2940 840 NJ
-preplace netloc control_start_splitter_dout_1 1 8 2 NJ 900 3450
-preplace netloc control_stop_splitter_dout_4 1 8 2 2920 1520 3360J
-preplace netloc control_stop_splitter_dout_3 1 8 2 2960J 360 3390
-preplace netloc control_stop_splitter_dout_2 1 8 2 3010 860 NJ
-preplace netloc control_stop_splitter_dout_1 1 8 2 NJ 1380 3480
-preplace netloc spf_rx_los_splitter_dout_2 1 8 2 3020J 850 3370
-preplace netloc spf_rx_los_splitter_dout_3 1 8 2 2980J 340 3370
-preplace netloc spf_rx_los_splitter_dout_4 1 8 2 NJ 1680 3420
-preplace netloc test_logic_port_0_result 1 5 6 1540 1630 1890J 1740 NJ 1740 NJ 1740 NJ 1740 3900
-preplace netloc test_logic_port_1_result 1 5 6 1530 1820 NJ 1820 NJ 1820 NJ 1820 NJ 1820 3990
-preplace netloc test_logic_port_2_result 1 5 6 1520 1600 1940J 1580 2490J 1560 2930J 1710 NJ 1710 3980
-preplace netloc test_logic_port_3_result 1 5 6 1540 1830 NJ 1830 NJ 1830 NJ 1830 NJ 1830 3930
-preplace netloc test_logic_port_0_gen_ready 1 5 6 1480 1610 1880J 1780 NJ 1780 NJ 1780 NJ 1780 3940
-preplace netloc test_logic_port_1_gen_ready 1 5 6 1530 1570 NJ 1570 2460J 1760 NJ 1760 NJ 1760 3970
-preplace netloc test_logic_port_2_gen_ready 1 5 6 1540 1550 NJ 1550 NJ 1550 3040J 1510 3470J 1390 3960
-preplace netloc test_logic_port_3_gen_ready 1 5 6 1490 1810 NJ 1810 NJ 1810 NJ 1810 NJ 1810 3910
-preplace netloc port_config_splitter_dout_1 1 8 2 NJ 1220 3460
-preplace netloc port_config_splitter_dout_2 1 8 2 2990 870 3360J
-preplace netloc port_config_splitter_dout_3 1 8 2 2920J 330 3360
-preplace netloc port_config_splitter_dout_4 1 8 2 2930 1500 3370J
-preplace netloc test_logic_port_0_check_ready 1 5 6 1500 1180 1880J 1170 2460J 1050 NJ 1050 3430J 1040 3860
-preplace netloc test_logic_port_1_check_ready 1 5 6 1510 1190 NJ 1190 2480J 1040 NJ 1040 3420J 1020 3900
-preplace netloc test_logic_port_2_check_ready 1 5 6 1470 1580 1920J 1750 NJ 1750 NJ 1750 NJ 1750 4000
-preplace netloc test_logic_port_3_check_ready 1 5 6 1520 1520 NJ 1520 2480J 1790 NJ 1790 NJ 1790 3920
-preplace netloc test_logic_port_0_board_led 1 9 2 3520 960 3880
-preplace netloc test_logic_port_1_board_led 1 9 2 3540 650 3880
-preplace netloc test_logic_port_2_board_led 1 9 2 3500 300 3900
-preplace netloc test_logic_port_3_board_led 1 9 2 3530 1690 3870
-preplace netloc test_logic_port_0_rxoutclk 1 2 9 480 1000 NJ 1000 NJ 1000 NJ 1000 1930J 1020 NJ 1020 2970J 1030 NJ 1030 3870
-preplace netloc test_logic_port_3_sfp_led 1 9 2 3490 1700 3860
-preplace netloc test_logic_port_2_sfp_led 1 9 2 3540 310 3880
-preplace netloc test_logic_port_1_sfp_led 1 9 2 3510 950 3880
-preplace netloc test_logic_port_0_sfp_led 1 9 2 3470 980 3890
-preplace netloc eth_reset_n_Res 1 5 1 1430 1150n
+preplace netloc control_start_splitter_dout_4 1 8 2 N 960 3510J
+preplace netloc control_start_splitter_dout_3 1 8 2 2950J 340 3460
+preplace netloc control_start_splitter_dout_2 1 8 2 3060 910 3530J
+preplace netloc control_start_splitter_dout_1 1 8 2 NJ 900 3570
+preplace netloc control_stop_splitter_dout_4 1 8 2 2920 1500 3470J
+preplace netloc control_stop_splitter_dout_3 1 8 2 3010J 350 3470
+preplace netloc control_stop_splitter_dout_2 1 8 2 3080 860 NJ
+preplace netloc control_stop_splitter_dout_1 1 8 2 NJ 1380 3570
+preplace netloc spf_rx_los_splitter_dout_2 1 8 2 3090J 850 3520
+preplace netloc spf_rx_los_splitter_dout_3 1 8 2 3040J 330 3450
+preplace netloc spf_rx_los_splitter_dout_4 1 8 2 NJ 1680 3620
+preplace netloc test_logic_port_0_result 1 5 6 1570 1520 NJ 1520 NJ 1520 3100J 1480 3450J 1360 4000
+preplace netloc test_logic_port_1_result 1 5 6 1520 1000 1920J 1020 NJ 1020 NJ 1020 NJ 1020 4000
+preplace netloc test_logic_port_2_result 1 5 6 1510 800 NJ 800 NJ 800 2990J 980 NJ 980 4020
+preplace netloc test_logic_port_3_result 1 5 6 1580 1810 NJ 1810 NJ 1810 NJ 1810 NJ 1810 3990
+preplace netloc test_logic_port_0_gen_ready 1 5 6 1580 1530 NJ 1530 NJ 1530 NJ 1530 3440J 1720 4020
+preplace netloc test_logic_port_1_gen_ready 1 5 6 1530 780 NJ 780 NJ 780 3020J 1000 NJ 1000 4010
+preplace netloc test_logic_port_2_gen_ready 1 5 6 1540 790 NJ 790 NJ 790 3030J 970 NJ 970 4030
+preplace netloc test_logic_port_3_gen_ready 1 5 6 1560 810 NJ 810 NJ 810 2970J 1030 NJ 1030 4010
+preplace netloc port_config_splitter_dout_1 1 8 2 NJ 1220 3530
+preplace netloc port_config_splitter_dout_2 1 8 2 3070 870 3510J
+preplace netloc port_config_splitter_dout_3 1 8 2 2940J 320 3440
+preplace netloc port_config_splitter_dout_4 1 8 2 2940 1470 3500J
+preplace netloc test_logic_port_0_check_ready 1 5 6 1570 1180 1920J 1150 NJ 1150 NJ 1150 3480J 1710 4030
+preplace netloc test_logic_port_1_check_ready 1 5 6 1550 770 NJ 770 NJ 770 3050J 950 3560J 960 3980
+preplace netloc test_logic_port_2_check_ready 1 5 6 1520 360 NJ 360 NJ 360 NJ 360 3480J 300 3980
+preplace netloc test_logic_port_3_check_ready 1 5 6 1550 1550 NJ 1550 NJ 1550 NJ 1550 3460J 1700 3970
+preplace netloc test_logic_port_0_board_led 1 9 2 3620 1010 3980
+preplace netloc test_logic_port_1_board_led 1 9 2 3640 950 3990
+preplace netloc test_logic_port_2_board_led 1 9 2 3650 650 3990
+preplace netloc test_logic_port_3_board_led 1 9 2 3630 1380 3970
+preplace netloc test_logic_port_0_rxoutclk 1 2 9 490 1640 NJ 1640 1220J 1540 NJ 1540 NJ 1540 NJ 1540 3120J 1490 3590J 1370 3990
+preplace netloc test_logic_port_3_sfp_led 1 9 2 3600 1390 3980
+preplace netloc test_logic_port_2_sfp_led 1 9 2 3650 310 3970
+preplace netloc test_logic_port_1_sfp_led 1 9 2 3610 990 3970
+preplace netloc test_logic_port_0_sfp_led 1 9 2 3590 1340 3980
+preplace netloc eth_reset_n_Res 1 5 1 1460 1150n
 preplace netloc test_logic_port_2_sfp 1 10 1 NJ 60
-preplace netloc axi_mm2s_mapper_0_M_AXIS 1 3 3 910 1080 NJ 1080 1410
+preplace netloc axi_mm2s_mapper_0_M_AXIS 1 3 3 950 650 NJ 650 1450
 preplace netloc test_logic_port_1_sfp 1 10 1 NJ 710
 preplace netloc test_logic_single_po_0_sfp 1 10 1 NJ 1100
-preplace netloc axi_ethernet_clock_w_0_clocks_out 1 9 1 3440 90n
-preplace netloc ponylink_to_zynq_axis_out 1 4 1 1170 1260n
+preplace netloc axi_ethernet_clock_w_0_clocks_out 1 9 1 3550 90n
+preplace netloc ponylink_to_zynq_axis_out 1 4 1 1190 1260n
 preplace netloc test_logic_port_3_sfp 1 10 1 NJ 1450
 preplace netloc control_signal_mapper_M_AXI 1 5 1 N 1270
 preplace netloc axi_interconnect_0_M00_AXI 1 6 1 N 1330
-levelinfo -pg 1 -50 50 290 650 1050 1300 1725 2265 2780 3200 3700 4030
-pagesize -pg 1 -db -bbox -sgen -210 0 4200 2280
+levelinfo -pg 1 -50 50 290 670 1070 1340 1730 2265 2780 3280 3810 4050
+pagesize -pg 1 -db -bbox -sgen -210 0 4220 2280
 "
 }
 {

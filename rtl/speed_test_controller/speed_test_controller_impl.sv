@@ -47,8 +47,8 @@ module speed_test_controller_impl #(
 
     // AXI clocks
     wire  S_AXI_ACLK, S_AXI_ARESETN;
-    assign A_AXI_ACLK = clk;
-    assign A_AXI_ARESETN = ~rst;
+    assign S_AXI_ACLK = clk;
+    assign S_AXI_ARESETN = ~rst;
 
     // AXI4LITE signals
     localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
@@ -164,9 +164,9 @@ module speed_test_controller_impl #(
     logic busy; // 0x00, read only from AXI side
     logic axi_start; // 0x04, write only from AXI side
     test_duration_t duration; // 0x08, R & W from AXI side
-    port_config_t [3:0] port_configs; // 128 bytes, [0x100, 0x180), R & W from AXI side
-    port_result_t [3:0] port_results; // 64 bytes, [0x180, 0x1c0), read only from AXI side
-    assign port_config = port_configs;
+    logic [$bits(port_config_t) * 4 - 1:0] port_configs_raw; // 128 bytes, [0x100, 0x180), R & W from AXI side
+    logic [$bits(port_result_t) * 4 - 1:0] port_results_raw;  // 64 bytes, [0x180, 0x1c0), read only from AXI side
+    assign port_config = port_configs_raw;
 
     wire [5:0] axi_awaddr_in_word;
     wire [5:0] axi_araddr_in_word;
@@ -184,23 +184,22 @@ module speed_test_controller_impl #(
         end
     end
 
-`define PORT_CONFIG_CASE(ADDR) 6h'``ADDR : begin \
-        for (int byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 ) begin \
-                if ( S_AXI_WSTRB[byte_index] == 1 ) begin \
-                // Respective byte enables are asserted as per write strobes
-                port_configs[ADDR * C_S_AXI_DATA_WIDTH + (byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8]; \
-            end \
+`define PORT_CONFIG_CASE(ADDR) 6'h``ADDR : \
+    for (int byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 ) begin \
+            if ( S_AXI_WSTRB[byte_index] == 1 ) begin \
+            // Respective byte enables are asserted as per write strobes \
+            port_configs_raw['h``ADDR * C_S_AXI_DATA_WIDTH + (byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8]; \
         end \
     end
 
-	always_ff @( posedge S_AXI_ACLK )
-	begin
-	  if ( S_AXI_ARESETN == 1'b0 )
+    always_ff @( posedge S_AXI_ACLK )
+    begin
+      if ( S_AXI_ARESETN == 1'b0 )
         begin
-            {duration, port_configs} <= '0;
-	    end
-	  else begin
-	    if (slv_reg_wren)
+            {duration, port_configs_raw} <= '0;
+        end
+      else begin
+        if (slv_reg_wren)
           begin
             if (axi_awaddr[8:0] == 9'd8) begin
                 // test duration (only lowest 13 bits)
@@ -242,7 +241,6 @@ module speed_test_controller_impl #(
                     `PORT_CONFIG_CASE(1e)
                     `PORT_CONFIG_CASE(1f)
                 endcase
-                port_configs[axi_awaddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH] <= S_AXI_WDATA;
             end
 	      end
 	  end
@@ -361,10 +359,10 @@ module speed_test_controller_impl #(
             reg_data_out = {16'b0, test_ms};
         end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'h80 >> ADDR_LSB)) begin
             // port configs range
-            reg_data_out = port_configs[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
+            reg_data_out = port_configs_raw[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'hc0 >> ADDR_LSB)) begin
             // port results range
-            reg_data_out = port_results[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
+            reg_data_out = port_results_raw[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else begin
             reg_data_out = '0;
         end
@@ -411,7 +409,7 @@ module speed_test_controller_impl #(
             test_ms <= '0;
             wait_ms <= '0;
             cycle_counter <= '0;
-            port_results <= '0;
+            port_results_raw <= '0;
         end else begin
             unique case (state)
                 STATE_WAIT: begin
@@ -425,13 +423,13 @@ module speed_test_controller_impl #(
                         test_ms <= '0;
                         wait_ms <= '0;
                         cycle_counter <= '0;
-                        port_results <= '0;
-                        state <= STATE_WAIT;
+                        port_results_raw <= '0;
+                        state <= STATE_RUNNNING;
                     end
                 end
                 STATE_RUNNNING: begin
                     // stop sending frames when hitting user-defined duration
-                    port_results <= check_results;
+                    port_results_raw <= check_results;
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         test_ms <= test_ms + 1;
@@ -445,7 +443,7 @@ module speed_test_controller_impl #(
                 end
                 STATE_STOPPING: begin
                     // keep receiving for some time
-                    port_results <= check_results;
+                    port_results_raw <= check_results;
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         wait_ms <= wait_ms + 1;
