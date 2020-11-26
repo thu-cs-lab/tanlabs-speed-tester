@@ -353,6 +353,28 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>userclk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>userclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.USERCLK.FREQ_HZ">62500000</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -398,7 +420,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f64a5dae</spirit:value>
+            <spirit:value>f92e9879</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -969,7 +991,7 @@
       <spirit:file>
         <spirit:name>xgui/axi_ethernet_clock_wrapper_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f92e9879</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -997,8 +1019,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>AXI Ethernet Clock Wrapper</xilinx:displayName>
-      <xilinx:coreRevision>8</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-11-19T14:25:41Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>10</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-11-26T08:22:52Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@b724f4_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@6e06653e_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
@@ -1085,12 +1107,25 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@95e163c_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@50b083f1_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5bfa7572_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57090d9a_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d86d560_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6caf85b8_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@599bea1_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c6de60c_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d08e17c_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72245022_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@124f0344_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7937e5bc_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fcb6220_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5faa61a8_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20e67e2b_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34fe628d_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/axi_ethernet_clock_wrapper_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="96c9e720"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="0d585f2c"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2cfd2bdc"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="26834e8e"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="47bf69dd"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2c34d123"/>
     </xilinx:packagingInfo>

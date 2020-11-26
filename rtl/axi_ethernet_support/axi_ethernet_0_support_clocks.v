@@ -43,6 +43,8 @@ module axi_ethernet_0_support_clocks (
     input     txoutclk       , // txoutclk from GT transceiver.
     input     rxoutclk       , // rxoutclk from GT transceiver.
     // Clock out ports
+    (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME userclk, ASSOCIATED_RESET reset, FREQ_HZ 62500000" *)
+    (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 userclk CLK" *)
     output    userclk        , // for GT PMA reference clock
     output    userclk2       , // 125MHz clock for core reference clock.
     output    rxuserclk      , // for GT PMA reference clock

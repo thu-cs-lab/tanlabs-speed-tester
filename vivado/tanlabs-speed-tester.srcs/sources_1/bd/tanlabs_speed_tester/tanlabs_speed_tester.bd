@@ -9,12 +9,11 @@
       "validated": "true"
     },
     "design_tree": {
-      "axi_ethernet_clock_w_0": "",
       "sfp_led_concat": "",
       "axi_ethernet_support": {
         "axi_eth_support_resets": "",
-        "axi_eth_support_clocking": "",
-        "axi_eth_support_gt_common": ""
+        "axi_eth_support_gt_common": "",
+        "axi_eth_support_clocking": ""
       },
       "mmcm_ponylink": "",
       "board_led_concat": "",
@@ -31,10 +30,6 @@
       "gen_ready_concat": "",
       "check_ready_concat": "",
       "result_concat": "",
-      "test_logic_port_1": "",
-      "test_logic_port_2": "",
-      "test_logic_port_3": "",
-      "test_logic_port_0": "",
       "control_signal_ix": {
         "s00_couplers": {
           "auto_cc": "",
@@ -42,7 +37,12 @@
         }
       },
       "eth_reset_n": "",
-      "test_controller": ""
+      "test_controller": "",
+      "axi_ethernet_clock_w_0": "",
+      "test_logic_port_1": "",
+      "test_logic_port_2": "",
+      "test_logic_port_3": "",
+      "test_logic_port_0": ""
     },
     "interface_ports": {
       "sfp_port_0": {
@@ -235,10 +235,6 @@
       }
     },
     "components": {
-      "axi_ethernet_clock_w_0": {
-        "vlnv": "harrychen.xyz:user:axi_ethernet_clock_wrapper:1.0",
-        "xci_name": "tanlabs_speed_tester_axi_ethernet_clock_w_0_0"
-      },
       "sfp_led_concat": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
         "xci_name": "tanlabs_speed_tester_sfp_led_concat_0",
@@ -359,6 +355,59 @@
               }
             }
           },
+          "axi_eth_support_gt_common": {
+            "vlnv": "xilinx.com:module_ref:axi_ethernet_0_support_gt_common:1.0",
+            "xci_name": "tanlabs_speed_tester_axi_eth_support_gt_common_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "axi_ethernet_0_support_gt_common",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "gt0_pll0outclk": {
+                "direction": "O"
+              },
+              "gt0_pll0outrefclk": {
+                "direction": "O"
+              },
+              "gt0_pll1outclk": {
+                "direction": "O"
+              },
+              "gt0_pll1outrefclk": {
+                "direction": "O"
+              },
+              "gt0_pll0lock_out": {
+                "direction": "O"
+              },
+              "gt0_pll0refclklost_out": {
+                "direction": "O"
+              },
+              "gt0_pll0reset_in": {
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_HIGH",
+                    "value_src": "const_prop"
+                  }
+                }
+              },
+              "pma_reset_in": {
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "gt0_lockdetclk_in": {
+                "direction": "I"
+              },
+              "gt0_gtrefclk0_in": {
+                "direction": "I"
+              }
+            }
+          },
           "axi_eth_support_clocking": {
             "vlnv": "xilinx.com:module_ref:axi_ethernet_0_support_clocks:1.0",
             "xci_name": "tanlabs_speed_tester_axi_eth_support_clocking_0",
@@ -378,10 +427,6 @@
                   },
                   "rxuserclk2": {
                     "physical_name": "rxuserclk2",
-                    "direction": "O"
-                  },
-                  "userclk": {
-                    "physical_name": "userclk",
                     "direction": "O"
                   },
                   "userclk2": {
@@ -458,6 +503,20 @@
                   }
                 }
               },
+              "userclk": {
+                "type": "clk",
+                "direction": "O",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "reset",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "62500000",
+                    "value_src": "constant"
+                  }
+                }
+              },
               "gtref_clk_bufg": {
                 "direction": "O"
               },
@@ -466,59 +525,6 @@
               },
               "reset": {
                 "type": "rst",
-                "direction": "I"
-              }
-            }
-          },
-          "axi_eth_support_gt_common": {
-            "vlnv": "xilinx.com:module_ref:axi_ethernet_0_support_gt_common:1.0",
-            "xci_name": "tanlabs_speed_tester_axi_eth_support_gt_common_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "axi_ethernet_0_support_gt_common",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "gt0_pll0outclk": {
-                "direction": "O"
-              },
-              "gt0_pll0outrefclk": {
-                "direction": "O"
-              },
-              "gt0_pll1outclk": {
-                "direction": "O"
-              },
-              "gt0_pll1outrefclk": {
-                "direction": "O"
-              },
-              "gt0_pll0lock_out": {
-                "direction": "O"
-              },
-              "gt0_pll0refclklost_out": {
-                "direction": "O"
-              },
-              "gt0_pll0reset_in": {
-                "direction": "I",
-                "parameters": {
-                  "POLARITY": {
-                    "value": "ACTIVE_HIGH",
-                    "value_src": "const_prop"
-                  }
-                }
-              },
-              "pma_reset_in": {
-                "direction": "I",
-                "parameters": {
-                  "POLARITY": {
-                    "value": "ACTIVE_LOW",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "gt0_lockdetclk_in": {
-                "direction": "I"
-              },
-              "gt0_gtrefclk0_in": {
                 "direction": "I"
               }
             }
@@ -1043,7 +1049,7 @@
         "xci_name": "tanlabs_speed_tester_port_config_splitter_0",
         "parameters": {
           "LENGTH": {
-            "value": "1024"
+            "value": "696"
           }
         },
         "reference_info": {
@@ -1054,27 +1060,27 @@
         "ports": {
           "din": {
             "direction": "I",
-            "left": "1023",
+            "left": "695",
             "right": "0"
           },
           "dout_1": {
             "direction": "O",
-            "left": "255",
+            "left": "173",
             "right": "0"
           },
           "dout_2": {
             "direction": "O",
-            "left": "255",
+            "left": "173",
             "right": "0"
           },
           "dout_3": {
             "direction": "O",
-            "left": "255",
+            "left": "173",
             "right": "0"
           },
           "dout_4": {
             "direction": "O",
-            "left": "255",
+            "left": "173",
             "right": "0"
           }
         }
@@ -1105,22 +1111,6 @@
             "value": "4"
           }
         }
-      },
-      "test_logic_port_1": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.05",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_0"
-      },
-      "test_logic_port_2": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.05",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_1"
-      },
-      "test_logic_port_3": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.05",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_2"
-      },
-      "test_logic_port_0": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.05",
-        "xci_name": "tanlabs_speed_tester_test_logic_single_po_0_0"
       },
       "control_signal_ix": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
@@ -1255,12 +1245,6 @@
               }
             },
             "interface_nets": {
-              "s00_couplers_to_auto_cc": {
-                "interface_ports": [
-                  "S_AXI",
-                  "auto_cc/S_AXI"
-                ]
-              },
               "auto_cc_to_auto_pc": {
                 "interface_ports": [
                   "auto_cc/M_AXI",
@@ -1271,6 +1255,12 @@
                 "interface_ports": [
                   "M_AXI",
                   "auto_pc/M_AXI"
+                ]
+              },
+              "s00_couplers_to_auto_cc": {
+                "interface_ports": [
+                  "S_AXI",
+                  "auto_cc/S_AXI"
                 ]
               }
             },
@@ -1384,6 +1374,9 @@
                 "value": "AXI4LITE",
                 "value_src": "constant"
               },
+              "FREQ_HZ": {
+                "value": "62500000"
+              },
               "ID_WIDTH": {
                 "value": "0",
                 "value_src": "constant"
@@ -1467,6 +1460,10 @@
               "MAX_BURST_LENGTH": {
                 "value": "1",
                 "value_src": "auto"
+              },
+              "CLK_DOMAIN": {
+                "value": "tanlabs_speed_tester_axi_eth_support_clocking_0_userclk",
+                "value_src": "default_prop"
               }
             },
             "port_maps": {
@@ -1579,6 +1576,13 @@
               "ASSOCIATED_RESET": {
                 "value": "rst",
                 "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "tanlabs_speed_tester_axi_eth_support_clocking_0_userclk",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "62500000"
               }
             }
           },
@@ -1631,10 +1635,30 @@
           },
           "port_config": {
             "direction": "O",
-            "left": "1023",
+            "left": "695",
             "right": "0"
           }
         }
+      },
+      "axi_ethernet_clock_w_0": {
+        "vlnv": "harrychen.xyz:user:axi_ethernet_clock_wrapper:1.0",
+        "xci_name": "tanlabs_speed_tester_axi_ethernet_clock_w_0_0"
+      },
+      "test_logic_port_1": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.06",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_0_0"
+      },
+      "test_logic_port_2": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.06",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_0_1"
+      },
+      "test_logic_port_3": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.06",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_0_2"
+      },
+      "test_logic_port_0": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.06",
+        "xci_name": "tanlabs_speed_tester_test_logic_single_po_0_0"
       }
     },
     "interface_nets": {
@@ -1760,17 +1784,17 @@
       "axi_ethernet_0_suppo_0_userclk": {
         "ports": [
           "axi_ethernet_support/userclk",
-          "axi_ethernet_clock_w_0/_userclk"
+          "axi_ethernet_clock_w_0/_userclk",
+          "test_controller/clk",
+          "control_signal_ix/M00_ACLK"
         ]
       },
       "axi_ethernet_0_suppo_0_userclk2": {
         "ports": [
           "axi_ethernet_support/userclk2",
-          "axi_ethernet_clock_w_0/_userclk2",
           "reset_sync_eth/clk",
           "control_signal_ix/ACLK",
-          "control_signal_ix/M00_ACLK",
-          "test_controller/clk"
+          "axi_ethernet_clock_w_0/_userclk2"
         ]
       },
       "axi_ethernet_0_suppo_0_rxuserclk": {
@@ -1812,8 +1836,8 @@
       "Net4": {
         "ports": [
           "axi_ethernet_clocking/ref_clk_bufg",
-          "axi_ethernet_clock_w_0/_ref_clk",
-          "axi_ethernet_support/gt0_lockdetclk_in"
+          "axi_ethernet_support/gt0_lockdetclk_in",
+          "axi_ethernet_clock_w_0/_ref_clk"
         ]
       },
       "gtrefclk_p_1": {
@@ -1831,8 +1855,8 @@
       "Net5": {
         "ports": [
           "axi_ethernet_clocking/axi_lite_resetn",
-          "axi_ethernet_clock_w_0/_s_axi_lite_resetn",
-          "axi_ethernet_support/resetn"
+          "axi_ethernet_support/resetn",
+          "axi_ethernet_clock_w_0/_s_axi_lite_resetn"
         ]
       },
       "test_logic_single_po_0_gt0_pll0reset_out": {
@@ -1852,11 +1876,11 @@
           "mmcm_ponylink/clk_40M",
           "ponylink_ctrl/clk",
           "control_signal_mapper/aclk",
+          "control_signal_ix/S00_ACLK",
           "test_logic_port_1/clk_40M",
           "test_logic_port_2/clk_40M",
           "test_logic_port_3/clk_40M",
-          "test_logic_port_0/clk_40M",
-          "control_signal_ix/S00_ACLK"
+          "test_logic_port_0/clk_40M"
         ]
       },
       "clk_ponylink_clk_160M": {
@@ -1878,8 +1902,8 @@
       "axi_ethernet_0_clock_0_sys_out_rst": {
         "ports": [
           "axi_ethernet_clocking/sys_out_rst",
-          "axi_ethernet_clock_w_0/_glbl_rst",
-          "reset_sync_eth/reset_in"
+          "reset_sync_eth/reset_in",
+          "axi_ethernet_clock_w_0/_glbl_rst"
         ]
       },
       "axi_ethernet_0_clock_0_axi_lite_clk_bufg": {

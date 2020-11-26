@@ -1,83 +1,84 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.793652",
-   "Default View_TopLeft":"270,834",
+   "Default View_ScaleFactor":"0.371186",
+   "Default View_TopLeft":"-323,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.21  2019-05-29 bk=1.5064 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port sfp -pg 1 -lvl 9 -x 2330 -y 900 -defaultsOSRD
-preplace port eth_clks -pg 1 -lvl 0 -x 0 -y 960 -defaultsOSRD
-preplace port ponylink_data -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD -left
-preplace port sfp_rx_los -pg 1 -lvl 0 -x 0 -y 1030 -defaultsOSRD
-preplace port clk_160M -pg 1 -lvl 0 -x 0 -y 320 -defaultsOSRD
-preplace port clk_40M -pg 1 -lvl 0 -x 0 -y 750 -defaultsOSRD
-preplace port rxoutclk -pg 1 -lvl 9 -x 2330 -y 1000 -defaultsOSRD
-preplace port txoutclk -pg 1 -lvl 9 -x 2330 -y 1020 -defaultsOSRD
-preplace port gt0_pll0reset_out -pg 1 -lvl 9 -x 2330 -y 1040 -defaultsOSRD
-preplace port start -pg 1 -lvl 0 -x 0 -y 1120 -defaultsOSRD
-preplace port stop -pg 1 -lvl 0 -x 0 -y 1140 -defaultsOSRD
-preplace port check_ready -pg 1 -lvl 9 -x 2330 -y 700 -defaultsOSRD
-preplace port gen_ready -pg 1 -lvl 9 -x 2330 -y 1220 -defaultsOSRD
-preplace portBus port_config -pg 1 -lvl 0 -x 0 -y 1250 -defaultsOSRD
-preplace portBus result -pg 1 -lvl 9 -x 2330 -y 720 -defaultsOSRD
-preplace portBus sfp_led -pg 1 -lvl 9 -x 2330 -y 70 -defaultsOSRD
-preplace portBus board_led -pg 1 -lvl 9 -x 2330 -y 190 -defaultsOSRD
-preplace inst ponylink_to_zynq -pg 1 -lvl 2 -x 440 -y 450 -defaultsOSRD -orient R180
-preplace inst axi_ethernet_inner -pg 1 -lvl 3 -x 790 -y 960 -defaultsOSRD
-preplace inst sfp_rx_los_n -pg 1 -lvl 2 -x 440 -y 1030 -defaultsOSRD -resize 83 88
-preplace inst axis_ix_to_eth -pg 1 -lvl 2 -x 440 -y 780 -defaultsOSRD
-preplace inst eth_tx_rst_n -pg 1 -lvl 1 -x 120 -y 680 -defaultsOSRD -resize 83 88
-preplace inst axis_ix_to_ponylink -pg 1 -lvl 8 -x 2160 -y 360 -defaultsOSRD
-preplace inst eth_rx_rst_n -pg 1 -lvl 4 -x 1090 -y 810 -defaultsOSRD -orient R180 -resize 83 88
-preplace inst xlconstant_0 -pg 1 -lvl 6 -x 1650 -y 340 -defaultsOSRD -orient R180
-preplace inst rx_width_upsizer -pg 1 -lvl 4 -x 1090 -y 660 -defaultsOSRD
-preplace inst fifo_to_ponylink -pg 1 -lvl 7 -x 1880 -y 620 -defaultsOSRD
-preplace inst sfp_led_concat -pg 1 -lvl 8 -x 2160 -y 70 -defaultsOSRD
-preplace inst board_led_concat -pg 1 -lvl 8 -x 2160 -y 190 -defaultsOSRD
-preplace inst rx_width_downsizer -pg 1 -lvl 6 -x 1650 -y 600 -defaultsOSRD
-preplace inst frame_generator -pg 1 -lvl 5 -x 1370 -y 1210 -defaultsOSRD
-preplace inst frame_checker -pg 1 -lvl 5 -x 1370 -y 700 -defaultsOSRD
+preplace port sfp -pg 1 -lvl 9 -x 2520 -y 770 -defaultsOSRD
+preplace port eth_clks -pg 1 -lvl 0 -x -10 -y 940 -defaultsOSRD
+preplace port ponylink_data -pg 1 -lvl 0 -x -10 -y 380 -defaultsOSRD -left
+preplace port sfp_rx_los -pg 1 -lvl 0 -x -10 -y 1030 -defaultsOSRD
+preplace port clk_160M -pg 1 -lvl 0 -x -10 -y 320 -defaultsOSRD
+preplace port clk_40M -pg 1 -lvl 0 -x -10 -y 790 -defaultsOSRD
+preplace port rxoutclk -pg 1 -lvl 9 -x 2520 -y 750 -defaultsOSRD
+preplace port txoutclk -pg 1 -lvl 9 -x 2520 -y 790 -defaultsOSRD
+preplace port gt0_pll0reset_out -pg 1 -lvl 9 -x 2520 -y 730 -defaultsOSRD
+preplace port start -pg 1 -lvl 0 -x -10 -y 1110 -defaultsOSRD
+preplace port stop -pg 1 -lvl 0 -x -10 -y 1130 -defaultsOSRD
+preplace port check_ready -pg 1 -lvl 9 -x 2520 -y 890 -defaultsOSRD
+preplace port gen_ready -pg 1 -lvl 9 -x 2520 -y 1080 -defaultsOSRD
+preplace portBus port_config -pg 1 -lvl 0 -x -10 -y 1150 -defaultsOSRD
+preplace portBus result -pg 1 -lvl 9 -x 2520 -y 910 -defaultsOSRD
+preplace portBus sfp_led -pg 1 -lvl 9 -x 2520 -y 70 -defaultsOSRD
+preplace portBus board_led -pg 1 -lvl 9 -x 2520 -y 190 -defaultsOSRD
+preplace inst ponylink_to_zynq -pg 1 -lvl 2 -x 470 -y 450 -defaultsOSRD -orient R180
+preplace inst axi_ethernet_inner -pg 1 -lvl 3 -x 810 -y 840 -defaultsOSRD
+preplace inst sfp_rx_los_n -pg 1 -lvl 2 -x 470 -y 1030 -defaultsOSRD -resize 83 88
+preplace inst axis_ix_to_eth -pg 1 -lvl 2 -x 470 -y 770 -defaultsOSRD
+preplace inst eth_tx_rst_n -pg 1 -lvl 1 -x 130 -y 720 -defaultsOSRD -resize 83 88
+preplace inst axis_ix_to_ponylink -pg 1 -lvl 8 -x 2350 -y 360 -defaultsOSRD
+preplace inst eth_rx_rst_n -pg 1 -lvl 1 -x 130 -y 870 -defaultsOSRD -resize 83 88
+preplace inst xlconstant_0 -pg 1 -lvl 6 -x 1820 -y 380 -defaultsOSRD -orient R180
+preplace inst fifo_to_ponylink -pg 1 -lvl 7 -x 2060 -y 560 -defaultsOSRD
+preplace inst sfp_led_concat -pg 1 -lvl 8 -x 2350 -y 70 -defaultsOSRD
+preplace inst board_led_concat -pg 1 -lvl 8 -x 2350 -y 190 -defaultsOSRD
+preplace inst rx_width_downsizer -pg 1 -lvl 6 -x 1820 -y 670 -defaultsOSRD
+preplace inst frame_checker -pg 1 -lvl 5 -x 1520 -y 890 -defaultsOSRD
+preplace inst eth_rx_ix -pg 1 -lvl 4 -x 1180 -y 610 -defaultsOSRD
+preplace inst frame_generator -pg 1 -lvl 5 -x 1520 -y 1070 -defaultsOSRD
 preplace netloc Net 1 0 2 NJ 380 NJ
 preplace netloc sfp_rx_los_1 1 0 2 NJ 1030 NJ
-preplace netloc util_vector_logic_0_Res 1 2 1 640J 980n
-preplace netloc clk_160M_1 1 0 3 20J 310 NJ 310 600
-preplace netloc clk_40M_1 1 0 8 NJ 750 220 590 640 430 NJ 430 NJ 430 NJ 430 1760J 410 2010
-preplace netloc ponylink_to_zynq_resetn_out 1 1 7 270 580 630J 420 NJ 420 NJ 420 NJ 420 NJ 420 NJ
-preplace netloc M00_AXIS_ACLK_1 1 1 3 260 1120 NJ 1120 940
-preplace netloc util_vector_logic_1_Res 1 1 1 230 680n
-preplace netloc ACLK_1 1 1 7 270 1100 630J 810 970 740 1220 600 1530 510 1770 360 2010
-preplace netloc util_vector_logic_3_Res 1 1 7 280 1110 620J 800 980 580 NJ 580 1520 400 NJ 400 2000
-preplace netloc axi_ethernet_inner_rx_reset 1 3 4 NJ 980 1200 520 NJ 520 1760J
-preplace netloc axi_ethernet_inner_tx_reset 1 0 4 20 950 NJ 950 610J 820 950
-preplace netloc xlconstant_0_dout 1 2 4 610J 340 NJ 340 NJ 340 NJ
-preplace netloc axi_ethernet_inner_rxoutclk 1 3 6 NJ 1000 NJ 1000 NJ 1000 NJ 1000 NJ 1000 NJ
-preplace netloc axi_ethernet_inner_txoutclk 1 3 6 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ
-preplace netloc axi_ethernet_inner_gt0_pll0reset_out 1 3 6 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ
-preplace netloc start_1 1 0 5 NJ 1120 230J 1130 NJ 1130 NJ 1130 1210
-preplace netloc stop_1 1 0 5 NJ 1140 NJ 1140 NJ 1140 NJ 1140 1230
-preplace netloc port_config_1 1 0 5 NJ 1250 NJ 1250 NJ 1250 NJ 1250 NJ
-preplace netloc tanlabs_frame_checker_0_result 1 5 4 NJ 720 NJ 720 NJ 720 NJ
-preplace netloc tanlabs_frame_checker_0_ready 1 5 4 NJ 700 NJ 700 NJ 700 NJ
-preplace netloc tanlabs_frame_genera_0_ready 1 5 4 NJ 1220 NJ 1220 NJ 1220 NJ
-preplace netloc ponylink_to_zynq_mode_send 1 1 7 250 60 NJ 60 NJ 60 NJ 60 NJ 60 NJ 60 NJ
-preplace netloc ponylink_to_zynq_mode_recv 1 1 7 260 80 NJ 80 NJ 80 NJ 80 NJ 80 NJ 80 NJ
-preplace netloc ponylink_to_zynq_linkready 1 1 7 270 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ
-preplace netloc ponylink_to_zynq_linkerror 1 1 7 280 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ
+preplace netloc util_vector_logic_0_Res 1 2 1 660J 860n
+preplace netloc clk_160M_1 1 0 3 NJ 320 NJ 320 630
+preplace netloc clk_40M_1 1 0 8 NJ 790 230 580 650 310 NJ 310 NJ 310 1670J 300 NJ 300 2180
+preplace netloc ponylink_to_zynq_resetn_out 1 1 7 270 310 640J 320 NJ 320 NJ 320 1680J 310 NJ 310 2170J
+preplace netloc M00_AXIS_ACLK_1 1 1 3 300 600 NJ 600 960
+preplace netloc util_vector_logic_1_Res 1 1 1 240 720n
+preplace netloc ACLK_1 1 3 5 980 440 NJ 440 NJ 440 1940J 320 NJ
+preplace netloc util_vector_logic_3_Res 1 1 7 250 590 NJ 590 1000 730 NJ 730 1690 320 1930J 330 2190
+preplace netloc axi_ethernet_inner_rx_reset 1 0 7 30 940 NJ 940 630J 690 970 740 1330 580 NJ 580 NJ
+preplace netloc axi_ethernet_inner_tx_reset 1 0 4 20 1100 NJ 1100 NJ 1100 960
+preplace netloc xlconstant_0_dout 1 2 4 660J 380 NJ 380 NJ 380 NJ
+preplace netloc axi_ethernet_inner_rxoutclk 1 3 6 1000J 750 NJ 750 NJ 750 NJ 750 NJ 750 NJ
+preplace netloc axi_ethernet_inner_txoutclk 1 3 6 1030J 790 NJ 790 NJ 790 NJ 790 NJ 790 NJ
+preplace netloc axi_ethernet_inner_gt0_pll0reset_out 1 3 6 1020J 760 NJ 760 NJ 760 1940J 730 NJ 730 NJ
+preplace netloc start_1 1 0 5 10J 1120 NJ 1120 640J 1080 NJ 1080 1340
+preplace netloc stop_1 1 0 5 NJ 1130 NJ 1130 660J 1090 NJ 1090 1360
+preplace netloc port_config_1 1 0 5 30J 1110 NJ 1110 NJ 1110 NJ 1110 NJ
+preplace netloc tanlabs_frame_checker_0_result 1 5 4 NJ 910 NJ 910 NJ 910 NJ
+preplace netloc tanlabs_frame_checker_0_ready 1 5 4 NJ 890 NJ 890 NJ 890 NJ
+preplace netloc tanlabs_frame_genera_0_ready 1 5 4 NJ 1080 NJ 1080 NJ 1080 NJ
+preplace netloc ponylink_to_zynq_mode_send 1 1 7 280 60 NJ 60 NJ 60 NJ 60 NJ 60 NJ 60 NJ
+preplace netloc ponylink_to_zynq_mode_recv 1 1 7 290 80 NJ 80 NJ 80 NJ 80 NJ 80 NJ 80 NJ
+preplace netloc ponylink_to_zynq_linkready 1 1 7 300 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ
+preplace netloc ponylink_to_zynq_linkerror 1 1 7 310 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ
 preplace netloc sfp_led_concat_dout 1 8 1 NJ 70
 preplace netloc board_led_concat_dout 1 8 1 NJ 190
-preplace netloc axi_ethernet_0_sfp 1 3 6 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ
-preplace netloc fifo_to_ponylink_axis_out 1 7 1 1990 300n
-preplace netloc axis_ix_to_ponylink_M00_AXIS 1 2 7 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 2310
-preplace netloc ponylink_to_zynq_axis_out 1 1 1 280 520n
-preplace netloc frame_generator_m_axis 1 1 5 240 320 NJ 320 NJ 320 NJ 320 1510
-preplace netloc frame_checker_axis_out 1 5 1 1540 580n
-preplace netloc axis_interconnect_0_M00_AXIS 1 2 1 600 780n
-preplace netloc rx_width_upsizer1_M_AXIS 1 6 1 N 600
-preplace netloc axi_ethernet_inner_m_axis_rx 1 3 1 960 640n
-preplace netloc eth_clks_1 1 0 3 NJ 960 NJ 960 NJ
-preplace netloc rx_width_converter_M_AXIS 1 4 1 N 660
-levelinfo -pg 1 0 120 440 790 1090 1370 1650 1880 2160 2330
-pagesize -pg 1 -db -bbox -sgen -190 0 2510 1310
+preplace netloc axi_ethernet_inner_userclk 1 1 7 310 960 640J 980 1010 780 1350 670 1700 560 1950 360 N
+preplace netloc axi_ethernet_0_sfp 1 3 6 NJ 770 NJ 770 NJ 770 NJ 770 NJ 770 NJ
+preplace netloc fifo_to_ponylink_axis_out 1 7 1 2200 300n
+preplace netloc axis_ix_to_ponylink_M00_AXIS 1 2 7 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 2500
+preplace netloc ponylink_to_zynq_axis_out 1 1 1 310 520n
+preplace netloc frame_generator_m_axis 1 1 5 260 300 NJ 300 NJ 300 NJ 300 1660
+preplace netloc frame_checker_axis_out 1 5 1 1710 650n
+preplace netloc axis_interconnect_0_M00_AXIS 1 2 1 650 770n
+preplace netloc rx_width_upsizer1_M_AXIS 1 6 1 1930 540n
+preplace netloc eth_clks_1 1 0 3 10J 950 NJ 950 640J
+preplace netloc axi_ethernet_inner_m_axis_rx 1 3 1 990 550n
+preplace netloc axis_interconnect_0_M00_AXIS1 1 4 1 1340 610n
+levelinfo -pg 1 -10 130 470 810 1180 1520 1820 2060 2350 2520
+pagesize -pg 1 -db -bbox -sgen -200 0 2700 1180
 "
 }
 0
