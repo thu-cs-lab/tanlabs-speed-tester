@@ -168,6 +168,11 @@ module speed_test_controller_impl #(
     port_result_t [3:0] port_results; // 64 bytes, [0x180, 0x1c0), read only from AXI side
     assign port_config = port_configs;
 
+    wire [5:0] axi_awaddr_in_word;
+    wire [5:0] axi_araddr_in_word;
+    assign axi_awaddr_in_word = axi_awaddr[ADDR_LSB +: 6];
+    assign axi_araddr_in_word = axi_araddr[ADDR_LSB +: 6];
+
     assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
     
     always_comb begin
@@ -192,14 +197,10 @@ module speed_test_controller_impl #(
                 // test duration (only lowest 13 bits)
                 if (S_AXI_WSTRB[0]) duration[0 +: 8] <= S_AXI_WDATA[0 +: 8];
                 if (S_AXI_WSTRB[1]) duration[8 +: 5] <= S_AXI_WDATA[8 +: 5];
-            end else if (axi_awaddr[8] == 1'b1 && axi_awaddr[7:ADDR_LSB] <= (8'h80 >> ADDR_LSB)) begin
+            end else if (axi_awaddr[8] == 1'b1 && axi_awaddr_in_word <= (8'h80 >> ADDR_LSB)) begin
                 // port configs range
-                for (int byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 ) begin
-	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                port_configs[axi_awaddr[7:ADDR_LSB]*C_S_AXI_DATA_WIDTH + (byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-                  end
-                end
+                // access MUST be aligned and WSTRB are all ignored
+                port_configs[axi_awaddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH] <= S_AXI_WDATA;
             end
 	      end
 	  end
@@ -314,12 +315,12 @@ module speed_test_controller_impl #(
         end else if (axi_araddr[8:0] == 9'd8) begin
             // actual duration (only lowest 16 bits)
             reg_data_out = {16'b0, test_ms};
-        end else if (axi_araddr[8] == 1'b1 && axi_araddr[7:ADDR_LSB] <= (8'h80 >> ADDR_LSB)) begin
+        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word <= (8'h80 >> ADDR_LSB)) begin
             // port configs range
-            reg_data_out = port_configs[axi_araddr[7:ADDR_LSB]*C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
-        end else if (axi_araddr[8] == 1'b1 && axi_araddr[7:ADDR_LSB] <= (8'hc0 >> ADDR_LSB)) begin
+            reg_data_out = port_configs[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
+        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word <= (8'hc0 >> ADDR_LSB)) begin
             // port results range
-            reg_data_out = port_results[axi_araddr[7:ADDR_LSB]*C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
+            reg_data_out = port_results[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else begin
             reg_data_out = '0;
         end
