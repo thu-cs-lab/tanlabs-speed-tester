@@ -137,7 +137,7 @@ module frame_checker_impl #(
         else begin
             match_mask = axis_m_keep; // keep only valid bytes in AXIS data
             if (is_first_test_beat) begin
-                match_mask = match_mask & ~64'hFFFFF; // mask IP header (20 bytes) out
+                match_mask = match_mask & ~64'hFFFFF; // mask IP header (20 bytes) when comparing
             end
         end
     end

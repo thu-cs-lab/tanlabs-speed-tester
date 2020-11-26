@@ -42,7 +42,7 @@ module speed_test_controller_impl #(
     // frame checker & generator
     output wire [TEST_PORT_NUM-1:0] start,
     output wire [TEST_PORT_NUM-1:0] stop,
-    output wire port_config_t [TEST_PORT_NUM-1:0] port_config
+    output wire [TEST_PORT_NUM-1:0][173:0] port_config
 );
 
     // AXI clocks
@@ -166,7 +166,11 @@ module speed_test_controller_impl #(
     test_duration_t duration; // 0x08, R & W from AXI side
     logic [$bits(port_config_t) * 4 - 1:0] port_configs_raw; // 128 bytes, [0x100, 0x180), R & W from AXI side
     logic [$bits(port_result_t) * 4 - 1:0] port_results_raw;  // 64 bytes, [0x180, 0x1c0), read only from AXI side
-    assign port_config = port_configs_raw;
+
+    // connect used part only
+    generate for (genvar i = 0; i < TEST_PORT_NUM; ++i)
+        assign port_config[i] = port_configs_raw[$bits(port_config_t) * i +: $bits(port_config_t)];
+    endgenerate
 
     wire [5:0] axi_awaddr_in_word;
     wire [5:0] axi_araddr_in_word;
