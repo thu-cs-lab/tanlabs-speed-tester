@@ -184,6 +184,15 @@ module speed_test_controller_impl #(
         end
     end
 
+`define PORT_CONFIG_CASE(ADDR) 6h'``ADDR : begin \
+        for (int byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 ) begin \
+                if ( S_AXI_WSTRB[byte_index] == 1 ) begin \
+                // Respective byte enables are asserted as per write strobes
+                port_configs[ADDR * C_S_AXI_DATA_WIDTH + (byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8]; \
+            end \
+        end \
+    end
+
 	always_ff @( posedge S_AXI_ACLK )
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
@@ -197,14 +206,49 @@ module speed_test_controller_impl #(
                 // test duration (only lowest 13 bits)
                 if (S_AXI_WSTRB[0]) duration[0 +: 8] <= S_AXI_WDATA[0 +: 8];
                 if (S_AXI_WSTRB[1]) duration[8 +: 5] <= S_AXI_WDATA[8 +: 5];
-            end else if (axi_awaddr[8] == 1'b1 && axi_awaddr_in_word <= (8'h80 >> ADDR_LSB)) begin
+            end else if (axi_awaddr[8] == 1'b1 && axi_awaddr_in_word < (8'h80 >> ADDR_LSB)) begin
                 // port configs range
-                // access MUST be aligned and WSTRB are all ignored
+                unique case (axi_awaddr_in_word)
+                    `PORT_CONFIG_CASE(00)
+                    `PORT_CONFIG_CASE(01)
+                    `PORT_CONFIG_CASE(02)
+                    `PORT_CONFIG_CASE(03)
+                    `PORT_CONFIG_CASE(04)
+                    `PORT_CONFIG_CASE(05)
+                    `PORT_CONFIG_CASE(06)
+                    `PORT_CONFIG_CASE(07)
+                    `PORT_CONFIG_CASE(08)
+                    `PORT_CONFIG_CASE(09)
+                    `PORT_CONFIG_CASE(0a)
+                    `PORT_CONFIG_CASE(0b)
+                    `PORT_CONFIG_CASE(0c)
+                    `PORT_CONFIG_CASE(0d)
+                    `PORT_CONFIG_CASE(0e)
+                    `PORT_CONFIG_CASE(0f)
+                    `PORT_CONFIG_CASE(10)
+                    `PORT_CONFIG_CASE(11)
+                    `PORT_CONFIG_CASE(12)
+                    `PORT_CONFIG_CASE(13)
+                    `PORT_CONFIG_CASE(14)
+                    `PORT_CONFIG_CASE(15)
+                    `PORT_CONFIG_CASE(16)
+                    `PORT_CONFIG_CASE(17)
+                    `PORT_CONFIG_CASE(18)
+                    `PORT_CONFIG_CASE(19)
+                    `PORT_CONFIG_CASE(1a)
+                    `PORT_CONFIG_CASE(1b)
+                    `PORT_CONFIG_CASE(1c)
+                    `PORT_CONFIG_CASE(1d)
+                    `PORT_CONFIG_CASE(1e)
+                    `PORT_CONFIG_CASE(1f)
+                endcase
                 port_configs[axi_awaddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH] <= S_AXI_WDATA;
             end
 	      end
 	  end
-	end    
+    end
+    
+`undef PORT_CONFIG_CASE
 
 	// Implement write response logic generation
 	// The write response and response valid signals are asserted by the slave 
@@ -315,10 +359,10 @@ module speed_test_controller_impl #(
         end else if (axi_araddr[8:0] == 9'd8) begin
             // actual duration (only lowest 16 bits)
             reg_data_out = {16'b0, test_ms};
-        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word <= (8'h80 >> ADDR_LSB)) begin
+        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'h80 >> ADDR_LSB)) begin
             // port configs range
             reg_data_out = port_configs[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
-        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word <= (8'hc0 >> ADDR_LSB)) begin
+        end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'hc0 >> ADDR_LSB)) begin
             // port results range
             reg_data_out = port_results[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else begin
