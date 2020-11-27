@@ -64,7 +64,7 @@ module frame_generator_impl #(
     assign set_seed = !rst && ((state == STATE_IDLE && next_state == STATE_SENDING) || (state == STATE_SENDING && axis_m_ready && last_beat));
     // go to next random number after each beat
     assign next_random = !rst && (set_seed || (state == STATE_SENDING && axis_m_ready));
-    wire [15:0] random_content_part;
+    u16_t random_content_part;
     lfsr16 lfsr_content_inst(
         .clk,
         .rst,
@@ -74,6 +74,7 @@ module frame_generator_impl #(
         .dout(random_content_part)
     );
 
+    // random content of a full beat
     wire [DATA_WIDTH-1:0] random_content;
     assign random_content = {DATA_WIDTH / $bits(random_content_part){random_content_part}};
     
@@ -85,21 +86,10 @@ module frame_generator_impl #(
 
     // calculate checksum
     u16_t checksum;
-    localparam checksum_num = $bits(ip_header_t) / 16;
-    logic [23:0] checksum_imm[checksum_num:0];
-    generate
-        assign checksum_imm[0] = '0;
-        for (genvar i = 0; i < checksum_num; i += 1) begin
-            if (i != 5)
-                assign checksum_imm[i + 1] = checksum_imm[i] + first_beat_header.ip_header[16 * i +: 16];
-            else // skip checksum field
-                assign checksum_imm[i + 1] = checksum_imm[i];
-        end
-    endgenerate
-    logic [23:0] checksum_wrap;
-    // wrap around twice for possible overflow
-    assign checksum_wrap = checksum_imm[checksum_num][15:0] + checksum_imm[checksum_num][23:16];
-    assign checksum = ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
+    ip_header_checksum checksum_inst(
+        .ip_header(first_beat_header.ip_header),
+        .checksum
+    );
     
 
     // fill in other infomation
