@@ -10,3 +10,11 @@
 		spi0 = &qspi;
 	};
 };
+
+&spi0 {
+    lab-fpga@0 {
+        compatible = "rohm,dh2228fv";  /* actually spidev */
+        spi-max-frequency = <80000000>;
+        reg = <0>;
+    };
+};

@@ -26,3 +26,10 @@ set_property -dict {PACKAGE_PIN Y19 IOSTANDARD LVCMOS33} [get_ports {leds[12]}]
 set_property -dict {PACKAGE_PIN W17 IOSTANDARD LVCMOS33} [get_ports {leds[13]}]
 set_property -dict {PACKAGE_PIN W10 IOSTANDARD LVCMOS33} [get_ports {leds[14]}]
 set_property -dict {PACKAGE_PIN V9  IOSTANDARD LVCMOS33} [get_ports {leds[15]}]
+
+# artix programming pins
+set_property -dict {PACKAGE_PIN T17 IOSTANDARD LVCMOS33} [get_ports prog_mosi]
+set_property -dict {PACKAGE_PIN R19 IOSTANDARD LVCMOS33} [get_ports prog_sclk]
+set_property -dict {PACKAGE_PIN T19 IOSTANDARD LVCMOS33} [get_ports progb]
+set_property -dict {PACKAGE_PIN N17 IOSTANDARD LVCMOS33} [get_ports initb]
+set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports done]
