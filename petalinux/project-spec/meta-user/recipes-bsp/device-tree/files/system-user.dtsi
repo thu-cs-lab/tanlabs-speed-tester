@@ -1,3 +1,12 @@
 /include/ "system-conf.dtsi"
 / {
+	aliases {
+		ethernet0 = &axi_eth_blk_1_axi_ethernet_0;
+		ethernet1 = &axi_eth_blk_2_axi_ethernet_0;
+		ethernet2 = &axi_eth_blk_3_axi_ethernet_0;
+		ethernet3 = &axi_eth_blk_4_axi_ethernet_0;
+		ethernet4 = &gem0;
+		serial0 = &uart0;
+		spi0 = &qspi;
+	};
 };
