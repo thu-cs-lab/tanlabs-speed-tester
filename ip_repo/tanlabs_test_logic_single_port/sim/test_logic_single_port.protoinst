@@ -608,12 +608,12 @@
 					"ports": {
 						"ACLK": { "actual": "M00_AXIS_ACLK"},
 						"ARESETN": { "actual": "M00_AXIS_ARESETN"},
-						"TDATA": { "actual": "M00_AXIS_tdata[7:0]"},
-						"TID": { "actual": "M00_AXIS_tid[2:0]"},
-						"TKEEP": { "actual": "M00_AXIS_tkeep[63:0]"},
+						"TDATA": { "actual": "M00_AXIS_tdata"},
+						"TID": { "actual": "M00_AXIS_tid"},
+						"TKEEP": { "actual": "M00_AXIS_tkeep"},
 						"TLAST": { "actual": "M00_AXIS_tlast"},
 						"TREADY": { "actual": "M00_AXIS_tready"},
-						"TUSER": { "actual": "M00_AXIS_tuser[63:0]"},
+						"TUSER": { "actual": "M00_AXIS_tuser"},
 						"TVALID": { "actual": "M00_AXIS_tvalid"}
 					}
 				},
@@ -622,9 +622,9 @@
 					"ports": {
 						"ACLK": { "actual": "S00_AXIS_ACLK"},
 						"ARESETN": { "actual": "S00_AXIS_ARESETN"},
-						"TDATA": { "actual": "S00_AXIS_tdata[7:0]"},
+						"TDATA": { "actual": "S00_AXIS_tdata"},
 						"TLAST": { "actual": "S00_AXIS_tlast"},
-						"TUSER": { "actual": "S00_AXIS_tuser[0:0]"},
+						"TUSER": { "actual": "S00_AXIS_tuser"},
 						"TVALID": { "actual": "S00_AXIS_tvalid"}
 					}
 				},
@@ -633,12 +633,12 @@
 					"ports": {
 						"ACLK": { "actual": "M_AXIS_ACLK"},
 						"ARESETN": { "actual": "M_AXIS_ARESETN"},
-						"TDATA": { "actual": "M_AXIS_tdata[7:0]"},
+						"TDATA": { "actual": "M_AXIS_tdata"},
 						"TID": { "actual": "M_AXIS_tid[2:0]"},
 						"TKEEP": { "actual": "M_AXIS_tkeep[63:0]"},
 						"TLAST": { "actual": "M_AXIS_tlast"},
 						"TREADY": { "actual": "M_AXIS_tready"},
-						"TUSER": { "actual": "M_AXIS_tuser[0:0]"},
+						"TUSER": { "actual": "M_AXIS_tuser"},
 						"TVALID": { "actual": "M_AXIS_tvalid"}
 					}
 				},
@@ -647,9 +647,9 @@
 					"ports": {
 						"ACLK": { "actual": "S_AXIS_ACLK"},
 						"ARESETN": { "actual": "S_AXIS_ARESETN"},
-						"TDATA": { "actual": "S_AXIS_tdata[7:0]"},
+						"TDATA": { "actual": "S_AXIS_tdata"},
 						"TLAST": { "actual": "S_AXIS_tlast"},
-						"TUSER": { "actual": "S_AXIS_tuser[0:0]"},
+						"TUSER": { "actual": "S_AXIS_tuser"},
 						"TVALID": { "actual": "S_AXIS_tvalid"}
 					}
 				},

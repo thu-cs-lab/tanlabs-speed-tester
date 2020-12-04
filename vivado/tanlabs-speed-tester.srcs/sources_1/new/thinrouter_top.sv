@@ -86,6 +86,14 @@ module thinrouter_top(
     wire [7:0] available_leds;
     assign led = {available_leds, {8{1'bZ}}};
     assign sfp_tx_disable = '0;
+    
+    // status of control link
+    wire [3:0] ctrl_status, dummy_dpy;
+    SEG7_LUT seg7_inst_low(
+        .iDIG({1'b0, ctrl_status[3:1]}),
+        .oSEG1({dpy0[7:1], dummy_dpy})
+    );
+    assign dpy0[0] = ctrl_status[0];
 
     tanlabs_speed_tester speed_tester_inst(
         .clk_50M,
@@ -99,6 +107,7 @@ module thinrouter_top(
         .ponylink_ctrl(ponylink_data[4]),
         .sfp_led,
         .leds(available_leds),
+        .ctrl_status,
         .sfp_port_0_rxn(sfp_rx_n[0]),
         .sfp_port_0_rxp(sfp_rx_p[0]),
         .sfp_port_0_txn(sfp_tx_n[0]),

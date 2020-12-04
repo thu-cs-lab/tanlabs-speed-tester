@@ -7,16 +7,16 @@
   <spirit:componentInstances>
     <spirit:componentInstance>
       <spirit:instanceName>tanlabs_speed_tester_test_logic_single_po_0_0</spirit:instanceName>
-      <spirit:componentRef spirit:vendor="harrychen.xyz" spirit:library="user" spirit:name="test_logic_single_port" spirit:version="1.06"/>
+      <spirit:componentRef spirit:vendor="harrychen.xyz" spirit:library="user" spirit:name="test_logic_single_port" spirit:version="1.10"/>
       <spirit:configurableElementValues>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_BUSIF"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_RESET"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.INSERT_VIP">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_BUSIF"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_RESET"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.INSERT_VIP">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_BUSIF"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_RESET"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.INSERT_VIP">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_BUSIF"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_RESET"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_BUSIF"/>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_RESET"/>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.CLK_DOMAIN">tanlabs_speed_tester_test_logic_single_po_0_0_rxoutclk</spirit:configurableElementValue>
@@ -62,28 +62,28 @@
       <spirit:vendorExtensions>
         <xilinx:componentInstanceExtensions>
           <xilinx:configElementInfos>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.TXOUTCLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.TXOUTCLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.TXOUTCLK.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
           </xilinx:configElementInfos>
         </xilinx:componentInstanceExtensions>
       </spirit:vendorExtensions>

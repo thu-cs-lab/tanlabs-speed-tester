@@ -10,7 +10,7 @@
       <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="ip" spirit:name="axis_interconnect" spirit:version="2.1"/>
       <spirit:configurableElementValues>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ARB_ALGORITHM">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ARB_ON_MAX_XFERS">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ARB_ON_MAX_XFERS">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ARB_ON_NUM_CYCLES">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ARB_ON_TLAST">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">test_logic_single_port_axis_ix_to_eth_0</spirit:configurableElementValue>
@@ -176,6 +176,7 @@
         <xilinx:componentInstanceExtensions>
           <xilinx:configElementInfos>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ALGORITHM" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ON_MAX_XFERS" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ON_TLAST" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ENABLE_ADVANCED_OPTIONS" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.M00_FIFO_MODE" xilinx:valueSource="user"/>

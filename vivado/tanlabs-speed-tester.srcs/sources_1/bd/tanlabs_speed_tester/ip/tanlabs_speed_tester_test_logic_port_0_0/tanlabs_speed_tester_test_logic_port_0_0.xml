@@ -226,130 +226,6 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>CLK.CLK_160M</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_160M</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.FREQ_HZ">160000000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.PHASE">0.000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_BUSIF"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_RESET"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_160M.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>CLK.CLK_40M</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_40M</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.FREQ_HZ">40000000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.PHASE">0.000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_BUSIF"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_RESET"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_40M.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>CLK.RXOUTCLK</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -778,6 +654,130 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>CLK.PONYLINK_CLK</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>ponylink_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.FREQ_HZ">33000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.PHASE">0.000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_RESET"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>CLK.PONYLINK_CLK4</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>ponylink_clk4</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.FREQ_HZ">132000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.PHASE">0.000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.CLK_DOMAIN">/mmcm_ponylink_clk_out1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_RESET"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -792,11 +792,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:10 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:29 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:86af1c1d</spirit:value>
+            <spirit:value>9:88a8739b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -807,7 +807,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:86af1c1d</spirit:value>
+            <spirit:value>9:88a8739b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -823,11 +823,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:26 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:48 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:86af1c1d</spirit:value>
+            <spirit:value>9:88a8739b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -842,11 +842,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:10 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:29 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c4f0dd7f</spirit:value>
+            <spirit:value>9:9a0bc0a8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -862,11 +862,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:26 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:48 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c4f0dd7f</spirit:value>
+            <spirit:value>9:9a0bc0a8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -880,11 +880,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:51:32 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:06:04 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:86af1c1d</spirit:value>
+            <spirit:value>9:88a8739b</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductLicenses</spirit:name>
@@ -915,32 +915,6 @@
         <spirit:name>check_ready</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_160M</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_40M</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -1211,6 +1185,32 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>ponylink_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ponylink_clk4</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>ponylink_data</spirit:name>
         <spirit:wire>
           <spirit:direction>inout</spirit:direction>
@@ -1228,7 +1228,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">173</spirit:left>
+            <spirit:left spirit:format="long">255</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1553,89 +1553,149 @@
         <spirit:name>src/test_logic_single_port_axis_interconnect_0_0/test_logic_single_port_axis_interconnect_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_s_arb_req_suppress_concat_0/test_logic_single_port_s_arb_req_suppress_concat_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s_arb_req_suppress_concat</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_us_0/test_logic_single_port_auto_us_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_us</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_cc_0/test_logic_single_port_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ss_slid_0/test_logic_single_port_auto_ss_slid_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_ss_slid</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_cc_1/test_logic_single_port_auto_cc_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_cc</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slid_1/test_logic_single_port_auto_ss_slid_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_ss_slid</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ds_0/test_logic_single_port_auto_ds_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ds</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ss_k_0/test_logic_single_port_auto_ss_k_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_k</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slidr_0/test_logic_single_port_auto_ss_slidr_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_slidr</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_cc_2/test_logic_single_port_auto_cc_2.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ds_1/test_logic_single_port_auto_ds_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_3/test_logic_single_port_auto_ss_slid_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_s_arb_req_suppress_concat_1/test_logic_single_port_s_arb_req_suppress_concat_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s_arb_req_suppress_concat</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_us_2/test_logic_single_port_auto_us_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_us</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_4/test_logic_single_port_auto_cc_4.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_4/test_logic_single_port_auto_ss_slid_4.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_ss_slid</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_5/test_logic_single_port_auto_cc_5.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_5/test_logic_single_port_auto_ss_slid_5.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_ss_slid</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ds_2/test_logic_single_port_auto_ds_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ds</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_k_2/test_logic_single_port_auto_ss_k_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_k</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slidr_1/test_logic_single_port_auto_ss_slidr_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_slidr</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_6/test_logic_single_port_auto_cc_6.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ds_3/test_logic_single_port_auto_ds_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ds</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_k_1/test_logic_single_port_auto_ss_k_1.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_ss_k_3/test_logic_single_port_auto_ss_k_3.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_k</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slid_2/test_logic_single_port_auto_ss_slid_2.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_6/test_logic_single_port_auto_ss_slid_6.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_slid</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_si_r_0/test_logic_single_port_auto_ss_si_r_0.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_ss_si_r_1/test_logic_single_port_auto_ss_si_r_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_ss_si_r</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_us_1/test_logic_single_port_auto_us_1.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_us_3/test_logic_single_port_auto_us_3.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_us</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_cc_3/test_logic_single_port_auto_cc_3.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_cc_7/test_logic_single_port_auto_cc_7.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slid_3/test_logic_single_port_auto_ss_slid_3.xci</spirit:name>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_7/test_logic_single_port_auto_ss_slid_7.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_ss_slid</spirit:userFileType>
       </spirit:file>
@@ -1646,8 +1706,12 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/aea4/src/test_logic_single_port.v</spirit:name>
+        <spirit:name>../../ipshared/c359/src/test_logic_single_port.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1817,95 +1881,163 @@
         <spirit:name>src/test_logic_single_port_axis_interconnect_0_0/test_logic_single_port_axis_interconnect_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_s_arb_req_suppress_concat_0/test_logic_single_port_s_arb_req_suppress_concat_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s_arb_req_suppress_concat</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_us_0/test_logic_single_port_auto_us_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_us</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_cc_0/test_logic_single_port_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ss_slid_0/test_logic_single_port_auto_ss_slid_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_ss_slid</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_cc_1/test_logic_single_port_auto_cc_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_cc</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slid_1/test_logic_single_port_auto_ss_slid_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_ss_slid</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ds_0/test_logic_single_port_auto_ds_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ds</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ss_k_0/test_logic_single_port_auto_ss_k_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_k</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slidr_0/test_logic_single_port_auto_ss_slidr_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_slidr</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_cc_2/test_logic_single_port_auto_cc_2.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ds_1/test_logic_single_port_auto_ds_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ds</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_k_1/test_logic_single_port_auto_ss_k_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_k</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_slid_2/test_logic_single_port_auto_ss_slid_2.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_slid</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_ss_si_r_0/test_logic_single_port_auto_ss_si_r_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_ss_si_r</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_us_1/test_logic_single_port_auto_us_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_us</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/test_logic_single_port_auto_cc_3/test_logic_single_port_auto_cc_3.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/test_logic_single_port_auto_ss_slid_3/test_logic_single_port_auto_ss_slid_3.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_s_arb_req_suppress_concat_1/test_logic_single_port_s_arb_req_suppress_concat_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s_arb_req_suppress_concat</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_us_2/test_logic_single_port_auto_us_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_us</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_4/test_logic_single_port_auto_cc_4.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_4/test_logic_single_port_auto_ss_slid_4.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s00_couplers/auto_ss_slid</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_5/test_logic_single_port_auto_cc_5.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_5/test_logic_single_port_auto_ss_slid_5.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/s01_couplers/auto_ss_slid</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ds_2/test_logic_single_port_auto_ds_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ds</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_k_2/test_logic_single_port_auto_ss_k_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_k</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slidr_1/test_logic_single_port_auto_ss_slidr_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_eth/m00_couplers/auto_ss_slidr</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_6/test_logic_single_port_auto_cc_6.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ds_3/test_logic_single_port_auto_ds_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ds</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_k_3/test_logic_single_port_auto_ss_k_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_k</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_6/test_logic_single_port_auto_ss_slid_6.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axis_ix_to_ponylink/s00_couplers/auto_ss_slid</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_si_r_1/test_logic_single_port_auto_ss_si_r_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_ss_si_r</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_us_3/test_logic_single_port_auto_us_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_us</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_cc_7/test_logic_single_port_auto_cc_7.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/test_logic_single_port_auto_ss_slid_7/test_logic_single_port_auto_ss_slid_7.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_eth_rx_ix/s00_couplers/auto_ss_slid</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/aea4/sim/test_logic_single_port.v</spirit:name>
+        <spirit:name>sim/test_logic_single_port.protoinst</spirit:name>
+        <spirit:fileType>unknown</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/c359/sim/test_logic_single_port.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1971,30 +2103,30 @@
       </xilinx:xpmLibraries>
       <xilinx:coreRevision>2</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@440fc1a4_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d19a4b4_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@78acac73_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@391170b4_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@734dd3ff_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7aed070d_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@ef76bdf_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@556d9512_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@473400fe_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b8192a3_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a1467f6_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a60bd49_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c339a56_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6990595d_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dfa8ecb_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14859b0c_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364ab308_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46c4170a_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26e5e150_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21c4264d_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ae6a9e3_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dd9d6a6_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7883be6_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6dcce3b9_ARCHIVE_LOCATION">/home/harry/Workspace/tanlabs-speed-tester/ip_repo/tanlabs_test_logic_single_port</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_160M.PHASE" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_40M.PHASE" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK.PHASE" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.PONYLINK_CLK4.PHASE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.RXOUTCLK.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
@@ -2006,23 +2138,23 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.TXOUTCLK.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.TXOUTCLK.PHASE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.BOARD_LED.PortWidth" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.CHECK_READY.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.GEN_READY.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.PONYLINK_DATA.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.PORT_CONFIG.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.RESULT.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType.PROP_SRC" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortType.PROP_SRC" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.SFP_LED.PortWidth" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.START.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.STOP.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
@@ -2032,9 +2164,9 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7fb05645"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="74e35e98"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="7aab838e"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="c6d0bfe1"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a92955a4"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="6db9db4f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f51c79c2"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

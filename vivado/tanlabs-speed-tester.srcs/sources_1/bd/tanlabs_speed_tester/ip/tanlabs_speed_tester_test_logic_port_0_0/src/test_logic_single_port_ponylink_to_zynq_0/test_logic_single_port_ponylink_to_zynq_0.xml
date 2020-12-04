@@ -131,7 +131,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_IN.FREQ_HZ">40000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_IN.FREQ_HZ">33000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -149,7 +149,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_IN.CLK_DOMAIN">test_logic_single_port_clk_40M</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_IN.CLK_DOMAIN">test_logic_single_port_ponylink_clk</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -310,7 +310,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_OUT.FREQ_HZ">40000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_OUT.FREQ_HZ">33000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -328,7 +328,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_OUT.CLK_DOMAIN">test_logic_single_port_clk_40M</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AXIS_OUT.CLK_DOMAIN">test_logic_single_port_ponylink_clk</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -377,7 +377,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ">40000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ">33000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -395,7 +395,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN">test_logic_single_port_clk_40M</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN">test_logic_single_port_ponylink_clk</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -484,7 +484,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK4.CLK_DOMAIN">test_logic_single_port_clk_160M</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK4.CLK_DOMAIN">test_logic_single_port_ponylink_clk4</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -535,11 +535,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:29 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:35 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f29d8972</spirit:value>
+            <spirit:value>9:5688a3bb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -550,7 +550,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f29d8972</spirit:value>
+            <spirit:value>9:5688a3bb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -566,11 +566,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:29 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:35 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f29d8972</spirit:value>
+            <spirit:value>9:5688a3bb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -586,11 +586,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:29 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:35 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a60cd0c</spirit:value>
+            <spirit:value>9:a8ca3898</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -606,11 +606,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:29 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:35 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a60cd0c</spirit:value>
+            <spirit:value>9:a8ca3898</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -932,22 +932,22 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>MASTER_PARBITS</spirit:name>
         <spirit:displayName>Master Parbits</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MASTER_PARBITS">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MASTER_PARBITS">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SLAVE_PARBITS</spirit:name>
         <spirit:displayName>Slave Parbits</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLAVE_PARBITS">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLAVE_PARBITS">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>MASTER_TIMINGS</spirit:name>
         <spirit:displayName>Master Timings</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MASTER_TIMINGS" spirit:bitStringLength="80">0x07060402010907050301</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MASTER_TIMINGS" spirit:bitStringLength="80">0x09070503010907050301</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>SLAVE_TIMINGS</spirit:name>
         <spirit:displayName>Slave Timings</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLAVE_TIMINGS" spirit:bitStringLength="80">0x0f0c0905020b09060301</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SLAVE_TIMINGS" spirit:bitStringLength="80">0x0d0a0705020b09060301</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>TDATA_WIDTH</spirit:name>
@@ -957,7 +957,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>TUSER_WIDTH</spirit:name>
         <spirit:displayName>Tuser Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TUSER_WIDTH">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TUSER_WIDTH">1</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1058,22 +1058,22 @@
     <spirit:parameter>
       <spirit:name>MASTER_PARBITS</spirit:name>
       <spirit:displayName>Master Parbits</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MASTER_PARBITS">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MASTER_PARBITS">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SLAVE_PARBITS</spirit:name>
       <spirit:displayName>Slave Parbits</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLAVE_PARBITS">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SLAVE_PARBITS">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MASTER_TIMINGS</spirit:name>
       <spirit:displayName>Master Timings</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.MASTER_TIMINGS" spirit:bitStringLength="80">0x07060402010907050301</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.MASTER_TIMINGS" spirit:bitStringLength="80">0x09070503010907050301</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SLAVE_TIMINGS</spirit:name>
       <spirit:displayName>Slave Timings</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SLAVE_TIMINGS" spirit:bitStringLength="80">0x0f0c0905020b09060301</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SLAVE_TIMINGS" spirit:bitStringLength="80">0x0d0a0705020b09060301</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TDATA_WIDTH</spirit:name>
@@ -1083,7 +1083,7 @@
     <spirit:parameter>
       <spirit:name>TUSER_WIDTH</spirit:name>
       <spirit:displayName>Tuser Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TUSER_WIDTH">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.TUSER_WIDTH">1</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1301,9 +1301,12 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK4.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK4.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK4.PHASE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MASTER_PARBITS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MASTER_TIMINGS" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SLAVE_PARBITS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SLAVE_TIMINGS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TDATA_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.TUSER_WIDTH" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -56,13 +56,13 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// _clk_40M__40.00000______0.000______50.0______233.986____144.334
-// clk_160M__160.00000______0.000______50.0______167.571____144.334
+// _clk_33M__33.00000______0.000______50.0______439.249____342.480
+// clk_132M__132.00000______0.000______50.0______330.205____342.480
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
 //----------------------------------------------------------------------------
-// __primary__________50.000____________0.010
+// __primary_________100.000____________0.010
 
 `timescale 1ps/1ps
 
@@ -70,8 +70,8 @@ module tanlabs_speed_tester_mmcm_ponylink_0_clk_wiz
 
  (// Clock in ports
   // Clock out ports
-  output        clk_40M,
-  output        clk_160M,
+  output        clk_33M,
+  output        clk_132M,
   // Status and control signals
   input         reset,
   output        locked,
@@ -95,8 +95,8 @@ wire clk_in2_tanlabs_speed_tester_mmcm_ponylink_0;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk_40M_tanlabs_speed_tester_mmcm_ponylink_0;
-  wire        clk_160M_tanlabs_speed_tester_mmcm_ponylink_0;
+  wire        clk_33M_tanlabs_speed_tester_mmcm_ponylink_0;
+  wire        clk_132M_tanlabs_speed_tester_mmcm_ponylink_0;
   wire        clk_out3_tanlabs_speed_tester_mmcm_ponylink_0;
   wire        clk_out4_tanlabs_speed_tester_mmcm_ponylink_0;
   wire        clk_out5_tanlabs_speed_tester_mmcm_ponylink_0;
@@ -128,8 +128,8 @@ wire clk_in2_tanlabs_speed_tester_mmcm_ponylink_0;
     .CLKOUT4_CASCADE      ("FALSE"),
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
-    .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT_F      (16.000),
+    .DIVCLK_DIVIDE        (5),
+    .CLKFBOUT_MULT_F      (33.000),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
     .CLKOUT0_DIVIDE_F     (20.000),
@@ -140,15 +140,15 @@ wire clk_in2_tanlabs_speed_tester_mmcm_ponylink_0;
     .CLKOUT1_PHASE        (0.000),
     .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT1_USE_FINE_PS  ("FALSE"),
-    .CLKIN1_PERIOD        (20.000))
+    .CLKIN1_PERIOD        (10.000))
   mmcm_adv_inst
     // Output clocks
    (
     .CLKFBOUT            (clkfbout_tanlabs_speed_tester_mmcm_ponylink_0),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk_40M_tanlabs_speed_tester_mmcm_ponylink_0),
+    .CLKOUT0             (clk_33M_tanlabs_speed_tester_mmcm_ponylink_0),
     .CLKOUT0B            (clkout0b_unused),
-    .CLKOUT1             (clk_160M_tanlabs_speed_tester_mmcm_ponylink_0),
+    .CLKOUT1             (clk_132M_tanlabs_speed_tester_mmcm_ponylink_0),
     .CLKOUT1B            (clkout1b_unused),
     .CLKOUT2             (clkout2_unused),
     .CLKOUT2B            (clkout2b_unused),
@@ -200,13 +200,13 @@ wire clk_in2_tanlabs_speed_tester_mmcm_ponylink_0;
 
 
   BUFG clkout1_buf
-   (.O   (clk_40M),
-    .I   (clk_40M_tanlabs_speed_tester_mmcm_ponylink_0));
+   (.O   (clk_33M),
+    .I   (clk_33M_tanlabs_speed_tester_mmcm_ponylink_0));
 
 
   BUFG clkout2_buf
-   (.O   (clk_160M),
-    .I   (clk_160M_tanlabs_speed_tester_mmcm_ponylink_0));
+   (.O   (clk_132M),
+    .I   (clk_132M_tanlabs_speed_tester_mmcm_ponylink_0));
 
 
 

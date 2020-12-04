@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-//Date        : Thu Nov 26 16:26:38 2020
+//Date        : Fri Dec  4 15:57:49 2020
 //Host        : vision2 running 64-bit Arch Linux
 //Command     : generate_target test_logic_single_port.bd
 //Design      : test_logic_single_port
@@ -364,7 +364,7 @@ module m00_couplers_imp_1S0P32
   assign m00_couplers_to_auto_ds_TSTRB = S_AXIS_tstrb[63:0];
   assign m00_couplers_to_auto_ds_TUSER = S_AXIS_tuser[63:0];
   assign m00_couplers_to_auto_ds_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_ds_0 auto_ds
+  test_logic_single_port_auto_ds_2 auto_ds
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ds_to_auto_ss_k_TDATA),
@@ -383,7 +383,7 @@ module m00_couplers_imp_1S0P32
         .s_axis_tstrb(m00_couplers_to_auto_ds_TSTRB),
         .s_axis_tuser(m00_couplers_to_auto_ds_TUSER),
         .s_axis_tvalid(m00_couplers_to_auto_ds_TVALID));
-  test_logic_single_port_auto_ss_k_0 auto_ss_k
+  test_logic_single_port_auto_ss_k_2 auto_ss_k
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_k_to_auto_ss_slidr_TDATA),
@@ -401,7 +401,7 @@ module m00_couplers_imp_1S0P32
         .s_axis_tstrb(auto_ds_to_auto_ss_k_TSTRB),
         .s_axis_tuser(auto_ds_to_auto_ss_k_TUSER),
         .s_axis_tvalid(auto_ds_to_auto_ss_k_TVALID));
-  test_logic_single_port_auto_ss_slidr_0 auto_ss_slidr
+  test_logic_single_port_auto_ss_slidr_1 auto_ss_slidr
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slidr_to_m00_couplers_TDATA),
@@ -498,7 +498,7 @@ module s00_couplers_imp_19I57HK
   assign s00_couplers_to_auto_ss_si_r_TLAST = S_AXIS_tlast;
   assign s00_couplers_to_auto_ss_si_r_TUSER = S_AXIS_tuser[0];
   assign s00_couplers_to_auto_ss_si_r_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_cc_3 auto_cc
+  test_logic_single_port_auto_cc_7 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
@@ -515,7 +515,7 @@ module s00_couplers_imp_19I57HK
         .s_axis_tready(auto_us_to_auto_cc_TREADY),
         .s_axis_tuser(auto_us_to_auto_cc_TUSER),
         .s_axis_tvalid(auto_us_to_auto_cc_TVALID));
-  test_logic_single_port_auto_ss_si_r_0 auto_ss_si_r
+  test_logic_single_port_auto_ss_si_r_1 auto_ss_si_r
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_si_r_to_auto_us_TDATA),
@@ -527,7 +527,7 @@ module s00_couplers_imp_19I57HK
         .s_axis_tlast(s00_couplers_to_auto_ss_si_r_TLAST),
         .s_axis_tuser(s00_couplers_to_auto_ss_si_r_TUSER),
         .s_axis_tvalid(s00_couplers_to_auto_ss_si_r_TVALID));
-  test_logic_single_port_auto_ss_slid_3 auto_ss_slid
+  test_logic_single_port_auto_ss_slid_7 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s00_couplers_TDATA),
@@ -543,7 +543,7 @@ module s00_couplers_imp_19I57HK
         .s_axis_tready(auto_cc_to_auto_ss_slid_TREADY),
         .s_axis_tuser(auto_cc_to_auto_ss_slid_TUSER),
         .s_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID));
-  test_logic_single_port_auto_us_1 auto_us
+  test_logic_single_port_auto_us_3 auto_us
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_us_to_auto_cc_TDATA),
@@ -646,7 +646,7 @@ module s00_couplers_imp_1WD6HZJ
   assign s00_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
   assign s00_couplers_to_auto_cc_TUSER = S_AXIS_tuser[7:0];
   assign s00_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_cc_2 auto_cc
+  test_logic_single_port_auto_cc_6 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ds_TDATA),
@@ -665,7 +665,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(s00_couplers_to_auto_cc_TREADY),
         .s_axis_tuser(s00_couplers_to_auto_cc_TUSER),
         .s_axis_tvalid(s00_couplers_to_auto_cc_TVALID));
-  test_logic_single_port_auto_ds_1 auto_ds
+  test_logic_single_port_auto_ds_3 auto_ds
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ds_to_auto_ss_k_TDATA),
@@ -682,7 +682,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(auto_cc_to_auto_ds_TREADY),
         .s_axis_tuser(auto_cc_to_auto_ds_TUSER),
         .s_axis_tvalid(auto_cc_to_auto_ds_TVALID));
-  test_logic_single_port_auto_ss_k_1 auto_ss_k
+  test_logic_single_port_auto_ss_k_3 auto_ss_k
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_k_to_auto_ss_slid_TDATA),
@@ -698,7 +698,7 @@ module s00_couplers_imp_1WD6HZJ
         .s_axis_tready(auto_ds_to_auto_ss_k_TREADY),
         .s_axis_tuser(auto_ds_to_auto_ss_k_TUSER),
         .s_axis_tvalid(auto_ds_to_auto_ss_k_TVALID));
-  test_logic_single_port_auto_ss_slid_2 auto_ss_slid
+  test_logic_single_port_auto_ss_slid_6 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s00_couplers_TDATA),
@@ -803,7 +803,7 @@ module s00_couplers_imp_24TIC8
   assign s00_couplers_to_auto_us_TSTRB = S_AXIS_tstrb[0];
   assign s00_couplers_to_auto_us_TUSER = S_AXIS_tuser[0];
   assign s00_couplers_to_auto_us_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_cc_0 auto_cc
+  test_logic_single_port_auto_cc_4 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
@@ -822,7 +822,7 @@ module s00_couplers_imp_24TIC8
         .s_axis_tstrb(auto_us_to_auto_cc_TSTRB),
         .s_axis_tuser(auto_us_to_auto_cc_TUSER),
         .s_axis_tvalid(auto_us_to_auto_cc_TVALID));
-  test_logic_single_port_auto_ss_slid_0 auto_ss_slid
+  test_logic_single_port_auto_ss_slid_4 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s00_couplers_TDATA),
@@ -840,7 +840,7 @@ module s00_couplers_imp_24TIC8
         .s_axis_tstrb(auto_cc_to_auto_ss_slid_TSTRB),
         .s_axis_tuser(auto_cc_to_auto_ss_slid_TUSER),
         .s_axis_tvalid(auto_cc_to_auto_ss_slid_TVALID));
-  test_logic_single_port_auto_us_0 auto_us
+  test_logic_single_port_auto_us_2 auto_us
        (.aclk(S_AXIS_ACLK_1),
         .aresetn(S_AXIS_ARESETN_1),
         .m_axis_tdata(auto_us_to_auto_cc_TDATA),
@@ -944,7 +944,7 @@ module s01_couplers_imp_1WDE4KY
   assign s01_couplers_to_auto_cc_TLAST = S_AXIS_tlast;
   assign s01_couplers_to_auto_cc_TUSER = S_AXIS_tuser[63:0];
   assign s01_couplers_to_auto_cc_TVALID = S_AXIS_tvalid;
-  test_logic_single_port_auto_cc_1 auto_cc
+  test_logic_single_port_auto_cc_5 auto_cc
        (.m_axis_aclk(M_AXIS_ACLK_1),
         .m_axis_aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_cc_to_auto_ss_slid_TDATA),
@@ -963,7 +963,7 @@ module s01_couplers_imp_1WDE4KY
         .s_axis_tready(s01_couplers_to_auto_cc_TREADY),
         .s_axis_tuser(s01_couplers_to_auto_cc_TUSER),
         .s_axis_tvalid(s01_couplers_to_auto_cc_TVALID));
-  test_logic_single_port_auto_ss_slid_1 auto_ss_slid
+  test_logic_single_port_auto_ss_slid_5 auto_ss_slid
        (.aclk(M_AXIS_ACLK_1),
         .aresetn(M_AXIS_ARESETN_1),
         .m_axis_tdata(auto_ss_slid_to_s01_couplers_TDATA),
@@ -987,8 +987,6 @@ endmodule
 module test_logic_single_port
    (board_led,
     check_ready,
-    clk_160M,
-    clk_40M,
     eth_clks_glbl_rst,
     eth_clks_gt0_pll0lock_in,
     eth_clks_gt0_pll0outclk_in,
@@ -1009,6 +1007,8 @@ module test_logic_single_port
     eth_clks_userclk2,
     gen_ready,
     gt0_pll0reset_out,
+    ponylink_clk,
+    ponylink_clk4,
     ponylink_data,
     port_config,
     result,
@@ -1024,8 +1024,6 @@ module test_logic_single_port
     txoutclk);
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.BOARD_LED DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.BOARD_LED, LAYERED_METADATA undef, PortWidth 2" *) output [1:0]board_led;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.CHECK_READY DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.CHECK_READY, LAYERED_METADATA undef" *) output check_ready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_160M CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_160M, CLK_DOMAIN test_logic_single_port_clk_160M, FREQ_HZ 160000000, INSERT_VIP 0, PHASE 0.000" *) input clk_160M;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_40M CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_40M, CLK_DOMAIN test_logic_single_port_clk_40M, FREQ_HZ 40000000, INSERT_VIP 0, PHASE 0.000" *) input clk_40M;
   (* X_INTERFACE_INFO = "harrychen.xyz:user:axi_ethernet_clocks_resets:1.0 eth_clks glbl_rst" *) input eth_clks_glbl_rst;
   (* X_INTERFACE_INFO = "harrychen.xyz:user:axi_ethernet_clocks_resets:1.0 eth_clks gt0_pll0lock_in" *) input eth_clks_gt0_pll0lock_in;
   (* X_INTERFACE_INFO = "harrychen.xyz:user:axi_ethernet_clocks_resets:1.0 eth_clks gt0_pll0outclk_in" *) input eth_clks_gt0_pll0outclk_in;
@@ -1046,8 +1044,10 @@ module test_logic_single_port
   (* X_INTERFACE_INFO = "harrychen.xyz:user:axi_ethernet_clocks_resets:1.0 eth_clks userclk2" *) input eth_clks_userclk2;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.GEN_READY DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.GEN_READY, LAYERED_METADATA undef" *) output gen_ready;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.GT0_PLL0RESET_OUT RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.GT0_PLL0RESET_OUT, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) output gt0_pll0reset_out;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.PONYLINK_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.PONYLINK_CLK, CLK_DOMAIN test_logic_single_port_ponylink_clk, FREQ_HZ 33000000, INSERT_VIP 0, PHASE 0.000" *) input ponylink_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.PONYLINK_CLK4 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.PONYLINK_CLK4, CLK_DOMAIN test_logic_single_port_ponylink_clk4, FREQ_HZ 132000000, INSERT_VIP 0, PHASE 0.000" *) input ponylink_clk4;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.PONYLINK_DATA DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.PONYLINK_DATA, LAYERED_METADATA undef" *) inout ponylink_data;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.PORT_CONFIG DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.PORT_CONFIG, LAYERED_METADATA undef" *) input [173:0]port_config;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.PORT_CONFIG DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.PORT_CONFIG, LAYERED_METADATA undef" *) input [255:0]port_config;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.RESULT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.RESULT, LAYERED_METADATA undef" *) output [127:0]result;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.RXOUTCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.RXOUTCLK, CLK_DOMAIN bd_3464_pcs_pma_0_rxoutclk, FREQ_HZ 62500000, INSERT_VIP 0, PHASE 0" *) output rxoutclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.SFP_LED DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.SFP_LED, LAYERED_METADATA undef, PortWidth 2" *) output [1:0]sfp_led;
@@ -1095,7 +1095,6 @@ module test_logic_single_port
   wire [0:0]axis_ix_to_ponylink_M00_AXIS_TUSER;
   wire axis_ix_to_ponylink_M00_AXIS_TVALID;
   wire [1:0]board_led_concat_dout;
-  wire clk_160M_1;
   wire clk_40M_1;
   wire eth_clks_1_glbl_rst;
   wire eth_clks_1_gt0_pll0lock_in;
@@ -1136,6 +1135,7 @@ module test_logic_single_port
   wire frame_generator_m_axis_TREADY;
   wire [63:0]frame_generator_m_axis_TUSER;
   wire frame_generator_m_axis_TVALID;
+  wire ponylink_clk4_1;
   wire [7:0]ponylink_to_zynq_axis_out_TDATA;
   wire ponylink_to_zynq_axis_out_TLAST;
   wire ponylink_to_zynq_axis_out_TREADY;
@@ -1147,7 +1147,7 @@ module test_logic_single_port
   wire ponylink_to_zynq_mode_recv;
   wire ponylink_to_zynq_mode_send;
   wire ponylink_to_zynq_resetn_out;
-  wire [173:0]port_config_1;
+  wire [255:0]port_config_1;
   wire [63:0]rx_width_upsizer1_M_AXIS_TDATA;
   wire [2:0]rx_width_upsizer1_M_AXIS_TID;
   wire [7:0]rx_width_upsizer1_M_AXIS_TKEEP;
@@ -1171,8 +1171,7 @@ module test_logic_single_port
   assign axi_ethernet_0_sfp_RXP = sfp_rxp;
   assign board_led[1:0] = board_led_concat_dout;
   assign check_ready = tanlabs_frame_checker_0_ready;
-  assign clk_160M_1 = clk_160M;
-  assign clk_40M_1 = clk_40M;
+  assign clk_40M_1 = ponylink_clk;
   assign eth_clks_1_glbl_rst = eth_clks_glbl_rst;
   assign eth_clks_1_gt0_pll0lock_in = eth_clks_gt0_pll0lock_in;
   assign eth_clks_1_gt0_pll0outclk_in = eth_clks_gt0_pll0outclk_in;
@@ -1193,7 +1192,8 @@ module test_logic_single_port
   assign eth_clks_1_userclk2 = eth_clks_userclk2;
   assign gen_ready = tanlabs_frame_genera_0_ready;
   assign gt0_pll0reset_out = axi_ethernet_inner_gt0_pll0reset_out;
-  assign port_config_1 = port_config[173:0];
+  assign ponylink_clk4_1 = ponylink_clk4;
+  assign port_config_1 = port_config[255:0];
   assign result[127:0] = tanlabs_frame_checker_0_result;
   assign rxoutclk = axi_ethernet_inner_rxoutclk;
   assign sfp_led[1:0] = sfp_led_concat_dout;
@@ -1385,7 +1385,7 @@ module test_logic_single_port
         .axis_out_tuser(ponylink_to_zynq_axis_out_TUSER),
         .axis_out_tvalid(ponylink_to_zynq_axis_out_TVALID),
         .clk(clk_40M_1),
-        .clk4(clk_160M_1),
+        .clk4(ponylink_clk4_1),
         .data_pin(ponylink_data),
         .gpio_i(xlconstant_0_dout),
         .linkerror(ponylink_to_zynq_linkerror),
@@ -1703,7 +1703,7 @@ module test_logic_single_port_axis_ix_to_eth_0
         .S_AXIS_tready(axis_ix_to_eth_to_s01_couplers_TREADY),
         .S_AXIS_tuser(axis_ix_to_eth_to_s01_couplers_TUSER),
         .S_AXIS_tvalid(axis_ix_to_eth_to_s01_couplers_TVALID));
-  test_logic_single_port_s_arb_req_suppress_concat_0 s_arb_req_suppress_concat
+  test_logic_single_port_s_arb_req_suppress_concat_1 s_arb_req_suppress_concat
        (.In0(s00_arb_req_suppress_to_s_arb_req_suppress_concat),
         .In1(s01_arb_req_suppress_to_s_arb_req_suppress_concat),
         .dout(s_arb_req_suppress_concat_dout));

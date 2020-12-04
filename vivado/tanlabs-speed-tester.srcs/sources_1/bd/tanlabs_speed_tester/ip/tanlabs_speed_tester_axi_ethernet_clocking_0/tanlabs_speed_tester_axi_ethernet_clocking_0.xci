@@ -14,7 +14,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SOFT_RST.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SOFT_RST.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SYS_OUT_RST.INSERT_VIP">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SYS_OUT_RST.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SYS_OUT_RST.POLARITY">ACTIVE_HIGH</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SYS_RST.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.SYS_RST.POLARITY">ACTIVE_HIGH</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">tanlabs_speed_tester_axi_ethernet_clocking_0</spirit:configurableElementValue>
@@ -44,7 +44,7 @@
         <xilinx:componentInstanceExtensions>
           <xilinx:configElementInfos>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SOFT_RST.POLARITY" xilinx:valuePermission="bd_and_user"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SYS_OUT_RST.POLARITY" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SYS_OUT_RST.POLARITY" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SYS_RST.POLARITY" xilinx:valueSource="user_prop" xilinx:valuePermission="bd_and_user"/>
           </xilinx:configElementInfos>
         </xilinx:componentInstanceExtensions>

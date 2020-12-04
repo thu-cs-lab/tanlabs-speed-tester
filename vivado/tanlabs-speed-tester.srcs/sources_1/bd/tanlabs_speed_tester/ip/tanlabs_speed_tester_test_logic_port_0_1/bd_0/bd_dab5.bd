@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE481DFD179C463D6",
+      "boundary_crc": "0xE481DFD121600C13",
       "design_src": "SBD",
       "device": "xc7a200tfbg676-2",
       "name": "bd_dab5",
@@ -43,7 +43,8 @@
             "value_src": "constant"
           },
           "ADDR_WIDTH": {
-            "value": "17"
+            "value": "17",
+            "value_src": "auto_prop"
           },
           "AWUSER_WIDTH": {
             "value": "0",
@@ -1092,16 +1093,16 @@
       }
     },
     "interface_nets": {
-      "mac_gmii": {
-        "interface_ports": [
-          "mac/gmii",
-          "pcs_pma/gmii_pcs_pma"
-        ]
-      },
       "pcs_pma_sfp": {
         "interface_ports": [
           "sfp",
           "pcs_pma/sfp"
+        ]
+      },
+      "mac_rx_statistics": {
+        "interface_ports": [
+          "rx_statistics",
+          "mac/rx_statistics"
         ]
       },
       "mac_m_axis_rx": {
@@ -1116,28 +1117,28 @@
           "mac/s_axis_tx"
         ]
       },
-      "mac_tx_statistics": {
-        "interface_ports": [
-          "tx_statistics",
-          "mac/tx_statistics"
-        ]
-      },
       "s_axi_1": {
         "interface_ports": [
           "s_axi",
           "mac/s_axi"
         ]
       },
-      "mac_rx_statistics": {
-        "interface_ports": [
-          "rx_statistics",
-          "mac/rx_statistics"
-        ]
-      },
       "s_axis_pause_1": {
         "interface_ports": [
           "s_axis_pause",
           "mac/s_axis_pause"
+        ]
+      },
+      "mac_tx_statistics": {
+        "interface_ports": [
+          "tx_statistics",
+          "mac/tx_statistics"
+        ]
+      },
+      "mac_gmii": {
+        "interface_ports": [
+          "mac/gmii",
+          "pcs_pma/gmii_pcs_pma"
         ]
       }
     },

@@ -8510,11 +8510,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:24 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:45 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2673972b</spirit:value>
+            <spirit:value>9:a490c1a3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -8525,7 +8525,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2673972b</spirit:value>
+            <spirit:value>9:a490c1a3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -8541,11 +8541,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:24 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:45 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2673972b</spirit:value>
+            <spirit:value>9:a490c1a3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -8567,11 +8567,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:24 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:45 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a458bb33</spirit:value>
+            <spirit:value>9:92bb19d7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -8587,11 +8587,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:24 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:45 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:a458bb33</spirit:value>
+            <spirit:value>9:92bb19d7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -9808,7 +9808,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_ARB_ON_MAX_XFERS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ARB_ON_MAX_XFERS">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_ARB_ON_MAX_XFERS">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_ARB_ON_NUM_CYCLES</spirit:name>
@@ -10147,7 +10147,7 @@
     <spirit:parameter>
       <spirit:name>ARB_ON_MAX_XFERS</spirit:name>
       <spirit:displayName>Arbitrate on maximum number of transfers</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ARB_ON_MAX_XFERS" spirit:order="14" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ARB_ON_MAX_XFERS" spirit:order="14" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -10163,7 +10163,7 @@
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.ARB_ON_NUM_CYCLES">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.ARB_ON_NUM_CYCLES">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -13936,6 +13936,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_CTRL.WUSER_WIDTH" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ALGORITHM" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ON_MAX_XFERS" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ON_NUM_CYCLES" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ARB_ON_TLAST" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.HAS_TKEEP" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.HAS_TLAST" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
