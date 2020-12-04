@@ -31,6 +31,8 @@ module frame_checker_impl #(
     output wire axis_s_ready
 );
 
+    localparam DATA_BYTE_WIDTH = DATA_WIDTH / 8;
+
     // test result
     port_result_t curr_result, next_result;
     assign result = curr_result;
@@ -46,10 +48,10 @@ module frame_checker_impl #(
     end
 
     // count valid bytes in current beat
-    wire [6:0] beat_size;
-    assign beat_size = rst ? '0 : clz64(~axis_s_keep);
+    wire [$clog2(DATA_BYTE_WIDTH):0] beat_size;
+    assign beat_size = rst ? '0 : ctz64(~axis_s_keep); // hardcode 64 bytes here!
     wire full_beat;
-    assign full_beat = rst ? '0 : beat_size == 7'd64;
+    assign full_beat = rst ? '0 : beat_size == DATA_BYTE_WIDTH;
 
     // connect non-handshake axi signals
     assign axis_m_data = axis_s_data;

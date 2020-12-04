@@ -22,17 +22,21 @@ typedef struct packed {
 
 // config of each port (32 bytes)
 typedef struct packed {
-    logic [81:0] padding;
+    logic [46:0] padding4;
     logic enable;
+    logic [2:0] padding3;
     frame_size_t frame_size;
     ip_addr_t src_ip, dst_ip;
-    mac_addr_t src_mac, dst_mac;
+    u8_t [1:0] padding2;
+    mac_addr_t src_mac
+    u8_t [1:0] padding1;
+    mac_addr_t dst_mac;
 } port_config_t;
 
 
 // statistics of each port (16 bytes)
 typedef struct packed {
-    // count error frames (T_user == 1 or not content checking not passed)
+    // count error frames (T_user == 1 or content checking not passed)
     u32_t err_bytes;
     u32_t err_frames;
     // count testing frames
@@ -73,9 +77,9 @@ typedef struct packed {
 `define TEST_FRAME_PROTO 8'hFD
 
 
-function logic [6:0] clz64(input logic [63:0] x);
+function logic [6:0] ctz64(input logic [63:0] x);
 	for (int i = 0; i < 64; i++) begin
-		if (x[63 - i] == 1) begin
+		if (x[i] == 1) begin
 			return i;
 		end
 	end

@@ -10,6 +10,6 @@ module four_way_splitter #(
     output wire [LENGTH / 4 - 1:0] dout_4
 );
 
-    assign {dout_1, dout_2, dout_3, dout_4} = din;
+    assign {dout_4, dout_3, dout_2, dout_1} = din;
 
 endmodule

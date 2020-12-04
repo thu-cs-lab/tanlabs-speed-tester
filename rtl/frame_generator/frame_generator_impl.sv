@@ -151,9 +151,9 @@ module frame_generator_impl #(
 
 
     // stopping control
-    logic prev_stop;
+    logic prev_stop_request;
     wire need_stop;
-    assign need_stop = stop || prev_stop;
+    assign need_stop = stop || prev_stop_request;
 
     logic need_start;
     assign need_start = start && port_config.enable;
@@ -184,9 +184,9 @@ module frame_generator_impl #(
             ip_length <= '0;
             first_beat <= 1'b0;
             random_seed <= '0;
-            prev_stop <= 1'b0;
+            prev_stop_request <= 1'b0;
         end else begin
-            if (stop) prev_stop <= stop;
+            if (stop) prev_stop_request <= stop; // latch stop request
             case (state)
                 STATE_IDLE: begin
                     if (need_start) begin
@@ -207,6 +207,9 @@ module frame_generator_impl #(
                             remain_size <= remain_size - 64;
                         end else begin
                             // current frame is finished, go to next frame
+                            if (need_stop) begin
+                                prev_stop_request <= 1'b0; // clear stop request
+                            end
                             first_beat <= 1'b1;
                             random_seed <= random_id;
                             remain_size <= port_config.frame_size;

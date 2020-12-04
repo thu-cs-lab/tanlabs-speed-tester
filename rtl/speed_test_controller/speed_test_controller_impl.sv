@@ -183,8 +183,8 @@ module speed_test_controller_impl #(
         if (~S_AXI_ARESETN) begin
             axi_start = 1'b0; 
         end else begin
-            // start signals (reduce or lowest 8 bits)
-            axi_start = slv_reg_wren && axi_awaddr[8:0] == 9'd4 && !busy && S_AXI_WSTRB[0] && (&S_AXI_WDATA[0 +: 8]);
+            // start signals (reduce-or lowest 8 bits)
+            axi_start = slv_reg_wren && axi_awaddr[8:0] == 9'd4 && !busy && S_AXI_WSTRB[0] && |(S_AXI_WDATA[0 +: 8]);
         end
     end
 
