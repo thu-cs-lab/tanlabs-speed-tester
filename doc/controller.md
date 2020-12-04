@@ -11,8 +11,9 @@ Size are all in bytes. Any access must be aligned to 4 bytes, and only lowest 9 
 | `0x00`  |  `1`  |    Busy     |    RO    |
 | `0x04`  |  `1`  |    Start    |    WO    |
 | `0x08`  |  `2`  |  Duration   |    RW    |
+| `0x0A`  |  `2`  |  Wait Time  |    RO    |
 | `0x100` | `128` | Test Config |    RW    |
-| `0x180` | `64`  | Test Result |    RW    |
+| `0x180` | `64`  | Test Result |    RO    |
 | `0x1C0` | `64`  |  Reserved   |   N/A    |
 
 ## Registers
@@ -30,6 +31,10 @@ Write any non-zero byte to this register starts a test (if the controller is not
 The lowest 13 bits of this configurable register contains the duration of next test in milliseconds when no test is in progress. Therefore the longest duration of a test will be 8191 ms.
 
 When a test is in progress, the register contains the actual time elapsed since the test starts (always shorter than the duration configured before). Software can use it to estimate the progress of tests.
+
+### Wait Time
+
+This read only register contains the elapsed wait time after a test has stopped before the controller latches result from the receiver. The default wait time is hardcoded to 100ms.
 
 ### Test Config
 

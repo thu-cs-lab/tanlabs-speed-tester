@@ -42,7 +42,7 @@ module speed_test_controller_impl #(
     // frame checker & generator
     output wire [TEST_PORT_NUM-1:0] start,
     output wire [TEST_PORT_NUM-1:0] stop,
-    output wire [TEST_PORT_NUM-1:0][256:0] port_config
+    output wire port_config_t [TEST_PORT_NUM-1:0] port_config
 );
 
     // AXI clocks
@@ -169,7 +169,7 @@ module speed_test_controller_impl #(
 
     // connect used part only
     generate for (genvar i = 0; i < TEST_PORT_NUM; ++i)
-        assign port_config[i] = port_configs_raw[$bits(port_config_t) * i +: $bits(port_config_t)];
+        assign port_config[i] = port_config_t'(port_configs_raw[$bits(port_config_t) * i +: $bits(port_config_t)]);
     endgenerate
 
     wire [5:0] axi_awaddr_in_word;
@@ -351,7 +351,7 @@ module speed_test_controller_impl #(
 	// and the slave is ready to accept the read address.
 	assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 	(* mark_debug = "true" *) logic [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
-	(* mark_debug = "true" *) u16_t test_ms; // elapsed test time
+	(* mark_debug = "true" *) u16_t test_ms, wait_ms; // elapsed test time
 	
 	always_comb
     begin
@@ -359,8 +359,8 @@ module speed_test_controller_impl #(
             // busy signal (only lowest bit)
             reg_data_out = {31'b0, busy};
         end else if (axi_araddr[8:0] == 9'd8) begin
-            // actual duration (only lowest 16 bits)
-            reg_data_out = {16'b0, test_ms};
+            // wait time after stop & actual test duration
+            reg_data_out = {wait_ms, test_ms};
         end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'h80 >> ADDR_LSB)) begin
             // port configs range
             reg_data_out = port_configs_raw[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
@@ -402,7 +402,6 @@ module speed_test_controller_impl #(
     assign stop = {TEST_PORT_NUM{test_stop}};
 
     localparam CYCLE_PER_MS = CLOCK_FREQ / 1000;
-    (* mark_debug = "true" *) u16_t wait_ms;
     (* mark_debug = "true" *) u32_t cycle_counter;
 
     always_ff @(posedge clk) begin
@@ -451,6 +450,7 @@ module speed_test_controller_impl #(
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         wait_ms <= wait_ms + 1;
+                        cycle_counter <= '0;
                         if (wait_ms + 1 == `WAIT_MS_AFTER_STOP) begin
                             // collect results
                             test_stop <= 1'b0;
