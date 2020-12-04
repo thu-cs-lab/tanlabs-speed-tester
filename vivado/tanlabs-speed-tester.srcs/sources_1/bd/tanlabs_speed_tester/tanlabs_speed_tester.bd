@@ -33,16 +33,16 @@
       "port_config_splitter": "",
       "spf_rx_los_splitter": "",
       "axis_user_unpacker": "",
-      "test_logic_port_1": "",
-      "test_logic_port_2": "",
-      "test_logic_port_3": "",
-      "test_logic_port_0": "",
       "ctrl_status_concat": "",
       "control_clock_converter": "",
       "control_protocol_converter": "",
       "axis_user_packer": "",
       "system_ila_controller": "",
-      "test_controller": ""
+      "test_controller": "",
+      "test_logic_port_1": "",
+      "test_logic_port_3": "",
+      "test_logic_port_2": "",
+      "test_logic_port_0": ""
     },
     "interface_ports": {
       "sfp_port_0": {
@@ -137,7 +137,7 @@
           },
           "PortWidth": {
             "value": "8",
-            "value_src": "default"
+            "value_src": "ip_prop"
           }
         }
       },
@@ -229,7 +229,7 @@
           },
           "PortWidth": {
             "value": "8",
-            "value_src": "default"
+            "value_src": "ip_prop"
           }
         }
       },
@@ -245,7 +245,7 @@
           },
           "PortWidth": {
             "value": "4",
-            "value_src": "default"
+            "value_src": "ip_prop"
           }
         }
       }
@@ -1332,22 +1332,6 @@
           }
         }
       },
-      "test_logic_port_1": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_0"
-      },
-      "test_logic_port_2": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_1"
-      },
-      "test_logic_port_3": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
-        "xci_name": "tanlabs_speed_tester_test_logic_port_0_2"
-      },
-      "test_logic_port_0": {
-        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
-        "xci_name": "tanlabs_speed_tester_test_logic_single_po_0_0"
-      },
       "ctrl_status_concat": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
         "xci_name": "tanlabs_speed_tester_xlconcat_0_0",
@@ -1878,9 +1862,43 @@
             "right": "0"
           }
         }
+      },
+      "test_logic_port_1": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_0_0"
+      },
+      "test_logic_port_3": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_0_2"
+      },
+      "test_logic_port_2": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
+        "xci_name": "tanlabs_speed_tester_test_logic_port_2_0"
+      },
+      "test_logic_port_0": {
+        "vlnv": "harrychen.xyz:user:test_logic_single_port:1.10",
+        "xci_name": "tanlabs_speed_tester_test_logic_single_po_0_0"
       }
     },
     "interface_nets": {
+      "axi_clock_converter_0_M_AXI": {
+        "interface_ports": [
+          "control_clock_converter/M_AXI",
+          "control_protocol_converter/S_AXI"
+        ]
+      },
+      "test_logic_port_3_sfp": {
+        "interface_ports": [
+          "sfp_port_3",
+          "test_logic_port_3/sfp"
+        ]
+      },
+      "test_logic_single_po_0_sfp": {
+        "interface_ports": [
+          "sfp_port_0",
+          "test_logic_port_0/sfp"
+        ]
+      },
       "control_signal_mapper_M_AXI": {
         "interface_ports": [
           "control_signal_mapper/M_AXI",
@@ -1910,10 +1928,25 @@
           }
         }
       },
-      "axi_clock_converter_0_M_AXI": {
+      "axi_ethernet_clock_w_0_clocks_out": {
         "interface_ports": [
-          "control_clock_converter/M_AXI",
-          "control_protocol_converter/S_AXI"
+          "axi_ethernet_clock_w_0/clocks_out",
+          "test_logic_port_1/eth_clks",
+          "test_logic_port_3/eth_clks",
+          "test_logic_port_2/eth_clks",
+          "test_logic_port_0/eth_clks"
+        ]
+      },
+      "test_logic_port_2_sfp": {
+        "interface_ports": [
+          "sfp_port_2",
+          "test_logic_port_2/sfp"
+        ]
+      },
+      "test_logic_port_1_sfp": {
+        "interface_ports": [
+          "sfp_port_1",
+          "test_logic_port_1/sfp"
         ]
       },
       "axis_id_packer_0_m_axis": {
@@ -1922,10 +1955,10 @@
           "ponylink_ctrl/axis_in"
         ]
       },
-      "test_logic_port_1_sfp": {
+      "control_signal_mapper_M_AXIS": {
         "interface_ports": [
-          "sfp_port_1",
-          "test_logic_port_1/sfp"
+          "control_signal_mapper/M_AXIS",
+          "axis_user_packer/s_axis"
         ]
       },
       "ponylink_ctrl_axis_out": {
@@ -1938,39 +1971,6 @@
         "interface_ports": [
           "axis_user_unpacker/m_axis",
           "control_signal_mapper/S_AXIS"
-        ]
-      },
-      "control_signal_mapper_M_AXIS": {
-        "interface_ports": [
-          "control_signal_mapper/M_AXIS",
-          "axis_user_packer/s_axis"
-        ]
-      },
-      "test_logic_port_2_sfp": {
-        "interface_ports": [
-          "sfp_port_2",
-          "test_logic_port_2/sfp"
-        ]
-      },
-      "test_logic_port_3_sfp": {
-        "interface_ports": [
-          "sfp_port_3",
-          "test_logic_port_3/sfp"
-        ]
-      },
-      "test_logic_single_po_0_sfp": {
-        "interface_ports": [
-          "sfp_port_0",
-          "test_logic_port_0/sfp"
-        ]
-      },
-      "axi_ethernet_clock_w_0_clocks_out": {
-        "interface_ports": [
-          "axi_ethernet_clock_w_0/clocks_out",
-          "test_logic_port_1/eth_clks",
-          "test_logic_port_2/eth_clks",
-          "test_logic_port_3/eth_clks",
-          "test_logic_port_0/eth_clks"
         ]
       }
     },
@@ -2130,12 +2130,12 @@
           "mmcm_ponylink/clk_33M",
           "ponylink_ctrl/clk",
           "control_signal_mapper/aclk",
-          "test_logic_port_1/ponylink_clk",
-          "test_logic_port_2/ponylink_clk",
-          "test_logic_port_3/ponylink_clk",
-          "test_logic_port_0/ponylink_clk",
           "control_clock_converter/s_axi_aclk",
-          "system_ila_controller/clk"
+          "system_ila_controller/clk",
+          "test_logic_port_1/ponylink_clk",
+          "test_logic_port_3/ponylink_clk",
+          "test_logic_port_2/ponylink_clk",
+          "test_logic_port_0/ponylink_clk"
         ]
       },
       "clk_50M_1": {
@@ -2478,8 +2478,8 @@
           "mmcm_ponylink/clk_132M",
           "ponylink_ctrl/clk4",
           "test_logic_port_1/ponylink_clk4",
-          "test_logic_port_2/ponylink_clk4",
           "test_logic_port_3/ponylink_clk4",
+          "test_logic_port_2/ponylink_clk4",
           "test_logic_port_0/ponylink_clk4"
         ]
       },
