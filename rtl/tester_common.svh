@@ -57,8 +57,8 @@ typedef struct packed {
     u16_t id;
     u16_t len;
     u8_t tos;
-    u4_t ihl;
     u4_t version;
+    u4_t ihl;
 } ip_header_t;
 
 typedef struct packed {
