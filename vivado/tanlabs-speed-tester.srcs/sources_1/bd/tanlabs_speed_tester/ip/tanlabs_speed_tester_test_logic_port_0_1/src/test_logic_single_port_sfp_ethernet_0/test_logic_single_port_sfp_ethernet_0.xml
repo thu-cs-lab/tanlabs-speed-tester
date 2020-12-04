@@ -16202,7 +16202,7 @@ In both cases, the FCS is verified on the frame.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:38 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:59 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -16220,7 +16220,7 @@ In both cases, the FCS is verified on the frame.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:38 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:00:59 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -16239,7 +16239,7 @@ In both cases, the FCS is verified on the frame.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:40 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:01:02 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -16279,7 +16279,7 @@ In both cases, the FCS is verified on the frame.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:40 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:01:02 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -16319,7 +16319,7 @@ In both cases, the FCS is verified on the frame.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Nov 26 08:46:40 UTC 2020</spirit:value>
+            <spirit:value>Fri Dec 04 08:01:02 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>

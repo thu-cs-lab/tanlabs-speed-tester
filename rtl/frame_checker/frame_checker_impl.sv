@@ -19,7 +19,7 @@ module frame_checker_impl #(
     output wire axis_m_last,
     output wire [DATA_WIDTH / 8 - 1:0] axis_m_user,
     output wire [ID_WIDTH - 1:0] axis_m_id,
-    output wire axis_m_valid,
+    (* mark_debug = "true" *) output wire axis_m_valid,
     input  wire axis_m_ready,
     // AXIS input (all testing frames filtered)
     input  wire [DATA_WIDTH - 1:0] axis_s_data,
@@ -28,13 +28,13 @@ module frame_checker_impl #(
     input  wire [DATA_WIDTH / 8 - 1:0] axis_s_user,
     input  wire [ID_WIDTH - 1:0] axis_s_id,
     input  wire axis_s_valid,
-    output wire axis_s_ready
+    (* mark_debug = "true" *) output wire axis_s_ready
 );
 
     localparam DATA_BYTE_WIDTH = DATA_WIDTH / 8;
 
     // test result
-    port_result_t curr_result, next_result;
+    (* mark_debug = "true" *) port_result_t curr_result, next_result;
     assign result = curr_result;
 
     // reset result when starting counting or resetting
@@ -48,9 +48,9 @@ module frame_checker_impl #(
     end
 
     // count valid bytes in current beat
-    wire [$clog2(DATA_BYTE_WIDTH):0] beat_size;
+    (* mark_debug = "true" *) wire [$clog2(DATA_BYTE_WIDTH):0] beat_size;
     assign beat_size = rst ? '0 : ctz64(~axis_s_keep); // hardcode 64 bytes here!
-    wire full_beat;
+    (* mark_debug = "true" *) wire full_beat;
     assign full_beat = rst ? '0 : beat_size == DATA_BYTE_WIDTH;
 
     // connect non-handshake axi signals
@@ -65,7 +65,7 @@ module frame_checker_impl #(
     assign first_beat_header = axis_s_data;
 
     // check testing flags
-    logic is_first_test_beat, prev_test_beat, is_test_frame;
+    (* mark_debug = "true" *) logic is_first_test_beat, prev_test_beat, is_test_frame;
     assign is_test_frame = (!rst) && (is_first_test_beat || prev_test_beat);
     assign is_first_test_beat = (!rst) && axis_s_valid
         && (first_beat_header.eth_header.ether_type == u16_t'({<<8{16'h0800}}))
@@ -75,7 +75,7 @@ module frame_checker_impl #(
         && (first_beat_header.ip_header.ihl == 4'd5);
 
     // dummy handshake to drop test frames
-    wire axis_recv_ready;
+    (* mark_debug = "true" *) wire axis_recv_ready;
     assign axis_recv_ready = (!rst) && (is_test_frame ? 1'b1 : axis_m_ready);
     assign axis_m_valid = (!rst) && (is_test_frame ? 1'b0 : axis_s_valid);
     assign axis_s_ready = axis_recv_ready;
@@ -125,7 +125,7 @@ module frame_checker_impl #(
     );
 
     // byte matching of whole beat
-    wire [DATA_WIDTH / 8 - 1:0] full_match;
+    (* mark_debug = "true" *) wire [DATA_WIDTH / 8 - 1:0] full_match;
     generate
         for (genvar i = 0; i < DATA_WIDTH / 8; ++i) begin
             assign full_match[i] = (!rst) && axis_s_data[8*i +: 8] == random_content[8*i +: 8];
@@ -133,7 +133,7 @@ module frame_checker_impl #(
     endgenerate
 
     // generate mask for data that needs to be checked
-    logic [DATA_WIDTH / 8 - 1:0] match_mask;
+    (* mark_debug = "true" *) logic [DATA_WIDTH / 8 - 1:0] match_mask;
     always_comb begin
         if (rst || !axis_s_valid) match_mask = '0;
         else begin
@@ -145,12 +145,12 @@ module frame_checker_impl #(
     end
 
     // check if content is correct in current beat
-    wire content_correct;
+    (* mark_debug = "true" *) wire content_correct;
     assign content_correct = (!rst) && ~(full_match | ~match_mask) == '0 && (axis_s_user == '0);
 
     // check beats correctness & size
-    logic current_beat_correct, beats_correct, prev_beats_correct;
-    u16_t beat_size_sum, prev_beat_size_sum;
+    (* mark_debug = "true" *) logic current_beat_correct, beats_correct, prev_beats_correct;
+    (* mark_debug = "true" *) u16_t beat_size_sum, prev_beat_size_sum;
     // store old results
     always_ff @(posedge clk) begin
         if (rst) begin

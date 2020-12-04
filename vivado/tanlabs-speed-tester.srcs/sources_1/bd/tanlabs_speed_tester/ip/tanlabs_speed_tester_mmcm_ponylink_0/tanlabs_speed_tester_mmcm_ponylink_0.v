@@ -56,23 +56,23 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// _clk_40M__40.00000______0.000______50.0______233.986____144.334
-// clk_160M__160.00000______0.000______50.0______167.571____144.334
+// _clk_33M__33.00000______0.000______50.0______439.249____342.480
+// clk_132M__132.00000______0.000______50.0______330.205____342.480
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
 //----------------------------------------------------------------------------
-// __primary__________50.000____________0.010
+// __primary_________100.000____________0.010
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "tanlabs_speed_tester_mmcm_ponylink_0,clk_wiz_v6_0_4_0_0,{component_name=tanlabs_speed_tester_mmcm_ponylink_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=2,clkin1_period=20.000,clkin2_period=10.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "tanlabs_speed_tester_mmcm_ponylink_0,clk_wiz_v6_0_4_0_0,{component_name=tanlabs_speed_tester_mmcm_ponylink_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=2,clkin1_period=10.000,clkin2_period=10.000,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module tanlabs_speed_tester_mmcm_ponylink_0 
  (
   // Clock out ports
-  output        clk_40M,
-  output        clk_160M,
+  output        clk_33M,
+  output        clk_132M,
   // Status and control signals
   input         reset,
   output        locked,
@@ -83,8 +83,8 @@ module tanlabs_speed_tester_mmcm_ponylink_0
   tanlabs_speed_tester_mmcm_ponylink_0_clk_wiz inst
   (
   // Clock out ports  
-  .clk_40M(clk_40M),
-  .clk_160M(clk_160M),
+  .clk_33M(clk_33M),
+  .clk_132M(clk_132M),
   // Status and control signals               
   .reset(reset), 
   .locked(locked),
