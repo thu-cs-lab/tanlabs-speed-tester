@@ -4,3 +4,4 @@
 CONFIG_gpio-demo
 CONFIG_peekpoke
 CONFIG_serial-config
+CONFIG_tanlabs-speed-tester-backend
