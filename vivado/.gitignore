@@ -1,0 +1,17 @@
+tanlabs-speed-tester.tmp/
+ip_upgrade.log
+ipshared/
+.Xil/
+*_netlist.*
+*_stub.*
+*.dcp
+*.veo
+*.vho
+*.hwh
+*.hdf
+tanlabs-speed-tester.cache/
+tanlabs-speed-tester.hw/
+tanlabs-speed-tester.ip_user_files/
+tanlabs-speed-tester.runs/
+tanlabs-speed-tester.sim/*/behav/xsim/
+*.xsa
