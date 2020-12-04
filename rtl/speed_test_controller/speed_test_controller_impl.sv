@@ -42,7 +42,7 @@ module speed_test_controller_impl #(
     // frame checker & generator
     output wire [TEST_PORT_NUM-1:0] start,
     output wire [TEST_PORT_NUM-1:0] stop,
-    output wire [TEST_PORT_NUM-1:0][173:0] port_config
+    output wire [TEST_PORT_NUM-1:0][256:0] port_config
 );
 
     // AXI clocks
@@ -161,11 +161,11 @@ module speed_test_controller_impl #(
     // and the slave is ready to accept the write address and write data.
 
     // address truncated to 9 bits (512 bytes)
-    logic busy; // 0x00, read only from AXI side
-    logic axi_start; // 0x04, write only from AXI side
-    test_duration_t duration; // 0x08, R & W from AXI side
-    logic [$bits(port_config_t) * 4 - 1:0] port_configs_raw; // 128 bytes, [0x100, 0x180), R & W from AXI side
-    logic [$bits(port_result_t) * 4 - 1:0] port_results_raw;  // 64 bytes, [0x180, 0x1c0), read only from AXI side
+    (* mark_debug = "true" *) logic busy; // 0x00, read only from AXI side
+    (* mark_debug = "true" *) logic axi_start; // 0x04, write only from AXI side
+    (* mark_debug = "true" *) test_duration_t duration; // 0x08, R & W from AXI side
+    (* mark_debug = "true" *) logic [$bits(port_config_t) * 4 - 1:0] port_configs_raw; // 128 bytes, [0x100, 0x180), R & W from AXI side
+    (* mark_debug = "true" *) logic [$bits(port_result_t) * 4 - 1:0] port_results_raw;  // 64 bytes, [0x180, 0x1c0), read only from AXI side
 
     // connect used part only
     generate for (genvar i = 0; i < TEST_PORT_NUM; ++i)
@@ -350,8 +350,8 @@ module speed_test_controller_impl #(
 	// Slave register read enable is asserted when valid address is available
 	// and the slave is ready to accept the read address.
 	assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
-	logic [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
-	u16_t test_ms; // elapsed test time
+	(* mark_debug = "true" *) logic [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
+	(* mark_debug = "true" *) u16_t test_ms; // elapsed test time
 	
 	always_comb
     begin
@@ -393,17 +393,17 @@ module speed_test_controller_impl #(
 
 
     // test controller FSM
-    speed_controller_state_t state;
+    (* mark_debug = "true" *) speed_controller_state_t state;
 
     assign busy = rst || (state != STATE_IDLE);
 
-    logic test_start, test_stop;
+    (* mark_debug = "true" *) logic test_start, test_stop;
     assign start = {TEST_PORT_NUM{test_start}};
     assign stop = {TEST_PORT_NUM{test_stop}};
 
     localparam CYCLE_PER_MS = CLOCK_FREQ / 1000;
-    u16_t wait_ms;
-    u32_t cycle_counter;
+    (* mark_debug = "true" *) u16_t wait_ms;
+    (* mark_debug = "true" *) u32_t cycle_counter;
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -437,10 +437,10 @@ module speed_test_controller_impl #(
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         test_ms <= test_ms + 1;
+                        cycle_counter <= '0;
                         if (test_ms + 1 == duration) begin
                             test_start <= 1'b0;
                             test_stop <= 1'b1;
-                            cycle_counter <= '0;
                             state <= STATE_STOPPING;
                         end
                     end

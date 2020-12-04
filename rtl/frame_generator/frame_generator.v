@@ -11,7 +11,7 @@ module frame_generator #(
     output wire ready,
     input  wire start,
     input  wire stop,
-    input  wire [173:0] port_config,
+    input  wire [255:0] port_config,
     // AXIS output
     output wire [DATA_WIDTH - 1:0] axis_m_data,
     output wire [DATA_WIDTH / 8 - 1:0] axis_m_keep,
@@ -31,7 +31,7 @@ module frame_generator #(
         .ready(ready),
         .start(start),
         .stop(stop),
-        .port_config({81'b0, port_config}),
+        .port_config(port_config),
         .axis_m_data(axis_m_data),
         .axis_m_keep(axis_m_keep),
         .axis_m_last(axis_m_last),

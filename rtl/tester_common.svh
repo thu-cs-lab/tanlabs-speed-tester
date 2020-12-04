@@ -28,7 +28,7 @@ typedef struct packed {
     frame_size_t frame_size;
     ip_addr_t src_ip, dst_ip;
     u8_t [1:0] padding2;
-    mac_addr_t src_mac
+    mac_addr_t src_mac;
     u8_t [1:0] padding1;
     mac_addr_t dst_mac;
 } port_config_t;
