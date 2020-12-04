@@ -34,6 +34,11 @@ public:
 		TST_LOG("POST request: %s\n", req_info->local_uri);
 
 		string uri(req_info->local_uri);
+		char* cbuf = new char[req_info->content_length + 10];
+		mg_read(conn, cbuf, req_info->content_length);
+		string buf(cbuf);
+		delete [] cbuf;
+		TST_LOG("POST body: %s\n", buf.c_str());
 		
 		if (uri == "/api/test_rip") {
 		} else if (uri == "/api/test_connectivity") {
