@@ -1,7 +1,7 @@
 APP = tanlabs-speed-tester-backend
 
 # Add any other object files to this list below
-APP_OBJS = speed_test_ctrl.o test_functions.o web_server.o
+APP_OBJS = speed_test_ctrl.o test_functions_fake.o web_server.o
 
 LIBCIVETWEB = civetweb-1.13/libcivetweb.a
 CVIBEWEB_URL ?= https://laekov.com.cn/l/software/civetweb-1.13.tar.gz

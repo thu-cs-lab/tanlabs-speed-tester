@@ -38,6 +38,8 @@ public:
 		string uri(req_info->local_uri);
 		
 		if (uri == "/api/get_result") {
+			mg_printf(conn,
+					"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n");
 			string res = tst_get_status();
 			mg_printf(conn, res.c_str());
 		} else {
@@ -65,7 +67,7 @@ public:
 		if (uri == "/api/test_rip") {
 			int nr = atoi(buf.c_str());
 			TST_LOG("Setup RIP table with %d records\n", nr);
-			// tst_setup_routing_table(nr);
+			tst_setup_routing_table(nr);
 			mg_printf(conn, "done");
 		} else if (uri == "/api/test_connectivity") {
 			vector<int> tgts = seq2ints(buf.c_str());
@@ -73,7 +75,7 @@ public:
 				mg_printf(conn, "error: number of targets should be 4");
 			} else {
 				TST_LOG("Test routing tgts %d %d %d %d\n", tgts[0], tgts[1], tgts[2], tgts[3]);
-				// tst_test_routing_4(tgts[0], tgts[1], tgts[2], tgts[3]);
+				tst_test_routing_4(tgts[0], tgts[1], tgts[2], tgts[3]);
 				mg_printf(conn, "done");
 			}
 		} else if (uri == "/api/test_speed") {
@@ -83,7 +85,7 @@ public:
 			} else {
 				int size = tgts[4];
 				TST_LOG("Test speed with size %d tgts %d %d %d %d\n", size, tgts[0], tgts[1], tgts[2], tgts[3]);
-				// tst_test_speed_4(tgts[0], tgts[1], tgts[2], tgts[3], size);
+				tst_test_speed_4(tgts[0], tgts[1], tgts[2], tgts[3], size);
 				mg_printf(conn, "done");
 			}
 		} else {
