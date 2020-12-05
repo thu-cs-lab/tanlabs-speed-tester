@@ -68,7 +68,7 @@ module frame_checker_impl #(
     (* mark_debug = "true" *) logic is_first_test_beat, prev_test_beat, is_test_frame;
     assign is_test_frame = (!rst) && (is_first_test_beat || prev_test_beat);
     assign is_first_test_beat = (!rst) && axis_s_valid
-        && (first_beat_header.eth_header.ether_type == u16_t'({<<8{16'h0800}}))
+        && (first_beat_header.eth_header.ether_type == 16'h0008)
         && (first_beat_header.ip_header.proto == `TEST_FRAME_PROTO)
         && (first_beat_header.ip_header.tos == `TEST_FRAME_TOS)
         && (first_beat_header.ip_header.version == 4'd4)
@@ -139,7 +139,7 @@ module frame_checker_impl #(
         else begin
             match_mask = axis_m_keep; // keep only valid bytes in AXIS data
             if (is_first_test_beat) begin
-                match_mask = match_mask & ~64'hFFFFF; // mask IP header (20 bytes) when comparing
+                match_mask = match_mask & ~64'h3FFFFFFFF; // mask ETH + IP header (34 bytes) when comparing
             end
         end
     end
