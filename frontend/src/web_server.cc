@@ -2,8 +2,10 @@
 #include <string>
 #include <unistd.h>
 
-#include <tst/web_server.hh>
 #include <CivetServer.h>
+
+#include <tst/web_server.hh>
+#include <tst/test_functions.hh>
 
 using std::string;
 
@@ -18,9 +20,9 @@ public:
 
 		string uri(req_info->local_uri);
 		
-		if (uri == "/api/get_busy") {
-		} else if (uri == "/api/get_duration") {
-		} else if (uri == "/api/get_result") {
+		if (uri == "/api/get_result") {
+			string res = tst_get_status();
+			mg_printf(conn, res.c_str());
 		} else {
 			return false;
 		}

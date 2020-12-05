@@ -60,7 +60,7 @@ string tst_get_status() {
 				"\"message\":\"Cannot get results\"}";
 		return buf.str();
 	}
-	buf << "[";
+	buf << "{\"status\":\"done\",\"results\":[";
 	for (int i = 0; i < N_PORTS; ++i) {
 		buf << "{\"recv_frames\":" << res[i].recv_frames << ","
 				"\"recv_bytes\":" << res[i].recv_bytes << ","
