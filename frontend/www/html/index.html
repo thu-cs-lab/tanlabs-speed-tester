@@ -33,8 +33,8 @@
 		<header class="navbar navbar-expand navbar-dark" style='background-color: purple'>
 			<a class="navbar-brand" v-on:click='demoStep'>TAN Labs Speed Tester</a>
 			<div class="collapse navbar-collapse" id="navbarText">
-				<span class='navbar-text' v-if='tasks.length>0'>Pending tests: {{ tasks.length }}; 
-					<span v-if='tasks[0].duration'>Current running test: {{ tasks[0].task }}, estimated finish time {{ tasks[0].duration }} ms;</span>
+				<span class='navbar-text' v-if='tasks.length>0'>Pending: {{ tasks.length }}; 
+					<span v-if='tasks[0].duration'>Current: {{ tasks[0].task }}, {{ tasks[0].duration }} ms left;</span>
 				</span>
 			</div>
 		</header>
@@ -122,7 +122,7 @@
 					</div>
 
 					<div class='row' v-for='(r, i) in logs' :ref="'logs' + r.id">
-						<div class='col-12' v-if='r.type == "rip"'>
+						<div class='col-12' v-if='r.task== "rip"'>
 							<h3>RIP test with {{r.n_rip}} records</h3>
 							<div class='alert' v-bind:class='{"alert-success": r.passed, "alert-danger": !r.passed}'>
 								<p v-if='r.passed'>Passed, connection created in {{r.latency}} ms</p>
@@ -131,17 +131,17 @@
 							</div>
 						</div>
 
-						<div class='col-12' v-if='r.type == "ip"'>
+						<div class='col-12' v-if='r.task== "ip"'>
 							<h3>IP connectivity test</h3>
 							<canvas v-bind:width='pltwidth' v-bind:height='pltheight'>{{drawTopo(r)}}</canvas>
 						</div>
 
-						<div class='col-12' v-if='r.type == "bw"'>
+						<div class='col-12' v-if='r.task== "speed"'>
 							<h3>IP packet forwarding performance test</h3>
 							<canvas width='16' height='9'>{{drawCurve(r)}}</canvas>
 						</div>
 
-						<div class='col-12' v-if='r.type == "summary"'>
+						<div class='col-12' v-if='r.task== "summary"'>
 							<h3>Summary</h3>
 							<p>TODO</p>
 						</div>

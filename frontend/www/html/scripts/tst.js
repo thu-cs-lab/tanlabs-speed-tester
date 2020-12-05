@@ -1,6 +1,14 @@
 const spin_lat = 33;
 
-const DemoApp = {
+var Sleeper = (t) => {
+    return () => {
+        return new Promise((res, rej) => {
+            setTimeout(res, t); 
+        });
+    };
+};
+
+const TSTApp = {
 	data() {
 		return { 
 			pltwidth: Math.ceil(window.innerWidth * 0.5),
@@ -15,6 +23,19 @@ const DemoApp = {
 			logs: [],
 			tasks: []
 		};
+	},
+	created() {
+        this.monitor_interval = setInterval(() => {
+            if (this.tasks.length == 0) {
+                return;
+            }
+            if (this.tasks[0].status == 'pending') {
+                this.tasks[0].status = 'running';
+                this.task_promise = axios.post('/api/' + this.tasks[0].task, 
+                    this.tasks[0].arg)
+                    .then(this.getProgress);
+            }
+        }, 100);
 	},
 	methods: {
 		genuid() {
@@ -67,10 +88,90 @@ const DemoApp = {
 			return 'Bandwidth of test ' + r.id;
 		},
 		updateCurve(r) {
-			r.chart.update();
+            if (r.chart) {
+                r.chart.update();
+            } else {
+                setTimeout(() => {
+                    this.updateCurve(r);
+                }, spin_lat);
+            }
 		},
 
+        getProgress() {
+            var self = this;
+            self.task_promise = axios.get('/api/get_result')
+                .then((response) => {
+                    var data = response.data;
+                    if (data.status === 'done') {
+                        // console.log(data);
+                        var res = {
+                            id: self.genuid(),
+                            task: self.tasks[0].task.slice(5)
+                        };
+                        if (res.task == 'rip') {
+                            res.n_rip = data.n_rip;
+                            res.passed = data.passed;
+                            res.latency = data.latency;
+                            res.error = data.error;
+                            self.logs.unshift(res);
+                        } else if (res.task == 'ip') {
+                            res.cases = data.cases;
+                            self.logs.unshift(res);
+                        } else if (res.task == 'speed') {
+                            self.addSpeedTestResult(self.tasks[0], data);
+                        }
+                        self.tasks.shift();
+                        return;
+                    }
+                    if (data.status === 'busy') {
+                        self.tasks[0].duration = data.duration;
+                        self.task_promise = self.task_promise
+                            .then(Sleeper(100))
+                            .then(self.getProgress);
+                    } else if (data.status === 'error') {
+                        alert('Internal error ' + data.message);
+                        self.tasks.shift();
+                    }
+                });
+        },
 
+        addSpeedTestResult(task, data) {
+            if (!this.curve_data) {
+                this.curve_data = {
+                    id: this.genuid(),
+                    task: 'speed',
+                    pkt_szs: [],
+                    loss_rates: {}
+                };
+                this.logs.unshift(this.curve_data);
+            } else {
+                var idx = this.logs.indexOf(this.curve_data);
+                this.logs.splice(idx, 1);
+                this.logs.unshift(this.curve_data);
+            }
+            var label = task.label;
+            var pkt_sz = parseInt(task.arg.split(';')[1]);
+            var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
+            if (idx == -1) {
+                this.curve_data.pkt_szs.push(pkt_sz);
+                idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
+            }
+            var loss_rate = 0.;
+            for (var i = 0; i < data.results.length; ++i) {
+                var r = data.results[i];
+                loss_rate += parseFloat(r.err_frames) / 
+                    parseFloat(r.recv_frames + r.err_frames);
+            }
+            loss_rate *= .25;
+            if (!(label in this.curve_data.loss_rates)) {
+                this.curve_data.loss_rates[label] = [];
+            }
+            this.curve_data.loss_rates[label].splice(idx);
+            this.curve_data.loss_rates[label][idx] = loss_rate;
+            setTimeout(() => {
+                this.updateCurve(this.curve_data);
+            }, spin_lat);
+        },
 
 		genSummary() {
 			this.logs.unshift({
@@ -114,7 +215,8 @@ const DemoApp = {
 			var sizes = this.n_packet.split(',');
 			var conn = this.conn_cases[this.conn_cases.length - 1].join(',');
 			for (var i = 0; i < sizes.length; ++i) {
-				this.startSpeedTest(conn + ';' + sizes[i], 
+                var sz = sizes[i].trim() + '.';
+				this.startSpeedTest(conn + ';' + sz, 
 					'Custom speed test ' + conn);
 			}
 		},
@@ -130,7 +232,8 @@ const DemoApp = {
 					this.startRIPTest(n_rips[i]);
 				}
 				for (var j = 0; j < pkt_szs.length; ++j) {
-					this.startSpeedTest(conn+ ';' + pkt_szs[j],
+                    var sz = pkt_szs[j].trim() + '.';
+					this.startSpeedTest(conn+ ';' + sz,
 						'N_rip=' + n_rips[i]);
 				}
 			}
@@ -215,5 +318,5 @@ const DemoApp = {
 	},
 }
 
-Vue.createApp(DemoApp).mount('#speedtesterapp')
+Vue.createApp(TSTApp).mount('#speedtesterapp')
 

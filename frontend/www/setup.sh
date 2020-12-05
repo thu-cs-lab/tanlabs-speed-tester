@@ -23,5 +23,6 @@ downloadwheel https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.mi
 downloadwheel https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css.map &
 
 downloadwheel https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js &
+downloadwheel https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.map &
 
 wait

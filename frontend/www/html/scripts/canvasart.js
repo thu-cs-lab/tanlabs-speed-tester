@@ -145,7 +145,7 @@ var CanvasArt = {
                 len: data.loss_rates[i].length
             };
             datasets.push({
-                label: 'N_RIP = ' + i,
+                label: i,
                 data: data.loss_rates[i],
                 borderColor: colors.pop(),
                 fillColor: 'grey'
@@ -158,6 +158,9 @@ var CanvasArt = {
                 datasets: datasets
             },
             options: {
+                animation: {
+                    duration: 0
+                },
                 scales: {
                     xAxes: [{
                         display: true,
@@ -168,6 +171,12 @@ var CanvasArt = {
                     }],
                     yAxes: [{
                         display: true,
+                        ticks: {
+                            min: 0,
+                            max: 1,
+                            steps: 10,
+                            stepValue: 0.1
+                        },
                         scaleLabel: {
                             display: true,
                             labelString: 'Loss rate'

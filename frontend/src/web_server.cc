@@ -19,6 +19,9 @@ vector<int> seq2ints(const char* p) {
 	for (; *p; ++p) {
 		if (isdigit(*p)) {
 			x = x * 10 + *p - 48;
+		} else if (*p == '.') {
+			v.push_back(x);
+			return v;
 		} else {
 			v.push_back(x);
 			x = 0;
@@ -69,7 +72,7 @@ public:
 			TST_LOG("Setup RIP table with %d records\n", nr);
 			tst_setup_routing_table(nr);
 			mg_printf(conn, "done");
-		} else if (uri == "/api/test_connectivity") {
+		} else if (uri == "/api/test_ip") {
 			vector<int> tgts = seq2ints(buf.c_str());
 			if (tgts.size() != 4) {
 				mg_printf(conn, "error: number of targets should be 4");
