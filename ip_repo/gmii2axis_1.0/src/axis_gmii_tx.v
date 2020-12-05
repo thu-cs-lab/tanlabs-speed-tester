@@ -116,9 +116,6 @@ reg update_crc;
 
 reg [7:0] s_tdata_reg = 8'd0, s_tdata_next;
 
-reg mii_odd_reg = 1'b0, mii_odd_next;
-reg [3:0] mii_msn_reg = 4'b0, mii_msn_next;
-
 reg [15:0] frame_ptr_reg = 16'd0, frame_ptr_next;
 
 reg [7:0] gmii_txd_reg = 8'd0, gmii_txd_next;
@@ -172,9 +169,6 @@ always @* begin
     reset_crc = 1'b0;
     update_crc = 1'b0;
 
-    mii_odd_next = mii_odd_reg;
-    mii_msn_next = mii_msn_reg;
-
     frame_ptr_next = frame_ptr_reg;
 
     s_axis_tready_next = 1'b0;
@@ -198,22 +192,13 @@ always @* begin
         gmii_tx_en_next = gmii_tx_en_reg;
         gmii_tx_er_next = gmii_tx_er_reg;
         state_next = state_reg;
-    end else if (mii_select && mii_odd_reg) begin
-        // MII odd cycle - hold state, output MSN
-        mii_odd_next = 1'b0;
-        gmii_txd_next = {4'd0, mii_msn_reg};
-        gmii_tx_en_next = gmii_tx_en_reg;
-        gmii_tx_er_next = gmii_tx_er_reg;
-        state_next = state_reg;
     end else begin
         case (state_reg)
             STATE_IDLE: begin
                 // idle state - wait for packet
                 reset_crc = 1'b1;
-                mii_odd_next = 1'b0;
 
                 if (s_axis_tvalid) begin
-                    mii_odd_next = 1'b1;
                     frame_ptr_next = 16'd1;
                     gmii_txd_next = ETH_PRE;
                     gmii_tx_en_next = 1'b1;
@@ -226,7 +211,6 @@ always @* begin
                 // send preamble
                 reset_crc = 1'b1;
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 gmii_txd_next = ETH_PRE;
@@ -259,7 +243,6 @@ always @* begin
                 update_crc = 1'b1;
                 s_axis_tready_next = 1'b1;
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 gmii_txd_next = s_tdata_reg;
@@ -293,7 +276,6 @@ always @* begin
 
                 update_crc = 1'b1;
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 gmii_txd_next = s_tdata_reg;
@@ -311,7 +293,6 @@ always @* begin
                 // send padding
 
                 update_crc = 1'b1;
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 gmii_txd_next = 8'd0;
@@ -329,7 +310,6 @@ always @* begin
             STATE_FCS: begin
                 // send FCS
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 case (frame_ptr_reg)
@@ -352,7 +332,6 @@ always @* begin
 
                 reset_crc = 1'b1;
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
                 s_axis_tready_next = 1'b1;
 
@@ -376,7 +355,6 @@ always @* begin
 
                 reset_crc = 1'b1;
 
-                mii_odd_next = 1'b1;
                 frame_ptr_next = frame_ptr_reg + 16'd1;
 
                 if (frame_ptr_reg < ifg_delay-1) begin
@@ -386,11 +364,6 @@ always @* begin
                 end
             end
         endcase
-
-        if (mii_select) begin
-            mii_msn_next = gmii_txd_next[7:4];
-            gmii_txd_next[7:4] = 4'd0;
-        end
     end
 end
 
@@ -436,9 +409,6 @@ always @(posedge clk) begin
 
     m_axis_ptp_ts_reg <= m_axis_ptp_ts_next;
     m_axis_ptp_ts_tag_reg <= m_axis_ptp_ts_tag_next;
-
-    mii_odd_reg <= mii_odd_next;
-    mii_msn_reg <= mii_msn_next;
 
     s_tdata_reg <= s_tdata_next;
 
