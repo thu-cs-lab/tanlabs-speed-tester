@@ -355,7 +355,7 @@ module speed_test_controller_impl #(
 	
 	always_comb
     begin
-        unique if (axi_araddr[8:0] == 9'd0) begin
+        if (axi_araddr[8:0] == 9'd0) begin
             // busy signal (only lowest bit)
             reg_data_out = {31'b0, busy};
         end else if (axi_araddr[8:0] == 9'd8) begin
@@ -366,7 +366,7 @@ module speed_test_controller_impl #(
             reg_data_out = port_configs_raw[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else if (axi_araddr[8] == 1'b1 && axi_araddr_in_word < (8'hc0 >> ADDR_LSB)) begin
             // port results range
-            reg_data_out = port_results_raw[axi_araddr_in_word * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
+            reg_data_out = port_results_raw[(axi_araddr_in_word - (8'h80 >> ADDR_LSB)) * C_S_AXI_DATA_WIDTH +: C_S_AXI_DATA_WIDTH];
         end else begin
             reg_data_out = '0;
         end
@@ -431,29 +431,29 @@ module speed_test_controller_impl #(
                     end
                 end
                 STATE_RUNNNING: begin
-                    // stop sending frames when hitting user-defined duration
+                    test_start <= 1'b0; // avoid results in checker being cleared
                     port_results_raw <= check_results;
+                    // stop sending frames when hitting user-defined duration
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         test_ms <= test_ms + 1;
                         cycle_counter <= '0;
                         if (test_ms + 1 == duration) begin
-                            test_start <= 1'b0;
                             test_stop <= 1'b1;
                             state <= STATE_STOPPING;
                         end
                     end
                 end
                 STATE_STOPPING: begin
-                    // keep receiving for some time
+                    test_stop <= 1'b0; // avoid generator to latch too many stop requests
                     port_results_raw <= check_results;
+                    // keep receiving for some time
                     cycle_counter <= cycle_counter + 1;
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         wait_ms <= wait_ms + 1;
                         cycle_counter <= '0;
                         if (wait_ms + 1 == `WAIT_MS_AFTER_STOP) begin
                             // collect results
-                            test_stop <= 1'b0;
                             state <= STATE_WAIT;
                         end
                     end
