@@ -6,15 +6,14 @@ const DemoApp = {
 			pltwidth: Math.ceil(window.innerWidth * 0.5),
 			pltheight: Math.ceil(window.innerWidth * 0.4),
 			show_ctrl: true,
-			report_title: 'Test pending, no result',
 			n_rip: '5, 50, 500, 5000, 50000',
 			n_packet: '0, 1, 2, 4, 16, 64, 128, 512, 1500',
-			current_status: '',
 			conn_cases: [
 				[3, 4, 1, 2],
 				[2, 3, 4, 1],
 			],
-			logs: []
+			logs: [],
+			tasks: []
 		};
 	},
 	methods: {
@@ -71,6 +70,8 @@ const DemoApp = {
 			r.chart.update();
 		},
 
+
+
 		genSummary() {
 			this.logs.unshift({
 				id: this.genuid(),
@@ -78,12 +79,64 @@ const DemoApp = {
 			});
 		},
 
+		startRIPTest(sz) {
+			if (!sz) {
+				sz = this.n_rip.split(',').pop();
+			}
+			sz = sz.trim();
+			this.tasks.push({
+				task: 'test_rip',
+				status: 'pending',
+				arg: sz 
+			});
+		},
+		startIPTest(i) {
+			this.tasks.push({
+				task: 'test_ip',
+				status: 'pending',
+				arg: this.conn_cases[i].join(','),
+			});
+		},
+		startAllIPTests() {
+			for (var i = 0; i < this.conn_cases.length; ++i) {
+				this.startIPTest(i);
+			}
+		},
+		startSpeedTest(arg, label) {
+			this.tasks.push({
+				task: 'test_speed',
+				status: 'pending',
+				label: label,
+				arg: arg
+			});
+		},
+		startSpeedTests() {
+			var sizes = this.n_packet.split(',');
+			var conn = this.conn_cases[this.conn_cases.length - 1].join(',');
+			for (var i = 0; i < sizes.length; ++i) {
+				this.startSpeedTest(conn + ';' + sizes[i], 
+					'Custom speed test ' + conn);
+			}
+		},
+
 		startAllTests() {
-			this.current_status = 'Testing rip 1';
-			this.report_title = 'Testing';
+			var n_rips = this.n_rip.split(',');
+			var conn = this.conn_cases[this.conn_cases.length - 1].join(',');
+			var pkt_szs = this.n_packet.split(',');
+			this.startRIPTest(n_rips[0]);
+			this.startAllIPTests();
+			for (var i = 0; i < n_rips.length; ++i) {
+				if (i > 0) {
+					this.startRIPTest(n_rips[i]);
+				}
+				for (var j = 0; j < pkt_szs.length; ++j) {
+					this.startSpeedTest(conn+ ';' + pkt_szs[j],
+						'N_rip=' + n_rips[i]);
+				}
+			}
+		},
 
-			const t0 = 1000;
-
+		demo() {
 			setTimeout(() => {
 				this.logs.unshift({
 					id: this.genuid(),
@@ -92,7 +145,6 @@ const DemoApp = {
 					passed: true,
 					latency: 103
 				});
-				this.current_status = 'Testing rip 2';
 			}, 1 * t0);
 
 			setTimeout(() => {
@@ -103,7 +155,6 @@ const DemoApp = {
 					passed: false,
 					error: 'ping test failed: cannot ping after 10 seconds'
 				});
-				this.current_status = 'Testing connectivity 1';
 			}, 2 * t0);
 
 			setTimeout(() => {
@@ -117,7 +168,6 @@ const DemoApp = {
 						{ from: 4, to: 2, pass: true }
 					]
 				});
-				this.current_status= 'Testing connectivity 2';
 			}, 3 * t0);
 
 			setTimeout(() => {
@@ -131,7 +181,6 @@ const DemoApp = {
 						{ from: 4, to: 1, pass: false }
 					]
 				});
-				this.current_status = 'Testing performance';
 			}, 4 * t0);
 
 			setTimeout(() => {
@@ -159,8 +208,6 @@ const DemoApp = {
 			}, 5 * t0);
 			setTimeout(() => {
 				this.genSummary();
-				this.current_status = 'Test done';
-				this.report_title = 'Final results';
 			}, 10 * t0);
 		}
 	},
