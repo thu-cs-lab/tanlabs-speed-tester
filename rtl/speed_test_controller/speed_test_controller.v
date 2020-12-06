@@ -4,7 +4,8 @@ module speed_test_controller #(
     parameter integer TEST_PORT_NUM = 4,
     parameter integer CLOCK_FREQ = 125000000,
     parameter integer C_S_AXI_DATA_WIDTH = 32,
-    parameter integer C_S_AXI_ADDR_WIDTH = 6
+    parameter integer C_S_AXI_ADDR_WIDTH = 6,
+    parameter integer WAIT_MS_AFTER_STOP = 200
 ) (
     input wire clk,
     input wire rst,
@@ -43,7 +44,8 @@ module speed_test_controller #(
         .C_S_AXI_DATA_WIDTH(C_S_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S_AXI_ADDR_WIDTH),
         .TEST_PORT_NUM(TEST_PORT_NUM),
-        .CLOCK_FREQ(CLOCK_FREQ)
+        .CLOCK_FREQ(CLOCK_FREQ),
+        .WAIT_MS_AFTER_STOP(WAIT_MS_AFTER_STOP)
     ) speed_test_controller_inst (
         .clk(clk),
         .rst(rst),

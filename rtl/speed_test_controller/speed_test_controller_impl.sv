@@ -7,10 +7,11 @@ typedef enum {
 } speed_controller_state_t;
 
 module speed_test_controller_impl #(
-    parameter TEST_PORT_NUM = 4,
-    parameter CLOCK_FREQ = 125000000,
+    parameter integer TEST_PORT_NUM = 4,
+    parameter integer CLOCK_FREQ = 125000000,
     parameter integer C_S_AXI_DATA_WIDTH = 32,
-    parameter integer C_S_AXI_ADDR_WIDTH = 6
+    parameter integer C_S_AXI_ADDR_WIDTH = 6,
+    parameter integer WAIT_MS_AFTER_STOP = 200
 ) (
     input wire clk,
     input wire rst,
@@ -452,7 +453,7 @@ module speed_test_controller_impl #(
                     if (cycle_counter + 1 == CYCLE_PER_MS) begin
                         wait_ms <= wait_ms + 1;
                         cycle_counter <= '0;
-                        if (wait_ms + 1 == `WAIT_MS_AFTER_STOP) begin
+                        if (wait_ms + 1 == WAIT_MS_AFTER_STOP) begin
                             // collect results
                             state <= STATE_WAIT;
                         end

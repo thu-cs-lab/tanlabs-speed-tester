@@ -27,7 +27,7 @@ module frame_generator_impl #(
     input  wire axis_m_ready
 );
 
-    generator_state_t state, next_state;
+    (* mark_debug = "true" *) generator_state_t state, next_state;
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -38,8 +38,8 @@ module frame_generator_impl #(
     end
 
     port_config_t current_config;
-    frame_size_t remain_size;
-    logic first_beat, last_beat;
+    (* mark_debug = "true" *) frame_size_t remain_size;
+    (* mark_debug = "true" *) logic first_beat, last_beat;
     u16_t random_seed;
 
     assign ready = !rst && state == STATE_IDLE;
@@ -151,8 +151,8 @@ module frame_generator_impl #(
 
 
     // stopping control
-    logic prev_stop_request;
-    wire need_stop;
+    (* mark_debug = "true" *) logic prev_stop_request;
+    (* mark_debug = "true" *) wire need_stop;
     assign need_stop = stop || prev_stop_request;
 
     logic need_start;
@@ -176,6 +176,8 @@ module frame_generator_impl #(
             end
         endcase
     end
+    
+    (* mark_debug = "true" *) u32_t sent_frames, sent_bytes;
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -185,12 +187,16 @@ module frame_generator_impl #(
             first_beat <= 1'b0;
             random_seed <= '0;
             prev_stop_request <= 1'b0;
+            sent_frames <= '0;
+            sent_bytes <= '0;
         end else begin
-            if (stop) prev_stop_request <= stop; // latch stop request
             case (state)
                 STATE_IDLE: begin
+                    prev_stop_request <= 1'b0;
                     if (need_start) begin
                         // initialize generator
+                        sent_frames <= '0;
+                        sent_bytes <= '0;
                         current_config <= port_config;
                         remain_size <= port_config.frame_size;
                         ip_length <= port_config.frame_size - $bits(eth_header_t) / 8;
@@ -199,6 +205,7 @@ module frame_generator_impl #(
                     end
                 end
                 STATE_SENDING: begin
+                    if (stop) prev_stop_request <= 1'b1; // latch stop request
                     if (axis_m_ready) begin
                         // current beat is sent
                         first_beat <= 1'b0;
@@ -206,6 +213,8 @@ module frame_generator_impl #(
                             // go to next beat
                             remain_size <= remain_size - 64;
                         end else begin
+                            sent_frames <= sent_frames + 1;
+                            sent_bytes <= sent_bytes + current_config.frame_size;
                             // current frame is finished, go to next frame
                             if (need_stop) begin
                                 prev_stop_request <= 1'b0; // clear stop request

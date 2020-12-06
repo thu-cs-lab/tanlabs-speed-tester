@@ -107,6 +107,4 @@ module ip_header_checksum(
     assign checksum = ~(checksum_wrap[15:0] + checksum_wrap[23:16]);
 endmodule
 
-`define WAIT_MS_AFTER_STOP 100
-
 `endif
