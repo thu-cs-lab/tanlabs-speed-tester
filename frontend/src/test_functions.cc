@@ -1,6 +1,8 @@
 #include <cstring>
 #include <string>
 #include <sstream>
+#include <cstdio>
+#include <cstdlib>
 
 #include <tst/speed_test_api.h>
 #include <tst/speed_test_ctrl.hh>
@@ -23,13 +25,20 @@ void test_routing(int* targets, int size, int duration) {
 		memcpy(&configs[i].dst_mac, &dst_macs[i], sizeof(mac_addr_t));
 		// TODO: Fill ip
 		configs[i].frame_size = (uint16_t)size;
-		configs[i].enable = (uint64_t)(targets[i] != -1);
+		configs[i].enable = (targets[i] != 0 ? 1 : 0);
 	}
 	ctrl->config(duration, configs);
+	ctrl->start();
 }
 
 void tst_setup() {
 	ctrl = new SpeedTesterCtrl();
+	for (int i = 0; i < N_PORTS; ++i) {
+		for (int j = 0; j < 6; ++j) {
+			src_macs[i].addr[j] = rand() & 0xff;
+			dst_macs[i].addr[j] = rand() & 0xff;
+		}
+	}
 }
 
 void tst_setup_routing_table(int n_) {
@@ -70,7 +79,7 @@ string tst_get_status() {
 			buf << ",";
 		}
 	}
-	buf << "]";
+	buf << "]}";
 	return buf.str();
 }
 

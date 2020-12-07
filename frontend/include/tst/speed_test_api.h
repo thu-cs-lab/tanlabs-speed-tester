@@ -28,7 +28,8 @@ struct __attribute__ ((packed)) config_t {
 	uint8_t padding2[2]; // pad to 8 bytes
 	ip_addr_t dst_ip, src_ip; // 32 bits each
 	uint16_t frame_size; // only lowest 13 bits used
-	uint64_t enable; // only lowest 1 bit used
+	uint16_t enable; // only lowest 1 bit used
+	uint16_t padding3[2]; // pad to 32 bytes
 };
 
 struct __attribute__ ((packed)) result_t {

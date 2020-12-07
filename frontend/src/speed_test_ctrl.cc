@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
+#include <algorithm>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -10,18 +11,22 @@
 #include <tst/speed_test_api.h>
 #include <tst/speed_test_ctrl.hh>
 
+#define PAGE_SIZE 4096
+
 void SpeedTesterCtrl::setup() {
 	this->fd_ = open("/dev/mem", O_RDWR | O_SYNC);
 	if (this->fd_ == -1) {
 		fprintf(stderr, "cannot open mem\n");
 		exit(-1);
 	}
-	this->raw_ = (char*)mmap(0, OFFSET_RESERVED, PROT_READ | PROT_WRITE, 
+	this->raw_ = (char*)mmap(0, std::max(PAGE_SIZE, OFFSET_RESERVED), 
+			PROT_READ | PROT_WRITE, 
 			MAP_SHARED, this->fd_, OFFSET_ZYNQ_BASE);
-	if (this->raw_ == 0) {
+	if (this->raw_ == MAP_FAILED) {
 		fprintf(stderr, "cannot mmap\n");
 		exit(-1);
 	}
+	fprintf(stderr, "mmap ready %lx\n", (unsigned long)this->raw_);
 }
 
 void SpeedTesterCtrl::destroy() {
@@ -51,13 +56,13 @@ int SpeedTesterCtrl::start() {
 int SpeedTesterCtrl::isBusy() {
 	uint8_t res;
 	memcpy(&res, this->raw_ + OFFSET_BUSY, 1);
-	return (int)res;
+	return res & 1;
 }
 
 int SpeedTesterCtrl::getDuration() {
-	uint8_t duration;
-	memcpy(&duration, this->raw_ + OFFSET_DURATION, 1);
-	duration &= (1u << 13) - 1;
+	uint16_t duration;
+	memcpy(&duration, this->raw_ + OFFSET_DURATION, 2);
+	duration &= ((1u << 13) - 1);
 	return (int)duration;
 }
 

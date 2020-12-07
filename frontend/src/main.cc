@@ -3,8 +3,8 @@
 
 
 int main() {
-	// tst_setup();
+	tst_setup();
 
 	WebServer server;
-	server.listen("0.0.0.0", "8823");
+	server.listen("0.0.0.0", "80");
 }
