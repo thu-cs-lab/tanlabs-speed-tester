@@ -219,7 +219,7 @@ always @* begin
                         m_axis_tuser_next = 1'b0;
                     end else begin
                         // FCS bad
-                        m_axis_tuser_next = 1'b1;
+                        m_axis_tuser_next = 1'b0;       // We ignore FCS error
                         error_bad_frame_next = 1'b1;
                         error_bad_fcs_next = 1'b1;
                     end
