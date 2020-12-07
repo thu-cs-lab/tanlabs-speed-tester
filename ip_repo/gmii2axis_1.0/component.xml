@@ -225,7 +225,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>01892216</spirit:value>
+            <spirit:value>4881cfc2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -241,7 +241,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>01892216</spirit:value>
+            <spirit:value>4881cfc2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -255,7 +255,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a7ab64b0</spirit:value>
+            <spirit:value>e5d36c85</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -556,6 +556,10 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogsynthesis_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>src/axis_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/axis_gmii_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -568,14 +572,22 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/axis_gmii_tx_fifo.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/gmii2axis_v1_0.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4a8189aa</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_34a70b55</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
+        <spirit:name>src/axis_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/axis_gmii_rx.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -586,6 +598,10 @@
       <spirit:file>
         <spirit:name>src/lfsr.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axis_gmii_tx_fifo.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/gmii2axis_v1_0.sv</spirit:name>
@@ -597,7 +613,7 @@
       <spirit:file>
         <spirit:name>xgui/gmii2axis_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a7ab64b0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e5d36c85</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -631,8 +647,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>GMII to AXIS Bridge</xilinx:displayName>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2020-11-19T13:32:00Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2020-12-07T11:58:37Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3812d6b2_ARCHIVE_LOCATION">/home/gyc/workspace/tan/ip_repo/gmii2axis_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@34d91eab_ARCHIVE_LOCATION">/home/gyc/workspace/tan/ip_repo/gmii2axis_1.0</xilinx:tag>
@@ -790,12 +806,45 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@979d98c_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@333be715_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@12d9f916_ARCHIVE_LOCATION">c:/Workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ba3f04f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27e04e6d_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6075b735_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58c79be6_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7a32ec32_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27661ca6_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@414146ef_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7536b66a_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46ee1c5f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23fb355f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27fe4e68_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@458fcce6_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c449b95_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55f54360_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@74aa025d_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e26cd_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6edc0d62_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@738617c2_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25845db0_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@728e47ed_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@611ab99d_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@323cc2d4_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d56f02e_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fd4a47f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e5238b6_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c906f49_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23d8cc6f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fda8055_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@709f695f_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a32b493_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cdf9621_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71d24610_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53cf73e6_ARCHIVE_LOCATION">/home/gaoyichuan/workspace/tanlabs-speed-tester/ip_repo/gmii2axis_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="eeca8418"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="86e8b652"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="32106f2d"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="448c32cc"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9cc3660c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="8b547d7f"/>

@@ -51,7 +51,7 @@ assign status_vector = {
 	tx_error_underflow, tx_start_packet
 };
 
-axis_gmii_tx #(
+axis_gmii_tx_fifo #(
     .USER_WIDTH (USER_WIDTH)
 ) u_gmii_tx (
     .clk,
@@ -64,10 +64,6 @@ axis_gmii_tx #(
     .gmii_txd,
     .gmii_tx_en,
     .gmii_tx_er,
-    .ptp_ts ('0),
-    .clk_enable ('1),
-    .mii_select ('1),
-    .ifg_delay ('d12),
     .start_packet (tx_start_packet),
     .error_underflow (tx_error_underflow)
 );
