@@ -103,7 +103,6 @@ const TSTApp = {
 				.then((response) => {
 					var data = response.data;
 					if (data.status === 'done') {
-						// console.log(data);
 						var res = {
 							id: self.genuid(),
 							task: self.tasks[0].task.slice(5)
@@ -141,7 +140,8 @@ const TSTApp = {
 					id: this.genuid(),
 					task: 'speed',
 					pkt_szs: [],
-					loss_rates: {}
+					loss_rates: {},
+					logs: []
 				};
 				this.logs.unshift(this.curve_data);
 			} else {
@@ -164,13 +164,17 @@ const TSTApp = {
 				loss_rate += parseFloat(r.err_frames) / tot_frames;
 			}
 			loss_rate *= .25;
-			console.log(data.results);
-			console.log('loss rate = ' + loss_rate);
 			if (!(label in this.curve_data.loss_rates)) {
 				this.curve_data.loss_rates[label] = [];
 			}
 			this.curve_data.loss_rates[label].splice(idx);
 			this.curve_data.loss_rates[label][idx] = loss_rate;
+			this.curve_data.logs.push({
+				label: label,
+				packet_size: pkt_sz,
+				loss_rate: loss_rate,
+				frames: data.results
+			});
 			setTimeout(() => {
 				this.updateCurve(this.curve_data);
 			}, spin_lat);

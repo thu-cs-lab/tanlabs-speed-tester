@@ -34,7 +34,7 @@
 			<a class="navbar-brand" v-on:click='demoStep'>TAN Labs Speed Tester</a>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<span class='navbar-text' v-if='tasks.length>0'>Pending: {{ tasks.length }}; 
-					<span v-if='tasks[0].duration'>Current: {{ tasks[0].task }}, {{ tasks[0].duration }} ms left;</span>
+					<span v-if='tasks[0].duration'>Current: {{ tasks[0].task }}, {{ tasks[0].duration }} ms elapsed;</span>
 				</span>
 			</div>
 		</header>
@@ -139,6 +139,15 @@
 						<div class='col-12' v-if='r.task== "speed"'>
 							<h3>IP packet forwarding performance test</h3>
 							<canvas width='16' height='9'>{{drawCurve(r)}}</canvas>
+							<p>Logs:</p>
+							<div v-for='l in r.logs' class='alert' v-bind:class='{"alert-success": l.loss_rate==0, "alert-dange": l.loss_rate!=0}'>
+								Task {{ l.label }}, 
+								packet size: {{ l.packet_size }},
+								loss rate: {{ l.loss_rate }},
+								<p v-for='(t, j) in l.frames'>
+								Interface {{j + 1}} received {{t.recv_frames}} frames, error {{t.err_frames}} frames
+								</p>
+							</div>
 						</div>
 
 						<div class='col-12' v-if='r.task== "summary"'>
