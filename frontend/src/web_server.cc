@@ -44,7 +44,7 @@ public:
 			mg_printf(conn,
 					"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n");
 			string res = tst_get_status();
-			mg_printf(conn, res.c_str());
+			mg_printf(conn, "%s", res.c_str());
 		} else {
 			return false;
 		}
