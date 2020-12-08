@@ -46,7 +46,7 @@ wire status_bad_frame;
 wire status_good_frame;
 
 axis_fifo #(
-    .DEPTH (1024),
+    .DEPTH (8192),
     .DATA_WIDTH (8),
     .KEEP_ENABLE (0),
     .LAST_ENABLE (1),
