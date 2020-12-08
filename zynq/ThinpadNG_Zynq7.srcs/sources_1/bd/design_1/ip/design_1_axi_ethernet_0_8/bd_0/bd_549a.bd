@@ -791,10 +791,10 @@
       }
     },
     "interface_nets": {
-      "s_axis_txc_1": {
+      "s_axi_1": {
         "interface_ports": [
-          "s_axis_txc",
-          "eth_buf/AXI_STR_TXC"
+          "s_axi",
+          "eth_buf/S_AXI"
         ]
       },
       "eth_buf_S_AXI_2TEMAC": {
@@ -803,22 +803,22 @@
           "mac/s_axi"
         ]
       },
-      "s_axi_1": {
+      "s_axis_txc_1": {
         "interface_ports": [
-          "s_axi",
-          "eth_buf/S_AXI"
-        ]
-      },
-      "s_axis_txd_1": {
-        "interface_ports": [
-          "s_axis_txd",
-          "eth_buf/AXI_STR_TXD"
+          "s_axis_txc",
+          "eth_buf/AXI_STR_TXC"
         ]
       },
       "eth_buf_AXI_STR_RXS": {
         "interface_ports": [
           "m_axis_rxs",
           "eth_buf/AXI_STR_RXS"
+        ]
+      },
+      "s_axis_txd_1": {
+        "interface_ports": [
+          "s_axis_txd",
+          "eth_buf/AXI_STR_TXD"
         ]
       },
       "mac_m_axis_rx": {

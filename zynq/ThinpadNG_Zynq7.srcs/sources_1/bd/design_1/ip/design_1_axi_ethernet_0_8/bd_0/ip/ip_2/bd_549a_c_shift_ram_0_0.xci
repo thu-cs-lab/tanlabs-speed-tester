@@ -92,7 +92,7 @@
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_INTF.PHASE" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.D_INTF.LAYERED_METADATA" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.Q_INTF.LAYERED_METADATA" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.Q_INTF.POLARITY" xilinx:valueSource="weak"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.Q_INTF.POLARITY" xilinx:valueSource="weak" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.AsyncInitVal" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CE" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.DefaultData" xilinx:valueSource="user"/>
