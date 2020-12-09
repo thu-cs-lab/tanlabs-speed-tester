@@ -33,8 +33,10 @@
 		<header class="navbar navbar-expand navbar-dark" style='background-color: purple'>
 			<a class="navbar-brand" v-on:click='demoStep'>TAN Labs Speed Tester</a>
 			<div class="collapse navbar-collapse" id="navbarText">
-				<span class='navbar-text' v-if='tasks.length>0'>Pending: {{ tasks.length }}; 
-					<span v-if='tasks[0].duration'>Current: {{ tasks[0].task }}, {{ tasks[0].duration }} ms elapsed;</span>
+				<span class='navbar-text' v-if='tasks.length>0'>Pending: {{ tasks.length }};
+					<span v-if='tasks[0].duration !== null'>Current: {{ tasks[0].task }}, </span>
+					<span v-if='tasks[0].task == "test_rip"'>{{ tasks[0].max_routes }} records seen,</span>
+					{{ tasks[0].duration }} ms elapsed;
 				</span>
 			</div>
 		</header>

@@ -14,7 +14,7 @@ const TSTApp = {
 			pltwidth: Math.ceil(window.innerWidth * 0.5),
 			pltheight: Math.ceil(window.innerWidth * 0.4),
 			show_ctrl: true,
-			n_rip: '5, 50, 500, 5000, 50000',
+			n_rip: '5, 50, 1000, 3000',
 			n_packet: '60, 128, 256, 512, 1024, 1514',
 			conn_cases: [
 				[3, 4, 1, 2],
@@ -111,7 +111,7 @@ const TSTApp = {
 							res.n_rip = data.n_rip;
 							res.passed = data.passed;
 							res.latency = data.latency;
-							res.error = data.error;
+							res.error = data.message;
 							self.logs.unshift(res);
 						} else if (res.task == 'ip') {
 							res.cases = data.cases;
@@ -124,6 +124,9 @@ const TSTApp = {
 					}
 					if (data.status === 'busy') {
 						self.tasks[0].duration = data.duration;
+						if (self.tasks[0].task == 'test_rip') {
+							self.tasks[0].max_routes = data.max_routes;
+						}
 						self.task_promise = self.task_promise
 							.then(Sleeper(100))
 							.then(self.getProgress);
