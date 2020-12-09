@@ -3,12 +3,13 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include <vector>
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <iostream>
-#include <pthread.h>
 
+#include <pthread.h>
 #include <unistd.h>
 
 #include <tst/speed_test_api.h>
@@ -25,24 +26,29 @@
 	printf("Exec %s retured %d\n", __cmd__, ret); }
 #endif
 
-
-#define STATUS_IDLE 0
-#define STATUS_READY 5
-#define STATUS_ROUTING 1
-#define STATUS_ROUTING_READY 10
-#define STATUS_IP 2
-#define STATUS_SPEED 3
-
-int current_status;
-int rip_interval;
-int rip_passed, rip_n, rip_latency, rip_maxroutes, rip_routes;
-time_t task_start_time;
-
+using std::vector;
 using std::string;
 using std::stringstream;
 using std::ifstream;
 using std::cout;
 using std::endl;
+
+#define STATUS_IDLE 0
+#define STATUS_READY 5
+#define STATUS_ROUTING 1
+#define STATUS_ROUTING_READY 11
+#define STATUS_IP 2
+#define STATUS_IP_READY 21
+#define STATUS_SPEED 3
+
+int current_status;
+int rip_interval;
+int rip_passed, rip_n, rip_latency, rip_maxroutes, rip_routes;
+typedef struct {
+	int from, to, pass;
+} ping_res_t;
+vector<ping_res_t> ping_res;
+time_t task_start_time;
 
 SpeedTesterCtrl* ctrl;
 
@@ -232,8 +238,36 @@ void tst_setup_routing_table(int n_) {
 	pthread_create(&th, 0, tst_setup_routing_table_th, (void*)np);
 }
 
+void* tst_ping(void* tgts) {
+	current_status = STATUS_IP;
+	task_start_time = time(0);
+	ping_res.clear();
+	stringstream cmds;
+	for (int i = 0; i < N_PORTS; ++i) {
+		int tgt = ((int*)tgts)[i];
+		// fprintf(stderr, "test tgt %d %d\n", i, tgt);
+		if (tgt == 0) {
+			continue;
+		}
+		cmds.str("");
+		cmds << "ip netns exec vn" << i + 1 << " ping -c 4 -w 10 10.0." << tgt << ".1";
+		int ret = system(cmds.str().c_str());
+		ping_res_t res = {.from=i + 1, .to=tgt, .pass=!ret};
+		ping_res.push_back(res);
+	}
+	current_status = STATUS_IP_READY;
+	// fprintf(stderr, "ip fin\n");
+	delete [] (int*)tgts;
+	// fprintf(stderr, "del suc\n");
+	return 0;
+}
+
 void tst_test_routing_4(int t0, int t1, int t2, int t3) {
-	int targets[4] = {t0, t1, t2, t3};
+	int static_targets[4] = {t0, t1, t2, t3};
+	int* targets = new int[4];
+	memcpy(targets, static_targets, 4 * sizeof(int));
+	pthread_t th;
+	pthread_create(&th, 0, tst_ping, (void*)targets);
 	// test_routing(targets, 128, 100);
 }
 
@@ -250,11 +284,28 @@ string tst_get_status() {
 		return buf.str();
 	}
 
+	stringstream ipbuf;
+	if (current_status == STATUS_IP || current_status == STATUS_IP_READY) {
+		unsigned sz = ping_res.size();
+		ipbuf << "\"cases\":[";
+		for (unsigned i = 0; i < sz; ++i) {
+			if (i) {
+				ipbuf << ",";
+			}
+			ipbuf << "{\"from\":" << ping_res[i].from << ","
+				<< "\"to\":" << ping_res[i].to << ","
+				<< "\"pass\":" << ping_res[i].pass << "}";
+		}
+		ipbuf << "]";
+	}
 	if (current_status == STATUS_ROUTING || current_status == STATUS_IP) {
 		unsigned long duration = (time(0) - task_start_time) * 1000;
 		buf << "{\"status\":\"busy\",";
 		if (current_status == STATUS_ROUTING) {
 			buf << "\"max_routes\":" << rip_maxroutes << ",";
+		}
+		if (current_status == STATUS_IP) {
+			buf << ipbuf.str() << ",";
 		}
 		buf << "\"duration\":" << duration << "}";
 		return buf.str();
@@ -267,6 +318,11 @@ string tst_get_status() {
 				"\"n_rip\":" << rip_n << ","
 				"\"message\":\"Max received routes: " << rip_maxroutes << "\""
 				"}";
+		return buf.str();
+	}
+
+	if (current_status == STATUS_IP_READY) {
+		buf << "{\"status\":\"done\"," << ipbuf.str() << "}";
 		return buf.str();
 	}
 
