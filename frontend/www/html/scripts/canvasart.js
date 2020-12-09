@@ -139,15 +139,24 @@ var CanvasArt = {
 
         var colors = ['blue', 'red', 'green', 'orange', 'purple', 'cyan', 'skyblue', 'lightgreen'];
 
-        for (var i in data.loss_rates) {
+        for (var i in data.speeds) {
             data.datasets[i] = {
                 idx: datasets.length,
-                len: data.loss_rates[i].length
+                len: data.speeds[i].length
             };
-            datasets.push({
+			var color = colors.pop();
+			datasets.push({
                 label: i,
-                data: data.loss_rates[i],
-                borderColor: colors.pop(),
+				yAxisID: 'speed',
+                data: data.speeds[i],
+				borderColor: color,
+				fill: false
+            });
+            datasets.push({
+				label: 'noshow',
+				yAxisID: 'pps',
+                data: data.ppss[i],
+				borderColor: color,
                 fillColor: 'grey'
             });
         }
@@ -158,6 +167,13 @@ var CanvasArt = {
                 datasets: datasets
             },
             options: {
+				legend: {
+					labels: {
+						filter: (item, chart) => {
+							return item.text != 'noshow';
+						}
+					}
+				},
                 animation: {
                     duration: 0
                 },
@@ -170,16 +186,31 @@ var CanvasArt = {
                         }
                     }],
                     yAxes: [{
+						id: 'speed',
                         display: true,
                         ticks: {
                             min: 0,
-                            max: 1,
+                            max: 1200,
                             steps: 10,
-                            stepValue: 0.1
+							stepSize: 120
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: 'Loss rate'
+                            labelString: 'Forwarding speed/Mbps'
+                        },
+						position: 'right'
+                    }, {
+						id: 'pps',
+                        display: true,
+                        ticks: {
+                            min: 0,
+                            max: 1.8,
+                            steps: 10,
+							stepSize: 0.18
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'PPS/M'
                         }
                     }]
                 }

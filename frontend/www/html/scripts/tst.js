@@ -143,7 +143,8 @@ const TSTApp = {
 					id: this.genuid(),
 					task: 'speed',
 					pkt_szs: [],
-					loss_rates: {},
+					speeds: {},
+					ppss: {},
 					logs: []
 				};
 				this.logs.unshift(this.curve_data);
@@ -152,31 +153,48 @@ const TSTApp = {
 				this.logs.splice(idx, 1);
 				this.logs.unshift(this.curve_data);
 			}
-			var label = task.label;
-			var pkt_sz = parseInt(task.arg.split(';')[1]);
-			var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
-			if (idx == -1) {
-				this.curve_data.pkt_szs.push(pkt_sz);
-				idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
-			}
-			var loss_rate = 0.;
+			var ifs = [];
+            var pass = true;
 			for (var i = 0; i < data.results.length; ++i) {
+				var label = task.label + ' if ' + i;
+				var pkt_sz = parseInt(task.arg.split(';')[1]);
+				var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
+				if (idx == -1) {
+					this.curve_data.pkt_szs.push(pkt_sz);
+					idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
+				}
 				var r = data.results[i];
-				var tot_frames =  parseFloat(r.recv_frames + r.err_frames);
-				if (tot_frames == 0) { tot_frames = 1. };
-				loss_rate += parseFloat(r.err_frames) / tot_frames;
+				var speed = parseFloat(r.recv_bytes + r.recv_frames * 24) 
+					* 8.0 / parseFloat(data.duration) * 1e-3;
+				var pps = parseFloat(r.recv_frames) / 
+					parseFloat(data.duration) * 1e-3;
+				if (!(label in this.curve_data.speeds)) {
+					this.curve_data.speeds[label] = [];
+					this.curve_data.ppss[label] = [];
+				}
+
+				this.curve_data.speeds[label].splice(idx);
+				this.curve_data.speeds[label][idx] = speed;
+				this.curve_data.ppss[label].splice(idx);
+				this.curve_data.ppss[label][idx] = pps;
+				ifs.push({
+                    recv_frames: r.recv_frames,
+                    err_frames: r.err_frames,
+                    recv_bytes: r.recv_bytes,
+                    err_bytes: r.err_bytes,
+                    speed: speed,
+                    pps: pps
+				});
+                if (pps < 1.4) {
+                    pass = false;
+                }
 			}
-			loss_rate *= .25;
-			if (!(label in this.curve_data.loss_rates)) {
-				this.curve_data.loss_rates[label] = [];
-			}
-			this.curve_data.loss_rates[label].splice(idx);
-			this.curve_data.loss_rates[label][idx] = loss_rate;
+
 			this.curve_data.logs.push({
 				label: label,
 				packet_size: pkt_sz,
-				loss_rate: loss_rate,
-				frames: data.results
+                pass: pass,
+				ifs: ifs
 			});
 			setTimeout(() => {
 				this.updateCurve(this.curve_data);
@@ -247,86 +265,9 @@ const TSTApp = {
 						'N_rip=' + n_rips[i]);
 				}
 			}
-		},
-
-		demo() {
-			setTimeout(() => {
-				this.logs.unshift({
-					id: this.genuid(),
-					type: 'rip',
-					n_rip: 5,
-					passed: true,
-					latency: 103
-				});
-			}, 1 * t0);
-
-			setTimeout(() => {
-				this.logs.unshift({
-					id: this.genuid(),
-					type: 'rip',
-					n_rip: 50,
-					passed: false,
-					error: 'ping test failed: cannot ping after 10 seconds'
-				});
-			}, 2 * t0);
-
-			setTimeout(() => {
-				this.logs.unshift({
-					id: this.genuid(),
-					type: 'ip',
-					cases: [
-						{ from: 1, to: 3, pass: true },
-						{ from: 3, to: 1, pass: true },
-						{ from: 2, to: 4, pass: true },
-						{ from: 4, to: 2, pass: true }
-					]
-				});
-			}, 3 * t0);
-
-			setTimeout(() => {
-				this.logs.unshift({
-					id: this.genuid(),
-					type: 'ip',
-					cases: [
-						{ from: 1, to: 2, pass: true },
-						{ from: 2, to: 3, pass: false },
-						{ from: 3, to: 4, pass: true },
-						{ from: 4, to: 1, pass: false }
-					]
-				});
-			}, 4 * t0);
-
-			setTimeout(() => {
-				var data = {
-					id: this.genuid(),
-					type: 'bw',
-					pkt_szs: [0, 1, 2, 4, 16, 64, 128, 512, 1500],
-					loss_rates: {
-						'5': [.8, .7, .6],
-						'50': [.9, .7, .6],
-					}
-				};
-				this.logs.unshift(data);
-				var self = this;
-				for (var i = 3; i < data.pkt_szs.length; ++i) {
-					setTimeout(((li) => {
-						return () => {
-							var newval = 1 / parseFloat(data.pkt_szs[li]);
-							data.loss_rates['5'].push(newval);
-							data.loss_rates['50'].push(newval * 1.1);
-							self.updateCurve(data);
-						};
-					})(i), i * .4 * t0);
-				}
-			}, 5 * t0);
-			setTimeout(() => {
-				this.genSummary();
-			}, 10 * t0);
 		}
-	},
-	mounted() {
-	},
-}
+	}
+};
 
 Vue.createApp(TSTApp).mount('#speedtesterapp')
 
