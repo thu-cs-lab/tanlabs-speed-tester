@@ -21,7 +21,8 @@
 #ifdef FAKE_EXEC
 #define TST_EXEC(__cmd__) printf("Exec: %s\n", __cmd__);
 #else
-#define TST_EXEC(__cmd__) system(__cmd__);
+#define TST_EXEC(__cmd__) { int ret = system(__cmd__); \
+	printf("Exec %s retured %d\n", __cmd__, ret); }
 #endif
 
 
@@ -34,7 +35,7 @@
 
 int current_status;
 int rip_interval;
-int rip_passed, rip_n, rip_latency;
+int rip_passed, rip_n, rip_latency, rip_maxroutes;
 time_t task_start_time;
 
 using std::string;
@@ -132,11 +133,17 @@ void tst_setup() {
 	stringstream cmds;
 	cmds << "killall bird";
 	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	sleep(1);
 	/* setup bird in each netns */
 	for (int i = 0; i < N_PORTS; ++i) {
 		int si = i + 1;
 		cmds.str("");
-		cmds << "ip netns exec vth"  << si << " "
+		cmds << "ip netns exec vn"  << si << " "
 				<< "bird -s /var/run/bird" << si << ".ctl "
 				<< "-c birds/bird" << si << ".conf";
 		TST_EXEC(cmds.str().c_str());
@@ -144,17 +151,17 @@ void tst_setup() {
 }
 
 void reset_routing_table(int ifid, int n) {
-	stringstream cmds;
-	cmds << "birds/static-routing-" << ifid << ".conf";
-	FILE* conf = fopen(cmds.str().c_str(), "w");
+	stringstream filename_s;
+	filename_s << "birds/static-routing-" << ifid << ".conf";
+	FILE* conf = fopen(filename_s.str().c_str(), "w");
 	fprintf(conf, "route 10.0.%d.0/24 via \"lo\";\n", ifid);
 	for (int i = 1; i < n; ++i) {
 		fprintf(conf, "route 11%d.%d.%d.0/24 via \"lo\";\n", ifid, 
-				i & 0xff, (i >> 8) & 0xff);
+				i % 255, i / 255 % 255);
 	}
 	fclose(conf);
-	cmds.str("");
-	cmds << "echo configure | bird -s /var/run/bird" << ifid << ".ctl";
+	stringstream cmds;
+	cmds << "echo configure | birdcl -s /var/run/bird" << ifid << ".ctl";
 	TST_EXEC(cmds.str().c_str());
 }
 
@@ -163,14 +170,21 @@ int check_num_routing() {
 #ifdef FAKE_EXEC
 	return 1;
 #endif
+	rip_maxroutes = 0;
 	for (int i = 0; i < N_PORTS; ++i) {
 		stringstream cmds;
 		cmds << "echo show route | birdcl -s /var/run/bird" << i + 1 << ".ctl"
 			<< " | wc -l";
-		FILE *cmdf = fopen(cmds.str().c_str(), "r");
+		FILE *cmdf = popen(cmds.str().c_str(), "r");
+		if (!cmdf) {
+			fprintf(stderr, "Wrong filename %s\n", cmds.str().c_str());
+		}
 		int n;
 		fscanf(cmdf, "%d", &n);
 		fclose(cmdf);
+		if (n > rip_maxroutes) {
+			rip_maxroutes = n;
+		}
 		printf("Port %d route %d\n", i + 1, n);
 		if (n < rip_n * N_PORTS) {
 			return 0;
@@ -190,11 +204,15 @@ void* tst_setup_routing_table_th(void* np) {
 	}
 
 	sleep(rip_interval);
-	if (!check_num_routing()) {
-		sleep(rip_interval);
-		rip_passed = check_num_routing();
-	} else {
-		rip_passed = 1;
+	rip_passed = 0;
+	for (int i = 0; i < 10 && !rip_passed; ++i) {
+		if (!check_num_routing()) {
+			sleep(rip_interval);
+			rip_passed = check_num_routing();
+		} else {
+			rip_passed = 1;
+			break;
+		}
 	}
 	rip_latency = (time(0) - task_start_time) * 1000;
 	current_status = STATUS_ROUTING_READY;
@@ -237,7 +255,9 @@ string tst_get_status() {
 		buf << "{\"status\":\"done\","
 				"\"latency\":" << rip_latency << ","
 				"\"passed\":" << rip_passed << ","
-				"\"n_rip\":" << rip_n << "}";
+				"\"n_rip\":" << rip_n << ","
+				"\"message\":\"Max received routes: " << rip_max_routes << "\""
+				"}";
 		return buf.str();
 	}
 
