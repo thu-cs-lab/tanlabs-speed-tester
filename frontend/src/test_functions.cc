@@ -35,7 +35,7 @@
 
 int current_status;
 int rip_interval;
-int rip_passed, rip_n, rip_latency, rip_maxroutes;
+int rip_passed, rip_n, rip_latency, rip_maxroutes, rip_routes;
 time_t task_start_time;
 
 using std::string;
@@ -59,7 +59,7 @@ void test_routing(int* targets, int size, int duration) {
 			memcpy(&configs[i].src_mac, &src_macs[i], sizeof(mac_addr_t));
 			memcpy(&configs[i].dst_mac, &dst_macs[tgt], sizeof(mac_addr_t));
 			// TODO: Fill ip
-			ip_addr_t ip = {10, 0, (uint8_t)tgt + 1u, 2};
+			ip_addr_t ip = {10, 0, tgt + 1, 2};
 			memcpy(&configs[i].dst_ip, &ip, sizeof(mac_addr_t));
 		}
 
@@ -170,7 +170,8 @@ int check_num_routing() {
 #ifdef FAKE_EXEC
 	return 1;
 #endif
-	rip_maxroutes = 0;
+
+	rip_routes = 0;
 	for (int i = 0; i < N_PORTS; ++i) {
 		stringstream cmds;
 		cmds << "echo show route | birdcl -s /var/run/bird" << i + 1 << ".ctl"
@@ -182,8 +183,8 @@ int check_num_routing() {
 		int n;
 		fscanf(cmdf, "%d", &n);
 		fclose(cmdf);
-		if (n > rip_maxroutes) {
-			rip_maxroutes = n;
+		if (n > rip_routes) {
+			rip_routes = n;
 		}
 		printf("Port %d route %d\n", i + 1, n);
 		if (n < rip_n * N_PORTS) {
@@ -197,7 +198,7 @@ void* tst_setup_routing_table_th(void* np) {
 	current_status = STATUS_ROUTING;
 	task_start_time = time(0);
 	rip_n = *(int*)np;
-	delete np;
+	delete (int*)np;
 
 	for (int i = 0; i < N_PORTS; ++i) {
 		reset_routing_table(i + 1, rip_n);
@@ -205,8 +206,13 @@ void* tst_setup_routing_table_th(void* np) {
 
 	sleep(rip_interval);
 	rip_passed = 0;
+	rip_maxroutes = 0;
 	for (int i = 0; i < 10 && !rip_passed; ++i) {
 		if (!check_num_routing()) {
+			if (rip_routes > rip_maxroutes) {
+				rip_maxroutes = rip_routes;
+				i = 0;
+			}
 			sleep(rip_interval);
 			rip_passed = check_num_routing();
 		} else {
@@ -246,8 +252,11 @@ string tst_get_status() {
 
 	if (current_status == STATUS_ROUTING || current_status == STATUS_IP) {
 		unsigned long duration = (time(0) - task_start_time) * 1000;
-		buf << "{\"status\":\"busy\","
-				"\"duration\":" << duration << "}";
+		buf << "{\"status\":\"busy\",";
+		if (current_status == STATUS_ROUTING) {
+			buf << "\"max_routes\":" << rip_maxroutes << ",";
+		}
+		buf << "\"duration\":" << duration << "}";
 		return buf.str();
 	}
 	
@@ -256,7 +265,7 @@ string tst_get_status() {
 				"\"latency\":" << rip_latency << ","
 				"\"passed\":" << rip_passed << ","
 				"\"n_rip\":" << rip_n << ","
-				"\"message\":\"Max received routes: " << rip_max_routes << "\""
+				"\"message\":\"Max received routes: " << rip_maxroutes << "\""
 				"}";
 		return buf.str();
 	}
