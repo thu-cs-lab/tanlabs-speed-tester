@@ -176,6 +176,9 @@ var CanvasArt = {
 				scaleLabel: {
 					display: true,
 					labelString: 'Bandwidth/Mbps'
+				},
+				ticks: {
+					min: 0
 				}
 			});
 		}
@@ -185,7 +188,7 @@ var CanvasArt = {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'MPPs'
+					labelString: 'Mpps'
 				}
 			});
 		}
