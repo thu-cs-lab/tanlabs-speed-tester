@@ -115,7 +115,7 @@
 
 						<div class='form-group'>
 							<h3>Throughput test</h3>
-							<label>Pakcet sizes</label>
+							<label>Packet sizes</label>
 							<input class='form-control' v-model='n_packet'/>
 							<button class='btn btn-outline-success' v-on:click='startSpeedTests'>Test speed</button>
 						</div>
@@ -157,19 +157,19 @@
 
 						<div class='col-12' v-if='r.task== "speed"'>
 							<h3>IP packet forwarding performance test</h3>
-							<h4>PPS</h4>
+							<h4>Rate</h4>
 							<canvas width='16' height='9'>{{drawCurve(r, 'pps')}}</canvas>
 							<h4>Bandwidth</h4>
 							<canvas width='16' height='9'>{{drawCurve(r, 'speed')}}</canvas>
 							<p>Logs:</p>
 							<div v-for='l in r.logs' class='alert' v-bind:class='{"alert-success": l.pass, "alert-danger": !l.pass}'>
 								Task {{ l.label }}, 
-								packet size: {{ l.packet_size }},
+								packet size: {{ l.packet_size }} Bytes,
 								<br/>
-								Overall bandwidth: {{l.tot_speed}} Mbps, PPS: {{l.tot_pps}} M
+								Overall bandwidth: {{l.tot_speed}} Mbps, Rate: {{l.tot_pps}} M
 								<pre v-for='(t, j) in l.ifs'>
 Interface {{j + 1}} 
-	Bandwidth: {{ t.speed }} Mbps, PPS: {{ t.pps }} M,
+	Bandwidth: {{ t.speed }} Mbps, Rate: {{ t.pps }} MPps,
     received {{t.recv_bytes}} bytes, error {{t.err_bytes}} bytes,
     received {{t.recv_frames}} frames, error {{t.err_frames}} frames
 								</pre>

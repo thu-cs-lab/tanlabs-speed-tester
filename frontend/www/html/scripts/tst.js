@@ -109,6 +109,7 @@ const TSTApp = {
 			while (this.logs.length > 0) {
 				this.logs.shift();
 			}
+			delete this.curve_data;
 		},
 		saveResult() {
 			var logs = [];

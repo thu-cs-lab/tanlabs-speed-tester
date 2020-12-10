@@ -5,5 +5,6 @@ do
 	ip netns exec vn$i ip link set lo up
 	ip link set eth$i netns vn$i
 	ip netns exec vn$i ip link set eth$i up
-	ip netns exec vn$i ip addr add 10.0.$i.2/24 dev eth$i 
+	ip netns exec vn$i ip addr add 10.0.$(expr $i - 1).2/24 dev eth$i 
+	ip netns exec vn$i ifconfig eth$i multicast
 done

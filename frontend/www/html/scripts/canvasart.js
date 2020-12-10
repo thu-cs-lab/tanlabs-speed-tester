@@ -175,7 +175,7 @@ var CanvasArt = {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'Bandwidth/Mbps'
+					labelString: 'Mbps'
 				},
 				ticks: {
 					min: 0
@@ -188,7 +188,7 @@ var CanvasArt = {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'Mpps'
+					labelString: 'MPps'
 				}
 			});
 		}
@@ -211,7 +211,7 @@ var CanvasArt = {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'IP packet size'
+                            labelString: 'IP packet size / Bytes'
                         },
 						ticks: {
 							min: 46,
