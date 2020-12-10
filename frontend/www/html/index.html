@@ -85,7 +85,8 @@
 								<input type='text' class='form-control' v-model='router_ip[i]'/>
 							</div>
 						</div>
-						<button class='btn btn-outline-info' v-on:click='setIP'>Set IP</button>
+						<button class='btn btn-outline-info' v-on:click='setIP' v-if='!setting_ip'>Set IP</button>
+						<button class='btn btn-dark' v-if='setting_ip'>Setting IP</button>
 						<br/>
 						<br/>
 

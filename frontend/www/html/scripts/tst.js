@@ -34,7 +34,8 @@ const TSTApp = {
 			],
 			router_name: '',
 			logs: [],
-			tasks: []
+			tasks: [],
+			setting_ip: false
 		};
 	},
 	created() {
@@ -108,9 +109,10 @@ const TSTApp = {
 		},
 
 		setIP() {
+			this.setting_ip = true;
 			var data = this.src_ip.concat(this.router_ip).join(',') + ',';
 			axios.post('/api/set_ip', data).then((res) => {
-				alert(res.data);
+				this.setting_ip = false;
 			});
 		},
 
