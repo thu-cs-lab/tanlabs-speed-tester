@@ -69,7 +69,7 @@ void test_routing(int* targets, int size, int duration) {
 			memcpy(&configs[i].dst_ip, &ip, sizeof(mac_addr_t));
 		}
 
-		configs[i].frame_size = (uint16_t)size;
+		configs[i].frame_size = (uint16_t)size + 14;
 		configs[i].enable = (targets[i] != 0 ? 1 : 0);
 	}
 	ctrl->config(duration, configs);
