@@ -253,7 +253,7 @@ const TSTApp = {
             var pass = true;
 			var tot_pps = 0., tot_speed = 0.;
 			for (var i = 0; i < data.results.length; ++i) {
-				var pkt_sz = parseInt(task.arg.split(';')[1]) - 14;
+				var pkt_sz = parseInt(task.arg.split(';')[1]);
 				var label = task.label + ' if ' + (i + 1);
 				var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
 				if (idx == -1) {
