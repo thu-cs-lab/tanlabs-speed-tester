@@ -208,7 +208,7 @@ var CanvasArt = {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'IP packet frame size'
+                            labelString: 'IP packet size'
                         },
 						ticks: {
 							min: 46,

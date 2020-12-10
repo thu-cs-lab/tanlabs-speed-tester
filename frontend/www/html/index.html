@@ -165,9 +165,11 @@
 							<div v-for='l in r.logs' class='alert' v-bind:class='{"alert-success": l.pass, "alert-danger": !l.pass}'>
 								Task {{ l.label }}, 
 								packet size: {{ l.packet_size }},
+								<br/>
+								Overall bandwidth: {{l.tot_speed}} Mbps, PPS: {{l.tot_pps}} M
 								<pre v-for='(t, j) in l.ifs'>
 Interface {{j + 1}} 
-	speed: {{ t.speed }} Mbps, PPS: {{ t.pps }} M,
+	Bandwidth: {{ t.speed }} Mbps, PPS: {{ t.pps }} M,
     received {{t.recv_bytes}} bytes, error {{t.err_bytes}} bytes,
     received {{t.recv_frames}} frames, error {{t.err_frames}} frames
 								</pre>

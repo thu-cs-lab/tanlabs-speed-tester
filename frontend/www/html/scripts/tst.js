@@ -15,7 +15,7 @@ const TSTApp = {
 			pltheight: Math.ceil(window.innerWidth * 0.4),
 			show_ctrl: true,
 			n_rip: '5, 50, 1000, 3000',
-			n_packet: '60, 128, 256, 512, 1024, 1514',
+			n_packet: '46, 128, 256, 512, 1024, 1500',
 			conn_cases: [
 				[3, 4, 1, 2],
 				[2, 3, 4, 1],
@@ -251,9 +251,10 @@ const TSTApp = {
 			}
 			var ifs = [];
             var pass = true;
+			var tot_pps = 0., tot_speed = 0.;
 			for (var i = 0; i < data.results.length; ++i) {
 				var pkt_sz = parseInt(task.arg.split(';')[1]) - 14;
-				var label = task.label + ' if ' + i;
+				var label = task.label + ' if ' + (i + 1);
 				var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
 				if (idx == -1) {
 					this.curve_data.pkt_szs.push(pkt_sz);
@@ -264,21 +265,8 @@ const TSTApp = {
 					* 8.0 / parseFloat(data.duration) * 1e-3;
 				var pps = parseFloat(r.recv_frames) / 
 					parseFloat(data.duration) * 1e-3;
-				if (!(label in this.curve_data.speeds)) {
-					this.curve_data.speeds[label] = [];
-					this.curve_data.ppss[label] = [];
-				}
-
-				this.curve_data.speeds[label].splice(idx);
-				this.curve_data.speeds[label][idx] = {
-					x: pkt_sz,
-					y: speed
-				};
-				this.curve_data.ppss[label].splice(idx);
-				this.curve_data.ppss[label][idx] = {
-					x: pkt_sz,
-					y: pps
-				};
+				tot_speed += speed;
+				tot_pps += pps;
 				ifs.push({
                     recv_frames: r.recv_frames,
                     err_frames: r.err_frames,
@@ -292,11 +280,30 @@ const TSTApp = {
                 }
 			}
 
+			var label = task.label;
+			if (!(label in this.curve_data.speeds)) {
+				this.curve_data.speeds[label] = [];
+				this.curve_data.ppss[label] = [];
+			}
+
+			this.curve_data.speeds[label].splice(idx);
+			this.curve_data.speeds[label][idx] = {
+				x: pkt_sz,
+				y: tot_speed
+			};
+			this.curve_data.ppss[label].splice(idx);
+			this.curve_data.ppss[label][idx] = {
+				x: pkt_sz,
+				y: tot_pps
+			};
+
 			this.curve_data.logs.push({
 				label: task.label,
 				packet_size: pkt_sz,
                 pass: pass,
-				ifs: ifs
+				ifs: ifs,
+				tot_pps: tot_pps,
+				tot_speed: tot_speed
 			});
 			setTimeout(() => {
 				this.updateCurve(this.curve_data);
