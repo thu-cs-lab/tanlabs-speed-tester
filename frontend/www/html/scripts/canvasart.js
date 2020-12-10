@@ -96,7 +96,7 @@ var CanvasArt = {
             ctx.lineWidth = 1;
             ctx.font = '18px helvetica';
             ctx.fillStyle = '#000000';
-            ctx.fillText('External router ' + (i + 1), 
+            ctx.fillText('Tester ' + (i + 1), 
                 bx - .7 * rx, 
                 by + .7 * ry);
             ctx.strokeStyle = '#777777';

@@ -20,6 +20,18 @@ const TSTApp = {
 				[3, 4, 1, 2],
 				[2, 3, 4, 1],
 			],
+			src_ip: [
+				'10.0.0.2',
+				'10.0.1.2',
+				'10.0.2.2',
+				'10.0.3.2'
+			],
+			router_ip: [
+				'10.0.0.1',
+				'10.0.1.1',
+				'10.0.2.1',
+				'10.0.3.1'
+			],
 			router_name: '',
 			logs: [],
 			tasks: []
@@ -60,6 +72,12 @@ const TSTApp = {
 					if ('router_name' in c) {
 						this.router_name = c.router_name;
 					}
+					if ('src_ip' in c) {
+						this.router_name = c.src_ip;
+					}
+					if ('router_ip' in c) {
+						this.router_name = c.router_ip;
+					}
 				} catch (e) {
 					console.log(e);
 					alert('Invalid config file');
@@ -76,7 +94,9 @@ const TSTApp = {
 				n_rip: this.n_rip,
 				n_packet: this.n_packet,
 				conn_cases: this.conn_cases,
-				router_name: this.router_name
+				router_name: this.router_name,
+				src_ip: this.src_ip,
+				router_ip: this.router_ip,
 			};
 			var target_str = JSON.stringify(target);
 			var a = document.createElement("a");
@@ -85,6 +105,13 @@ const TSTApp = {
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
+		},
+
+		setIP() {
+			var data = this.src_ip.concat(this.router_ip).join(',') + ',';
+			axios.post('/api/set_ip', data).then((res) => {
+				alert(res.data);
+			});
 		},
 
 		loadResult(e) {
