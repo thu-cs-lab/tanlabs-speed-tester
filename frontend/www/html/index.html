@@ -31,7 +31,7 @@
 <body> 
 	<div style='padding: 0; margin: 0;' id='speedtesterapp'>
 		<header class="navbar navbar-expand navbar-dark" style='background-color: purple'>
-			<a class="navbar-brand" v-on:click='demoStep'>TAN Labs Speed Tester</a>
+			<a class="navbar-brand">TAN Labs Speed Tester</a>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<span class='navbar-text' v-if='tasks.length>0'>Pending: {{ tasks.length }};
 					<span v-if='tasks[0].duration !== null'>Current: {{ tasks[0].task }}, </span>
@@ -52,13 +52,29 @@
 								</div>
 							</div>
 						</div>
-						<h2>Load a test result</h2>
-						<small>Not supported yet</small>
+						<h2>File operations</h2>
+						<div class='custom-file'>
+							<input type='file' class='custom-file-input' v-on:change="loadConfig"/>
+							<label class='custom-file-label'>Load test config</label>
+						</div>
+						<button class='btn btn-outline-info' v-on:click='saveConfig'>Save test config</button>
+						<div class='custom-file'>
+							<input type='file' class='custom-file-input' v-on:change="loadResult"/>
+							<label class='custom-file-label'>Load test result</label>
+						</div>
+						<button class='btn btn-outline-success' v-on:click='saveResult'>Save test result</button>
+
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+
 						<h2>Start a test</h2>
-						<button class='btn btn-outline-info'>Load test config</button>
 						<br/>
-						<button class='btn btn-outline-info'>Dump test config</button>
-						<br/>
+						<div class='form-group'>
+							<h3 for='grpname'>Router name</h3>
+							<input class='form-control' v-model='router_name'/>
+						</div>
 						<button class='btn btn-success' v-on:click='startAllTests'>Start complete test</button>
 						<br/><hr/>
 
@@ -118,7 +134,7 @@
 						<div class='col-12'>
 							<h2 v-if='this.tasks.length == 0 && this.logs.length == 0'>Pending</h2>
 							<h2 v-if='this.tasks.length > 0'>Testing</h2>
-							<h2 v-if='this.tasks.length == 0 && this.logs.length > 0'>Test results</h2>
+							<h2 v-if='this.tasks.length == 0 && this.logs.length > 0'>Test results <small v-if='router_name.length > 0'>of {{router_name}}</small></h2>
 							<hr/>
 						</div>
 					</div>

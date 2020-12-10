@@ -20,6 +20,7 @@ const TSTApp = {
 				[3, 4, 1, 2],
 				[2, 3, 4, 1],
 			],
+			router_name: '',
 			logs: [],
 			tasks: []
 		};
@@ -42,6 +43,79 @@ const TSTApp = {
 			return String(Date.now()).substr(-6);
 		},
 
+		loadConfig(e) {
+			var reader = new FileReader();
+			reader.addEventListener('load', (e) => {
+				try {
+					var c = JSON.parse(reader.result);
+					if ('n_rip' in c) {
+						this.n_rip = c.n_rip;
+					}
+					if ('n_packet' in c) {
+						this.n_packet = c.n_packet;
+					}
+					if ('conn_cases' in c) {
+						this.conn_cases = c.conn_cases;
+					}
+					if ('router_name' in c) {
+						this.router_name = c.router_name;
+					}
+				} catch (e) {
+					console.log(e);
+					alert('Invalid config file');
+				}
+			});
+			reader.readAsText(e.target.files[0]);
+		},
+		saveConfig() {
+			var target = {
+				n_rip: this.n_rip,
+				n_packet: this.n_packet,
+				conn_cases: this.conn_cases,
+				router_name: this.router_name
+			};
+			var target_str = JSON.stringify(target);
+			var a = document.createElement("a");
+			a.href = "data:application/json;charset=utf-8," + target_str;
+			a.download = 'config-' + this.router_name + '.json';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		},
+
+		loadResult(e) {
+			var reader = new FileReader();
+			reader.addEventListener('load', (e) => {
+				try {
+					var c = JSON.parse(reader.result);
+					if ('logs' in c) {
+						this.logs = c.logs;
+					}
+					if ('router_name' in c) {
+						this.router_name = c.router_name;
+					}
+				} catch (e) {
+					console.log(e);
+					alert('Invalid config file');
+				}
+			});
+			reader.readAsText(e.target.files[0]);
+		},
+		saveResult() {
+			var target = {
+				logs: this.logs,
+				router_name: this.router_name
+			};
+			var target_str = JSON.stringify(target);
+			var a = document.createElement("a");
+			a.href = "data:application/json;charset=utf-8," + target_str;
+			a.download = 'result-' + this.router_name + '.json';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		},
+
+
 		collapseCtrl() {
 			this.show_ctrl = false;
 		},
@@ -57,9 +131,6 @@ const TSTApp = {
 			} else {
 				this.conn_cases.push(this.conn_cases[this.conn_cases.length - 1]);
 			}
-		},
-		demoStep() {
-			// this.current_status += 'Testing';
 		},
 		drawTopo(r) {
 			var self = this;
@@ -191,7 +262,7 @@ const TSTApp = {
 			}
 
 			this.curve_data.logs.push({
-				label: label,
+				label: task.label,
 				packet_size: pkt_sz,
                 pass: pass,
 				ifs: ifs
@@ -223,7 +294,7 @@ const TSTApp = {
 			this.tasks.push({
 				task: 'test_ip',
 				status: 'pending',
-				arg: this.conn_cases[i].join(','),
+				arg: this.conn_cases[i].join(',') + '.',
 			});
 		},
 		startAllIPTests() {
