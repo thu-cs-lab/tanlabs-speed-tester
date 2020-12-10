@@ -55,6 +55,21 @@ SpeedTesterCtrl* ctrl;
 mac_addr_t src_macs[N_PORTS];
 mac_addr_t dst_macs[N_PORTS];
 
+string router_ip[N_PORTS];
+string src_ip[N_PORTS];
+
+ip_addr_t str2struct(string ip) {
+	ip_addr_t a = {0, 0, 0, 0};
+	for (int i = 0, j = 0; i < ip.length(); ++i) {
+		if (isdigit(ip[i])) {
+			a.addr[j] = a.addr[j] * 10 + ip[i] - 48;
+		} else {
+			++j;
+		}
+	}
+	return a;
+}
+
 void test_routing(int* targets, int size, int duration) {
 	config_t configs[N_PORTS];
 
@@ -64,8 +79,8 @@ void test_routing(int* targets, int size, int duration) {
 			--tgt;
 			memcpy(&configs[i].src_mac, &src_macs[i], sizeof(mac_addr_t));
 			memcpy(&configs[i].dst_mac, &dst_macs[i], sizeof(mac_addr_t));
-			// TODO: Fill ip
-			ip_addr_t ip = {10, 0, tgt, 2};
+
+			ip_addr_t ip = str2struct(src_ip[tgt]);
 			memcpy(&configs[i].dst_ip, &ip, sizeof(mac_addr_t));
 		}
 
@@ -79,6 +94,14 @@ void test_routing(int* targets, int size, int duration) {
 void parse_src_mac() {
 	for (int i = 1; i <= N_PORTS; ++i) {
 		stringstream cmds;
+		cmds << "ip netns exec vn" << i << " ip addr flush eth" << i; 
+		TST_EXEC(cmds.str().c_str());
+
+		cmds.str("");
+		cmds << "ip netns exec vn" << i << " ip addr add " << src_ip[i - 1] << "/24 dev eth" << i; 
+		TST_EXEC(cmds.str().c_str());
+
+		cmds.str("");
 		cmds << "ip netns exec vn" << i << " ip -br l"; 
 		FILE* inf = popen(cmds.str().c_str(), "r");
 		char buf[1024];
@@ -106,10 +129,8 @@ void parse_src_mac() {
 void parse_dst_mac() {
 	for (int i = 1; i <= N_PORTS; ++i) {
 		stringstream cmds;
-		cmds << "10.0." << i - 1 << ".1";
-		string tgt_ip = cmds.str();
 		cmds.str("");
-		cmds << "ip netns exec vn" << i << " ping -w 1 " << tgt_ip;
+		cmds << "ip netns exec vn" << i << " ping -w 1 " << router_ip[i - 1];
 		TST_EXEC(cmds.str().c_str());
 		cmds.str("");
 		cmds << "ip netns exec vn" << i << " arp"; 
@@ -118,7 +139,7 @@ void parse_dst_mac() {
 		string ctnt, mac;
 		while (fscanf(inf, "%s", buf) != EOF) {
 			ctnt = string(buf);
-			if (ctnt == tgt_ip) {
+			if (ctnt == router_ip[i - 1]) {
 				fscanf(inf, "%*s%s", buf);
 				mac = string(buf);
 				for (int j = 0; j < 6; ++j) {
@@ -132,11 +153,38 @@ void parse_dst_mac() {
 	}
 }
 
+void reset_routing_table(int ifid, int n) {
+	stringstream filename_s;
+	filename_s << "birds/static-routing-" << ifid << ".conf";
+	FILE* conf = fopen(filename_s.str().c_str(), "w");
+	ip_addr_t ip = str2struct(src_ip[ifid - 1]);
+	fprintf(conf, "route %u.%u.%u.0/24 via \"lo\";\n", 
+			ip.addr[0], ip.addr[1], ip.addr[2]);
+	for (int i = 1; i < n; ++i) {
+		fprintf(conf, "route 11%d.%d.%d.0/24 via \"lo\";\n", ifid, 
+				i % 255, i / 255 % 255);
+	}
+	fclose(conf);
+	stringstream cmds;
+	cmds << "echo configure | birdcl -s /var/run/bird" << ifid << ".ctl";
+	TST_EXEC(cmds.str().c_str());
+}
+
 int test_duration;
 
 void tst_setup() {
 	current_status = STATUS_IDLE;
 	const char* dur_s = getenv("TST_DUR");
+
+	for (int i = 0; i < 4; ++i) {
+		stringstream ip;
+		ip << "10.0." << i << ".1";
+		router_ip[i] = ip.str();
+		ip.str("");
+		ip << "10.0." << i << ".2";
+		src_ip[i] = ip.str();
+	}
+
 	if (!dur_s || !*dur_s) {
 		test_duration = 1000;
 	} else {
@@ -174,10 +222,13 @@ void tst_setup() {
 	}
 
 	stringstream cmds;
+	for (int i = 1; i <= 4; ++i) {
+		cmds.str("");
+		cmds << "echo q | birdcl -s /var/run/bird" << i << ".ctl";
+		TST_EXEC(cmds.str().c_str());
+	}
+	cmds.str("");
 	cmds << "killall bird";
-	TST_EXEC(cmds.str().c_str());
-	TST_EXEC(cmds.str().c_str());
-	TST_EXEC(cmds.str().c_str());
 	TST_EXEC(cmds.str().c_str());
 	TST_EXEC(cmds.str().c_str());
 	TST_EXEC(cmds.str().c_str());
@@ -191,21 +242,9 @@ void tst_setup() {
 				<< "-c birds/bird" << si << ".conf";
 		TST_EXEC(cmds.str().c_str());
 	}
-}
-
-void reset_routing_table(int ifid, int n) {
-	stringstream filename_s;
-	filename_s << "birds/static-routing-" << ifid << ".conf";
-	FILE* conf = fopen(filename_s.str().c_str(), "w");
-	fprintf(conf, "route 10.0.%d.0/24 via \"lo\";\n", ifid);
-	for (int i = 1; i < n; ++i) {
-		fprintf(conf, "route 11%d.%d.%d.0/24 via \"lo\";\n", ifid, 
-				i % 255, i / 255 % 255);
+	for (int i = 1; i <= N_PORTS; ++i) {
+		reset_routing_table(i, 1);
 	}
-	fclose(conf);
-	stringstream cmds;
-	cmds << "echo configure | birdcl -s /var/run/bird" << ifid << ".ctl";
-	TST_EXEC(cmds.str().c_str());
 }
 
 int check_num_routing() {
@@ -287,7 +326,7 @@ void* tst_ping(void* tgts) {
 			continue;
 		}
 		cmds.str("");
-		cmds << "ip netns exec vn" << i + 1 << " ping -c 4 -w 10 10.0." << tgt - 1 << ".1";
+		cmds << "ip netns exec vn" << i + 1 << " ping -A -c 100 -w 1 " << src_ip[tgt - 1];
 		int ret = system(cmds.str().c_str());
 		ping_res_t res = {.from=i + 1, .to=tgt, .pass=!ret};
 		ping_res.push_back(res);
@@ -392,3 +431,17 @@ string tst_get_status() {
 	return buf.str();
 }
 
+void tst_set_ip(string raw) {
+	for (int i = 0; i < N_PORTS; ++i) {
+		int p = raw.find(',');
+		src_ip[i] = raw.substr(0, p);
+		raw = raw.substr(p + 1);
+	}
+	for (int i = 0; i < N_PORTS; ++i) {
+		int p = raw.find(',');
+		router_ip[i] = raw.substr(0, p);
+		raw = raw.substr(p + 1);
+	}
+	parse_src_mac();
+	parse_dst_mac();
+}

@@ -21,7 +21,7 @@ protocol kernel {
 }
 
 protocol static {
-    route 10.0.$i.0/24 via \"eth$i\";
+	include \"static-routing-$i.conf\";
 }
 
 protocol rip {
@@ -31,7 +31,6 @@ protocol rip {
     interface \"eth$i\" {
         version 2;
         update time 1;
-		include \"static-routing-$i.conf\";
     };
 }
 """ >birds/bird$i.conf

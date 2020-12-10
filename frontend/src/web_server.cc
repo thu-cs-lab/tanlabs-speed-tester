@@ -67,7 +67,10 @@ public:
 		
 		mg_printf(conn,
 		          "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n");
-		if (uri == "/api/test_rip") {
+		if (uri == "/api/set_ip") {
+			tst_set_ip(buf);
+			mg_printf(conn, "done");
+		} else if (uri == "/api/test_rip") {
 			int nr = atoi(buf.c_str());
 			TST_LOG("Setup RIP table with %d records\n", nr);
 			tst_setup_routing_table(nr);
