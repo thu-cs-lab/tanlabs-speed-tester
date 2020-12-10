@@ -268,6 +268,8 @@ const TSTApp = {
 					parseFloat(data.duration) * 1e-3;
 				tot_speed += speed;
 				tot_pps += pps;
+				speed = Math.round(speed * 100) / 100;
+				pps = Math.round(pps * 10000) / 10000;
 				ifs.push({
                     recv_frames: r.recv_frames,
                     err_frames: r.err_frames,
@@ -276,10 +278,13 @@ const TSTApp = {
                     speed: speed,
                     pps: pps
 				});
-                if (pps < 1.4) {
+                if (r.recv_bytes > 0 && speed < 990) {
                     pass = false;
                 }
 			}
+
+			tot_speed = Math.round(tot_speed * 100) / 100;
+			tot_pps = Math.round(tot_pps * 10000) / 10000;
 
 			var label = task.label;
 			if (!(label in this.curve_data.speeds)) {

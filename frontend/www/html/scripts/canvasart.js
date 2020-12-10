@@ -149,6 +149,7 @@ var CanvasArt = {
 				datasets.push({
 					label: i,
 					pointStyle: 'circle',
+					lineTension: 0,
 					pointRadius: 4,
 					data: data.speeds[i],
 					borderColor: color,
@@ -160,6 +161,7 @@ var CanvasArt = {
 				datasets.push({
 					label: i,
 					pointStyle: 'circle',
+					lineTension: 0,
 					pointRadius: 4,
 					data: data.ppss[i],
 					borderColor: color,
@@ -188,7 +190,7 @@ var CanvasArt = {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'MPps'
+					labelString: 'Mpps'
 				}
 			});
 		}
@@ -198,6 +200,8 @@ var CanvasArt = {
                 datasets: datasets
             },
             options: {
+				events: ['click'],
+				bezierCurve: false,
 				legend: {
 					labels: {
 						usePointStyle: true
