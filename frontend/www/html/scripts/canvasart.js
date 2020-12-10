@@ -185,7 +185,7 @@ var CanvasArt = {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'PPS/M'
+					labelString: 'MPPs'
 				}
 			});
 		}
@@ -209,7 +209,11 @@ var CanvasArt = {
                         scaleLabel: {
                             display: true,
                             labelString: 'IP packet frame size'
-                        }
+                        },
+						ticks: {
+							min: 46,
+							max: 1500
+						}
                     }],
 					yAxes: yAxes
                 }

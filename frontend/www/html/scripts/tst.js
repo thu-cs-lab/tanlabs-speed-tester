@@ -252,8 +252,8 @@ const TSTApp = {
 			var ifs = [];
             var pass = true;
 			for (var i = 0; i < data.results.length; ++i) {
+				var pkt_sz = parseInt(task.arg.split(';')[1]) - 14;
 				var label = task.label + ' if ' + i;
-				var pkt_sz = parseInt(task.arg.split(';')[1]);
 				var idx = this.curve_data.pkt_szs.indexOf(pkt_sz);
 				if (idx == -1) {
 					this.curve_data.pkt_szs.push(pkt_sz);
