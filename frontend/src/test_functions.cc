@@ -77,22 +77,28 @@ void test_routing(int* targets, int size, int duration) {
 }
 
 void parseif() {
-	system("ip -br l >/tmp/ifs.txt");
-	ifstream inf("/tmp/ifs.txt");
-	string ctnt, mac;
-	while (inf >> ctnt) {
-		if (ctnt.substr(0, 3) == "eth") {
-			inf >> mac;
-			inf >> mac;
-			int ifid = ctnt[3] - 48;
-			if (ifid > 0 && ifid < 5) {
-				for (int j = 0; j < 6; ++j) {
-					unsigned v;
-					sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
-					dst_macs[ifid - 1].addr[j] = v;
+	for (int i = 1; i <= N_PORTS; ++i) {
+		stringstream cmds;
+		cmds << "ip netns exec vn" << i << " ip -br l"; 
+		FILE* inf = popen(cmds.str().c_str(), "r");
+		char buf[1024];
+		string ctnt, mac;
+		while (fscanf(inf, "%s", buf) != EOF) {
+			ctnt = string(buf);
+			if (ctnt.substr(0, 3) == "eth") {
+				int ifid = ctnt[3] - 48;
+				if (ifid == i) {
+					fscanf(inf, "%*s%s", buf);
+					mac = string(buf);
+					for (int j = 0; j < 6; ++j) {
+						unsigned v;
+						sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
+						dst_macs[ifid - 1].addr[j] = v;
+					}
 				}
 			}
 		}
+		fclose(inf);
 	}
 }
 
