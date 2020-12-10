@@ -54,15 +54,16 @@
 						</div>
 						<h2>File operations</h2>
 						<div class='custom-file'>
-							<input type='file' class='custom-file-input' v-on:change="loadConfig"/>
+							<input type='file' class='custom-file-input' v-on:change="loadConfig" v-cloak @drop.prevent="loadConfig" @dragover.prevent/>
 							<label class='custom-file-label'>Load test config</label>
 						</div>
 						<button class='btn btn-outline-info' v-on:click='saveConfig'>Save test config</button>
 						<div class='custom-file'>
-							<input type='file' class='custom-file-input' v-on:change="loadResult"/>
+							<input type='file' class='custom-file-input' v-on:change="loadResult" v-cloak @drop.prevent="loadConfig" @dragover.prevent/>
 							<label class='custom-file-label'>Load test result</label>
 						</div>
 						<button class='btn btn-outline-success' v-on:click='saveResult'>Save test result</button>
+						<button class='btn btn-outline-danger' v-on:click='clearResult'>Clear test result</button>
 
 						<br/>
 						<br/>

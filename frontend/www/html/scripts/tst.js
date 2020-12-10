@@ -65,7 +65,11 @@ const TSTApp = {
 					alert('Invalid config file');
 				}
 			});
-			reader.readAsText(e.target.files[0]);
+			if (e.dataTransfer) {
+				reader.readAsText(e.dataTransfer.files[0]);
+			} else {
+				reader.readAsText(e.target.files[0]);
+			}
 		},
 		saveConfig() {
 			var target = {
@@ -101,9 +105,29 @@ const TSTApp = {
 			});
 			reader.readAsText(e.target.files[0]);
 		},
+		clearResult() {
+			while (this.logs.length > 0) {
+				this.logs.shift();
+			}
+		},
 		saveResult() {
+			var logs = [];
+			for (var i = 0; i < this.logs.length; ++i) {
+				if (this.logs[i].task == 'speed') {
+					logs.push({
+						id: this.logs[i].id,
+						task: this.logs[i].task,
+						pkt_szs: this.logs[i].pkt_szs,
+						speeds: this.logs[i].speeds,
+						ppss: this.logs[i].ppss,
+						logs: this.logs[i].logs
+					});
+				} else {
+					logs.push(this.logs[i]);
+				}
+			}
 			var target = {
-				logs: this.logs,
+				logs: logs,
 				router_name: this.router_name
 			};
 			var target_str = JSON.stringify(target);
