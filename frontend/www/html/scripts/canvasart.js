@@ -131,7 +131,7 @@ var CanvasArt = {
         ctx.fillText('Student router', sx + rx * 0.7, sy - ry * 0.2);
     },
 
-    drawCurve(cvs, data) {
+    drawCurve(cvs, data, type) {
         var ctx = cvs.getContext('2d');
         var datasets = [];
 
@@ -145,33 +145,59 @@ var CanvasArt = {
                 len: data.speeds[i].length
             };
 			var color = colors.pop();
-			datasets.push({
-                label: i,
-				yAxisID: 'speed',
-                data: data.speeds[i],
-				borderColor: color,
-				fill: false
-            });
-            datasets.push({
-				label: 'noshow',
-				yAxisID: 'pps',
-                data: data.ppss[i],
-				borderColor: color,
-                fillColor: 'grey'
-            });
+			if (type == 'speed') {
+				datasets.push({
+					label: i,
+					pointStyle: 'circle',
+					pointRadius: 4,
+					data: data.speeds[i],
+					borderColor: color,
+					showLine: true,
+					fillColor: 'grey'
+				});
+			}
+			if (type == 'pps') {
+				datasets.push({
+					label: i,
+					pointStyle: 'circle',
+					pointRadius: 4,
+					data: data.ppss[i],
+					borderColor: color,
+					showLine: true,
+					fillColor: 'grey'
+				});
+			}
         }
-        data.chart = new Chart(ctx, {
-            type: 'line',
+		var yAxes = [];
+		if (type == 'speed') {
+			yAxes.push({
+				id: 'speed',
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Bandwidth/Mbps'
+				}
+			});
+		}
+		if (type == 'pps') {
+			yAxes.push({
+				id: 'pps',
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'PPS/M'
+				}
+			});
+		}
+        data['chart_' + type] = new Chart(ctx, {
+            type: 'scatter',
             data: {
-                labels: data.pkt_szs,
                 datasets: datasets
             },
             options: {
 				legend: {
 					labels: {
-						filter: (item, chart) => {
-							return item.text != 'noshow';
-						}
+						usePointStyle: true
 					}
 				},
                 animation: {
@@ -182,37 +208,10 @@ var CanvasArt = {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Packet size'
+                            labelString: 'IP packet frame size'
                         }
                     }],
-                    yAxes: [{
-						id: 'speed',
-                        display: true,
-                        ticks: {
-                            min: 0,
-                            max: 1200,
-                            steps: 10,
-							stepSize: 120
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Forwarding speed/Mbps'
-                        },
-						position: 'right'
-                    }, {
-						id: 'pps',
-                        display: true,
-                        ticks: {
-                            min: 0,
-                            max: 1.8,
-                            steps: 10,
-							stepSize: 0.18
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'PPS/M'
-                        }
-                    }]
+					yAxes: yAxes
                 }
             }
         });

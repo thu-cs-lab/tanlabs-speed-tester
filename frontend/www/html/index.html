@@ -157,7 +157,10 @@
 
 						<div class='col-12' v-if='r.task== "speed"'>
 							<h3>IP packet forwarding performance test</h3>
-							<canvas width='16' height='9'>{{drawCurve(r)}}</canvas>
+							<h4>PPS</h4>
+							<canvas width='16' height='9'>{{drawCurve(r, 'pps')}}</canvas>
+							<h4>Bandwidth</h4>
+							<canvas width='16' height='9'>{{drawCurve(r, 'speed')}}</canvas>
 							<p>Logs:</p>
 							<div v-for='l in r.logs' class='alert' v-bind:class='{"alert-success": l.pass, "alert-danger": !l.pass}'>
 								Task {{ l.label }}, 

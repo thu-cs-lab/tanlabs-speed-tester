@@ -169,7 +169,7 @@ const TSTApp = {
 			}, spin_lat);
 			return 'Traffic topology of test ' + r.id;
 		},
-		drawCurve(r) {
+		drawCurve(r, type) {
 			var self = this;
 			setTimeout(() => {
 				var div = self.$refs['logs' + r.id];
@@ -177,14 +177,15 @@ const TSTApp = {
 					self.drawCurve(r);
 					return;
 				}
-				var ele = div.getElementsByTagName('canvas')[0];
-				CanvasArt.drawCurve(ele, r);
+				var ele = div.getElementsByTagName('canvas')[type == 'pps' ? 0 : 1];
+				CanvasArt.drawCurve(ele, r, type);
 			}, spin_lat);
 			return 'Bandwidth of test ' + r.id;
 		},
 		updateCurve(r) {
-			if (r.chart) {
-				r.chart.update();
+			if (r.chart_pps) {
+				r.chart_pps.update();
+				r.chart_speed.update();
 			} else {
 				setTimeout(() => {
 					this.updateCurve(r);
@@ -269,9 +270,15 @@ const TSTApp = {
 				}
 
 				this.curve_data.speeds[label].splice(idx);
-				this.curve_data.speeds[label][idx] = speed;
+				this.curve_data.speeds[label][idx] = {
+					x: pkt_sz,
+					y: speed
+				};
 				this.curve_data.ppss[label].splice(idx);
-				this.curve_data.ppss[label][idx] = pps;
+				this.curve_data.ppss[label][idx] = {
+					x: pkt_sz,
+					y: pps
+				};
 				ifs.push({
                     recv_frames: r.recv_frames,
                     err_frames: r.err_frames,
@@ -340,7 +347,7 @@ const TSTApp = {
 			for (var i = 0; i < sizes.length; ++i) {
 				var sz = sizes[i].trim() + '.';
 				this.startSpeedTest(conn + ';' + sz, 
-					'Custom speed test ' + conn);
+					'CST. ' + conn);
 			}
 		},
 
