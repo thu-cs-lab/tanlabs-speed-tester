@@ -63,9 +63,9 @@ void test_routing(int* targets, int size, int duration) {
 		if (tgt) {
 			--tgt;
 			memcpy(&configs[i].src_mac, &src_macs[i], sizeof(mac_addr_t));
-			memcpy(&configs[i].dst_mac, &dst_macs[tgt], sizeof(mac_addr_t));
+			memcpy(&configs[i].dst_mac, &dst_macs[i], sizeof(mac_addr_t));
 			// TODO: Fill ip
-			ip_addr_t ip = {10, 0, tgt + 1, 2};
+			ip_addr_t ip = {10, 0, tgt, 2};
 			memcpy(&configs[i].dst_ip, &ip, sizeof(mac_addr_t));
 		}
 
@@ -76,7 +76,7 @@ void test_routing(int* targets, int size, int duration) {
 	ctrl->start();
 }
 
-void parseif() {
+void parse_src_mac() {
 	for (int i = 1; i <= N_PORTS; ++i) {
 		stringstream cmds;
 		cmds << "ip netns exec vn" << i << " ip -br l"; 
@@ -93,8 +93,38 @@ void parseif() {
 					for (int j = 0; j < 6; ++j) {
 						unsigned v;
 						sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
-						dst_macs[ifid - 1].addr[j] = v;
+						src_macs[ifid - 1].addr[j] = v;
 					}
+				}
+			}
+		}
+		fclose(inf);
+	}
+}
+
+
+void parse_dst_mac() {
+	for (int i = 1; i <= N_PORTS; ++i) {
+		stringstream cmds;
+		cmds << "10.0." << i - 1 << ".1";
+		string tgt_ip = cmds.str();
+		cmds.str("");
+		cmds << "ip netns exec vn" << i << " ping -w 1 " << tgt_ip;
+		TST_EXEC(cmds.str().c_str());
+		cmds.str("");
+		cmds << "ip netns exec vn" << i << " arp"; 
+		FILE* inf = popen(cmds.str().c_str(), "r");
+		char buf[1024];
+		string ctnt, mac;
+		while (fscanf(inf, "%s", buf) != EOF) {
+			ctnt = string(buf);
+			if (ctnt == tgt_ip) {
+				fscanf(inf, "%*s%s", buf);
+				mac = string(buf);
+				for (int j = 0; j < 6; ++j) {
+					unsigned v;
+					sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
+					dst_macs[i - 1].addr[j] = v;
 				}
 			}
 		}
@@ -122,7 +152,8 @@ void tst_setup() {
 
 	ctrl = new SpeedTesterCtrl();
 
-	parseif();
+	parse_src_mac();
+	parse_dst_mac();
 
 	printf("Test duration set to %d ms, rip interval %d s\n", test_duration,
 			rip_interval);
@@ -256,7 +287,7 @@ void* tst_ping(void* tgts) {
 			continue;
 		}
 		cmds.str("");
-		cmds << "ip netns exec vn" << i + 1 << " ping -c 4 -w 10 10.0." << tgt << ".1";
+		cmds << "ip netns exec vn" << i + 1 << " ping -c 4 -w 10 10.0." << tgt - 1 << ".1";
 		int ret = system(cmds.str().c_str());
 		ping_res_t res = {.from=i + 1, .to=tgt, .pass=!ret};
 		ping_res.push_back(res);
