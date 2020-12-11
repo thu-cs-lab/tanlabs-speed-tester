@@ -113,6 +113,11 @@ void parse_src_mac() {
 				if (ifid == i) {
 					fscanf(inf, "%*s%s", buf);
 					mac = string(buf);
+					if (mac.length() != 17) {
+						fprintf(stderr, "incomplete mac %s\n", mac.c_str());
+						continue;
+					}
+					fprintf(stderr, "got mac %s\n", mac.c_str());
 					for (int j = 0; j < 6; ++j) {
 						unsigned v;
 						sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
@@ -142,6 +147,10 @@ void parse_dst_mac() {
 			if (ctnt == router_ip[i - 1]) {
 				fscanf(inf, "%*s%s", buf);
 				mac = string(buf);
+				if (mac.length() != 17) {
+					fprintf(stderr, "incomplete mac %s\n", mac.c_str());
+					continue;
+				}
 				for (int j = 0; j < 6; ++j) {
 					unsigned v;
 					sscanf(mac.substr(j * 3, 2).c_str(), "%x", &v);
@@ -153,7 +162,7 @@ void parse_dst_mac() {
 	}
 }
 
-void reset_routing_table(int ifid, int n) {
+void write_routing_table(int ifid, int n) {
 	stringstream filename_s;
 	filename_s << "birds/static-routing-" << ifid << ".conf";
 	FILE* conf = fopen(filename_s.str().c_str(), "w");
@@ -165,12 +174,46 @@ void reset_routing_table(int ifid, int n) {
 				i % 255, i / 255 % 255);
 	}
 	fclose(conf);
+}
+
+void reset_routing_table(int ifid, int n) {
+	write_routing_table(ifid, n);
 	stringstream cmds;
 	cmds << "echo configure | birdcl -s /var/run/bird" << ifid << ".ctl";
 	TST_EXEC(cmds.str().c_str());
 }
 
 int test_duration;
+
+void reset_bird() {
+	stringstream cmds;
+	for (int i = 1; i <= 4; ++i) {
+		cmds.str("");
+		cmds << "echo q | birdcl -s /var/run/bird" << i << ".ctl";
+		TST_EXEC(cmds.str().c_str());
+	}
+
+	cmds.str("");
+	cmds << "killall bird";
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	TST_EXEC(cmds.str().c_str());
+	sleep(1);
+
+	for (int i = 1; i <= N_PORTS; ++i) {
+		write_routing_table(i, 1);
+	}
+
+	/* setup bird in each netns */
+	for (int i = 0; i < N_PORTS; ++i) {
+		int si = i + 1;
+		cmds.str("");
+		cmds << "ip netns exec vn"  << si << " "
+			<< "bird -s /var/run/bird" << si << ".ctl "
+			<< "-c birds/bird" << si << ".conf";
+		TST_EXEC(cmds.str().c_str());
+	}
+}
 
 void tst_setup() {
 	current_status = STATUS_IDLE;
@@ -221,30 +264,7 @@ void tst_setup() {
 		}
 	}
 
-	stringstream cmds;
-	for (int i = 1; i <= 4; ++i) {
-		cmds.str("");
-		cmds << "echo q | birdcl -s /var/run/bird" << i << ".ctl";
-		TST_EXEC(cmds.str().c_str());
-	}
-	cmds.str("");
-	cmds << "killall bird";
-	TST_EXEC(cmds.str().c_str());
-	TST_EXEC(cmds.str().c_str());
-	TST_EXEC(cmds.str().c_str());
-	sleep(1);
-	/* setup bird in each netns */
-	for (int i = 0; i < N_PORTS; ++i) {
-		int si = i + 1;
-		cmds.str("");
-		cmds << "ip netns exec vn"  << si << " "
-				<< "bird -s /var/run/bird" << si << ".ctl "
-				<< "-c birds/bird" << si << ".conf";
-		TST_EXEC(cmds.str().c_str());
-	}
-	for (int i = 1; i <= N_PORTS; ++i) {
-		reset_routing_table(i, 1);
-	}
+	reset_bird();
 }
 
 int check_num_routing() {

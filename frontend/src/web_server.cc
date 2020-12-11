@@ -70,8 +70,12 @@ public:
 		if (uri == "/api/set_ip") {
 			tst_set_ip(buf);
 			mg_printf(conn, "done");
+		} else if (uri == "/api/reset_bird") {
+			reset_bird();
+			mg_printf(conn, "done");
 		} else if (uri == "/api/test_rip") {
-			int nr = atoi(buf.c_str());
+			int nr;
+			sscanf(buf.c_str(), "%d", &nr);
 			TST_LOG("Setup RIP table with %d records\n", nr);
 			tst_setup_routing_table(nr);
 			mg_printf(conn, "done");

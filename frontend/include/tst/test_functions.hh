@@ -13,5 +13,6 @@ void tst_test_speed_4(int target0, int target1, int target2, int target3,
 std::string tst_get_status();
 
 void tst_set_ip(std::string);
+void reset_bird();
 
 #endif  // TST_TEST_FUNCTIONS_HH
