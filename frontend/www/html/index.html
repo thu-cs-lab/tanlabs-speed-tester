@@ -181,19 +181,37 @@
 							<canvas width='16' height='9'>{{drawCurve(r, 'pps')}}</canvas>
 							<h4>Bandwidth</h4>
 							<canvas width='16' height='9'>{{drawCurve(r, 'speed')}}</canvas>
-							<p>Logs:</p>
-							<div v-for='l in r.logs' class='alert' v-bind:class='{"alert-success": l.pass, "alert-danger": !l.pass}'>
-								Task {{ l.label }}, 
-								packet size: {{ l.packet_size }} Bytes,
-								<br/>
-								Overall bandwidth: {{l.tot_speed}} Mbps, Rate: {{l.tot_pps}} M
-								<pre v-for='(t, j) in l.ifs'>
-Interface {{j + 1}} 
-	Bandwidth: {{ t.speed }} Mbps, Rate: {{ t.pps }} Mpps,
-    received {{t.recv_bytes}} bytes, error {{t.err_bytes}} bytes,
-    received {{t.recv_frames}} frames, error {{t.err_frames}} frames
-								</pre>
-							</div>
+							<p>Details:</p>
+							<table class='table'>
+								<thead>
+									<tr>
+										<th scope='col'>Task</th>
+										<th scope='col'>Packet size / Bytes</th>
+										<th scope='col'>Total bandwidth / Mbps</th>
+										<th scope='col'>Total rate / Mpps</th>
+										<th scope='col'>Per interface bandwidth / Mbps</th>
+										<th scope='col'>Per interface rate / Mpps</th>
+										<th scope='col'>Per interface recv frames</th>
+										<th scope='col'>Per interface error frames</th>
+										<th scope='col'>Per interface recv bytes</th>
+										<th scope='col'>Per interface error bytes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for='l in r.logs'>
+										<td scope='row'>{{l.label}}</td>
+										<td>{{l.packet_size}}</td>
+										<td v-bind:class='{"table-success": l.pass, "table-danger": !l.pass}'>{{l.tot_speed}}</td>
+										<td>{{l.tot_pps}}</td>
+										<td><pre v-for='(t, j) in l.ifs'>IF{{j}}: {{t.speed}}</pre></td>
+										<td><pre v-for='(t, j) in l.ifs'>{{t.pps}}</pre></td>
+										<td><pre v-for='(t, j) in l.ifs'>{{t.recv_frames}}</pre></td>
+										<td><pre v-for='(t, j) in l.ifs'>{{t.err_frames}}</pre></td>
+										<td><pre v-for='(t, j) in l.ifs'>{{t.recv_bytes}}</pre></td>
+										<td><pre v-for='(t, j) in l.ifs'>{{t.err_bytes}}</pre></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 
 						<div class='col-12' v-if='r.task== "summary"'>
