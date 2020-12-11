@@ -182,7 +182,7 @@
 							<h4>Bandwidth</h4>
 							<canvas width='16' height='9'>{{drawCurve(r, 'speed')}}</canvas>
 							<p>Details:</p>
-							<table class='table'>
+							<table class='table table-sm table-hover'>
 								<thead>
 									<tr>
 										<th scope='col'>Task</th>
@@ -203,12 +203,12 @@
 										<td>{{l.packet_size}}</td>
 										<td v-bind:class='{"table-success": l.pass, "table-danger": !l.pass}'>{{l.tot_speed}}</td>
 										<td>{{l.tot_pps}}</td>
-										<td><pre v-for='(t, j) in l.ifs'>IF{{j}}: {{t.speed}}</pre></td>
-										<td><pre v-for='(t, j) in l.ifs'>{{t.pps}}</pre></td>
-										<td><pre v-for='(t, j) in l.ifs'>{{t.recv_frames}}</pre></td>
-										<td><pre v-for='(t, j) in l.ifs'>{{t.err_frames}}</pre></td>
-										<td><pre v-for='(t, j) in l.ifs'>{{t.recv_bytes}}</pre></td>
-										<td><pre v-for='(t, j) in l.ifs'>{{t.err_bytes}}</pre></td>
+										<td><small v-for='(t, j) in l.ifs'>IF{{j}}: {{t.speed}}<br/></small></td>
+										<td><small v-for='(t, j) in l.ifs'>{{t.pps}}           <br/></small></td>
+										<td><small v-for='(t, j) in l.ifs'>{{t.recv_frames}}   <br/></small></td>
+										<td><small v-for='(t, j) in l.ifs'>{{t.err_frames}}    <br/></small></td>
+										<td><small v-for='(t, j) in l.ifs'>{{t.recv_bytes}}    <br/></small></td>
+										<td><small v-for='(t, j) in l.ifs'>{{t.err_bytes}}     <br/></small></td>
 									</tr>
 								</tbody>
 							</table>
