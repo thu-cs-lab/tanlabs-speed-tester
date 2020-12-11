@@ -35,7 +35,8 @@ const TSTApp = {
 			router_name: '',
 			logs: [],
 			tasks: [],
-			setting_ip: false
+			setting_ip: false,
+			resetting_bird: false
 		};
 	},
 	created() {
@@ -108,6 +109,13 @@ const TSTApp = {
 			document.body.removeChild(a);
 		},
 
+		resetBird() {
+			this.resetting_bird = true;
+			var data = this.src_ip.concat(this.router_ip).join(',') + ',';
+			axios.post('/api/reset_bird', data).then((res) => {
+				this.resetting_bird = false;
+			});
+		},
 		setIP() {
 			this.setting_ip = true;
 			var data = this.src_ip.concat(this.router_ip).join(',') + ',';
@@ -360,7 +368,7 @@ const TSTApp = {
 			this.tasks.push({
 				task: 'test_rip',
 				status: 'pending',
-				arg: sz 
+				arg: sz  + '.'
 			});
 		},
 		startIPTest(i) {

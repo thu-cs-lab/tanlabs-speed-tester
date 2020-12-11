@@ -87,6 +87,8 @@
 						</div>
 						<button class='btn btn-outline-info' v-on:click='setIP' v-if='!setting_ip'>Set IP</button>
 						<button class='btn btn-dark' v-if='setting_ip'>Setting IP</button>
+						<button class='btn btn-outline-info' v-on:click='resetBird' v-if='!resetting_bird'>Reset bird</button>
+						<button class='btn btn-dark' v-if='resetting_bird'>Resetting bird</button>
 						<br/>
 						<br/>
 
