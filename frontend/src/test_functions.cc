@@ -295,7 +295,7 @@ int check_num_routing() {
 		n -= 3;
 		rip_routes[i] = n;
 		printf("Port %d route %d\n", i + 1, n);
-		if (n < rip_n * N_PORTS) {
+		if (n < rip_n) {
 			return 0;
 		}
 	}
