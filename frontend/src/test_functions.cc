@@ -358,6 +358,9 @@ void* tst_ping(void* tgts) {
 		}
 		cmds.str("");
 		cmds << "ip netns exec vn" << i + 1 << " ping -A -c 100 -w 1 " << src_ip[tgt - 1];
+		TST_EXEC(cmds.str().c_str());
+		cmds.str("");
+		cmds << "ip netns exec vn" << i + 1 << " ping -A -c 100 -w 1 " << src_ip[tgt - 1];
 		int ret = system(cmds.str().c_str());
 		ping_res_t res = {.from=i + 1, .to=tgt, .pass=!ret};
 		ping_res.push_back(res);
