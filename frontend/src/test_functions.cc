@@ -275,12 +275,11 @@ void tst_setup() {
 }
 
 int check_num_routing() {
-	int x, s;
+	int x, s, pass = 1;
 #ifdef FAKE_EXEC
 	return 1;
 #endif
 
-	memset(rip_routes, 0, sizeof(rip_routes));
 	for (int i = 0; i < N_PORTS; ++i) {
 		stringstream cmds;
 		cmds << "echo show route | birdcl -s /var/run/bird" << i + 1 << ".ctl"
@@ -296,10 +295,10 @@ int check_num_routing() {
 		rip_routes[i] = n;
 		printf("Port %d route %d\n", i + 1, n);
 		if (n < rip_n) {
-			return 0;
+			pass = 0;
 		}
 	}
-	return 1;
+	return pass;
 }
 
 void* tst_setup_routing_table_th(void* np) {
@@ -320,7 +319,7 @@ void* tst_setup_routing_table_th(void* np) {
 		if (!check_num_routing()) {
 			int curr_max = rip_routes[0];
 			for (int j = 1; j < N_PORTS; ++j) {
-				curr_max = max(curr_max, rip_routes[curr_max]);
+				curr_max = max(curr_max, rip_routes[j]);
 			}
 			if (curr_max > rip_maxroutes) {
 				rip_maxroutes = curr_max;
@@ -431,11 +430,17 @@ string tst_get_status() {
 	
 	if (current_status == STATUS_ROUTING_READY) {
 		buf << "{\"status\":\"done\","
-				"\"latency\":" << rip_latency << ","
-				"\"passed\":" << rip_passed << ","
-				"\"n_rip\":" << rip_n << ","
-				"\"message\":\"Max received routes: " << rip_maxroutes << "\""
-				"}";
+			"\"latency\":" << rip_latency << ","
+			"\"passed\":" << rip_passed << ","
+			"\"n_rip\":" << rip_n << ","
+			"\"message\":\"Received routes: ";
+		for (int i = 0; i < N_PORTS; ++i) {
+			buf << rip_routes[i];
+			if (i + 1 < N_PORTS) {
+				buf << ",";
+			}
+		}
+		buf << "\"}";
 		return buf.str();
 	}
 
