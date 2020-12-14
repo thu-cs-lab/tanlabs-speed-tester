@@ -27,6 +27,7 @@
 #endif
 
 using std::vector;
+using std::max;
 using std::string;
 using std::stringstream;
 using std::ifstream;
@@ -43,7 +44,7 @@ using std::endl;
 
 int current_status;
 int rip_interval;
-int rip_passed, rip_n, rip_latency, rip_maxroutes, rip_routes;
+int rip_passed, rip_n, rip_latency, rip_maxroutes, rip_routes[N_PORTS];
 typedef struct {
 	int from, to, pass;
 } ping_res_t;
@@ -162,22 +163,29 @@ void parse_dst_mac() {
 	}
 }
 
-void write_routing_table(int ifid, int n) {
-	stringstream filename_s;
-	filename_s << "birds/static-routing-" << ifid << ".conf";
-	FILE* conf = fopen(filename_s.str().c_str(), "w");
-	ip_addr_t ip = str2struct(src_ip[ifid - 1]);
-	fprintf(conf, "route %u.%u.%u.0/24 via \"lo\";\n", 
-			ip.addr[0], ip.addr[1], ip.addr[2]);
-	for (int i = 1; i < n; ++i) {
-		fprintf(conf, "route 11%d.%d.%d.0/24 via \"lo\";\n", ifid, 
-				i % 255, i / 255 % 255);
+void write_routing_table(int n) {
+	FILE* fos[N_PORTS];
+	for (int ifid = 1; ifid <= N_PORTS; ++ifid) {
+		stringstream filename_s;
+		filename_s << "birds/static-routing-" << ifid << ".conf";
+		fos[ifid - 1] = fopen(filename_s.str().c_str(), "w");
+		ip_addr_t ip = str2struct(src_ip[ifid - 1]);
+		fprintf(fos[ifid - 1], "route %u.%u.%u.0/24 via \"lo\";\n", 
+				ip.addr[0], ip.addr[1], ip.addr[2]);
 	}
-	fclose(conf);
+	FILE* routin = fopen("/var/fib_shuffled.txt", "r");
+	char ip[23], mask[5];
+	int port;
+	for (int i = N_PORTS; i < n; ++i) {
+		fscanf(routin, "%s%s%*s%d", ip, mask, &port);
+		fprintf(fos[port], "route %s/%s unreachable;\n", ip, mask);
+	}
+	for (int ifid = 1; ifid <= N_PORTS; ++ifid) {
+		fclose(fos[ifid - 1]);
+	}
 }
 
 void reset_routing_table(int ifid, int n) {
-	write_routing_table(ifid, n);
 	stringstream cmds;
 	cmds << "echo configure | birdcl -s /var/run/bird" << ifid << ".ctl";
 	TST_EXEC(cmds.str().c_str());
@@ -200,9 +208,7 @@ void reset_bird() {
 	TST_EXEC(cmds.str().c_str());
 	sleep(1);
 
-	for (int i = 1; i <= N_PORTS; ++i) {
-		write_routing_table(i, 1);
-	}
+	write_routing_table(N_PORTS);
 
 	/* setup bird in each netns */
 	for (int i = 0; i < N_PORTS; ++i) {
@@ -273,7 +279,7 @@ int check_num_routing() {
 	return 1;
 #endif
 
-	rip_routes = 0;
+	memset(rip_routes, 0, sizeof(rip_routes));
 	for (int i = 0; i < N_PORTS; ++i) {
 		stringstream cmds;
 		cmds << "echo show route | birdcl -s /var/run/bird" << i + 1 << ".ctl"
@@ -285,9 +291,8 @@ int check_num_routing() {
 		int n;
 		fscanf(cmdf, "%d", &n);
 		fclose(cmdf);
-		if (n > rip_routes) {
-			rip_routes = n;
-		}
+		n -= 3;
+		rip_routes[i] = n;
 		printf("Port %d route %d\n", i + 1, n);
 		if (n < rip_n * N_PORTS) {
 			return 0;
@@ -302,6 +307,7 @@ void* tst_setup_routing_table_th(void* np) {
 	rip_n = *(int*)np;
 	delete (int*)np;
 
+	write_routing_table(rip_n);
 	for (int i = 0; i < N_PORTS; ++i) {
 		reset_routing_table(i + 1, rip_n);
 	}
@@ -311,8 +317,12 @@ void* tst_setup_routing_table_th(void* np) {
 	rip_maxroutes = 0;
 	for (int i = 0; i < 10 && !rip_passed; ++i) {
 		if (!check_num_routing()) {
-			if (rip_routes > rip_maxroutes) {
-				rip_maxroutes = rip_routes;
+			int curr_max = rip_routes[0];
+			for (int j = 1; j < N_PORTS; ++j) {
+				curr_max = max(curr_max, rip_routes[curr_max]);
+			}
+			if (curr_max > rip_maxroutes) {
+				rip_maxroutes = curr_max;
 				i = 0;
 			}
 			sleep(rip_interval);
@@ -398,7 +408,15 @@ string tst_get_status() {
 		unsigned long duration = (time(0) - task_start_time) * 1000;
 		buf << "{\"status\":\"busy\",";
 		if (current_status == STATUS_ROUTING) {
-			buf << "\"max_routes\":" << rip_maxroutes << ",";
+			buf << "\"max_routes\":\"";
+			for (int i = 0; i < N_PORTS; ++i) {
+				buf << rip_routes[i];
+				if (i + 1 < N_PORTS) {
+					buf << ",";
+				} else {
+					buf << "\",";
+				}
+			}
 		}
 		if (current_status == STATUS_IP) {
 			buf << ipbuf.str() << ",";

@@ -21,6 +21,13 @@ protocol kernel {
 }
 
 protocol static {
+	ipv4 {
+		import filter {
+			rip_metric = 2;
+			accept;
+		};
+		export none;
+	};
 	include \"static-routing-$i.conf\";
 }
 
