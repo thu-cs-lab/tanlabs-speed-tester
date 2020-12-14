@@ -183,6 +183,7 @@ void write_routing_table(int n) {
 	for (int ifid = 1; ifid <= N_PORTS; ++ifid) {
 		fclose(fos[ifid - 1]);
 	}
+	fclose(routin);
 }
 
 void reset_routing_table(int ifid, int n) {
