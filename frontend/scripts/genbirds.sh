@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 mkdir -p birds
 for i in {1..4}
 do

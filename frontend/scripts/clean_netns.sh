@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 for i in {1..4}
 do
 	ip netns exec vn$i ip link set eth$i netns 1
