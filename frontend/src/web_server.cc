@@ -111,7 +111,7 @@ void WebServer::listen(const char* addr, const char* port) {
 	mg_init_library(0);
 
 	const char *options[] = { 
-		"document_root", "./www/html", 
+		"document_root", "/var/www/html", 
 		"listening_ports", port, 0};
 
 	std::vector<std::string> cpp_options;
