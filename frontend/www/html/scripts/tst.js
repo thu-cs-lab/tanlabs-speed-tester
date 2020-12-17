@@ -36,7 +36,8 @@ const TSTApp = {
 			logs: [],
 			tasks: [],
 			setting_ip: false,
-			resetting_bird: false
+			resetting_bird: false,
+			killing_bird: false
 		};
 	},
 	created() {
@@ -109,10 +110,15 @@ const TSTApp = {
 			document.body.removeChild(a);
 		},
 
+		killBird() {
+			this.killing_bird = true;
+			axios.post('/api/kill_bird').then((res) => {
+				this.killing_bird = false;
+			});
+		},
 		resetBird() {
 			this.resetting_bird = true;
-			var data = this.src_ip.concat(this.router_ip).join(',') + ',';
-			axios.post('/api/reset_bird', data).then((res) => {
+			axios.post('/api/reset_bird').then((res) => {
 				this.resetting_bird = false;
 			});
 		},
