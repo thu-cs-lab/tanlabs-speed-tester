@@ -36,7 +36,7 @@ public:
 	bool handleGet(CivetServer *server, struct mg_connection *conn) {
 		const struct mg_request_info *req_info = mg_get_request_info(conn);
 
-		TST_LOG("GET request: %s\n", req_info->local_uri);
+		// TST_LOG("GET request: %s\n", req_info->local_uri);
 
 		string uri(req_info->local_uri);
 		
@@ -69,6 +69,9 @@ public:
 		          "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n");
 		if (uri == "/api/set_ip") {
 			tst_set_ip(buf);
+			mg_printf(conn, "done");
+		} else if (uri == "/api/kill_bird") {
+			kill_bird();
 			mg_printf(conn, "done");
 		} else if (uri == "/api/reset_bird") {
 			reset_bird();
