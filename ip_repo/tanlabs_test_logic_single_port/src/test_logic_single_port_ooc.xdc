@@ -8,6 +8,7 @@
 ################################################################################
 create_clock -name ponylink_clk -period 30.303 [get_ports ponylink_clk]
 create_clock -name ponylink_clk4 -period 7.576 [get_ports ponylink_clk4]
+create_clock -name controller_clk -period 30.303 [get_ports controller_clk]
 create_clock -name eth_clks_s_axi_lite_clk -period 10 [get_ports eth_clks_s_axi_lite_clk]
 create_clock -name eth_clks_ref_clk -period 10 [get_ports eth_clks_ref_clk]
 create_clock -name eth_clks_rxuserclk -period 10 [get_ports eth_clks_rxuserclk]
