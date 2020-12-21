@@ -37,13 +37,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="20"/>
-    <Option Name="WTModelSimExportSim" Val="20"/>
-    <Option Name="WTQuestaExportSim" Val="20"/>
-    <Option Name="WTIesExportSim" Val="20"/>
-    <Option Name="WTVcsExportSim" Val="20"/>
-    <Option Name="WTRivieraExportSim" Val="20"/>
-    <Option Name="WTActivehdlExportSim" Val="20"/>
+    <Option Name="WTXSimExportSim" Val="29"/>
+    <Option Name="WTModelSimExportSim" Val="29"/>
+    <Option Name="WTQuestaExportSim" Val="29"/>
+    <Option Name="WTIesExportSim" Val="29"/>
+    <Option Name="WTVcsExportSim" Val="29"/>
+    <Option Name="WTRivieraExportSim" Val="29"/>
+    <Option Name="WTActivehdlExportSim" Val="29"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -141,41 +141,53 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_spf_rx_los_splitter_0/tanlabs_speed_tester_spf_rx_los_splitter_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_spf_rx_los_splitter_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axi_eth_support_clocking_0/tanlabs_speed_tester_axi_eth_support_clocking_0.xci">
           <Proxy FileSetName="tanlabs_speed_tester_axi_eth_support_clocking_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_mmcm_ponylink_0/tanlabs_speed_tester_mmcm_ponylink_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_mmcm_ponylink_0"/>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axi_eth_support_resets_0/tanlabs_speed_tester_axi_eth_support_resets_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_axi_eth_support_resets_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_test_logic_single_po_0_0/tanlabs_speed_tester_test_logic_single_po_0_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_test_logic_single_po_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_test_controller_0/tanlabs_speed_tester_test_controller_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_test_controller_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_reset_sync_eth_0/tanlabs_speed_tester_reset_sync_eth_0.xci">
           <Proxy FileSetName="tanlabs_speed_tester_reset_sync_eth_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_control_start_splitter_0/tanlabs_speed_tester_control_start_splitter_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_control_start_splitter_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_control_stop_splitter_0/tanlabs_speed_tester_control_stop_splitter_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_control_stop_splitter_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_port_config_splitter_0/tanlabs_speed_tester_port_config_splitter_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_port_config_splitter_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_test_logic_port_0_1/tanlabs_speed_tester_test_logic_port_0_1.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_test_logic_port_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axis_id_unpacker_0_0/tanlabs_speed_tester_axis_id_unpacker_0_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_axis_id_unpacker_0_0"/>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axi_eth_support_gt_common_0/tanlabs_speed_tester_axi_eth_support_gt_common_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_axi_eth_support_gt_common_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axis_id_packer_0_0/tanlabs_speed_tester_axis_id_packer_0_0.xci">
           <Proxy FileSetName="tanlabs_speed_tester_axis_id_packer_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_ponylink_ctrl_0/tanlabs_speed_tester_ponylink_ctrl_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_ponylink_ctrl_0"/>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_test_logic_port_1_0/tanlabs_speed_tester_test_logic_port_1_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_test_logic_port_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_control_signal_mapper_0/tanlabs_speed_tester_control_signal_mapper_0.xci">
-          <Proxy FileSetName="tanlabs_speed_tester_control_signal_mapper_0"/>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_control_stop_splitter_0/tanlabs_speed_tester_control_stop_splitter_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_control_stop_splitter_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_test_logic_port_2_0/tanlabs_speed_tester_test_logic_port_2_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_test_logic_port_2_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_ponylink_rst_sync_0/tanlabs_speed_tester_ponylink_rst_sync_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_ponylink_rst_sync_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_port_config_splitter_0/tanlabs_speed_tester_port_config_splitter_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_port_config_splitter_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_spf_rx_los_splitter_0/tanlabs_speed_tester_spf_rx_los_splitter_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_spf_rx_los_splitter_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axi_ethernet_clocking_0/tanlabs_speed_tester_axi_ethernet_clocking_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_axi_ethernet_clocking_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_axis_id_unpacker_0_0/tanlabs_speed_tester_axis_id_unpacker_0_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_axis_id_unpacker_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="tanlabs_speed_tester.bd" FileRelPathName="ip/tanlabs_speed_tester_control_start_splitter_0/tanlabs_speed_tester_control_start_splitter_0.xci">
+          <Proxy FileSetName="tanlabs_speed_tester_control_start_splitter_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/../rtl/SEG7_LUT.v">
@@ -199,24 +211,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_ponylink_to_zynq_0/test_logic_single_port_ponylink_to_zynq_0.xci">
-          <Proxy FileSetName="test_logic_single_port_ponylink_to_zynq_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_axi_ethernet_clock_w_0_1/test_logic_single_port_axi_ethernet_clock_w_0_1.xci">
-          <Proxy FileSetName="test_logic_single_port_axi_ethernet_clock_w_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_frame_checker_0/test_logic_single_port_frame_checker_0.xci">
-          <Proxy FileSetName="test_logic_single_port_frame_checker_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_frame_generator_0/test_logic_single_port_frame_generator_0.xci">
-          <Proxy FileSetName="test_logic_single_port_frame_generator_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_rx_width_upsizer_0/test_logic_single_port_rx_width_upsizer_0.xci">
-          <Proxy FileSetName="test_logic_single_port_rx_width_upsizer_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="test_logic_single_port.bd" FileRelPathName="ip/test_logic_single_port_xbar_0/test_logic_single_port_xbar_0.xci">
-          <Proxy FileSetName="test_logic_single_port_xbar_0"/>
-        </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/../rtl/frame_checker/frame_checker_impl.sv">
         <FileInfo>
@@ -314,27 +308,9 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="tanlabs_speed_tester_control_signal_mapper_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_control_signal_mapper_0">
+    <FileSet Name="tanlabs_speed_tester_axi_eth_support_resets_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_axi_eth_support_resets_0">
       <Config>
-        <Option Name="TopModule" Val="tanlabs_speed_tester_control_signal_mapper_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="tanlabs_speed_tester_reset_sync_eth_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_reset_sync_eth_0">
-      <Config>
-        <Option Name="TopModule" Val="tanlabs_speed_tester_reset_sync_eth_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="test_logic_single_port_axi_ethernet_clock_w_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_axi_ethernet_clock_w_0_1">
-      <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_axi_ethernet_clock_w_0_1"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="test_logic_single_port_rx_width_upsizer_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_rx_width_upsizer_0">
-      <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_rx_width_upsizer_0"/>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_axi_eth_support_resets_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -344,33 +320,15 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="test_logic_single_port_ponylink_to_zynq_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_ponylink_to_zynq_0">
+    <FileSet Name="tanlabs_speed_tester_axi_eth_support_gt_common_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_axi_eth_support_gt_common_0">
       <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_ponylink_to_zynq_0"/>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_axi_eth_support_gt_common_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="test_logic_single_port_frame_checker_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_frame_checker_0">
+    <FileSet Name="tanlabs_speed_tester_axi_ethernet_clocking_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_axi_ethernet_clocking_0">
       <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_frame_checker_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="test_logic_single_port_xbar_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_xbar_0">
-      <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_xbar_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="test_logic_single_port_frame_generator_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/test_logic_single_port_frame_generator_0">
-      <Config>
-        <Option Name="TopModule" Val="test_logic_single_port_frame_generator_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="tanlabs_speed_tester_mmcm_ponylink_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_mmcm_ponylink_0">
-      <Config>
-        <Option Name="TopModule" Val="tanlabs_speed_tester_mmcm_ponylink_0"/>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_axi_ethernet_clocking_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -380,9 +338,9 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="tanlabs_speed_tester_ponylink_ctrl_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_ponylink_ctrl_0">
+    <FileSet Name="tanlabs_speed_tester_reset_sync_eth_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_reset_sync_eth_0">
       <Config>
-        <Option Name="TopModule" Val="tanlabs_speed_tester_ponylink_ctrl_0"/>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_reset_sync_eth_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -404,21 +362,45 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="tanlabs_speed_tester_test_controller_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_test_controller_0">
+      <Config>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_test_controller_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
     <FileSet Name="tanlabs_speed_tester_axis_id_unpacker_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_axis_id_unpacker_0_0">
       <Config>
         <Option Name="TopModule" Val="tanlabs_speed_tester_axis_id_unpacker_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="tanlabs_speed_tester_test_logic_port_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_test_logic_port_0_1">
-      <Config>
-        <Option Name="TopModule" Val="tanlabs_speed_tester_test_logic_port_0_1"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="tanlabs_speed_tester_axis_id_packer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_axis_id_packer_0_0">
       <Config>
         <Option Name="TopModule" Val="tanlabs_speed_tester_axis_id_packer_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="tanlabs_speed_tester_ponylink_rst_sync_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_ponylink_rst_sync_0">
+      <Config>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_ponylink_rst_sync_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="tanlabs_speed_tester_test_logic_port_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_test_logic_port_1_0">
+      <Config>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_test_logic_port_1_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="tanlabs_speed_tester_test_logic_single_po_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_test_logic_single_po_0_0">
+      <Config>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_test_logic_single_po_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="tanlabs_speed_tester_test_logic_port_2_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/tanlabs_speed_tester_test_logic_port_2_0">
+      <Config>
+        <Option Name="TopModule" Val="tanlabs_speed_tester_test_logic_port_2_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -458,37 +440,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_control_signal_mapper_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_control_signal_mapper_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_control_signal_mapper_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_control_signal_mapper_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="tanlabs_speed_tester_reset_sync_eth_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_reset_sync_eth_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_reset_sync_eth_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_reset_sync_eth_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_axi_ethernet_clock_w_0_1_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_axi_ethernet_clock_w_0_1" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_axi_ethernet_clock_w_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_axi_ethernet_clock_w_0_1_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_rx_width_upsizer_0_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_rx_width_upsizer_0" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_rx_width_upsizer_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_rx_width_upsizer_0_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_axi_eth_support_resets_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axi_eth_support_resets_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_eth_support_resets_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axi_eth_support_resets_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -508,7 +460,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="test_logic_single_port_ponylink_to_zynq_0_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_ponylink_to_zynq_0" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_ponylink_to_zynq_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_ponylink_to_zynq_0_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_axi_eth_support_gt_common_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axi_eth_support_gt_common_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_eth_support_gt_common_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axi_eth_support_gt_common_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -518,37 +470,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="test_logic_single_port_frame_checker_0_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_frame_checker_0" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_frame_checker_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_frame_checker_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_xbar_0" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_xbar_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_frame_generator_0_synth_1" Type="Ft3:Synth" SrcSet="test_logic_single_port_frame_generator_0" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_frame_generator_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/test_logic_single_port_frame_generator_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="tanlabs_speed_tester_mmcm_ponylink_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_mmcm_ponylink_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_mmcm_ponylink_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_mmcm_ponylink_0_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_axi_ethernet_clocking_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axi_ethernet_clocking_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_ethernet_clocking_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axi_ethernet_clocking_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -568,7 +490,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_ponylink_ctrl_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_ponylink_ctrl_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_ponylink_ctrl_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_ponylink_ctrl_0_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_reset_sync_eth_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_reset_sync_eth_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_reset_sync_eth_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_reset_sync_eth_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -608,6 +530,16 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="tanlabs_speed_tester_test_controller_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_test_controller_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_controller_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_test_controller_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="tanlabs_speed_tester_axis_id_unpacker_0_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axis_id_unpacker_0_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axis_id_unpacker_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axis_id_unpacker_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
@@ -618,7 +550,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_test_logic_port_0_1_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_test_logic_port_0_1" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_test_logic_port_0_1_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_axis_id_packer_0_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axis_id_packer_0_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axis_id_packer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axis_id_packer_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -628,7 +560,37 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_axis_id_packer_0_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_axis_id_packer_0_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axis_id_packer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_axis_id_packer_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="tanlabs_speed_tester_ponylink_rst_sync_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_ponylink_rst_sync_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_ponylink_rst_sync_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_ponylink_rst_sync_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_port_1_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_test_logic_port_1_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_test_logic_port_1_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_single_po_0_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_test_logic_single_po_0_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_single_po_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_test_logic_single_po_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_port_2_0_synth_1" Type="Ft3:Synth" SrcSet="tanlabs_speed_tester_test_logic_port_2_0" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_2_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/tanlabs_speed_tester_test_logic_port_2_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design"/>
@@ -656,58 +618,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_control_signal_mapper_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_control_signal_mapper_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_control_signal_mapper_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="tanlabs_speed_tester_reset_sync_eth_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_reset_sync_eth_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_reset_sync_eth_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_axi_ethernet_clock_w_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_axi_ethernet_clock_w_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_axi_ethernet_clock_w_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_rx_width_upsizer_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_rx_width_upsizer_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_rx_width_upsizer_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_axi_eth_support_resets_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_eth_support_resets_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_axi_eth_support_resets_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -741,7 +652,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="test_logic_single_port_ponylink_to_zynq_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_ponylink_to_zynq_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_ponylink_to_zynq_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_axi_eth_support_gt_common_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_eth_support_gt_common_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_axi_eth_support_gt_common_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -758,58 +669,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="test_logic_single_port_frame_checker_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_frame_checker_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_frame_checker_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_xbar_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="test_logic_single_port_frame_generator_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="test_logic_single_port_frame_generator_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="test_logic_single_port_frame_generator_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design" EnableStepBool="1"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="tanlabs_speed_tester_mmcm_ponylink_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_mmcm_ponylink_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_mmcm_ponylink_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_axi_ethernet_clocking_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axi_ethernet_clocking_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_axi_ethernet_clocking_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -843,7 +703,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_ponylink_ctrl_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_ponylink_ctrl_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_ponylink_ctrl_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_reset_sync_eth_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_reset_sync_eth_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_reset_sync_eth_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -911,7 +771,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_axis_id_unpacker_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axis_id_unpacker_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_axis_id_unpacker_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_test_controller_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_controller_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_test_controller_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -928,7 +788,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="tanlabs_speed_tester_test_logic_port_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_test_logic_port_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="tanlabs_speed_tester_axis_id_unpacker_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_axis_id_unpacker_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_axis_id_unpacker_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
@@ -962,6 +822,74 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="tanlabs_speed_tester_ponylink_rst_sync_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_ponylink_rst_sync_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_ponylink_rst_sync_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_port_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_test_logic_port_1_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_single_po_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_single_po_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_test_logic_single_po_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="tanlabs_speed_tester_test_logic_port_2_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg676-2" ConstrsSet="tanlabs_speed_tester_test_logic_port_2_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="tanlabs_speed_tester_test_logic_port_2_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
   </Runs>
   <Board/>
   <DashboardSummary Version="1" Minor="0">
@@ -970,6 +898,11 @@
         <Gadgets>
           <Gadget Name="drc_1" Type="drc" Version="1" Row="2" Column="0">
             <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_drc_0 "/>
+          </Gadget>
+          <Gadget Name="gadget_1" Type="timing" Version="1" Row="3" Column="0">
+            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_timing_summary_0 "/>
+            <GadgetParam Name="RUN.STEP" Type="string" Value="all_stages"/>
+            <GadgetParam Name="VIEW.TYPE" Type="string" Value="graph"/>
           </Gadget>
           <Gadget Name="methodology_1" Type="methodology" Version="1" Row="2" Column="1">
             <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_methodology_0 "/>
