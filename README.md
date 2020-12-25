@@ -1,5 +1,15 @@
 # TanLabs Speed Tester
 
+A.k.a. 基于 ThinRouter 的路由器实验硬件测试平台
+
+## Authors
+
+* Shengqi Chen
+* Jiaao He
+* Yichuan Gao
+
+## Directories
+
 * `doc`: proposal & design documents
 * `frontend`: Web frontend
 * `ip_repo`: shared IP repository of Vivado projects
