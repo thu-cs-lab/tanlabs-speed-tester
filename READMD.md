@@ -1,2 +1,0 @@
-# TanLabs Speed Tester
-
